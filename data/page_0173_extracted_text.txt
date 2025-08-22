@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Povezivanje
+❖ Posao pravljenja biblioteke obavlja isti linker, koji može raditi u dva režima, za
+pravljenje exe i za pravljenje lib fajla (režim mu se zadaje prilikom pokretanja)
+❖ Naravno, posao pravljenja lib fajla se razlikuje od posla pravljenja exe fajla iz nekoliko
+razloga:
+• exe može imati drugačiji format od lib (i obj) fajla
+• exe sadrži i informacije koje lib (i obj) fajlovi ne sadrže, a koje su potrebne
+operativnom sistemu za pokretanje programa; na primer, barem početnu adresu
+prve instrukcije od koje operativni sistem treba da počne izvršavanje programa
+• kada pravi exe, linker mora da završi posao bez nerazrešenih simbola; lib može da
+ima simbole koje uvozi i koji ostaju nerazrešeni
+❖ Globalna funkcija main na jeziku C++ prevodi se kao najobičnija funkcija koju poziva
+kod koji se najpre izvršava prilikom pokretanja programa i koji onda poziva funkciju
+main kao bilo koju drugu funkciju; nakon povratka iz nje, poziva sistemski poziv za
+gašenje programa; ovaj okružujući kod može biti u nekom obj fajlu koji se uvek
+podrazumevano povezuje
+ 173
+

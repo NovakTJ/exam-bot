@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Razvojem programiranja, a posebno interaktivnih programa i složenih struktura
+podataka, statički i automatski (lokalni) podaci nisu više dovoljni:
+• nije moguće i nije dovoljno unapred alocirati podatke, statički, jer se ne može znati
+unapred njihov broj i/ili struktura
+• životni vek vezan za aktivaciju potprograma je previše kratak: potrebno je da podaci
+nadžive aktivaciju potprograma, ali da ne žive za sve vreme izvršavanja programa
+❖ Zato su potrebni dinamički objekti, čije se kreiranje i uništavanje odvija po potrebama
+programa, odnosno njegove dinamike i logike: takav dinamički objekat može se kreirati u
+jednom scenariju, u jednom pozivu potprograma, a potom uništiti u nekom sasvim
+drugom scenartiju, u pozivu nekog drugog potprograma, sve po potrebi logike programa
+❖ Uvođenjem konkurentnog programiranja i pojma niti (thread), pojavljuje se i prirodna
+potreba da se životni vek objekta veže za nit, ali i ne samo to, nego da se jedno isto
+deklarisano ime vezuje za po jednu instancu u svakoj niti, i da se operacije sa takvim
+imenom odnose na onu instancu koja je u opsegu te niti (slično kao što se operacije nad
+lokalnom varijablom vezuju za onu instancu koja se odnosi na tekuću aktivaciju
+potprograma)
+UNIT NAME: Trajanje skladišta i životni vek
+ 319
+

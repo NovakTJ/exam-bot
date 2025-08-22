@@ -1,0 +1,34 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Klasa kao realizacija strukture podataka
+Standardna biblioteka jezika C++ (tzv. Standard Template Library, STL) sadrži mnogo deﬁnisanih šablonskih klasa, funkcija i
+drugih elemenata; na primer:
+❖ niske elemenata i znakova:
+template<typename Z> class basic_string;
+typedef basic_string<char> string;
+❖ uređen par:
+template<typename A, typename B> struct pair;
+❖ kompleksan broj čije su komponente datog tipa:
+template<typename T> class complex;
+❖ vektor (niz dinamički proširivog kapaciteta):
+template<typename E> class vector;
+❖ red sa pristupom elementima sa oba kraja:
+template<typename E> class deque;
+❖ lista:
+template<typename E> class list;
+❖ red:
+template<typename E, typename Z=deque<E> > class queue;
+❖ prioritetni red:
+template<typename E, typename Z=vector<E>, typename U=less<E> > class priority_queue;
+❖ stek:
+template<typename E, typename Z=deque<E> > class stack;
+❖ skupovi, multiskupovi, mape
+ 79
+Parametarski tip koji se koristi kao
+implementacija interne strukture.
+Podrazumevana vrednost parametra šablona:
+ako se prilikom generisanja klase ne navede
+ovaj parametar, uzeće se ova njegova vrednost.
+Generisana bibliotečna klasa
+Parametarski tip koji se koristi za
+implementaciju operacije poređenja.
+

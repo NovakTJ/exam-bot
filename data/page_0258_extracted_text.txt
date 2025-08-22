@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Deklaracija funkcije koja ne navodi njeno telo nije deﬁnicija
+❖ Deklaracije formalnih parametara u deklaraciji funkcije koja nije deﬁnicija takođe nisu deﬁnicije. Na
+takvim mestima nazivi formalnih parametara mogu da se izostave
+❖ Čak i kada se navodi samo deklaracija funkcije bez tela, poželjno je navesti nazive formalnih parametara
+radi bolje čitljivosti, odnosno razumljivosti značenja tih parametara, osim ako to značenje nije očigledno;
+na primer:
+void strcopy (char* to, const char* from);
+
+int strcmp (const char*, const char*);
+❖ Nakon deklaracije funkcije koja nije deﬁnicija, ta funkcija se može pozivati (pod uslovom da su  i da su
+tipovi parametara i povratni tip deﬁnisani) i koristiti na svaki drugi način (npr. uzimati njena adresa),
+pod uslovom da je negde u programu dato njeno telo. Ovakva deklaracija bez tela omogućava
+međusobno rekurzivno pozivanje više funkcija:
+void f ();
+void g () {
+  …f()…
+}
+void f () {
+  …g()…
+}
+Ovde ima smisla navesti imena parametara, da bi
+bilo jasnije koji niz je izvorišni, a koji odredišni
+UNIT NAME: Deklaracije
+ 258
+Ovde nema potrebe navoditi imena parametara,
+jer su oba ravnopravna i imaju istu ulogu
+

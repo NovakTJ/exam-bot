@@ -1,0 +1,8 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Deo I: Uvod u OOP i C++
+ 3
+❖ O predmetu
+❖ Uvod u OOP
+❖ Pregled osnovnih koncepata OOP
+na jeziku C++
+

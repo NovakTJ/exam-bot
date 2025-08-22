@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Na jeziku C++ apstraktne operacije nazivaju se čisto virtuelnim funkcijama (pure virtual functions) i
+označavaju speciﬁkatorom = 0 u potpisu funkcije; takva funkcija neće imati deﬁniciju:
+class Figure {
+public:
+  virtual void draw (Viewport*) = 0;
+  …
+};
+class Circle : public Figure {
+public:
+  virtual void draw (Viewport*) override;
+  …
+};
+void Circle::draw (Viewport* vp) {
+  …
+}
+❖ Na jeziku C++, ako klasa ima bar jednu čisto virtuelnu funkciju, onda je ona za prevodilac apstraktna -
+neće dozvoliti kreiranje direktnih instanci te klase (bez obzira na dostupnost konstruktora)
+❖ Konceptualno, obrnuto ne važi: klasa može biti apstraktna i ako nema nijednu apstraktnu operaciju,
+mada prevodilac za jezik C++ ne tretitra posebno tu klasu kao apstraktnu (u užem smislu, prema
+pravilima jezika)
+❖ Izvedena klasa može, a ne mora da deﬁniše metodu za apstraktnu operaciju koju nasleđuje; ako je ne
+deﬁniše, ta operacija i dalje ostaje apstraktna, a klasa je takođe apstraktna
+ 130
+Čisto virtuelna funkcija (pure virtual function)
+Izvedena klasa deﬁniše metodu za ovu operaciju
+

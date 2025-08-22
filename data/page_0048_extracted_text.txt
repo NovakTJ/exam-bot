@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: klase i objekti
+❖ Sada se ovo koristi ovako:
+#include "stack.h"
+
+Stack* pSt1 = …;
+stack_init(pSt1);
+…
+unsigned out;
+…
+stack_push(pSt1,in);
+…
+stack_pop(pSt1,&out);
+…
+Stack* pSt2 = …;
+stack_init(pSt2);
+…
+stack_push(pSt2,in);
+…
+stack_pop(pSt2,&out);
+…
+ 48
+stack
+sp
+st1
+this
+stack
+sp
+st2
+

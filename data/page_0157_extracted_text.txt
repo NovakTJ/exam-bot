@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Obrada izuzetaka
+❖ Paradigma programiranja i projektovanja softvera pod nazivom programiranje po ugovoru  (programming by
+contract/design by contract, Bertrand Meyer, 1986, programski jezik Eiffel) pretpostavlja preciznu, formalnu
+speciﬁkaciju interfejsa softverskih komponenata (npr. potprograma ili klasa) za koje se deﬁnišu logički
+uslovi (kao logički izrazi) sledećih vrsta:
+• preduslovi (precondition): logički uslovi koji moraju da budu zadovoljeni prilikom poziva potprograma
+da bi taj potprogram mogao da obavi svoj zadatak; ove uslove mora da zadovolji pozivalac pri pozivu
+potprograma; na primer, uslovi u pogledu stanja globalnih promenljivih ili argumenata poziva
+potprograma (npr. indeks mora biti unutar granica niza)
+• postuslovi (postcondition): logički uslovi koji moraju da budu zadovoljeni na kraju izvršavanja
+potprograma; ove uslove mora da zadovolji pozvani potprogram; na primer, uslovi u pogledu stanja
+globalnih podataka ili validnosti povratne vrednosti funkcije
+• invarijante (invariant): logički uslovi vezani za neku komponentu (npr. instancu apstraktnog tipa
+podataka, objekat klase, modul, strukturu podataka) koji moraju da budu zadovoljeni uvek, osim u
+tranzijentnim periodima kada se ta komponenta prevodi iz jednog validnog stanja (kada invarijanta
+važi) u drugo validno stanje (kada invarijanta ponovo važi); na primer, metode klase koje prevode
+objekat iz jednog regularnog u drugo regularno stanje, tokom koje invarijanta privremeno ne mora da
+važi
+❖ Prema tome, preduslovi su obaveze koje mora da izvrši pozivalac prema pozvanom potprogramu, da bi
+taj potprogram mogao da izvrši svoju obavezu; postuslovi su obaveze koje potprogram mora da ispuni
+ukoliko je pozivalac ispunio svoje obaveze; zato oni predstavljaju ugovor (contract) između dve strane
+ 157
+

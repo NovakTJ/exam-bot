@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ U deﬁniciji konstruktora klase, pre njegovog tela, a iza liste parametara i znaka :, može se navesti lista
+inicijalizatora članova (member initializer list), u kojoj se navode inicijalizacije objekata članova i podobjekata
+osnovnih klasa razdvojene zarezima. Ove inicijalizacije završavaju se pre ulaska u telo konstruktora klase
+❖ Ako neki podobjekat nema podrazumevanu inicijalizaciju, ovde se mora navesti njegova inicijalizacija, u
+suprotnom, prevodilac će prijaviti grešku. Na primer:
+struct Base {
+  Base (int, int);
+};
+struct Derived : Base {
+  Base b;
+  int& r;
+  Derived ();
+};
+Derived::Derived () {}
+❖ Ako nestatički podatak član ima podrazumevani inicijalizator u deﬁniciji klase, a naveden je u ovoj listi, biće
+inicijalizovan kao što piše u toj listi u konstruktoru, a podrazumevana inicijalizacija biće ignorisana:
+struct X {
+  int i = 1;
+  X ();
+};
+X::X () : i(2) {}
+❖ Izuzeci tokom ove incijalizacije mogu se hvatati try-catch konstruktom na nivou cele funkcije
+UNIT NAME: Konstruktor
+ 351
+Klasa Base nema podrazumevanu inicijalizaciju
+Greška u prevođenju: podobjekat osnovne klase Base, objekat član b, kao i
+referenca r nemaju podrazumevanu inicijalizaciju
+Objekat član i imaće vrednost 2
+Podrazumevana inicijalizacija podatka člana
+

@@ -1,0 +1,35 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Inicijalizatori za podobjekte osnovnih klasa i za objekte članove navode se u zaglavlju konstruktora (izvedene)
+klase; svako pominjanje podatka člana u telu konstruktora klase više nije inicijalizacija, nego neka druga
+operacija nad već inicijalizovanim objektom članom:
+class Whole : public Entity {
+public:
+  Whole ();
+ ~Whole ();
+private:
+  Part part;
+};
+Whole::Whole () : Entity(), part(this) {
+  …part…
+}
+Whole::~Whole () {…}
+❖ Dakle, u telu konstruktora klase ne može se inicijalizovati objekat član, već mu se eventualno može dodeliti
+vrednost operatorom dodele, što je potpuno druga operacija od inicijalizacije (iako za neklasne tipove ima isti
+efekat - prosto kopiranje vrednosti); naravno, ako je nestatički podatak član tipa reference ili konstatntog tipa, on
+se mora inicijalizovati, svakako mu se ne može dodeliti vrednost:
+struct X {
+  X (int&);
+  int& r;
+  const int c;
+};
+X::X (int& i) : r(i), c(i) {}
+UNIT NAME: Ugrađeni objekti
+ 345
+UNIT NAME: Destruktor
+Ovo je inicijalizacija
+podobjekta osnovne klase
+Ovo je inicijalizacija
+podobjekta člana
+Ovde više ne može da se izvede inicijalizacija podobjekata
+Ovde se implicitno pozivaju destruktori člana part i podobjekta osnovne klase
+

@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Uništavanje svih privremenih objekata napravljenih pri izračunavanju nekog
+potpunog izraza (izraza čiji rezultat više nije operand nekog okružujućeg izraza) vrši
+se kao poslednji korak u izračunavanju tog izraza u koji je pravljenje tih privremenih
+objekata leksički ugrađeno; drugim rečima, svi privremeni objekti napravljeni tokom
+izračunavanja izraza ne nadživljavaju pun izraz u kom su leksički napravljeni (ne
+uključuje dinamički ugnežđene izraze izvršene unutar pozvanih funkcija):
+c3 = (c1 + c2) * (complex(1.,0.) + c2);
+❖ Ako je tokom izračunavanja izraza napravljeno više privremenih objekata, oni se
+uništavaju po obrnutom redosledu od redosleda njihove inicijalizacije
+❖ Sve ovo važi čak i ako je izračunavanje izraza bacilo izuzetak
+❖ Ako je za privremeni objekat vezana referenca, životni vek tog privremenog objekta
+produžava se do kraja životnog veka te reference, ali ne tako da on nadživi poziv
+funkcije u kojoj je napravljen: svi privremeni objekti obavezno se uništavaju pre
+povratka iz funkcije u kojoj su napravljeni, pa referenca vraćena iz funkcije i dalje
+može biti viseća
+UNIT NAME: Privremeni objekti
+ 343
+Svi privremeni objekti napravljeni u ovom izrazu
+uništavaju se na kraju izračunavanja tog izraza
+

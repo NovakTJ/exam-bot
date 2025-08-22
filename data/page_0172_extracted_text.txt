@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Povezivanje
+❖ Biblioteka (library) je fajl sa tipičnom ekstenzijom .lib, koja ima principijelno
+isti format kao i objektni fajl; kada povezuje fajlove, linker tretira ulazne lib i
+obj fajlove na isti način (zadaje mu se spisak ulaznih obj i lib fajlove koje treba
+povezati)
+❖ Razlika je u tome što je obj fajl nastao prevođenjem jednog izvornog fajla, dok
+je lib nastao povezivanjem više obj (i moguće drugih lib) fajlova u jedan lib fajl
+❖ Motiv je praktičan: kod za neku biblioteku (potprograma, struktura, tipova)
+za određenu namenu može da ima mnogo (na stotine) izvornih fajlova;
+nepraktično bi bilo koristiti to mnoštvo fajlova i sve pojedinačno ih davati na
+povezivanje u programe koji ih koriste; “pakovanjem” u biblioteku koja se
+isporučuje i povezuje kao jedan lib fajl olakšava se rukovanje
+❖ Biblioteka svakako izvozi simbole koje deﬁniše (upravo one koji predstavljaju
+njene usluge, ono za šta se ona i koristi), ali može i da ih uvozi, ukoliko zavisi
+od neke druge biblioteke (koristi simbole iz druge biblioteke)
+ 172
+

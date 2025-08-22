@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Raspodela odgovornosti
+❖ Na primer, logično je da u odgovornosti klase za lika u arkadnoj igrici bude izračunavanje njegovih sledećih
+koordinata tokom kretanja po polju, kao i iscrtavanje tog karaktera na polju; međutim, ako je neka od ove dve
+odgovornosti suviše složena (npr. zavisi od složenih stanja, struktura ili algoritama), ili se mogu nezavisno
+kombinovati, treba razmisliti o njihovom razdvajanju u različite klase: lik, kao apstrakcija, može imati, kao deo
+svoje implementacije, objekte klasa zaduženih za izračunavanje pomeraja i za iscrtavanje
+❖ Objekat klase Character delegira (delegates) odgovornost za ove obaveze tako što poziva odgovarajuće operacije
+tih pridruženih objekata kada mu je potrebno izračunavanje pomeraja ili iscrtavanje
+❖ Na taj način, način izračunavanja pomeraja i/ili iscrtavanja može se nezavisno menjati specijalizacijama ovih
+klasa, jer navedeni pozivi mogu biti polimorfni
+❖ Naravno, sve ovo ima smisla samo ako su ove promene predvidive: nema potrebe raditi dodatan posao i činiti
+softver složenijim ako takve promene nisu očekivane. Čak i ako nisu predviđene, ukoliko je ispoštovana
+enkapsulacija apstrakcije lika, softver se može refaktorisati (refactoring) sa ciljem ovakve dekompozicije
+ 98
+calcMove(dx:int,dy:int)
+draw()
+Character 1
+ctrler
+UML oznaka operacije (operation) klase
+calcMove(dx:int,dy:int)
+MotionController
+draw()
+CharacterPainter
+Character
+1
+painter
+

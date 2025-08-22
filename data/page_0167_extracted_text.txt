@@ -1,0 +1,40 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Prevođenje
+❖ Na primer, deklaracija globalnog statičkog objekta jeste i deﬁnicija, koja ima efekat pravljenja objekta:
+int n = -16;
+❖ Ova deﬁnicija ima:
+• deklarativni deo (pre znaka =), koji deklariše ime (prevodilac uvodi ime u tabelu simbola)
+• inicijalizator (izraz iza znaka =), kojim se inicijalizuje objekat
+❖ Po pravilima jezika, ovakav objekat ima statičko trajanje skladištenja (static storage duration) i statički
+životni vek; prema semantičkim pravilima jezika C++, za ovakve objekte važi to da postoji jedna
+instanca objekta za svaku deﬁniciju (za razliku od npr. deﬁnicija automatskih objekata, za koje se
+kreira nova instanca svaki put kada izvršavanje dođe do takve deﬁnicije)
+❖ Zbog toga, za ovakve objekte prevodilac može (i to po pravilu radi) da alocira prostor statički, u vreme
+prevođenja; taj prostor odvaja se u prevedenom objektnom fajlu (obično u posebnom segmentu za
+podatke, odvojenom od segmenta za instrukcije): za svaki takav objekat odvoji se prostor u
+prevedenom zapisu za smeštanje tog objekta
+❖ U navedenom primeru, inicijalizator objekta je konstantan izraz (constant expression) — izraz čiji se
+rezultat može izračunati u vreme prevođenja
+❖ Za ovakve statičke objekte fundamentalnog tipa, inicijalizovane konstantnim izrazom, prevodilac po
+pravilu inicijalizuje statički alocirani prostor vrednošću izraza još u vreme prevođenja (ovde je
+konstantni izraz trivijalan - celobrojni literal -16, čiji se binarni zapis upisuje u alocirani prostor)
+❖ Za funkcije, deﬁnicija je ona deklaracija koja daje i telo funkcije; za deﬁniciju funkcije, prevodilac
+generiše binarni mašinski kod za instrukcije koje predstavljaju prevod naredbi iz tela funkcije
+ 167
+int n = -16;
+void f () {
+  n++;
+}
+A.cpp
+n: ff ff ff f0
+f: ld r1,n
+   inc r1
+   st r1,n
+   ret
+A.obj
+Ovo je izmišljen,
+pojednostavljen format
+obj fajla. Za mašinske
+instrukcije generisani
+kod je binaran.
+

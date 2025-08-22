@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Konstantni tipovi i funkcije članice
+❖ Nestatičke operacije (funkcije članice) klase se generalno mogu posmatrati razvrstane u dve kategorije:
+• operacije koje ne menjaju spolja vidljivo stanje objekta (externally visible state), odnosno ništa ne
+upisuju u atribute objekta, već samo čitaju to stanje/vrednosti atribute i vraćaju informacije o
+tome; ovakve operacije nazivaju se ponekad inspektori (inspector) ili selektori (selector)
+• operacije koje menjaju spolja vidljivo stanje objekta, odnosno upisuju nešto u atribute objekta;
+ovakve operacije ponekad se nazivaju modiﬁkatori (modiﬁer) ili mutatori (mutator)
+❖ Na jeziku C++, operacije koje ne menjaju stanje objekta nazivaju se konstantne funkcije članice (constant
+member functions) i označavaju se speciﬁkatorom const iza liste argumenata; operacije koje menjaju
+stanje objekta ne označavaju se posebno:
+class Clock {
+public:
+  Clock (int hh, int mm, int ss);
+  void tick ();
+  string getTime () const;
+  void setTime (int hh, int mm, int ss);
+  …
+};
+ 245
+Konstantna funkcija članica
+

@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Inizijalizacija kopiranjem radi sledeće:
+• Ako je T klasa, a izraz kojim se inicijalizuje jeste čdvrednost (prvalue) koja je istog tipa T (bez cv-kvaliﬁkacije), onda se
+izostavlja kopiranje i objekat inicijalizuje onim što ta čdvrednost predstavlja, kao što je ranije objašnjeno (pre verzije C+
++17, pravio se privremeni objekat kao rezultat izraza koji se premeštao ili kopirao u objekat koji se inicijalizuje, uz
+moguće izostavljanje kopiranja):
+X x = X();
+extern X f(…);
+X x = f(…);
+• Ako je T klasa, a tip izraza kojim se objekat inicijalizuje (bez cv-kvaliﬁkacije) klasa izvedena iz te klase, pretražuju se
+konstruktori klase T koji nisu explicit i koji mogu da prihvate tip izraza kao argument i bira se onaj konstruktor koji
+najbolje odgovara, po pravilima rezolucije za preklapanje funkcija; objekat se onda inicijalizuje tim konstruktorom:
+Derived d;
+Base b = d;
+• Ako je T klasa, a tip izraza kojim se objekat inicijalizuje (bez cv-kvaliﬁkacije) nije klasa izvedena iz te klase, ili T nije
+klasa, a tip izraza jeste klasa, traže se korisnički deﬁnisane konverzije koje mogu da inicijalizuju objekat tipa T iz tipa
+izraza; ako je odabrana korisnička konverzija zadata konverzionim konstruktorom, objekat se inicijalizuje tim
+konstruktorom direktno (bez pravljenja privremenog objekta, kao ranije):
+X x = y;
+• U preostalim slučajevima, kada ni T ni tip izraza nisu klase, vrednost izraza se prosto kopira u objekat, ako je izraz istog
+tipa T, ili se po potrebi koriste standardne konverzije da konvertuju vrednost izraza u tip objekta:
+Base* pb = new Derived;
+UNIT NAME: Inicijalizacija kopiranjem
+ 419
+

@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Opseg važenja imena počinje od njegove tzv. tačke deklarisanja (point
+of declaration), koja se razlikuje za različite entitete, na primer:
+• za enumeracije, klase ili šablone, to je odmah iza mesta
+identiﬁkatora:
+class X {
+  X (const X&);
+  …
+};
+• za varijable, to je odmah iza deklaratora, a pre inicijalizatora:
+const int x = 1, *p = &x;
+{
+  int* x[x] = {x};
+}
+UNIT NAME: Opseg važenja
+ 267
+Ovo ime x odnosi se
+na ono tipa const int,
+pa je niz x dimenzije 1
+Ovo ime x odnosi se na ono tipa int*[1], pa prvi element niza ukazuje na samog sebe
+Ovo ime X odnosi se baš na ovu klasu X koja se deﬁniše
+Ime x već važi, pa je ovo u redu
+

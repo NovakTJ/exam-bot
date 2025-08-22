@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ako klasa X nema nijedan eksplicitno deklarisan operator dodele kopiranjem (tj. korisnički deﬁnisan takav operator),
+prevodilac će implicitno deklarisati operator dodele kopiranjem koji je javan, inline, i za koji važi:
+• ako svaka direktna osnovna klasa B ima operator dodele kopiranjem koji ima parametar tipa B, const B& ili const volatile
+B&, i ako svaka klasa M podatka člana ima operator dodele kopiranjem koji prima parametar tipa M, const M& ili const
+volatile M&, onda i ovaj implicitno deklarisani operator dodele ima oblik X& operator=(const X&)
+• u suprotnom, ovaj operator dodele ima oblik X& operator=(X&)
+❖ Klasa može imati i više operatora dodele kopiranjem, recimo onaj koji prima X& i onaj koji prima const X&
+❖ Ako klasa ima neki korisnički deﬁnisan operator dodele kopiranjem (pa prevodilac ne generiše onaj implicitni), programer ipak
+može forsirati generisanje podrazumevanog operatora dodele kopiranjem speciﬁkatorom =default:
+struct X {
+  X& operator= (X&);
+  X& operator= (const X&) = default;
+};
+❖ Pošto klasa tako uvek ima deklarisan operator dodele kopiranjem, on uvek sakriva takav operator iz osnovne klase
+❖ Implicitno deklarisan operator dodele kopiranjem biće smatran obrisanim ako ta klasa ima korisnički deﬁnisan konstruktor
+premeštanja (move constructor) ili operator dodele premeštanjem (move assignment operator)
+❖ Ako podobjekti osnovnih klasa i objekti članovi ne mogu da se dodeljuju kopiranjem, recimo zato što su objekti klasa koje imaju
+nedostupne operatore dodele kopiranjem, ili ako je član konstanta ili referenca, onda će podrazumevani operator dodele
+kopiranjem biti obrisan (smatraće se da njegov poziv nije dozvoljen, iako je on deklarisan)
+❖ U suprotnom, ako ovaj implicitno deklarisani ili podrazumevani operator dodele kopiranjem nije obrisan, on će biti deﬁnisan i
+vršiće podrazumevanu dodelu kopiranjem podobjekata osnovnih klasa i objekata članova, po istom redosledu kao i u
+inicijalizaciji; ako su ti podobjekti objekti nekih klasa, pozivaju se njihovi operatori dedele kopiranjem, u suprotnom, vrši se
+prosto kopiranje vrednosti
+UNIT NAME: Operator dodele kopiranjem
+ 361
+

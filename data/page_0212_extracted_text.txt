@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pokazivači na objekte
+❖ Pokazivač (pointer) na objekat je objekat koji ukazuje (points to) na neki drugi objekat;
+konceptualno, ovo predstavlja jednosmernu (unidirekcionu, unidirectional) vezu
+pokazivača ka objektu
+❖ Ako je T neki objektni tip, tip pokazivača na tip T je tip T*; pokazivač ovog tipa
+može se inicijalizovati rezultatom, ili mu se može dodeliti rezultat operatora
+uzimanja adrese (adress-of) čiji je operand objekat tipa T; tada pokazivač ukazuje na
+taj objekat:
+T t;
+T* p = &t;
+❖ Rezultat operatora indirekcije (operator *) čiji je operand pokazivač na T odnosi se
+na objekat na koga taj pokazivač ukazuje:
+…*p…
+ 212
+*p predstavlja objekat na koji p ukazuje
+aPointer
+anObject
+T* p
+T t
+p ukazuje na t
+

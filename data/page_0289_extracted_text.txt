@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Neka od (brojnih i složenih) pravila redosleda izračunavanja (order of evaluation) su:
+• sva izračunavanja vrednosti i bočnih efekata celog izraza završavaju se pre nego što
+počne izračunavanje vrednosti i bočnih efekata narednog izraza
+• izračunavanje svih argumenata funkcije i svih operacija pre poziva funkcije završava se
+pre bilo kog izvršavanja unutar pozvane funkcije; analogno važi za povratak iz funkcije
+• izračunavanje vrednosti (ali ne obavezno i bočnih efekata) svih operanada bilo kog
+operatora završava se pre izračunavanja vrednosti (ali ne obavezno i bočnih efekata) tog
+operatora
+• za neke operatore deﬁnisan je i sekvenciran redosled izračunavanja operanada (za neke
+samo izračunavanja vrednosti, za neke i bočnih efekata): ++, --, &&, ||, ?:, , (zarez), =,
+@= (operatori složene dodele), [], >>, <<, dok za ostale nije
+❖ Logički operatori && (logičko I) i || (logičko ILI) izračunavaju se po pravilu “kratkog
+spoja” (short-circuit evaluation): ako prvi operand deﬁnitivno određuje vrednost rezultata,
+drugi se i ne izračunava:
+if (p && p->f()) …
+UNIT NAME: Operatori
+ 289
+Ovo je bezbedno, jer ako pokazivač p ima vrednost null, drugi operand operatora
+&& neće ni biti izračunavan, pa ovaj pokazivač neće biti korićen neispravno
+

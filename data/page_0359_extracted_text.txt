@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Destruktor može biti i virtuelan; destruktor deklarisan kao virtuelan u osnovnoj klasi ostaje virtuelan i u
+izvedenim klasama:
+struct Base {
+  virtual ~Base ();
+};
+❖ Tada je poziv destruktora polimorfan u situacijama kada se objektu pristupa posredno, preko pokazivača
+ili reference na osnovnu klasu:
+Base* pb = new Derived;
+delete pb;
+❖ U ovakvoj situaciji, biće pozvan najpre destruktor izvedene klase, koji uvek implicitno poziva i
+destruktore osnovnih klasa, pa u telu destrkutora nikada ne treba pisati eksplicitan poziv destruktora
+osnovne kalse
+❖ Ukoliko destruktor ne bi bio virtuelan, u ovakvim situacijama ponašanje bi bilo nedeﬁnisano. Zbog toga se
+preporučuje da destruktor klase uvek bude virtuelan, ako je klasa polimorfna (ako ima bar jednu virtuelnu
+funkciju članicu), jer se njenim objektima pristupa polimorfno: računa se na to da se objektu pristupa kao
+generalizovanom entitetu, bez znanja o konkretnom tipu tog objekta, što važi i za uništavanje
+❖ Destruktor može da se deklariše i kao čisto virtuelan (=0), na primer u osnovnoj klasi koja treba da bude
+apstraktna, a nema drugu pogodnu funkciju članicu koja bi bila čisto virtuelna. Takvi destruktori ipak
+moraju da imaju deﬁniciju, jer se destruktor osnovne klase uvek poziva kada se uništava objekat izvedene
+klase
+UNIT NAME: Destruktor
+ 359
+Destruktor je virtuelan i u izvedenim klasama
+Pozvaće se destruktor izvedene klase
+

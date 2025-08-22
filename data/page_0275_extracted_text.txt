@@ -1,0 +1,29 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Unutar deﬁnicije klase, odnosno u oblasti važenja klase mogu biti deklarisani drugi tipovi, uključujući i klase. Svi oni se
+nazivaju članovima klase (class members)
+❖ Takve ugnežđene klase, osim što su u oblasti važenja okružujuće klase, nemaju nikakve druge posebne veze; takvo
+ugnežđivanje ne znači nikako ugrađivanje objekata, već samo logičko “pakovanje” klase
+❖ Na primer, za implementaciju liste potrebna je struktura koja predstavlja jedan element liste i skladišti pokazivač(e) na
+sledeći (i prethodni) takav element liste. Ovakva struktura, dakle, bitna je samo za klasu liste i ni za koga drugog.
+Štaviše, bitna je samo za njenu implementaciju, pa je logično da bude deﬁnisana unutar klase liste, i to kao privatna, da
+ne bi bila deo njenog interfejsa:
+template<typename T>
+class List {
+public:
+  List ();
+  void put (T);
+  …
+private:
+  struct ListElement {
+    ListElement (const ListElement* next);
+    …
+  };
+};
+void List::put (T t) { … }
+List::ListElement::ListElement (const List::ListElement* next) { … }
+UNIT NAME: Opseg važenja klase
+ 275
+Ovoj strukturi ListElement ne može da se pristupi van opsega
+važenja klase List
+Konstruktor ugnežđene klase ListElement
+

@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Međutim, takve funkcije koje samo delegiraju poziv drugim funkcijama prave nepotreban režijski trošak u
+vreme izvršavanja: smeštanje povratne adrese na stek, izvršavanje instrukcije skoka u potprogram, indirektan
+povratak iz potprograma preko povratne adrese skinute sa steka, pa u mnogim slučajevima i kopiranje
+argumenata na stek i njihovo skidanje sa steka su potpuno nepotreban trošak za funkciju koja će samo ponovo
+izvršiti poziv druge funkcije ili prosto pročitati ili upisati podatak
+❖ Zbog ovoga je još odavno osmišljena optimizaciona tehnika u prevodiocima neposrednog ugrađivanja koda
+pozvanog potprograma na mesto poziva (inlining): umesto koda za skok u potprogram, sa prenosom
+argumenata i čuvanjem povratne adrese na steku, kod pozvanog potprograma se neposredno ugrađuje u kod
+pozivaoca; ovo uzrokuje kraće vreme izvršavanja, ali i nešto veći “memorijski otisak” (memory footprint),
+odnosno veličinu programa
+❖ U svakom slučaju, navedeni primeri trivijalnih metoda koje delegiraju pozive drugim ili samo čitaju/upisuju
+podatak sprovođenjem ove optimizacije ne prave nikakav trošak, a imaju značaj u dizajnu programa (bolja
+dekompozicija, enkapsulacija)
+❖ Na neki način, ovo se može smatrati korakom unazad u evolutivnom razvoju programiranja: koncept
+potprograma je u najstarije programske jezike uveden da bi se smanjila redundantnost i unapredila
+dekompozicija, tj. da se ne bi ponavljao isti kod na svakom mestu korišćenja, već se on izdvaja u potprogram
+koji se poziva, potencijalno parametrizovano, sa različitih mesta. Neposredno ugrađivanje u kod radi obrnutu
+stvar i pravi redundansu, ali je razlika velika:
+• ovaj postupak radi prevodilac potpuno atuomatski i skriveno od programera
+• redundansa postoji samo u mašinskom kodu, dok je izvorni kod dekomponovan i bez redundanse
+UNIT NAME: Inline funkcije
+ 300
+

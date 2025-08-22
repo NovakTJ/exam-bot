@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Inizijalizacija nulom (zero initialization) se obavlja u sledećim slučajevima:
+• Za svaku imenovanu varijablu sa statičkim trajanjem skladišta ili trajanjem
+skladišta vezanim za nit (thread local), pod uslovom da nije inicijalizovana
+konstantnom inicijalizacijom, a pre svake druge inicijalizacije:
+static T t;
+• Kao deo postupka inicijalizacije vrednošću, za neklasne tipove i za članove
+klasnih tipova koji su inicijalizovani vrednošću i koji nemaju konstruktore,
+uključujući inicijalizaciju vrednošću agregata za koje nisu zadati inicijalizatori:
+T();
+T t = {};
+T{};
+• Kada se niz znakova inicijalizuje string literalom koji je kraći od tog niza,
+ostatak niza se inicijalizuje nulama:
+char a[n] = "";
+UNIT NAME: Inicijalizacija nulom
+ 411
+

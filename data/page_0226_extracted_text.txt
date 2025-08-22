@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nizovi
+❖ Prvo pravilo: postoji implicitna konverzija niza elemenata tipa T u pokazivač na tip T, koja se
+vrši na svakom mestu gde se očekuje pokazivač, a pojavljuje se niz; vrednost ovog pokazivača
+ukazuje na prvi element datog niza (tzv. “rastakanje” niza u pokazivač, array-to-pointer decay):
+T[] ὎T*
+Na primer:
+void f (int a[]) { cout<<a[0]<<endl; }
+void g (int* p) { cout<<*p<<endl; }
+int main () {
+  int a[3] = {1, 2, 3};
+  int* p = a;
+  f(a);
+  f(p);
+  g(a);
+  g(p);
+}
+ 226
+f zapravo prima pokazivač na int
+Implicitna konverzija niza a tipa int[3] u pokazivač na njegov prvi element,
+tipa int*; isto bi bilo za: int* p = &a[0];
+Implicitna konverzija niza a tipa int[3] u pokazivač na njegov prvi element,
+tipa int*
+f zapravo prima pokazivač na int; potpuno isti efekat kao i f(a)
+Implicitna konverzija niza a tipa int[3] u pokazivač na njegov prvi element,
+tipa int*
+Potpuno isti efekat kao i g(a)
+

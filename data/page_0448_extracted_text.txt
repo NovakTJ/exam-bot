@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Kada se preklapaju operatori << i >> za klase sa ciljem implementacije izlaznih
+odnosno ulaznih operacija preko znakovnih tokova (I/O stream), moraju se
+deﬁnisati kao funkcije nečlanice, jer im je drugi (desni) operand onaj za koji se
+deﬁnišu
+❖ Oni treba da vraćaju referencu na isti objekat koji je dostavljen kao prvi operand:
+std::ostream& operator<< (std::ostream& os, const T& object) {
+  // Write object to output stream os
+  return os;
+}
+std::istream& operator>> (std::istream& is, T& object) {
+  // Read object from input stream is
+  if (/* T could not be created */ )
+    is.setstate(std::ios::failbit);
+  return is;
+}
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 448
+

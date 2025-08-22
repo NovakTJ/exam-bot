@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Binarni operator @ ima dva operanda, pa može biti preklopljen kao:
+• nestatička funkcija članica klase X sa jednim parametrom:
+T X::operator@ (Y);
+tada se operacija x@y tumači kao
+x.operator@ (y)
+- prvi operand je objekat čija se funkcija članica poziva, a drugi operand se
+prenosi kao argument
+• funkcija nečlanica klase X sa dva parametra:
+T operator@ (X, Y);
+tada se operacija x@y tumači kao
+operator@ (x,y)
+- oba operanda se prenose kao argumenti
+UNIT NAME: Preklopljeni operatori
+ 435
+

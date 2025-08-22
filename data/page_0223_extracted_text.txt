@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nizovi
+❖ Niz (array) je objekat koji predstavlja uređenu, ograničenu kolekciju objekata, složenih u
+memoriju jedan iza drugog, deklarisane veličine
+❖ Elementi niza mogu biti bilo kog objektnog tipa: fundamentalnog tipa (osim tipa void),
+pokazivačkog tipa, klasnog tipa, nabrajanja, ili niza (tako se pravi višedimenzionalni nizovi).
+Ne postoje nizovi referenci ili funkcija
+❖ Elementi niza veličine N označeni su indeksima (pozicijama u nizu) počev od 0 zaključno sa
+N-1 i može im se pristupati operatorom indeksiranja niza []:
+int a[100];
+…
+a[0] = a[0] + a[99];
+❖ Elementi niza mogu biti drugi nizovi — tako se prave multidimenzionalni nizovi:
+int m[5][7];
+m[3][5] = 2;
+❖ Za vreme izvršavanja, ne proverava se ispravnost indeksa za pristup nizu u smislu da li su u
+opsegu dozvoljenih vrednosti (unutar granica niza); svaki prestup može da dovede do
+nekorektnog ponašanja, kao sa pokazivačima
+ 223
+a je niz od 100 elemenata tipa int
+Pristup prvom i poslednjem elementu niza a
+m niz od 5 elemenata, gde je svaki element tipa niza od 3 elementa tipa int — matrica 5x7
+Pristupa se 4. elementu niza m; on je opet niz; pristupa se 6. elementu tog niza
+T T T T T T T T
+

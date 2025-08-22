@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasni tipovi
+❖ Na jeziku C++, klasni tipovi su strukture (struct) i klase (class). Strukture i klase su skoro potpuno izjednačene na jeziku
+C++, jer se tretiraju na potpuno identičan način (osim dole navedenih izuzetaka):
+• i strukture i klase mogu imati podatke članove i funkcije članice, uključujući i konstruktore, destruktore i
+operatorske funkcije
+• i strukture i klase mogu imati javne, zaštićene i privatne članove
+• i jedne i druge mogu se izvoditi, mogu imati polimorfne operacije itd.
+❖ Jedine razlike između strukture i klase su sledeće:
+• ako se u deﬁniciji strukture ne navede speciﬁkator prava pristupa, podrazumeva se public; ako se u deﬁniciji klase
+ne navede speciﬁkator prava pristupa, podrazumeva se private
+• ako se u deﬁniciji klase ili strukture, prilikom izvođenja iz druge klase ili strukture (dozvoljeno je sve), za osnovnu
+strukturu ne navede speciﬁkator prava pristupa, podrazumeva se public, dok se za osnovnu klasu podrazumeva
+private
+❖ Ovo su, ipak, krajnje sporedne razlike i ne treba se na njih oslanjati, jer to može da učini program slabije razumljivim:
+svakako je bolje uvek navoditi speciﬁkatore prava pristupa eksplicitno, radi razumljivosti
+❖ Zbog svega ovoga, strukture (struct) se koriste samo u izuzetnim situacijama, kada treba predstaviti sasvim jednostavne
+apstraktne tipove podataka, po pravilu onda kada se oni koriste samo za implementaciju nekih drugih struktura ili
+apstrakcija; strukture tada po pravilu imaju samo podatke članove i eventualno konstruktore, retko kada i neke
+jednostavne operacije ili destruktore
+❖ U svim drugim slučajevima, posebno kada je potrebno da imaju iole složenije operacije ili predstavljaju apstrakciju,
+treba koristiti klase
+ 240
+

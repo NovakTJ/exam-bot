@@ -1,0 +1,51 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: polimorfizam
+❖ Prema tome, eﬁkasnost poziva virtuelne funkcije na jeziku C++ je ista kao i u ekvivalentnom C kodu sa
+dinamičkim vezivanjem, i tek nešto malo manja nego poziv statičkim vezivanjem (skok na adresu memorijski
+direktnim adresiranjem), ali je ceo mehanizam sakriven od programera i program je apstraktniji, kompaktniji i
+lakši za razumevanje i održavanje:
+ 63
+struct Figure_VFTable {
+  int (*canMoveTo) (Figure* fig,…);
+  int (*display) (Figure* fig, …);
+  …
+};
+int canPawnMoveTo (Figure* fig,…);
+int canBishopMoveTo (Figure* fig,…);
+…
+
+Figure_VFTable pawnVFTable;
+pawnVFTable.canMoveTo = &canPawnMoveTo;
+pawnVFTable.display = &displayPawn;
+…
+struct Figure {
+  Figure_VFTable* vtp;
+  FigureKind kind;
+  …
+};
+void initPawn (Figure* fig,…) {
+  fig->vtp = &pawnVFTable;
+  fig->kind = pawn;
+  …
+}
+
+int canMoveTo (Figure* fig,…) {
+  return fig->vtp->canMoveTo(fig,col,row);
+}
+class Figure {
+public:
+  Figure ();
+  virtual int canMoveTo (…);
+  virtual int display (…);
+  …
+};
+class Pawn : public Figure {
+public:
+  Pawn ();
+  virtual int canMoveTo (…);
+  virtual int display (…);
+  …
+};
+…
+…aFig->canMoveTo(…)…
+

@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Izraz new vraća vrednost koja je po tipu pokazivač na tip speciﬁkovan
+pomoću type-id i koji ukazuje na objekat napravljen ovim izrazom,
+odnosno na prvi objekat u nizu, ako je napravljen niz
+❖ Izrazom new mogu se praviti objekti (ne i reference), pošto ne postoje
+pokazivači na reference (pa operator new ne može da vrati pokazivač na
+dinamički kreiranu referencu)
+❖ Ova vraćena vrednost je jedina veza do napravljenog dinamičkog objekta
+koji je inače anoniman (nema ime); ukoliko se ova veza izgubi, objekat
+ostaje nedostupan, pa se ne može ni uništiti:
+int i = new int(2);
+int j = *new int(2);
+int& r = *new int(2);
+delete &r;
+UNIT NAME: Dinamički životni vek
+ 334
+Greška u prevođenju: ne postoji implicitna konverzija iz int* u int
+Problem: pristup do dinamičkog objekta je trajno izgubljen
+Referenca upućuje na dinamički objekat, pa je ona sada njegovo ime
+

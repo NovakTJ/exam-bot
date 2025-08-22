@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstraktnog tipa podataka
+❖ Jedna od osnovnih projektnih odluka u dizajniranju jezika C++: korisnički deﬁnisane tipove (user-deﬁned type) i njihove
+instance koristiti što približnije moguće, ako ne i identično kao i ugrađene tipove (npr. primitivne tipove)
+❖ To znači: potrebna nam je i semantika kreiranja i kopiranja po vrednosti i za klase, odnosno njihove objekte
+❖ Tako se notacija i način upotrebe pojednostavljuje:
+complex c1(-2.5,6.8), c2(246.5,-34.45), c3(0.0,0.0), c4(0.0,0.0);
+c3 = complex::add(c1,c2);
+c4 = complex::sub(c1,c2);
+complex c5 = c3;
+c3 = c4;
+❖ Ali se semantika izuzetno komplikuje - jedan od najvećih izvora složenosti jezika C++ koju nemaju neki drugi, noviji OO
+jezici, upravo iz ovog razloga
+❖ Potrebno je deﬁnisati način inicijalizacije drugim instancama istog tipa, ponovo po vrednosti, kopiranjem:
+complex c5 = c3; // c3 is not a pointer, but an object
+❖ Podrazumevano ponašanje može da bude prosto kopiranje svih podataka članova (što i jeste), ali šta ako je implementacija
+klase takva da zahteva drugačije, posebno ponašanje u slučaju ovakve inicijalizacije?
+❖ Potreban je konstruktor kopije (copy constructor) - konstruktor koji se poziva kada se objekat date klase incijalizuje objektom
+istog tipa; možda ovako:
+complex::complex(complex other) {
+    this->re = other.re;
+    this->im = other.im;
+}
+ 68
+Pristup do člana objekta koji je levi operand operatora .,
+za razliku od pristupa članu objekta na koga ukazuje
+pokazivač kao levi operand operatora ->
+

@@ -1,0 +1,33 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ U skup funkcija kandidata u postupku ADL ulaze samo funkcije članice klase koja predstavlja tip objekta čija se funkcija
+poziva, ne i one iz osnovne klase. To znači da funkcija sa istim imenom, ukoliko ne redeﬁniše virtuelnu funkciju
+osnovne klase, sakriva sve funkcije iz osnovne klase sa istim imenom (isto važi i za druge vrste članova). Na primer:
+struct B {
+  void f (int);
+};
+struct D : B {
+  void f ();
+};
+int main () {
+  D d;
+  d.f(1);
+}
+❖ Ovakva pojava nije dobra, jer iako izvedena klasa nasleđuje funkcije, one više ne čine njen interfejs (ukoliko se objektu
+pristupa kao instanci izvedene, a ne osnovne klase), što narušava semantiku nasleđivanja. Svi entiteti iz osnovne klase
+sa datim imenom mogu se uvesti u opseg pretrage unutar izvedene klase direktivom using:
+struct D : B {
+  using B::f;
+  void f() {}
+};
+int main () {
+  D d;
+  d.f(1);
+}
+UNIT NAME: Preklapanje funkcija
+ 309
+Ova funkcija ne redeﬁniše, već sakriva funkciju B::f(int)
+U opseg važenja klase D uključene su sve funkcije sa imenom f iz klase B
+Sada je ovo ispravno, poziva se d.B::f(1)
+Greška u prevođenju: u skupu kandidata ne postoji funkcija f koja može da primi int.
+Moglo bi ovako: d.B::f(int)
+

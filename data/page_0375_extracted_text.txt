@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Posmatrajmo sada izračunavanje sledećeg izraza, pri čemu su sve imenovane varijable objekti tipa string:
+s = s1 + " " + s2.substr(2,7) + " " + s3.substr(0,2);
+❖ Izračunavanje ovog izraza teče ovako (pretpostavka je da je verzija jezika pre C++17):
+• drugi argument poziva operator+(s1, " ") je tipa const char[], pa se implicitno konvertuje  u const char*
+ugrađenom konverzijom (“rastakanje niza u pokazivač”), a potom i korisnički deﬁnisanom konverzijom u
+string, pozivom konstruktora konverzije string(const char*); rezultat konverzije je privremeni objekat kojim
+se inicijalizuje formalni parametar; pošto je to referenca, ona se vezuje za taj privremeni objekat
+• rezultat ovog poziva biće jedan privremeni objekat tipa string, označimo ga ovde sa x, koji je inicijalizovan
+povratnim izrazom; taj privremeni objekat ima svoj pridruženi dinamički niz znakova koji sadrži
+konkatenaciju niza znakova iz s1 i niza znakova " “; ukoliko prevodilac ne sprovodi RVO, ovaj privremeni
+objekat biće inicijalizovan pozivom konstruktora kopije, ako je operand izvršene naredbe return tipa string
+• unutar pozvane funkcije s2.substr(2,7) pravi se automatski objekat s koji alocira prostor za traženi
+podstring; ovim automatskim objektom se inicijalizuje privremeni objekat koji predstavlja rezultat ovog
+poziva, označimo ga ovde za y; ukoliko prevodilac ne sprovodi NRVO, ponovo će se pozivati konstruktor
+kopije
+• poziva se sada operatorska funkcija za drugi operator + u izrazu; parametri ove funkcije su reference koje
+se vezuju za navedene privremene objekte, tj. poziva se operator+(x,y)
+i tako dalje. Na kraju, poziva se operatorska funkcija operator= čiji je desni operand privremeni objekat
+napravljen kao rezultat podizraza sa desne strane znaka =
+UNIT NAME: Kopiranje objekata
+ 375
+

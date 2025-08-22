@@ -1,0 +1,34 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Pritom, ove operacije imaju neke zajedničke delove, pa je dobro refaktorisati (refactor) ovu klasu tako da se ti zajednički
+delovi izdvoje u pomoćne potprograme i tako eliminišu dupliranja koda:
+• konstruktor kopije radi alokaciju i kopiranje
+• destruktor radi dealokoaciju
+• operator dodele radi najpre dealokaciju (kao destruktor), pa onda alokaciju i kopiranje (kao konstruktor kopije)
+class string {
+public:
+  string () : str(nullptr) {}
+  string (const char* s) : string() { allocate(s); copy(s); }
+  string (const string& s) : string(s.str) {}
+  string& operator= (const string& s);
+  ~string () { release(); }
+  …
+protected:
+  void allocate (const char* s) { if (s) str = new char[std::strlen(s)+1]; }
+  void copy (const char* s) { if (s) std::strcpy(str,s); }
+  void release () { delete [] str; str = nullptr; }
+  …
+};
+inline string& string::operator= (const string& s) {
+  if (this!=&s) {
+    release(); allocate(s.str); copy(s.str);
+  }
+  return *this;
+}
+UNIT NAME: Objekti sa zauzetim resursima
+ 367
+Zadatak:
+Ova implementacija ima nedostatak zbog toga što
+operacije allocate i copy dva puta prolaze kroz ceo
+izvorni niz znakova (to rade funkcije strlen i strcpy).
+Prepraviti je tako da se to radi samo jednom.
+

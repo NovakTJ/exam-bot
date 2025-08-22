@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Može biti više različitih deﬁnicija istog prostora imena; to je tipično slučaj kada se prostori imena deﬁnišu
+u različitim fajlovima, u kojima se deklarišu različiti entiteti (npr. klase) koji pripadaju istom prostoru
+imena
+❖ Sve te deﬁnicije istog prostora imena se nadovezuju jedna na drugu; sva imena u uniji svih tih deﬁnicija
+imaju isti opseg važenja - ceo taj prostor imena:
+// File: user.h
+namespace users {
+  class User {
+    …
+  };
+  class Role {
+    …
+  };
+}
+// File: usergroup.h
+namespace users {
+ class UserGroup {
+    …
+  };
+}
+UNIT NAME: Prostori imena
+ 278
+

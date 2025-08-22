@@ -1,0 +1,17 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Reference
+❖ U principu, reference se upotrebljavaju onda kada se želi notacija prenosa
+argumenta po vrednosti (umesto da se prenosi pokazivač kao “eksplicitan”
+posrednik), ali je potrebno da:
+• se izbegne kopiranje stvarnog argumenta u formalni
+• se podrži supstitucija, tj. da stvarni argument može biti specijalizacija tipa
+formalnog parametra
+• argument bude polimorfan
+❖ Druga situacija jeste ta kada se želi da funkcija vraća nešto što se može dalje
+menjati, tipično kod preklapanja operatora, kako bi se ponašali slično
+operatorima za ugrađene tipove; na primer:
+vector<complex> v(100);
+v[i]++;
+ 239
+Operator [] deﬁnisan za klasu vector<complex> vraća referencu tipa complex&
+

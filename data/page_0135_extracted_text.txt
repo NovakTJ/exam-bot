@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Da bi zadatak (Task) bio umetan u listu, mora da “umeša” (mix in) strukturu i ponašanje klase ListElem:
+class Task : public ListElem {…};
+❖ Dakle, klasa ListElem jeste apstraktna klasa, koja ima i strukturu i deﬁnisane (barem neke) metode i koja
+predstavlja potreban interfejs koji neka druga klasa treba da zadovolji, da bi učestvovala u nekom
+mehanizmu (ovde, da bi bila umetana u listu)
+❖ Ovakve klase nazivaju se mixin klase
+❖ Pored ovog interfejsa, klasa Task može imati druge takve interfejse za potrebe drugih konteksta
+(mehanizama, scenarija) u kojima učestvuje, pa će biti izvedena iz više takvih klasa:
+class Task : public ListElem, public Runnable, public Drawable {…};
+❖ U potpuno agresivnom i doslednom sprovođenju principa apstrakcije, mogu se praviti ovakvi interfejsi
+za svaki pojedinačan kontekst u kome klasa učestvuje, odnosno za svaku vrstu klijenta te klase - svaki
+takav interfejs biće predstavljen posebnom apstraktnom klasom
+❖ Ovakav pristup naziva se princip segregacije interfejsa (interface segregation)
+❖ Klasa koja zadovoljava (implementira, implement) sve te interfejse je onda izvedena iz svih tih klasa
+❖ U suprotnom, ako se ne bi radilo tako, sva svojstva i ponašanje potrebni za različite kontekste bili bi
+ugrađeni neposrednu u tu klasu i pomešani u njoj, pa bi ona mogla da postane glomazna i teža za
+razumevanje i održavanje
+ 135
+

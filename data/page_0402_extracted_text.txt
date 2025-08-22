@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Situacije kada se vrši materijalizacija privremenog objekta zapravo predstavljaju slučajeve u
+kojima se mora obezbediti mesto za objekat koji će se na kraju ovakvog lanca inicijalizovati
+onim što predstavlja čdvrednost i čija će adresa biti prosleđivana svim funkcijama koje se
+pozivaju, a vraćaju čdvrednost. Pored još nekih, to su sledeće situacije:
+• kada se referenca vezuje za čdvrednost:
+const X rl& = X(1);
+X rr&& = X(1);
+• kada se pristupa članu čdvrednosti tipa klase:
+int i = X(1).i;
+• kada se niz koji je čdvrednost (npr. kao objekat član izraza koji je čdvrednost) konvertuje
+u pokazivač ili kada se pristupa njegovom elementu
+• kada je operand operatora sizeof čdvrednost
+• kada je čdvrednost izraz čiji se rezultat odbacuje (levi operand operatora zarez i izraz
+kao naredba):
+X f() { return X(1); }
+f();
+Semantika vrednosti od C++17
+ 402
+Pravi se privremeni objekat koji se inicijalizuje pomoću X(1) i
+pristupa se njegovom članu i
+Funkcija f vraća čdvrednost, a poziv je sam u naredbi, pa mu se rezultat odbacuje,
+ali mora da se materijalizuje kao privremeni objekat koji se inicijalizuje sa X(1)
+

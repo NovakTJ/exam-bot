@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Preklopljeni operatori (overloaded operator) su funkcije sa posebnim imenom (simbol @ označava
+simbol nekog operatora ugrađenog u jezik, a T neki tip):
+operator @
+operator T
+operator new
+operator new []
+operator delete
+operator delete []
+operator "" suffix
+❖ Kada se neki od operatora pojave u izrazu sa nekim operandom koji je tipa klase ili enumeracije,
+prevodilac traži korisnički deﬁnisanu funkciju koja odgovara tipovima i broju operanada tog
+operatora po opštim pravilima postupka ADL:
+complex c1=…, c2=…, c3; c3 = c1+c2;
+❖ Ove funkcije mogu da se pozivaju i neposredno:
+c3.operator=(operator+(c1,c2));
+❖ Preklopljene operatorske funkcije mogu biti nestatičke funkcije članice klase ili funkcije nečlanice
+koje imaju barem jedan parametar koji prima argumente tipa klase ili enumeracije
+UNIT NAME: Preklopljeni operatori
+ 432
+

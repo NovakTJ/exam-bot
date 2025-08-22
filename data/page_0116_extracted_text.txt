@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ U mnogim slučajevima postoji potreba za čuvanje informacija (podataka) koji nisu svojstva svakog pojedinačnog
+objekta, već cele klase, odnosno zajednički su za sve objekte te klase
+❖ Na proceduralnom jeziku, poput jezika C, ovakve podatke moramo deﬁnisati kao globalno dostupne (po oblasti
+važenja), što narušava enkapsulaciju, jer su oni onda dostupni svim delovima programa
+❖ U OOP i na jeziku C++, kao i na mnogim drugim jezicima, na raspolaganju su statički podaci članovi (static data
+members): postoji samo po jedna instanca za svaki deﬁnisan statički podatak član, on je jedna instanca, deljena
+između svih objekata te klase
+❖ Na primer, želimo da brojimo koliko je objekata kalse Clock ukupno kreirano - to je informacija bitna za celu klasu:
+class Clock {
+public:
+  Clock ();
+  …
+private:
+  static int count;
+  …
+};
+void Clock::Clock () {
+  …
+  count++;
+}
+int Clock::count = 0;
+❖ Pristup statičkom podatku članu ne zahteva objekat (kao levi operand operatora .) ili pokazivač na objekat (kao levi
+operand operatora ->), jer on pripada klasi, a ne pojedinačnom objektu; taj objekat/pokazivač se ipak može i zadati
+ 116
+Statički podatak član
+Statički podatak član mora se deﬁnisati i inicijalizovati
+Pristup statičkom podatku članu ne zahteva objekat kome pripada
+

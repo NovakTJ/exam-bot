@@ -1,0 +1,34 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Za ovakve nelokalne varijable koje se inicijalizuju i dinamičkom inicijalizacijom, tačan trenutak izvršavanja
+te dinamičke inicijalizacije nije precizno određen: ona može, ali ne mora biti izvršena pre početka
+izvršavanja funkcije main, jer prevodilac ne može to uvek da obezbedi (zbog nezavisnog prevođenja fajlova)
+❖ Jedino što se garantuje jeste to da su statičke varijable propisno inicijalizovane pre nego što se na bilo koji
+način pristupi bilo kojoj statičkoj varijabli deﬁnisanoj u istoj jedinici prevođenja
+❖ Zbog ovoga, korišćenje nelokalnih statičkih objekata klasa (statičkih podataka članova ili statičkih objekata
+unutar prostora imena) nije bezbedno: ukoliko se njima pristupa na mestu izvan fajla u kom su deﬁnisani,
+može se dogoditi da se taj pristup radi pre nego što su oni propisno inicijalizovani
+❖ Zato se ne preporučuje deﬁnisanje statičkih objekata klasa koji nisu lokalni, posebno ako njihovi
+konstruktori imaju neke vidljive efekte. Na primer:
+// File: a.cpp
+#include "a.h"
+A sa;
+A::A () : m(true) {}
+// File: b.cpp
+#include "a.h"
+bool f (A* pa) { return pa->m; }
+int main () {
+  if (f(&sa)) …
+}
+UNIT NAME: Statički životni vek
+ 326
+Fajl a.h sadrži samo sledeće:
+struct A {
+  bool m;
+  A();
+};
+extern A sa;
+Kada se ovo izvršava, sa možda nije uopšte inicijalizovan,
+pa će f možda vratiti true, a možda i false
+sa je globalni statički objekat; vreme njegove
+inicijalizacije nije precizno određeno
+

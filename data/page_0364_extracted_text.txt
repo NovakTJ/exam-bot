@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Naravno, ove zauzete resurse treba propisno i osloboditi (dealocirati) kada objekat prestaje da živi.
+Ako se predviđa korišćenje ovih objekata po vrednosti (svih kategorija životnog veka), odnosno
+ugradnjom (kao podobjekti, npr. objekti članovi), njihovo uništavanje je implicitno. Na primer:
+int main () {
+  string str("Hello");
+  …
+}
+❖ Prema već navedenim pravilima, ako se u klasi ne navede eksplicitno destruktor, prevodilac će
+generisati implicitni destruktor koji vrši destrukciju objekata članova pozivom njihovih destruktora;
+međutim, za članove koji su ugrađenih tipova, destrukcija nema nikakvog efekta, što je ovde slučaj,
+pošto je član str pokazivač. Prema tome, u ovom slučaju, dinamički niz znakova neće biti dealociran,
+pa će postojati problem curenja memorije (memory leak)
+❖ Zato nam je ovde neophodan korisnički deﬁnisan destruktor koji vrši potrebnu dealokaciju:
+class string {
+public:
+  string () : str(nullptr) {}
+  string (const char*);
+ ~string () { delete [] str; str = nullptr; }
+  …
+};
+UNIT NAME: Objekti sa zauzetim resursima
+ 364
+Ovde se završava životni vek objekta str
+

@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Uvod u jezik C++: Principi dizajna
+❖ C++ je vertikalno kompatibilan sa jezikom C: svi C programi su prevodivi pomoću
+prevodilaca za jezik C++
+❖ Eﬁkasnost implementacije: prevedeni kod ima skoro istu eﬁkasnost kao ekvivalentni
+rukom pisani asemblerski kod (a po pravilu i veću, zbog naprednih optimizacija)
+❖ Obimna provera u vreme prevođenja
+❖ Nikakva kontrola u vreme izvršavanja
+❖ Statička, jaka, ali ne i isključiva tipizacija (dozvoljene su eksplicitne i implicitne
+konverzije)
+❖ Jednak tretman i jednobrazan način upotrebe ugrađenih (primitivnih) i korisnički
+deﬁnisanih (klasa) tipova objekata
+❖ Poravnanje veličine ugrađenih (primitivnih) tipova podataka prema ciljnoj arhitekturi
+računara; kao posledica, veličine ugrađenih tipova nisu standardne i svuda iste
+ 38
+

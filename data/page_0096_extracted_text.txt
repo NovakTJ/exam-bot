@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Karakteristike lošeg i dobrog softvera
+❖ Dobar softver ne poseduje ove karakteristike, što znači da je:
+• ﬂeksibilan (ﬂexible): lako ga je održavati (menjati i proširivati)
+• robustan (robust): otporan na promene, tj. promene ne utiču na njegovu ispravnost
+• prenosiv (portable) i ponovno upotrebljiv (reusable): delovi se mogu iskoristiti u drugim aplikacijama bez
+mnogo ulaganja
+❖ Naravno, ne postoji idealan softver i nijedan softver ne može biti neograničeno ﬂeksibilan, robustan i prenosiv,
+ali je cilj da bude takav u opsegu predvidivih promena uslova i načina korišćenja u određenom domenu
+primene. Dobar i iskusan arhitekta softvera i poznavalac njegovog domena mogu ovo da predvide i procene
+❖ Osnovni preduslovi za kvalitetan softver sa ovakvim karakteristikama:
+• jasna, jednostavna, pravilna, razumljiva, ﬂeksibilna arhitektura
+• prave apstrakcije, dobra raspodela odgovornosti
+• modularnost, enkapsulacija
+• slabe zavisnosti između delova (apstrakcija, modula), jednostavni interfejsi
+❖ Sve ovo ima svoju cenu, pa je u dobru arhitekturu i dizajn softvera potrebno uložiti više napora i vremena u
+početku, da bi se kasnije efekti videli sve većom brzinom; kod lošeg softvera je obrnuto
+❖ Karaketeristika nepreporučljivog ponašanja: žurba ka kodovanju (rush to code syndrom)
+ 96
+

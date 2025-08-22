@@ -1,0 +1,15 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ Sada ovo više nije moguće van funkcija članica klase
+(prevodilac prijavljuje grešku):
+pClk1->h = 45;
+pClk1->m = -2;
+pClk1->s = 185;
+❖ Umesto toga, sada je stanje objekta klase pod
+kontrolom, garantuje se njegova konzistentnost, jer
+može se menjati samo na način predviđen interfejsom:
+pClk1->setTime(23,25,36);
+pClk2->setTime(45,-2,185); // (0, 0, 0)
+ 24
+Greška u prevođenju
+

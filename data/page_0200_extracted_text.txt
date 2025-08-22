@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni celobrojni tipovi
+❖ Modiﬁkatori za označenost i veličinu mogu da se kombinuju u bilo kom poretku, s tim
+da je dozvoljen samo po jedan modiﬁkator svake vrste. Ključna reč int može da se
+izostavi ako se koristi bilo koji od modiﬁkatora. Kao i za druge speciﬁkatore tipa,
+dozvoljeni su svi redosledi: unsigned long long int, long int unsigned long i long unsigned
+long predstavljaju isti tip
+❖ Treba primetiti da širine tipova u bitima nisu ﬁksno određene standardom (osim
+minimalnih) i mogu se razlikovati od sistema do sistema. Tip int je takav da se na
+svakoj mašini celobrojne operacije izvršavaju najeﬁkasnije sa tim tipom. Osim toga,
+garantovano je i sledeće:
+1 == sizeof(char) <= sizeof(short) <= sizeof(int) <= sizeof(long) <=
+sizeof(long long)
+❖ Termin bajta (byte) na jeziku C++ ima značenje jedne jedinice prostora (sizeof(char)) i
+može biti različit od 8 bita; može biti čak i 64 bita u ekstremnom slučaju, dozvoljenom
+standardom, kada svi celobrojni i znakovni tipovi imaju širinu od 64 bita
+❖ Program koji zavisi od konkretnih veličina tipova svakako nije prenosiv!
+ 200
+

@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ukoliko se želi zabraniti implicitna korisnički deﬁnisana konverzija
+deﬁnisana konstruktorom ili operatorom konverzije, odgovarajuća
+funkcija (konstruktor ili operator) označava se speciﬁkatorom
+explicit; takav konstruktor nije više konverzioni konstruktor, jer ne
+deﬁniše implicitnu konverziju; na primer:
+class X {
+public:
+  explicit X (bool);
+  explicit operator bool ();
+};
+X f (X x) {
+  bool b = x;
+  return false;
+}
+Greška u prevođenju: nije dozvoljena implicitna konverzija iz X u bool
+Korisnički definisane konverzije
+ 252
+Greška u prevođenju: nije dozvoljena implicitna konverzija iz bool u X
+

@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Skup preklopljenih operatora treba da bude “zatvoren”, u smislu da su preklopljeni svi
+operatori koji se očekuju zajedno; to nikako ne znači da za klasu treba preklapati sve
+moguće operatore, već samo da skup operatora treba kompletirati na one očekivane; na
+primer:
+• ako je preklopljen operator ==, treba preklopiti i operator !=, i to baš tako da vraća
+negaciju operatora == za iste operande, ali ne obavezno i operatore < i > (jer za
+klasu možda nema smisla takva relacija uređenja)
+• ako je za klasu preklopljen operator == i <, treba preklopiti i operatore !=, >, <= i >=;
+od verzije jezika C++20, u jeziku postoji operator opšteg poređenja <=> koji vraća
+vrednost manju od 0 ako je prvi operand manji od drugog, veću od 0 ako je prvi veći
+od drugog, a nulu ako su operandi jednaki; dovoljno je preklopiti samo ovaj
+operator i svi drugi vezani operatori poređenja na jednakost i nejednakost biće
+implicitno deﬁnisani na odgovarajući način
+• ako je za klasu preklopljen operator + i postoji operator =, treba preklopiti i operator
++= i to sa očekivanim spregnutim značenjem, jer će se i on očekivati,
+i tako dalje
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 443
+

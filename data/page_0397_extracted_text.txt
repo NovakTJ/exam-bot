@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Klasa može imati i više konstruktora premeštanja, recimo onaj koji prima X&& i onaj koji prima
+const X&&
+❖ Ako klasa X nema nijedan eksplicitno deklarisan konstruktor premeštanja (tj. korisnički
+deklarisan konstruktor premeštanja) i pod uslovom da ta klasa nema korisnički deﬁnisan
+konstruktor kopije, operator dodele kopiranjem, operator dodele premeštanjem i destruktor,
+prevodilac će implicitno deklarisati konstruktor premeštanja koji je javan, inline i nije explicit
+❖ Ako klasa ima neki konstruktor premeštanja (pa prevodilac ne generiše implicitni konstruktor
+premeštanja), programer ipak može forsirati automatsko deklarisanje konstruktora koji bi
+prevodilac implicitno deklarisao speciﬁkatorom =default
+❖ Ako podobjekti osnovnih klasa ili objekti članovi ne mogu da se premeštaju ili uništavaju, recimo
+zato što su objekti klasa koje nemaju dostupne konstruktore premeštanja ili destruktore, onda će
+ovaj implicitno deklarisani konstruktor premeštanja  biti obrisan (smatraće se da njegov poziv
+nije dozvoljen, iako je on deklarisan)
+❖ U suprotnom, ako ovaj implicitno deklarisan ili podrazumevani konstruktor premeštanja nije
+obrisan, on će biti deﬁnisan i vršiće podrazumevanu inicijalizaciju podobjekata osnovnih klasa i
+objekata članova xvrednostima, po istom redosledu kao i u inicijalizaciji; ako su ti podobjekti
+objekti nekih klasa, pozivaju se njihovi konstruktori premeštanja, ako ih imaju, odnosno
+konstruktori kopije u suprotnom
+UNIT NAME: Konstruktor premeštanja
+ 397
+

@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ U skupovnoj logici, osnovna klasa (generalizacija) predstavlja nadskup skupa objekata njene izvedene klase (specijalizacije).
+Ali šta ako je osnovna klasa apstraktna?
+❖ Pošto ona tada nema svoje direktne instance, ne postoje elementi tog skupa koji nisu ujedno i elementi skupa predstavljenog
+nekom od izvedenih klasa. Prema tome, apstraktna klasa predstavlja uniju skupova predstavljenih izvedenim klasama
+❖ A šta ako izvedene klase, posmatrane kao skupovi, imaju presek, odnosno zajedničke elemente?
+❖ Ovo se obično dešava ako se generalizacije/specijalizacije prave po različitim, ortogonalnim kriterijumima
+❖ Na primer, u nekom školskom sistemu, korisnici (User) mogu biti klasiﬁkovani po pravima pristupa na  privilegovane
+(Privileged User) i neprivilegovane (NonprivilegedUser); sa druge strane, mogu se klasiﬁkovati prema svojoj ulozi (role) na
+nastavnike (Teacher) i učenike (Student)
+❖ Na jeziku UML, ovakve različite grupe relacija generalizacija/specijalizacija nazivaju se skupovima generalizacija (generalization
+set)
+❖ Ako su izvedene klase kao skupovi disjunktni, tj. nemaju presek (zajedničke instance), skup generalizacija naziva se isključiv
+(exclusive); ako je takva osnovna klasa apstraktna, ona predstavlja uniju disjunktnih podskupova - particiju (partition)
+ 141
+privilege
+User
+PrivilegedUser Nonprivileged
+User
+UML oznaka za skup generalizacija
+(generalization set)
+Teacher Student
+role
+

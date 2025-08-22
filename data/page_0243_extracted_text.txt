@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Konstantni tipovi i funkcije članice
+❖ Deklarisanjem pokazivača na konstantan objekat programer najavljuje (“obećava”) da ono na šta taj pokazivač
+ukazuje ne može da se menja preko tog pokazivača, što ne znači da je apsolutno konstantno; prevodilac
+kontroliše ispunjenje te najave dosledno, sprovođenjem sledećih pravila jezika:
+• postoji implicitna konverzija iz tipa pokazivača na nekonstantan tip T u tip pokazivača na konstantan tip
+T: time se samo “zateže” konstantnost, odnosno obećava da se preko nekog drugog pokazivača neće
+izmeniti objekat, u kontekstu (opsegu važenja) tog pokazivača:
+char* p = ...;
+const char* q = p;
+…
+q = p;
+• nije dozvoljena implicitna konverzija iz tipa pokazivača na konstantan tip T u tip pokazivača na
+nekonstantan tip T,  jer bi se time “tiho probila” konstantnost, odnosno omogućilo slučajno narušavanje
+konstantnosti, bez upozorenja:
+const char* p = ...;
+char* q = p;
+…
+q = p;
+• dozvoljena je eksplicitna konverzija operatorom const_cast iz tipa pokazivača na konstantan tip T u tip
+pokazivača na nekonstantan tip T; izmena konstantnog objekta preko takvog pokazivača ima
+nedeﬁnisane efekte:
+const char* p = …;
+char* q = const_cast<char*>p;
+ 243
+Dozvoljeno: samo znači da se objekat na koga ukazuje q, koji god da je,
+neće menjati preko tog q, ne znači da je on i generalno konstantan
+Greška u prevođenju, jer bi inače, nakon ovoga, bilo moguće promeniti
+objekat *q
+Sada je moguće promeniti objekat *q, ali je efekat toga nedeﬁnisan
+

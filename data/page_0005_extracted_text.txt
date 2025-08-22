@@ -1,0 +1,13 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Sadržaj, ciljevi i preduslovi
+❖ Sadržaj:
+• Osnovni koncepti i principi objektne paradigme
+• Programski jezik C++
+❖ Ciljevi:
+• Upoznati se sa osnovnim konceptima i principima objektne
+paradigme i njihovim pogodnostima
+• Osposobiti se za projektovanje i implementaciju složenih
+programa korišćenjem objektnih koncepata
+• Osposobiti se za programiranje na jeziku C++
+ 5
+

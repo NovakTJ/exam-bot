@@ -1,0 +1,9 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Glava 10: Funkcije
+❖ Deklaracija i deﬁnicija funkcije
+❖ Inline funkcije
+❖ Podrazumevani argumenti
+❖ Preklapanje funkcija
+❖ Poziv funkcije
+ 295
+

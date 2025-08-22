@@ -1,0 +1,7 @@
+Kriterijumi za ocenu generisanog ispita:
+- Jezik: srpski, razumljiv i konzistentan.
+- Pokrivenost: obuhvata osnovne OOP1 teme (klase, enkapsulacija, nasleđivanje/osnove, const-correctness, overloading, STL osnove, greške compile/link/runtime, rule-of-five osnove).
+- Struktura: 5–7 zadataka, ukupno 100 poena, jasne instrukcije.
+- Primeri: po potrebi kratki primeri koda/hintovi.
+- Prilagođen nivou kursa (ne previše napredno).
+Vraćaj JSON {"score": number in [0,1], "verdict": "pass"|"fail", "feedback": short text}.

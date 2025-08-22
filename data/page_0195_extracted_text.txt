@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni tipovi void, nullptr_t i bool
+❖ Tip void označava prazan skup vrednosti; on je uvek nekompletan tip: ne postoje objekti ovog
+tipa, nizovi objekata ovog tipa, niti reference na ovaj tip; postoje pokazivači na ovaj tip i funkcije
+koje imaji ovaj tip kao povratni za potprograme koji ne vraćaju rezultat (procedure)
+❖ Tip nullptr_t iz standardne biblioteke je tip pokazivačkog literala nullptr koji ne ukazuje ni na šta;
+on je poseban tip, nije pokazivački tip i različit je od bilo kog drugog pokazivačkog tipa:
+typedef decltype(nullptr) nullptr_t;
+❖ Ovaj tip se može konvertovati u bilo koji pokazivački tip; rezultat je null pokazivač - pokazivač
+koji ne ukazuje ni na šta:
+Clock* pc = nullptr;
+❖ Tip bool je Bulov (logički) tip koji obuhvata samo dve vrednosti: true ili false; vrednost sizeof(bool)
+zavisi od implementacije i može biti različita od 1; true i false su literali ovog tipa
+❖ Vrednost aritmetičkog tipa, enumeracije ili pokazivača može se konvertovati u tip bool: vrednost
+nula (za aritmetičke tipove), null vrednost pokazivača i nullptr se konvertuju u false; sve druge
+vrednosti se konvertuju u true:
+if (pc) …
+if (!pc) …
+ 195
+Isto što i pc!=nullptr
+Isto što i pc==nullptr
+

@@ -1,0 +1,37 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: klase i objekti
+❖ Nedostatak ovog rešenja: u programu imamo samo jedan ovakav stek, jednu instancu.
+Šta ako nam je potrebno više instanci ovakve strukture? Organizacija koja bi ovo omogućila:
+/* File: stack.h */
+#define MaxStackSize 256
+struct Stack {
+  unsigned stack[MaxStackSize];  // Stack
+  int sp; // Stack pointer
+};
+void stack_init (Stack* this);
+int stack_push (Stack* this, unsigned in);
+int stack_pop (Stack* this, unsigned* out);
+
+/* File stack.c */
+#include “stack.h”
+void stack_init (Stack* this) {
+  this->sp = 0;
+}
+int stack_push (Stack* this, unsigned in) {
+  if (this->sp==MaxStackSize) return -1; // Exception: stack full
+  this->stack[this->sp++] = in;
+  return 0;
+}
+int stack_pop (Stack* this, unsigned* out) {
+  if (this->sp==0) return -1; // Exception: stack empty
+  *out = this->stack[--this->sp];
+  return 0;
+}
+ 47
+stack
+sp
+Stack
+this
+stack
+sp
+

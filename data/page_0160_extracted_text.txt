@@ -1,0 +1,14 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Deo III: Detalji jezika C++
+ 160
+❖ Elementi i principi prevođenja i povezivanja
+❖ Tipovi i konverzije
+❖ Deklaracije i opseg važenja
+❖ Izrazi
+❖ Funkcije
+❖ Životni vek varijabli
+❖ Konstruktori, destruktori i operator dodele
+❖ Objekti sa zauzetim resursima
+❖ Inicijalizacija
+❖ Preklapanje operatora
+

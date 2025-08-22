@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Lvrednost (lvalue) su, pored još nekih, sledeći izrazi:
+• ime varijable, funkcije ili podatka člana, bez obzira na tip; čak i kad je tip varijable referenca na dvrednost, izraz koji se sastoji od
+njenog imena je lvrednost
+• poziv funkcije ili operator za preklopljenu operatorsku funkciju, ako je povratni tip referenca na lvrednost
+• a=b, a+=b, a%=b i svi drugi ugrađeni operatori složene dodele
+• ++a i --a, ugrađeni preﬁksni operatori inkrementiranja i dekrementiranja
+• *p, ugrađeni operator indirekcije
+• a[n] i p[n], ugrađeni operator indeksiranja, pod uslovom da je jedan operand izraza a[n] niz koji je lvrednost
+• x.m, član objekta, osim kad je m enumerator član ili nestatička funkcija članica i osim kada je x dvrednost i m je nestatički podatak
+član tipa koji nije referenca
+• p->m, ugrađeni operator člana pokazivanog objekta, osim kad je m enumerator član ili nestatička funkcija članica
+• a,b, ugrađeni operator zarez, ako je b lvrednost
+• a?b:c, ugrađeni ternarni uslovni operator pod određenim uslovima (ako je izabrani izraz lvrednost)
+• string literal, npr. "Hello"
+• rezultat konverzije u referencu na lvrednost, npr. static_cast<int&>(x)
+❖ Svojstva lvrednosti:
+• sve kao za glvrednosti
+• može se uzimati adresa &lv
+• promenljiva lvrednost može biti levi operand ugrađenih operatora dodele i složene dodele, lv = …, lv+=…  itd.
+• njome se može inicijalizovati referenca na lvrednost koja onda upućuje na objekat koji taj izraz identiﬁkuje: T& r = lv;
+UNIT NAME: Kategorije vrednosti
+ 390
+

@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Podrazumevana inizijalizacija (default initialization) se obavlja u sledećim slučajevima:
+• Kada se varijabla sa automatskim, statičkim ili trajanjem skladišta vezanim za nit deklariše bez
+inicijalizatora:
+T t;
+• Kada se pravi dinamički objekat izrazom new bez navedenog inicijalizatora:
+new T
+• Kada se osnovna klasa ili nestatički podatak član ne navede u listi inicijalizatora članova u konstruktoru
+klase, a taj konstruktor se poziva:
+struct B {…};
+struct D : B {
+  B b;
+  D () {}
+}
+D d;
+❖ Podrazumevana inicijalizacija radi sledeće:
+• Ako je T klasni tip, poziva se podrazumevani konstruktor bez argumenata
+• Ako je T niz, svi elementi se inicijalizuju podrazumevanom inicijalizacijom
+• Inače, ne radi se ništa; zbog toga automatski i dinamički objekti (i njihovi podobjekti) neklasnih tipova imaju
+neodređene vrednosti (šta god se zateklo u memoriji)
+UNIT NAME: Podrazumevana inicijalizacija
+ 413
+

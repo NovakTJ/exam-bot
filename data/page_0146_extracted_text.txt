@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Obrada izuzetaka
+❖ Važno svojstvo robusnih složenih softverskih sistema jeste tolerancija otkaza (fault tolerance):
+sposobnost da softver nastavi svoje izvršavanje u prisustvu otkaza (faults)
+❖ Otkazi su odstupanja softvera ili njegovog okruženja od speciﬁkovanog, predviđenog ili
+očekivanog ponašanja
+❖ Softver koji nema mehanizme tolerancije otkaza će u slučaju otkaza ili u potpunosti
+prekinuti svoj rad (“pad”, failure) ili nastaviti izvršavanje sa nepredvidivim ili neželjenim
+ponašanjem
+❖ Softver koji ima ugrađene mehanizme tolerancije otkaza će u slučaju otkaza nastaviti svoje
+izvršavanje uz zadovljavajuće i predviđeno ponašanje, eventualno uz degradirane neke
+funkcionalnosti i/ili performanse, ili preduzeti kontrolisane procedure za sopstveno gašenje
+i gašenje sistema kojim upravlja
+❖ Jedan od osnovnih mehanizama u hardveru i softveru za toleranciju otkaza jeste mehanizam
+obrade izuzetaka (exception handling)
+❖ Izuzetak (exception) je nastanak nenormalnih, neregularnih ili neočekivanih uslova koji
+zahtevaju poseban tretman, različit od onog predviđenog normalnim, regularnim tokom
+programa
+ 146
+

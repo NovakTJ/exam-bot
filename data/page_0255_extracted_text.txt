@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Speciﬁkator constexpr navodi da se entitet u deklaraciji
+može izračunati za vreme prevođenja i koristiti u
+konstantnim izrazima. Pošto je argument ove funkcije
+literal (vrednost poznata za vreme prevođenja), i pošto je
+celo telo funkcije izračunljivo za vreme prevođenja, sve
+može biti konstantan izraz
+❖ Korisnički deﬁnisani literali imaju isti format kao i ugrađeni literali, s tim što imaju suﬁks koji mora da
+počne donjom crtom _ i malim slovom iza nje; sami literali mogu biti u formatu celobrojnih, racionalnih,
+znakovnih ili string-literala, ali bez suﬁksa koji se koriste za takve ugrađene literale
+❖ Literalski operatori moraju da imaju naziv operator”” , i za koga sledi identiﬁkator koji počinje donjom
+crtom i malim slovom iza nje. Kao parametre mogu da imaju samo neke od dozvoljenih tipova, u koje
+spadaju samo unsigned long long  za celobrojne literale, long double za racionalne literale, char i njegove
+varijacije za znakovne literale i const char* i varijacije za string literale (za njih se koristi i drugi argument
+koji daje veličinu niza znakova u string-literalu). Na primer:
+constexpr long double operator"" _deg (long double deg) {
+    return deg*3.1415926/180;
+}
+❖ Korisnički string-literali mogu da se koriste za identiﬁkaciju instanci apstrakcije koje se ne mogu
+predstaviti numeričkim literalima; na primer:
+class Date {
+public:
+  Date (unsigned y, unsigned m, unsigned d);
+  …
+};
+Date operator"" _date (const char*, size_t);
+Date today = "04.11.2018."_date;
+Korisnički definisani literali
+ 255
+Poziva se operator”” _date(“04.11.2018.”, 11)
+

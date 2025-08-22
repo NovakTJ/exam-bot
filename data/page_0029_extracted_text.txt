@@ -1,0 +1,29 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nasleđivanje
+Lobby::Lobby (unsigned n, string ct[], int lg[]) {
+  num = (n>MaxNumOfClocks) ? MaxNumOfClocks : n;
+  for (int i=0; i<num; i++) {
+    cities[i] = ct[i];
+    lags[i] = lg[i] % 24;
+    int h = 0 + lags[i];
+    if (h<0) h = 24+h;
+    clocks[i] = new Clock(h,0,0);
+  }
+}
+void Lobby::tick () {
+  for (int i=0; i<num; i++) clocks[i]->tick();
+}
+void Lobby::print () {
+  for (int i=0; i<num; i++)
+    cout<< cities[i] << ": " << clocks[i]->getTime() << endl;
+}
+void Lobby::setTime (int hh, int mm, int ss) {
+  for (int i=0; i<num; i++) {
+    int h = hh + lags[i];
+    if (h>=24) h %= 24;
+    if (h<0) h = 24+h;
+    clocks[i]->setTime(h,mm,ss);
+  }
+}
+ 29
+

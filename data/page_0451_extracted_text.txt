@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Operator [] se mora preklopiti kao nestatička funkcija članica; ona može imati
+parametar bilo kog tipa; taj parametar prima vrednost izraza između uglastih
+zagrada (drugog operanda):
+x[expression]
+tumači se kao:
+x.operator[](expression)
+❖ Ovaj operator se tipično preklapa tako da postoje varijante koje omogućavaju i
+čitanje iz konstantnih i nekonstantnih objekata, kao i upis u nekonstantne objekte,
+odnosno varijante koje su konstantna i nekonstantna funkcija članica i koje vraćaju
+odgovarajuće lvrednosti (reference na konstantu i nekonstantu, respektivno):
+class X {
+  …
+        T& operator[] (size_t);
+  const T& operator[] (size_t) const;
+  …
+};
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 451
+

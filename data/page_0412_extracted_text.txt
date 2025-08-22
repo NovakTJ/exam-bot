@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Inizijalizacija nulom radi sledeće:
+• Ako je T skalarni tip, inicijalna vrenost objekta je celobrojna konstanta nula eksplicitno konvertovana u tip T; za
+pokazivače, to je uvek null vrednost, čak i ako se ona ne predstavlja binarnom vrednošću nula
+• Ako je T klasni tip, svi podobjekti osnovne klase i članovi se inicijalizuju nulama, a konstruktori se ignorišu
+• Ako je T niz, elementi se inicijalizuju nulama
+• Za reference se ništa ne radi
+static T t;
+❖ Na primer:
+struct X {
+  int m;
+};
+int i;
+int* p;
+int main () {
+  X x{};
+  int a[2]{1};
+  int j{};
+  delete p;
+  cout<<x.m<<i<<a[1]<<j;
+}
+UNIT NAME: Inicijalizacija nulom
+ 412
+Kao statički objekti, inicijalizuju se nulama
+Inicijalizuje se nulama kao deo inicijalizacije vrednošću
+a[1] se inicijalizuje nulom kao deo inicijalizacije vrednošću, jer nije zadat
+inicijalizator za taj element
+Inicijalizuje se nulama kao deo inicijalizacije vrednošću, jer je int neklasni tip
+Bezbedno je raditi delete za pokazivač koji ima null vrednost
+Ispisaće se: 0000
+

@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: polimorfizam
+❖ Kod za funkcije generiše prevodilac, a prikazane strukture (tabele) postoje po jedna za svaku
+klasu (vrstu objekta) i inicijalizuju se statički, za vreme prevođenja
+❖ Svaki objekat ima pokazivač na takvu tabelu pokazivača na implementacije virtuelnih funkcija
+koje odgovaraju svakoj pojedinoj klasi (vrsti objekta), tzv. virtual table pointer
+❖ Ovaj pokazivač potrebno je inicijalizovati za svaki objekat, u zavisnosti od njegove vrste:
+struct Figure {
+  Figure_VFTable* vtp;  // Virtual table pointer
+  FigureColor color;
+  …
+};
+void initPawn (Figure* fig,…) {
+  fig->vtp = &pawnVFTable;
+  …
+}
+ 60
+canPawnMoveTo()
+pawnVFTable
+displayPawn()
+canMoveTo
+display
+vtp
+…
+pawn:Figure
+fig:Figure*
+

@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstrakcije
+❖ Klasa može realizovati i apstrakciju osmišljenu unutar samog rešenja datog problema
+❖ Takav koncept može da pomogne u rešavanju problema, pojednostavi sistem i njegovo korišćenje, uvede red
+ili uopštenje u domen problema
+❖ Stoga takav koncept postaje “vidjliv” za korisnike sistema, jer softver “otkriva” taj koncept ili neposredno,
+nudeći ga korisnicima ekslicitno kao pojam, ili posredno, kroz ponašanje softvera
+❖ Na neki način, tako osmišljen koncept može da postane i sastavni deo domena problema, jer je posredno
+“otkriven”, iako nije inicijalno postojao (ili nije bio eksplicitno prepoznat) u domenu problema
+❖ Primeri:
+• Šablon (Template) slajda, tekstualnog dokumenta i slično
+• Prečica (Shortcut) do neke složenije operacije ili kompozicija operacija koje se često ponavljaju
+❖ Sa druge strane, tako osmišljen koncept može biti isključivo deo rešenja, odnosno implementacije, bez
+ikakve vidljivosti spolja, jer se je nastao, na primer:
+• kao deo implementacije neke složene strukture, protokola ili mehanizma sistema
+• kao deo implementacije neke druge apstrakcije
+• kao posledica sprovođenja nekog projektnog obrasca (design patter)
+• kao posledica sprovođenja neke tehnike implementacije, optimizacije i slično
+ 84
+

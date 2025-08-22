@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Leksički elementi
+❖ Identiﬁkator (identiﬁer) je proizvoljno duga sekvenca znakova koji mogu biti cifre, donja crta (_), mala i velika slova
+engleske abecede i neki od većine Unicode znakova (ali ne svi), s tim da prvi znak ne može biti cifra; na primer:
+int α = 10;
+int бројЖаба = 0;
+❖ Velika i mala slova se razlikuju i svi znaci su značajni
+❖ Što se tiče pravila jezika, identiﬁkatori se mogu pisati bilo kojim slovima, ali je preporučeno poštovati sledeći stil:
+• koristiti samo jedan od stilova dosledno i jednobrazno: C stil (get_time) ili tzv. camel-case (getTime)
+• imena klasa pisati velikim početnim slovom, ostalo malim
+❖ Identiﬁkator se može koristiti da bi imenovao objekte, reference, funkcije, enumeratore, tipove (uključujući i klase),
+članove klasa, šablone i druge elemente programa za koje je to dozvoljeno, sa sledećim izuzecima:
+• identiﬁkatori koji predstavljaju ključne reči jezika ne mogu se koristiti za druge svrhe;
+• identiﬁkatori koji počinju dvostrukom donjom crtom (__) su rezervisani
+• identiﬁkatori koji počinju donjom crtom (_) iza koje je veliko slovo su rezervisani
+• identiﬁkatori koji počinju donjom crtom (_) su rezervisani u globalnom opsegu
+❖ “Rezervisani” znači da zaglavlja iz standardne biblioteke mogu da deﬁnišu (direktivom #deﬁne) ili deklarišu takve
+identiﬁkatore za svoje interne potrebe, prevodilac može predeﬁnisati takve identiﬁkatore i slično; ako programer
+deﬁniše takve identiﬁkatore, ponašanje može biti nedeﬁnisano
+ 183
+

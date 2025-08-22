@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pokazivači na objekte
+• Zaštita:
+• dobro razlikovati situacije u kojima funkcije mogu da vrate null vrednost
+pokazivača; ako to nije regularna situacija, funkcija tada treba da baci
+izuzetak
+• ako to jeste regularna situacija, po povratku iz funkcije obavezno
+proveravati vrednost na null:
+Clock* pc = ClockFactory::getClock();
+…
+if (pc) pc->tick();
+• krajnje konzervativan stil programiranja (u žargonu se naziva i
+“paranoičan”) pretpostavlja da se nikada ne veruje pokazivačima i da se oni
+uvek proveravaju pre dereferenciranja na bilo koji način; ovo nije potrebno
+ako se dobro tretiraju izuzeci:
+if (p) …p->…
+if (p) …*p…
+ 220
+

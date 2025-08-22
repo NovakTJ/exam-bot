@@ -1,0 +1,17 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Literatura
+❖ Materijali za predavanja i vežbe: http://oop.etf.rs
+❖ Neobavezna literatura:
+• D. Milićev, “Objektno orijentisano programiranje na jeziku C++, Skripta sa
+praktikumom”, Mikro knjiga, Beograd, 2001.
+• D. Milićev, “Objektno orijentisano modelovanje na jeziku UML, Skripta sa
+praktikumom”, Mikro knjiga, Beograd, 2001.
+• D. Milićev, “Objektno orijentisano programiranje na jeziku C++”, Mikro knjiga,
+Beograd, 1995.
+• L. Kraus, “Programski jezik C++ sa rešenim zadacima”, 10. izdanje, Akademska misao,
+Beograd, 2016.
+• L. Kraus, “Rešeni zadaci iz programskog jezika C++”, 5. izdanje, Akademska misao,
+Beograd, 2016.
+• Referentni priručnik: en.cppreference.com
+ 9
+

@@ -1,0 +1,59 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija softverske mašine
+class Character {
+public:
+  …
+  virtual bool step ();
+  …
+protected:
+  virtual void calcMove (int& dx, int& dy);
+  int myX, myY;
+};
+class Pacman : public Character {
+public:
+  …
+  virtual bool step ();
+  …
+};
+class Ghost : public Character {
+public:
+  …
+  virtual bool step ();
+  …
+};
+class Engine {
+public:
+  …
+  void run ();
+  …
+private:
+  list<Character*> myChars;
+  …
+};
+ 91
+void Egine::run () {
+  while (!gameOver) {
+    for (Character* c : this->myChars) {
+      c->step();
+      …
+    }
+  }
+}
+bool Ghost::step () {
+  int dx, dy;
+  this->calcMove(dx,dy);
+  if (dx!=0 || dy!=0) {
+    theField->clearGhostSprite(myX,myY);
+    this->myX += dx;
+    this->myY += dy;
+    theField->drawGhostSprite(myX,myY);
+  }
+  return true;
+}
+bool Pacman::step () {
+…
+}
+Zaštićeni (protected) članovi su dostupni
+u izvedenim klasama, ali ne i drugde
+van klase
+

@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Algoritamska dekompozicija
+❖ Fundament proceduralnog programiranja jeste algoritamska (proceduralna) dekompozicija (algorithmic,
+procedural decomposition):
+• u centru pažnje jeste zadatak ili posao koji treba uraditi, za koji se deﬁniše postupak (procedura,
+algoritam)
+• taj postupak se inicijalno deli na korake, najpre visokog nivoa apstrakcije i velike granularnosti
+(“da bi se to uradilo, potrebno je najpre uraditi a, pa onda b, potom, ako je ispunjen uslov c, treba
+uraditi d, inače e itd); ovi koraci deﬁnišu se kao procedure (potprogrami)
+• dalje se svaki krupniji korak deli istim postupkom na manje korake (rekurzivna primena istog
+postupka dekompozicije), sve dok se ne dođe do najsitnijeg nivoa granularnosti, onog koji se
+može izraziti elementarnim konstruktima programskog jezika koji se koristi
+❖ Procedure su takođe proizvod apstrakcije: određeni (krupniji) korak se apstrahuje kao celina, pri
+čemu se njegova razrada i detalji odlažu za kasnije, jer za koriščenje nisu bitni (bitan je samo interfejs)
+❖ Primer: Program koji održava n stek-mašina koje treba da izvršavaju komande (operacije add, sub,
+push, pop itd). Na ulazu se nalaze komande u tekstualnom obliku, svaka u po jednom redu. Svaka
+komanda je u formatu i:command, gde je i redni broj stek-mašine na koju se odnosi komanda u
+nastavku. Sa ulaza se učitava jedan po jedan znak operacijom getChar. Zapis komande sa ulaza treba
+prevesti pre nego što se izvrši.
+ 100
+

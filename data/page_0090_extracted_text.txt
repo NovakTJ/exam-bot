@@ -1,0 +1,14 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija softverske mašine
+❖ Pretpostavimo da pravimo softver za neku arkadnu igricu, u kojoj se različiti objekti, tzv. likovi, kreću uporedo
+po igračkom polju. Kako da implementiramo to nezavisno i uporedo kretanje koje se (makar prividno) dešava
+istovremeno?
+❖ Ideja:
+• svaki lik (character) predstavimo objektom, po potrebi određene izvedene klase
+• svaki lik implementira operaciju koja izvodi jedan korak (step) svog kretanja; ova operacija treba da bude
+kratka i da izvrši jedan elementaran pomeraj, po što je moguće kraći
+• jedna glavna petlja “proziva” sve likove na igračkom polju i svakome daje da se pomeri za po jedan korak
+❖ Na ovaj način možemo da stvorimo privid uporednog kretanja objekata kao aktivnih entiteta
+ 90
+
+

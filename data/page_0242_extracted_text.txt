@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Konstantni tipovi i funkcije članice
+❖ Kvaliﬁkator const može da se piše i ispred i iza naziva tipa:
+const char* pc1 = …;
+char const* pc2 = …;
+❖ Pokazivač na konstantan objekat deﬁniše se stavljanjem reči const ispred (ili iza) tipa objekta (ali
+ispred znaka *); konstantan pokazivač deﬁniše se stavljanjem reči const ispred samog imena
+pokazivača, odnosno iza znaka *:
+const char* pc = …;
+pc[3] = 'a';
+pc = …;
+
+char* const cp = …;
+cp[3] = 'a';
+cp = …;
+
+const char* const cpc = …;
+cpc[3] = 'a';
+cpc = …;
+❖ Referenca može biti na konstantan tip, ali sama referenca ne može da se deklariše kao konstantna,
+jer ona to svakako jeste (ne postoji operacija koja bi promenila referencu nakon inicijalizacije); ako
+se const upotrebi uz referencu indirektno, npt. u typedef deklaracijama, ignoriše se
+ 242
+Greška u prevođenju: pc[3] je isto što i *(pc+3); kako je pc tipa const char*
+(pokazivač na konstantan char), to je *(pc+3) tipa const char, pa se ne može menjati
+Greška u prevođenju: cp je tipa char*const (konstantan pokazivač na nekonstantan
+char), pa se ne može menjati; cp[3] je tipa char, pa se može menjati
+Greška u prevođenju: cpc je tipa const char*const (konstantan pokazivač na
+konstantan char), pa se ne može menjati ni on, ni ono na šta on ukazuje
+

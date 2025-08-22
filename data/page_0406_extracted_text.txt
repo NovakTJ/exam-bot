@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Inicijalizacija lokalne statičke varijable vrši se kada bilo koje izvršavanje (u bilo kojoj niti) prvi
+put naiđe na njenu deﬁniciju; svaki sledeći nailazak preskače inicijalizaciju
+❖ Ako ova inicijalizacija baci izuzetak, statička varijabla se ne smatra inicijalizovanom i
+inicijalizacija će biti pokušana pri sledećem nailasku izvršavanja na istu deﬁniciju
+❖ Nestatički podatak član može biti inicijalizovan na dva načina:
+• u listi inicijalizatora članova (member initializer list) u konstruktoru klase:
+X::X (int j) : i(j+1) {}
+• podrazumevanim inicijalizatorom člana (default member initializer) u deﬁniciji klase, koji se
+koristi ako se član izostavi iz liste inicijalizatora članova u konstruktoru; ako se član sa
+podrazumevanim inicijalizatorom pojavi i u listi inicijalizatora članova, ta podrazumevana
+inicijalizacija se ignoriše:
+struct X {
+  int i = 1;
+  string s{'H','e', 'l', 'l', ‘o’};
+  X () {}
+  X (int j) : i(j+1) {}
+};
+UNIT NAME: Inicijalizacija
+ 406
+Podrazumevani inicijalizatori
+Članovi i i s se inicijalizuju podrazumevanim inicijalizatorima
+Član s se inicijalizuje podrazumevanim inicijalizatorom, a i izrazom j+1
+Lista inicijalizatora članova
+

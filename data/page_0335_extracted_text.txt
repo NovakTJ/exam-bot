@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Izraz (operator) delete ima jedan od sledeća dva oblika:
+delete expression
+delete [] expression
+❖ Prvi oblik se koristi ako se uništava jedan objekat; drugi oblik je obavezan ako se uništava niz objekata. Ako se u ovome
+pogreši, efekat je nedeﬁnisan (greška u izvršavanju, jer se pozivaju pogrešne operatorske funkcije za dealokaciju)
+❖ Izraz koji je operand ovog operatora mora biti tipa pokazivača na objektni tip. On mora ukazivati na objekat, odnosno niz
+objekata napravljen pomoću new, ili na podobjekat osnovne klase objekta napravljen pomoću new, ili imati vrednost null (u
+kom slučaju ovaj operator nema efekta); u suprotnom, efekat je nedeﬁnisan
+❖ Izraz (operator) delete uvek radi sledeće stvari (osim ako pokazivač ima null vrednost, kada nema efekta), ovim redom:
+1. poziva destruktor objekta na koji pokazivač ukazuje, ili destruktor svakog elementa niza, ukoliko je pokazivač na
+klasni tip; ako pokazivač ukazuje na podobjekat osnovne klase, a destruktor je virtuelan, poziv je polimorfan; ako
+pokazivač ukazuje na podobjekat osnovne klase, a destruktor nije virtuelan, ponašanje je nedeﬁnisano
+2. oslobađa (dealocira) prostor koji je zauzimao objekat, odnosno niz, pozivom odgovarajuće operatorske funkcije za
+dealokaciju
+❖ Operator delete uvek ima povratni tip void
+❖ Potpuno analogno alokaciji, delokacija prostora (drugi korak) vrši se pozivom neke od (preklopljenih) operatorskih
+funkcija koje su standardno deﬁnisane jezikom (postoje i ovakve operatorske funkcije sa još nekim parametrima) i koje se
+mogu zameniti ili redeﬁnisati za klase:
+void operator delete   (void* ptr);
+void operator delete[] (void* ptr);
+UNIT NAME: Dinamički životni vek
+ 335
+

@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Varijable sa statičkim životnim vekom su sledeće:
+• varijable deklarisane u oblasti prostora imena (namespace), uključujući i globalni prostor
+• ostale varijable (deklarisane u oblasti bloka ili klase) koje su deklarisane kao static ili extern
+osim ako imaju speciﬁkator thread_local
+namespace N {
+  int i;
+  struct S {
+    static int i;
+  };
+  void f () {
+    static int i;
+  }
+}
+❖ Za svaku deﬁniciju ovakvog objekta postoji jedna instanca za vreme izvršavanja; zato prevodilac
+može (i po pravilu to i radi) alocirati prostor za takve objekte u prevedenom fajlu koji predstavlja
+memorijsku mapu programa prilikom pokretanja. U svakom slučaju, memorijski prostor za ovakve
+objekte alocira se na početku izvršavanja programa i dealocira na kraju izvršavanja programa
+UNIT NAME: Statički životni vek
+ 323
+Statički objekat u oblasti prostora imena
+Statički objekat u oblasti klase (statički podatak član)
+Statički lokalni objekat
+

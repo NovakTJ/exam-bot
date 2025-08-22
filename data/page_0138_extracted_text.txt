@@ -1,0 +1,29 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Ako pak osnovna klasa nije javna, već zaštićena (protected) ili privatna (private), objekat izvedene klase i dalje će u sebi imati
+ugrađen podobjekat te osnovne klase, ali on neće biti dostupan van te klase, osim u izvedenim klasama ako je zaštićen:
+• implicitna konverzija pokazivača (ili reference) na objekat izvedene klase u pokazivač (ili referencu) na osnovnu klasu
+dozvoljena je samo u toj klasi (i u izvedenoj klasi, za zaštićeno izvođenje)
+• javni i zaštićeni članovi osnovne klase dostupni su samo u toj izvedenoj klasi, ali ne i van nje (osim u izvedenim klasama
+za zaštićeno izvođenje):
+class Task : protected ListElem {…};
+Task* aTask = …;
+List* taskList = …;
+taskList->addAtTail(aTask);
+❖ Ali unutar te izvedene klase (Task), može se vršiti ova implicitna konverzija, čime klasa zapravo nudi svoj odgovarajući
+interfejs potrebnom kontekstu:
+void Task::addToTaskList(List* taskList) {
+  if (taskList) taskList->addAtTail(this);
+}
+❖ Prema tome, kod zaštićenog i privatnog izvođenja, ne važi pravilo supstitucije u celom programu i sa objektima izvedene
+klase ne može se uvek i svuda uraditi sve što i sa objektima osnovne klase, pa ovakvo izvođenje klasa na jeziku C++ ne
+realizuje nasleđivanje kao objektni koncept, već:
+• predstavlja relaciju ugrađivanja objekta jedne klase u objekte druge klase
+• može se koristiti za kontrolisanu i skrivenu ugradnju mixin klasa, uz otkrivanje tih interfejsa samo u određenim
+ograničenim delovima programa radi strožije enkapsulacije
+ 138
+Ovo više nije moguće van klase Task ili njene izvedene klase
+Implicitna konverzija pokazivača this tipa Task* u
+pokazivač tipa ListElem* na zaštićenu (ili privatnu)
+osnovnu klasu dozvoljena je u toj izvedenoj klasi
+

@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ Speciﬁkator public: govori prevodiocu da su samo članovi koji se nalaze iza
+njega dostupni spolja. Ovi članovi nazivaju se javnim i čine interfejs klase
+❖ Članovi iza speciﬁkatora private: su nedostupni korisnicima klase (ali ne i
+članovima klase) i nazivaju se privatnim i čine implementaciju klase
+class Clock {
+public:
+  void tick (); // Tick a second
+  string getTime ();  // Returns current time
+  void setTime (int hour, int min, int sec);
+private:
+  int h, m, s;  // Hour, minute, second
+};
+ 23
+

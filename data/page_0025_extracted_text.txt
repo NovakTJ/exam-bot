@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Konstruktori i destruktori
+❖ Kao i na jeziku C, inicijalne vrednosti promenljivih ugrađenih tipova
+nisu deﬁnisane. Zbog toga ovo daje neodređen rezultat:
+Clock* pClk1 = new Clock;
+cout << pClk1->getTime() << endl;
+❖ Zato se od programera zahteva da odmah nakon kreiranja novog
+objekta, obavezno pozove operaciju setTime, kako bi postavio željene
+vrednosti:
+Clock* pClk1 = new Clock;
+pClk1->setTime(23,25,36);
+❖ Podložno greškama: bilo šta što se programer obavezuje da uradi, a ne
+proverava se automatski (nego zavisi od discipline), će sigurno ponekad
+biti zaboravljeno!
+ 25
+Vrednosti podataka članova s, m, h
+objekta su potpuno neodređene
+

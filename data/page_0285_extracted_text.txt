@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Postupak određivanja operanada operatora zasniva se na:
+• prioritetu operatora
+• načinu grupisanja (asocijativnosti) operatora: ako se rezultat operatora
+može koristiti kao operand tog operatora, da li se operacije u nizu
+izračunavaju sleva nadesno ili zdesna nalevo
+• podrazumevani način se može promeniti zagradama koje uokviruju
+podizraze
+❖ Na primer:
+a+b*c
+(a+b)*c
+cout<<p->inc()
+**p = 3
+a+b+c
+UNIT NAME: Izrazi
+ 285
+Izračunava se kao a+(b*c), jer operator * ima viši prioritet nego operator +
+Promena načina izračunavanja zagradama (podizrazima)
+Izračunava se kao cout<<((p->inc)()), jer operatori -> i () imaju viši prioritet nego
+operator <<
+Izračunava se kao*(*p), jer operator * grupiše zdesna nalevo
+Izračunava se kao (a+b)+c, jer operator + grupiše sleva nadesno
+

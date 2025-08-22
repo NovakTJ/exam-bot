@@ -1,0 +1,17 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Inicijalizacija listom omogućava da se varijable inicijalizuju na kompaktan
+način, čitavim listama izraza unutar velikih zagrada (braced-init-list)
+proizvoljne dužine. Na primer:
+Task t1, t2, …;
+TaskList myTasks {&t1, &t2, &t3};
+TaskList yourTasks {&t4, &t5};
+❖ Slično važi i za pozive funkcija kojima se mogu prosleđivati liste kao
+argumenti; tada se njihovi parametri inicijalizuju listom; na primer:
+myTasks.add({&t4, &t5, t6});
+myTasks.add({&t7});
+❖ Liste izraza unutar velikih zagrada nisu izrazi pa nemaju svoj tip; osim
+toga, ovakva inicijalizacija ne dozvoljava neke implicitne konverzije
+(uključujući i neke standardne)
+UNIT NAME: Inicijalizacija listom
+ 422
+

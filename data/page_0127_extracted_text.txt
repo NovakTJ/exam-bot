@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Jedna od osnovnih tendencija u OO programiranju jeste upravo generalizacija: apstrahovanje
+zajedničkih svojstava i formiranje uopštenih interfejsa za klijente, kako bi oni bili što manje
+zavisni od speciﬁčnosti pojedinačnih slučajeva
+❖ Speciﬁčnosti se onda sakrivaju iza polimorfnih operacija i ugrađuju u njihove različite
+implementacije (metode) u izvedenim klasama
+❖ Na ovaj način se sprege između delova softvera čine labavijim, jednostavnijim za kontrolu, a
+klijenti čine nezavisnijim i time ﬂeksibilnijim (“the less you know, the better”)
+❖ Ovo se ponekad naziva principom inverzije zavisnosti (dependency inversion principle):
+• u proceduralnom programiranju, u algoritamskoj dekompoziciji, potprogram (apstrakcija) na
+višem nivou i krupnije granularnosti zavisi od potprograma (apstrakcije) na nižem nivou, jer
+je poziva kao deo svoje implementacije
+• u OOP , tendencija je da jedna apstrakcija, klijent (Drawing) zavisi od druge uopštene
+apstrakcije na višem nivou (Figure), a da specijalizacije (Rectangle, Circle, …), kao pojedinačni
+slučajevi, zavise od opštije apstrakcije (Figure) - obrnuta zavisnost
+❖ Generalizacijom i korišćenjem polimorﬁzma se drastično smanjuje količina uslovnih grananja na
+osnovu tipa objekta kojim se rukuje
+ 127
+

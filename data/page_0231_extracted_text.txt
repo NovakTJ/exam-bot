@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nizovi
+❖ Dve potpuno nezavisne implicitne konverzije mogu da dovedu do problema ukoliko se nizovi objekata ne koriste na
+korektan način:
+• konverzija T[] u T*, koja potiče iz jezika C sa ciljem eﬁkasnosti
+• konverzija pokazivača na izvedenu u pokazivač na dostupnu osnovnu klasu (Derived* u Base*), koja je uvedena u
+jezik C++ kao podrška principu supstitucije
+❖ Ove dve konverzije se mogu raditi i povezano, obe, u lancu implicitnih konverzija, i mogu da dovedu do sledećeg
+problema: funkcija koja kao parametar ima niz objekata osnovne klase (Base[], odnosno Base*), može se pozvati sa
+argumentom koji je niz objekata izvedene klase (Derived[]):
+Derived[] ὎ Derived* ὎ Base*
+class Base {
+  public: int bi;
+};
+class Derived : public Base {
+  public: int di;
+};
+void f (Base b[]) { cout<<b[2].bi; }
+int main () {
+  Derived d[5];
+  d[2].bi=77;
+  f(d);
+}
+ 231
+Objekti klase Base imaju samo jedan podatak član tipa int, pa su veličine jednog int
+Objekti klase Derived su veličine dva int
+Funkcija f očekuje niz objekata klase Base, veličine jednog int:
+b[2] je *(b+2), a pošto je b tipa B[], pokazivačka aritmetika dodaje
+vrednost 2*sizeof(B)
+d se konvertuje iz Derived[] u Derived*, a potom u Base*, pa je poziv ispravan
+

@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Ovakav pristup dosta se koristi i u složenim programima na jeziku C (npr. implementaciji operativnih sistema) na sledeći
+način:
+struct ListElem {…};
+struct Runnable {…};
+struct Drawable {…};
+struct Task {
+  ListElem listElem;
+  Runnable runnable;
+  Drawable drawable;
+  …
+};
+❖ Dakle, instanca strukture Task u sebi sadrži podstrukture koje predstavljaju odgovarajuće interfejse. Kada instancu
+strukture Task treba koristiti u nekom od ovih konteksta, dostavlja se pokazivač na odgovarajuću ugrađenu podstrukturu:
+Task* aTask = …;
+List* taskList = …;
+addAtTail(taskList, &aTask->listElem);
+❖ Sa idejom da podrži ovakve načine korišćenja, ali i da implementacija u njima bude podjednaka (i podjednako eﬁkasna)
+kao ova na jeziku C, jezik C++ zapravo ima koncept izvedenih klasa (derived class), sa sledećim značenjem:
+• klasa može biti izvedena iz više osnovnih klasa koje su navedene u zaglavlju deﬁnicije klase, iza dvotačke
+• svaki objekat izvedene klase u sebi sadrži po jedan podobjekat svake od tih osnovnih klasa
+• speciﬁkator pristupa (public, protected, private) označava dostupnost dog podobjekta, na isti način kao i za članove te
+klase
+ 136
+

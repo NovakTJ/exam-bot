@@ -1,0 +1,11 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstrakcije
+Primer: sistem za izdavanje ličnih identiﬁkacionih dokumenata
+❖ Za Osobe se čuvaju lični (ime i prezime, datum rođenja, pol, adresa itd.) i
+biometrijski podaci (fotograﬁja, otisak prsta, sken dužice oka itd.)
+❖ Lični Dokumenti (pasoš, lična karta, vozačka dozvola itd.) sadrže deo tih
+podataka (na papiru i unutar čipa)
+❖ Podaci osoba se povremeno menjaju, a dokumenti imaju podatke koji važe u
+trenutku podnošenja zahteva za izdavanje dokumenta
+ 85
+

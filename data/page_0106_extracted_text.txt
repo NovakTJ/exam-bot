@@ -1,0 +1,52 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Algoritamska dekompozicija
+class Reader {
+public:
+  Command* read ();
+  …
+protected:
+  bool readOut(int& out);
+  bool readCmd(string& cmd);
+private:
+  …
+}
+Command* Reader::read () {
+  int out;
+  string cmd;
+  bool ret = readOut(out);
+  if (!ret) return nullptr;
+  ret = readCmd(cmd);
+  if (!ret) return nullptr;
+  return new Command(out,cmd);
+}
+…
+ 106
+class StackMachine {
+public:
+  void perform (Command*);
+  …
+protected:
+  void push (int);
+  int  pop ();
+  …
+};
+void StackMachine::perform (Command* cmd) {
+  switch (cmd->getOpCode()) {
+    case add: {
+      int op1 = this->pop();
+      int op2 = this->pop();
+      this->push(op1+op2);
+      break;
+    }
+    case sub: …
+    …
+  }
+}
+int StackMachine::pop () {
+  if (this->sp==0) return 0;
+  else return this->stack[--this->sp];
+}
+…
+Pomoćne (helper) operacije
+Pomoćne (helper) operacije
+

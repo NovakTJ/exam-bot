@@ -1,0 +1,34 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Obrada izuzetaka
+❖ Šta je uopšte izuzetak? Šta je izuzetna situacija, a šta nije? Kada koristiti izuzetke, a kada prosto ispitivati stanje i
+rezultate?
+❖ Primer: procedura koja učitava znakove iz nekog ulaznog znakovnog toka (npr. fajla) i obrađuje ih. Da li je
+nailazak na kraj fajla izuzetak?
+❖ Ako se ne tretira kao izuzetak:
+ifstream f(“input.txt”);
+while (!f.eof()) {
+  char c = f.getc();
+  // …
+}
+❖ Naravno da je ovo drugo potpuno besmisleno, jer kraj fajla nije neregularna, nego sasvim očekivana i ispravna
+situacija. Osim toga, kod koji bi tako tretirao kraj fajla bio bi potpuno nepregledan i nelogičan
+❖ Međutim, šta ako procedura treba da učitava složenije strukture, recimo zapise koji imaju odgovarajući format i
+strukturu; šta ako se tada naiđe na kraj fajla u sledećim slučajevima: a) tačno nakon završetka celog zapisa; b) pre
+završetka zapisa?
+❖ Sledeći primer: procedura pretražuje neku kolekciju elemenata i traži zadati element: a) koji može, a ne mora da
+bude u njoj; b) koji bi morao da bude u njoj, jer je to regularno stanje programa? Kako se tretira sutuacija ako ta
+procedura ne nađe traženi element?
+ 156
+ifstream je bibliotečna klasa za ulazne
+tekstualne fajlove kao znakovne tokove
+❖ Ako se tretira kao izuzetak:
+ifstream f(“input.txt”);
+while (true) {
+  try {
+   char c = f.getc();
+   // …
+  } catch (...) {
+    break;
+  }
+}
+

@@ -1,0 +1,34 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Tipovi
+❖ Složeni tipovi (compound types):
+ 186
+• tipovi referenci (reference types):
+• tipovi referenci na l-vrednosti (lvalue reference types):
+• tipovi lvalue referenci na objekte (lvalue
+reference to object types)
+• tipovi lvalue referenci na funkcije (lvalue
+reference to function types)
+• tipovi referenci na d-vrednosti (rvalue reference
+types):
+• tipovi rvalue referenci na objekte (rvalue
+reference to object types)
+• tipovi rvalue referenci na funkcije (rvalue
+reference to function types)
+• tipovi pokazivača (pointer types):
+• tipovi pokazivača na objekte (pointer-to-object types)
+• tipovi pokazivača na funkcije (pointer-to-function
+types)
+• tipovi pokazivača na članove (pointer-to-member
+types):
+• tipovi pokazivača na podatke članove
+(pointer-to-data-member types)
+• tipovi pokazivača na funkcije članice
+(pointer-to-member-function types)
+• tipovi nizova (array types)
+• tipovi funkcija (function types)
+• tipovi nabrajanja (enumeration types)
+• klasni tipovi (class types):
+• ne-unije (non-union types): strukture (struct) i
+klase (class)
+• tipovi unija (union types)
+

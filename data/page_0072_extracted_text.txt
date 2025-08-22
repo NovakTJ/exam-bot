@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstraktnog tipa podataka
+❖ Sledeće pitanje: ako želimo da instance korisničkih tipova koristimo kao i instance ugrađenih tipova, zašto i notacija operacija,
+recimo za ovakve, matematičke tipove, ne bi bila ista?
+❖ Umesto:
+…complex::sub(complex::add(c3,c4),c5)…
+zašto ne bismo pisali prosto ovako:
+…c3+c4-c5…
+❖ U skladu sa opredeljenjem na ovakvo koriščenje instanci korisničkih tipova, jezik C++ omogućava i ovo - preklapanje operatora
+(operator overloading)
+❖ Umesto “klasičnih” identiﬁkatora, funkcije mogu imati i posebno ime, operator@, gde je @ simbol nekog operatora ugrađenog u
+jezik:
+class complex {
+public:
+  complex (double real, double imag);
+  complex (complex& other);  // Copy constructor
+  friend complex operator+ (complex c1, complex c2);
+  friend complex operator- (complex c1, complex c2);
+private:
+  double re, im;
+};
+complex::complex (double real, double imag) {…}
+complex operator+ (complex c1, complex c2) {
+  return complex(c1.re+c2.re,c1.im+c2.im);
+}
+…
+ 72
+Prijateljske ﬁnkcije (friend) nisu članice date klase,
+ali imaju pravo pristupa do njenih privatnih
+

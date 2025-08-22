@@ -1,0 +1,33 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Sa druge strane, inicijalizacija lokalnih statičkih varijabli je precizno deﬁnisana: takva varijabla inicijalizuje
+se kada kontrola toka prvi put naiđe na njenu deﬁniciju; ako više niti nailazi na tu deﬁniciju, samo prva će
+izvršiti inicijalizaciju. Svako naredno izvršavanje preskače (ignoriše) tu deﬁniciju
+❖ Ukoliko izvršavanje nikada ne dođe do ovakve deﬁnicije, statički objekat neće biti ni inicijalizovan (pa
+stoga ni uništen pozivom destruktora), na primer ako se funkcija ne pozove ili ne izvrši grana u kojoj je
+deﬁnicija
+❖ S obzirom na svoj statički životni vek, statičke lokalne varijable nadživljavaju izvršavanje bloka (pa i poziv
+funkcije) u kom su deklarisane, iako imaju lokalni opseg važenja, pa nisu dostupne van te oblasti. Na
+primer:
+int a = 1;
+void f () {
+  int b = 1;
+  static int c=1;
+  cout<<" a = "<<a++;
+  cout<<" b = "<<b++;
+  cout<<" c = “<<c++<<'\n';
+}
+int main () {
+  while (a<4) f();
+}
+UNIT NAME: Statički životni vek
+ 327
+a je globalni statički objekat: dostupan u celom fajlu, statički inicijalizovan
+b je lokalni automatski objekat: inicijalizuje se pri svakom pozivu funkcije
+c je lokalni statički objekat: dostupan samo u bloku, inicijalizuje se pri prvom
+izvršavanju deﬁnicije
+a i c nadživljavaju izvršavanje funkcije, b nestaje izlaskom iz funkcije
+Ispisaće se:
+a = 1 b = 1 c = 1
+a = 2 b = 1 c = 2
+a = 3 b = 1 c = 3
+

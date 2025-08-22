@@ -1,0 +1,41 @@
+Septembar 2024. Copyright 2018-2024 by Dragan MilićevMemoizacija izračunate vrednosti
+❖ Konstantne funckije članice su one operacije koje (konceptualno) ne menjaju “spolja vidljivo stanje objekta”, što ne mora obavezno
+značiti da ne mogu da upišu vrednost u neki podatak član objekta
+❖ Tipičan primer jeste situacija kada neka operacija samo izračunava neki podatak, odnosno vraća informaciju (podatak) o stanju
+objekta, ali je izračunavanje tog podatka veoma složena i zahtevna operacija (memorijski ili vremenski), pa je zgodno uraditi tzv.
+memoizaciju (memoization): pamćenje izračunatog podatka, kako se sledeći put može samo vratiti ta upamćena vrednost, bez ponovnog
+izračunavanja. Da bi se ta izračunata vrednost zapamtila u objektu, potrebno je upisati je u neki podatak član predviđen za čuvanje te
+vrednosti
+❖ U konstantnoj funkciji članici bi prevodilac sprečio upis u taj podatak član, što se može prevazići eksplicitnom konverzijom
+operatorom const_cast:
+const_cast<X const*>(this)->member = …
+❖ U opštem slučaju, ovo može imati nedeﬁnisane efekte, pa na jeziku C++ postoji i direktniji pristup: ovakav podatak član može se
+označiti kao promenljiv čak i u konstantnim objektima, navođenjem speciﬁkatora mutable u deklaraciji tog podatka člana. Na primer:
+class City {
+public:
+  …
+  Distance getDistanceFrom (City* other) const;
+protected:
+  Distance computeDistanceFrom (City* other) const;
+private:
+  mutable map<City*,Distance> memoizedDistances;
+};
+…
+Distance City::getDistanceFrom (City* other) const {
+  if (memoizedDistances.count(other)==0)
+    memoizedDistances.insert(computeDistanceFrom(other));
+  return memoizedDistances[other];
+}
+Konstantni tipovi i funkcije članice
+ 248
+Funkcija insert klase map nije konstantna funkcija
+članica, pa prevodilac ne bi dozvolio njen poziv za
+podatak član memoizedDistances unutar konsatante
+funkcije članice ove klase; međutim, ovaj podatak
+član je deklarisan kao mutable, pa je ovo dozvoljeno
+Funkcija getDistanceFrom treba da vrati udaljenost ovog grada
+od datog drugog grada. Ona je konstantna, jer ne menja spolja
+vidljivo stanje objekta
+Pomoćna funkcija computeDistanceFrom sprovodi zahtevan
+postupak izračunavanja udaljenosti između gradova
+

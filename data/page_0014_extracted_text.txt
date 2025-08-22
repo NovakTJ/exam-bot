@@ -1,0 +1,14 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Šta se menja prelaskom na OOP?
+❖ Prelazak sa proceduralnog programiranja na OOP je promena
+paradigme!
+❖ OO paradigma sadrži koncepte višeg nivoa apstrakcije, izražajnije,
+bliže domenima problema
+❖ Menja se način razmišljanja
+❖ Težište se prebacuje sa implementacije na interfejse i veze između
+delova softvera – cilj je oslabiti veze između delova i učiniti ih lakšim
+za kontrolu i modiﬁkaciju
+❖ Umesto isključivo algoritamske dekompozicije koristi se objektna
+dekompozicija
+ 14
+

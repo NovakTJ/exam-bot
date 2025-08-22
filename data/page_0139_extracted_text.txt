@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Objekat izvedene klase u sebi sadrži podobjekat svake osnovne klase; i tako rekurzivno,
+ako ta osnovna klasa ima svoje osnovne klase, taj podobojekat imaće u sebi po jedan
+podobjekat svake od tih daljih osnovnih klasa itd. Kako je operativna memorija linearna,
+da bi se objekat klase izvedene iz više osnovnih klasa smestio u nju, ovi podobjekti se
+moraju poređati, i to po redosledu navođenja osnovnih klasa u deﬁniciji izvedene klase:
+class D : public B1, public B2 {…};
+ 139
+Redosled posiva je uvek B1() pa B2(),
+čak i ako su ovde navedeni drugačije
+:B1
+:B2
+❖ Kada se pravi objekat izvedene klase (D), poziva se konstruktor te klase. Ali
+svaki konstruktor izvedene klase uvek poziva (pre izvršavanja svog tela)
+konstruktor osnovne klase; taj poziv obezbeđuje prevodilac u generisanom
+kodu za konstruktor izvedene klase. Analogno, konstruktor osnovne klase u
+sebi ima poziv konstruktora svoje osnovne klase itd.
+❖ U slučaju višestrukog izvođenja, konstruktori osnovnih klasa pozivaju se po
+redosledu navođenja tih klasa u deﬁniciji izvedene klase, bez obzira na to
+kako su ti pozivi navedeni:
+D::D (…) : B1(…), B2(…) {
+ …
+}
+:D
+

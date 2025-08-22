@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Deklaracije koje uvode varijable ili funkcije imaju sintaksu kao na jeziku C; one mogu biti vrlo komplikovane i nečitke za
+složene tipove, ali neka osnovna orijentaciona pravila za tumačenje tipa ovakvih imena jesu sledeća:
+• Prilikom tumačenja tipa u deklaraciji, kreće se od mesta imena; ako se radi o složenom tipu za type-id, kreće se od
+mesta gde bi se nalazilo ime, da se radi o deklaraciji imena
+• Iterativno se izgrađuje rečenica koja opisuje dati složeni tip; počinje se od rečenice “… je tipa -“
+• Od tekuće pozicije uvek se ide najpre nadesno, dokle god se ne naiđe na zatvorenu zagradu ili na kraj; onda se ide
+nalevo, sve dok se ne dođe do otvorene zagrade ili do kraja, čime se zaključuje jedan nivo i ponovo kreće nadesno
+• Ako se, pri kretanju nadesno, naiđe na znake [], na rečenicu se dodaje iskaz “niz od … elemenata tipa -“
+• Ako se, pri kretanju nadesno, naiđe na listu argumenata unutar zagrada (), na rečenicu se dodaje iskaz “funkcija koja
+prima argumente tipa (i za svaki argument u listi pročita se tip) i vraća rezultat tipa -“
+• Ako se, pri kretanju nalevo, naiđe na znak *, na rečenicu se dodaje iskaz “pokazivač na tip -“
+• Ako se, pri kretanju nalevo, naiđe na znak &, na rečenicu se dodaje iskaz “referenca na tip -“
+• Ako se, pri kretanju nalevo, naiđe na ime tipa, na rečenicu se dodaje ime tog tipa
+• Ime tipa na početku deklaracije odnosi se na sva deklarisana imena, dok se ostali elementi tzv. deklaratora (npr. znaci
+za reference i pokazivače) odnose samo na svakog pojedinačno
+❖ Primeri:
+int *pi, &ri, i, *a[10], (*pa)[], (*pap)[], f(int*), (*pf)(int), (*apf[])(int), &(*pf)(int&(*)(int&));
+❖ Naravno, preterano složene i nečitke iskaze treba svakako izbegavati i učiniti čitljivijim uvođenjem typedef sinonima
+UNIT NAME: Deklaracije
+ 262
+Ovo nije dobar stil programiranja!
+

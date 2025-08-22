@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Povezivanje
+❖ U principu, prema tome, linker može da prijavi samo dve vrste grešaka:
+1. Simbol nije deﬁnisan: kada napravi evidenciju (u svojoj tabeli simbola) o tome koji fajlovi izvoze
+(deﬁnišu) koje simbole, a koji fajlovi uvoze koje simbole, linker može da zaključi da je neki fajl tražio
+(uvezao) neki simbol koji nijedan fajl nije deﬁnisao (izvezao); u informaciji o ovoj grešci linker ne može
+da kaže ništa o tome šta je simbol bio u izvornom programu niti gde je u izvornom kodu tražen (jer te
+informacije po pravilu i nema); tipični uzroci jesu:
+• zaboravljena deﬁnicija neke deklarisane funkcije ili objekta (retko, čista omaška)
+• zaboravljena neki obj ili lib fajl na spisku za linkovanje (omaška)
+• neka povezana biblioteka zavisi od (uvozi simbole iz) neke druge biblioteke, koja nije povezana
+2. Simbol višestruko deﬁnisan: kada naiđe na simbol koji neki fajl izvozi, a isti taj simbol već postoji u tabeli
+simbola jer ga je neki drugi fajl već izvezao, linker prijavljuje grešku; ovo je situacija tzv. sukoba imena
+(name clash): dva izvorna fajla deﬁnisala su ista globalna imena sa eksternim vezivanjem (primetiti to da
+imena sa internim vezivanjem nisu ni vidljiva linkeru i ne mogu da naprave sukob); tipični uzroci jesu:
+• sukob imena u korisničkom programu
+• sukob imena iz korisničkog programa sa imenom koje je izvezla biblioteka
+Ovakve pojave, tj. sukobe imena, značajno smanjuje korišćenje koncepta prostora imena (namespace) na
+jezik C++, čime se izbegava potreba za globalnim imenima i obeshrabruje njihova upotreba
+ 174
+

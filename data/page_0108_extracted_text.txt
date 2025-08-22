@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Relacije i zavisnosti između klasa
+❖ Veze između objekata mogu biti kratkotrajne, tj. takve da ne nadživljavaju
+trajanje metode u kojoj se koriste, tako što posmatrana operacija:
+• kao argument prima pokazivač na objekat-server:
+void Controller::main (Reader* myReader, Translator* myTranslator) {
+  Command* cmd = myReader->read();
+  while (cmd!=nullptr) {
+    myTranslator->translate(cmd);
+    int out = cmd->getOut();
+    mySMs[out]->perform(cmd);
+  }
+}
+• dobija pristup do datog objekta putem neke druge operacije (npr. kao
+njenu povratnu vrednost), ili traži takav objekat na neki drugi način:
+void Controller::main () {
+  Command* cmd = myReader->read();
+  while (cmd!=nullptr) {
+    myTranslator->translate(cmd);
+    int out = cmd->getOut();
+    mySMs[out]->perform(cmd);
+  }
+}
+ 108
+

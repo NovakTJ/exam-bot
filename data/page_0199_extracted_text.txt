@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni celobrojni tipovi
+❖ Osnovni celobrojni tip je tip int. Ako nema modiﬁkatora veličine, garantovano
+je da int ima širinu od najmanje 16 bita. Na današnjim 32-bitnim i 64-bitnim
+sistemima skoro je sigurno da int ima širinu od najmanje 32 bita
+❖ Modiﬁkatori označenosti:
+• signed — tip ima označenu reprezentaciju; podrazumeva se ako nema
+modiﬁkatora označenosti; prilikom proširenja se proširuje znakom
+• unsigned — tip ima neoznačenu reprezentaciju; prilikom proširenja
+proširuje se nulama
+❖ Modiﬁkatori veličine:
+• short — tip je optimizovane veličine i ima širinu od najmanje 16 bita
+• long — tip ima širinu od najmanje 32 bita
+• long long — tip ima širinu od najmanje 64 bita
+ 199
+

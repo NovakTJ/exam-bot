@@ -1,0 +1,13 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klase i objekti
+Terminologija:
+❖ Članovi klase (class members): elementi deklarisani unutar deﬁnicije klase
+❖ Podatak član (data member): svojstvo (property), atribut (attribute), polje (ﬁeld)
+❖ Funkcija članica (member function): operacija (operation), metoda (method)
+Stil pisanja identiﬁkatora:
+❖ C stil: get_time
+❖ Camel-case: getTime
+❖ Imena klasa velikim početnim slovom, ostalo malim
+❖ Drugi proizvođači i jezici koriste drugačije stilove (npr. Microsoft .Net i C#)
+ 21
+

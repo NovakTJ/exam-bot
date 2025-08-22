@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Čdvrednost (prvalue) su, pored još nekih, sledeći izrazi:
+• enumerator i literal (osim string literala), npr. 23, 12.34, nullptr ili true
+• poziv funkcije ili operator za preklopljenu operatorsku funkciju, ako povratni tip nije referenca, npr. s.substr(1,2) ili s1+s2
+• a++ i a--, ugrađeni postﬁksni operatori inkrementiranja i dekrementiranja
+• a+b, a-b, a%b, a>>b i svi drugi ugrađeni aritmetički operatori
+• a&&b, a||b, !a, ugrađeni logički operatori
+• a<b, a>b, a==b, a!=b i svi drugi ugrađeni operatori poređenja
+• &p, ugrađeni operator uzimanja adrese
+• x.m, član objekta, ako je m enumerator član ili nestatička funkcija članica
+• p->m, ugrađeni operator člana pokazivanog objekta, ako je m enumerator član ili nestatička funkcija članica
+• a,b, ugrađeni operator zarez, ako je b dvrednost
+• a?b:c, ugrađeni ternarni uslovni operator pod određenim uslovima (ako je izabrani izraz dvrednost)
+• rezultat konverzije u tip koji nije referenca, npr. static_cast<int>(x)
+• pokazivač this
+❖ Svojstva čdvrednosti:
+• sve kao za dvrednosti
+• ne može biti polimorfan: dinamički tip uvek je jednak statičkom tipu određenom za vreme prevođenja
+• čdvrednost koja nije klasnog tipa i nije tipa niza ne može biti cv-kvaliﬁkovana
+• ne može biti nekompletnog tipa, tipa apstraktne klase ili niza takvog tipa
+UNIT NAME: Kategorije vrednosti
+ 391
+

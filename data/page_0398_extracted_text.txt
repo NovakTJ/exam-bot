@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Operator dodele premeštanjem (move assignment operator) klase X je nestatička operatorska
+funkcija članica te klase  sa imenom operator= čiji je jedini parametar tipa X&&, const X&&,
+volatile X&& ili const volatile X&&
+❖ Ova funkcija poziva se kada se objekat klase X nalazi kao levi operand operatora dodele = i
+kada se baš ona odabere u postupku odabira preklopljene operatorske funkcije za desni
+operand tog operatora, odnosno kada je desni operand dvrednost ili se može konvertovati u
+dvrednost
+❖ I za operator dodele premeštanjem važe slična pravila kao i za konstruktor premeštanja,
+odnosno za operator dodele kopiranjem: ako klasa nema nijedan eksplicitno deklarisan
+operator dodele premeštanjem (tj. korisnički deklarisan operator dodele premeštanjem) i
+pod uslovom da ta klasa nema korisnički deﬁnisan konstruktor kopije, konstruktor
+premeštanja, operator dodele kopiranjem i destruktor, prevodilac će implicitno deklarisati
+konstruktor premeštanja koji je javan, inline i nije explicit
+❖ Ovaj implicitno deklarisani operator dodele premeštanja može se smatrati i obrisanim pod
+odgovarajućim uslovima, a ako nije obrisan ili je podrazumevan, on vrši dodelu
+premeštanjem podobjekata osnovnih klasa i objekata članova, odnosno dodelu kopiranjem
+ako premeštanje nije deﬁnisano
+UNIT NAME: Operator dodele premeštanjem
+ 398
+

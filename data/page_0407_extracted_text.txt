@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Konstantna inicijalizacija se vrši za varijable sa statičkim trajanjem skladištenja i onima vezanim za niti (thread local),
+samo pod uslovom da su inicijalizovani konstantnim izrazom
+❖ Konstantan izraz (constant expression) je izraz koji se može izračunati za vreme prevođenja i može se koristiti gde god je
+potreban konstantan izraz (npr. za dimenzije nizova ili inicijalizaciju konstanti)
+❖ Ovakvi su izrazi koji uključuju npr. samo literale, konstante primitivnih tipova i operatore koji se mogu izračunati za
+vreme prevođenja
+❖ Međutim, od verzije C++11, u konstantnim izrazima mogu učestvovati i varijable, uključujući i objekte klasa, pa čak i
+pozivi korisničkih funkcija, uključujući i pozive funkcija članica klasa, pod uslovom da su te funkcije deklarisane kao
+constexpr, i da se te funkcije, uključujući i konstruktore, mogu izvršiti za vreme prevođenja, što znači da su im
+argumenti konstantni izrazi, da su inicijalizatori svih podobjekata konstantni izrazi, da su svi podaci članovi
+inicijalizovani i slično
+❖ Ovakve klase i funkcije moraju zadovoljiti niz deﬁnisanih uslova, pri čemu su se ti uslovi menjali kroz verzije jezika, i
+dalje se menjaju u novijim verzijama jezika u pravcu relaksacije ograničenja; na primer, od verzije C++20, ove funkcije
+mogu da budu čak i virtuelne
+❖ Jedno od osnovnih ograničenja jeste to da se te funkcije ne mogu oslanjati na pozive funkcija koje nisu označene kao
+constexpr ili vrednosti varijabli koje nisu označene kao constexpr ili podataka članova koji nemaju inicijalizatore
+❖ Funkcije koje su označene kao constexpr, uključujući i konstruktore, mogu se pozivati i van konstantnih izraza, odnosno
+za vreme izvršavanja
+❖ Objekti deklarisani kao constexr su implicitno konstantni i moraju biti inicijalizovani konstantnim izrazima; funkcije koje
+su označene kao constexpr su implicitno inline
+UNIT NAME: Konstantna inicijalizacija
+ 407
+

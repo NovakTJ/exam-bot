@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Kada je privremeni objekat kojim se vrši inicijalizacija operand naredbe return, ova ista
+optimizacija izostavljanja kopiranja naziva se optimizacija povratne vrednosti (return value
+optimization, RVO); na primer:
+string concat (const string& s1, const string& s1) {
+  return s1+s2;
+}
+❖ Moguće su i ovakve višestruke, vezane optimizacije koje izbegavaju višestruka kopiranja
+❖ U opštem slučaju, ukratko, ako je X klasni tip, navedene optimizacije izgledaju ovako:
+X f() {
+  return X();
+}
+f();
+X x = X(X(f()));
+❖ Do verzije jezika C++17, ovo su bile opcione (neobavezne) optimizacije, iako ih većina
+prevodilaca sprovodi; od verzije C++17 one su obavezne (uvek se sprovode)
+❖ Programi čija semantika zavisi od toga da li se ove optimizacije sprovode ili ne, odnosno u
+kojima postoje bočni efekti konstruktora kopije i operatora dodele kopiranjem nisu dobri
+UNIT NAME: Kopiranje objekata
+ 372
+RVO: rezultat izraza iza return biće konstruisan u prostoru privremenog objekta
+koji ova funkcija vraća, pa neće biti pozivan konstruktor kopije
+RVO: samo jedan jedini poziv podrazumevanog konstruktora X() koji ininijalizuje
+privremeni objekat koji je rezultat konačnog izraza f()
+Samo jedan jedini poziv podrazumevanog konstruktora X() koji ininijalizuje objekat x
+

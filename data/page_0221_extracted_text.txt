@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pokazivači na objekte
+❖ Viseći (ili “landaravi”) pokazivač (dangling pointer, dangling reference):
+• Uzrok: pokazivač koji je bio vezan za objekat, ali je objekat prestao da postoji; takav pokazivač ima invalidnu vrednost,
+iako je ona bila validna; kada objekat prestane da postoji, to nema nikakve efekte na pokazivače koji na njega ukazuju:
+Clock* pc = new Clock(…);
+delete pc;
+pc->tick();
+• Efekti:
+• nedeﬁnisano ponašanje (“tiha” greška): program nastavlja dalje sa potpuno nedeﬁnisanim ponašanjem i na kraju
+možda negde kasnije izaziva izuzetak
+• korupcija drugih podataka koji su zauzeli mesto tog objekta
+• Tipične situacije u kojima nastaje:
+• nekorektno postupanje sa pokazivačima:
+Clock* p = new Clock(…);
+U nekom potpuno drugom kontekstu:
+Clock* q = p;
+U nekom potpuno trećem kontekstu:
+delete p;
+I potom, opet u nekom potpuno različitom kontekstu:..
+…*q… ili …q->…
+ 221
+p je sada viseći pokazivač
+p i q ne menjaju vrednost, čak ni na null
+q je viseći pokazivač
+

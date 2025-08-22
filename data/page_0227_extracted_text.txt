@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nizovi
+❖ Drugo pravilo (tzv. pokazivačka aritmetika, pointer arithmetics): ako vrednost p
+tipa T* ukazuje na element nekog niza elemenata tipa T, i ako je i vrednost
+celobrojnog tipa, deﬁnisana je operacija sabiranja i oduzimanja ove dve
+vrednosti; zbir je vrednost koja ukazuje na element istog niza koji je za i
+elemenata dalje od elementa na koju kazuje p (analogno za oduzimanje)
+❖ Rezultat je validna vrednost pokazivača samo ukoliko p ukazuje na element
+niza i ako ovakvom aritmetikom vrednost rezultata ukazuje na element istog
+niza ili iza poslednjeg elementa niza; inače je vrednost invalidna
+❖ Na primer:
+int a[3] = {1, 2, 3};
+int* p = &a[0];
+int i;
+for (i=0; i<3; i++, p++)
+  -- *p;
+++ *(p-1);
+ 227
+T T T T T T T T
+p p+i
+p+i
+p ukazuje na a[i]
+Po izlasku iz petlje p ukazuje iza a[2]; p-1 ukazuje na a[2]
+

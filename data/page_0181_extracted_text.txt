@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pretprocesiranje
+❖ Kod uključivanja .h fajlova, moguće su sledeće situacije:
+• isti fajl, npr. x.h, uključuje se (tipično indirektno) više puta u isti .cpp fajl, recimo tako što
+taj .cpp fajl uključuje npr. i a.h i b.h, a i jedan i drugi uključuju x.h (direktno ili indirektno);
+fajl x.h može sadržati deﬁniciju nekog entiteta, tipično klase, jer se u .h fajlove po pravilu
+stavljaju deﬁnicije klasa; tada će prevodilac dobiti na prevođenje višestruku deﬁniciju
+istog entiteta, što nije dozvoljeno čak i ako su deﬁnicije identične
+• neki .h fajl uključuje se rekurzivno (tipično indirektno)
+❖ Da bi se ovakve pojave sprečile, potrebno je (i to se po pravilu radi, bez mnogo obaziranja
+na to da li je to neophodno u svakom konkretnom slučaju ili ne, jer svakako ne smeta) ceo
+sadržaj svakog .h fajla uokviriti u sledeću kombinaciju direktiva, što obezbeđuje da će
+prevodilac dobiti na prevođenje uokvireni kod samo jednom, čak i ako je taj .h fajl uključen
+više puta:
+#ifndef _figure_h
+#define _figure_h
+ … // The code of the header file;
+#endif
+ 181
+Bilo koji simbol koji se jednoznačno može pridružiti
+datom fajlu; na primer, naziv tog fajla
+Samo kada pretprocesor prvi put naiđe na ovaj sadržaj, ovaj
+simbol neće biti deﬁnisan i ceo kod će biti preveden, ali i simbol
+odmah deﬁnisan, što će sprečiti rekurzivna uključivanja istog
+sadržaja ili ponovno uključivanje istog sadržaja na drugom mestu
+

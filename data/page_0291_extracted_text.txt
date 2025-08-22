@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Vrednost (value) je rezultat izraza (uključujući i pojedinačnu operaciju kao prost izraz)
+❖ Svaka vrednost ima svoju vrednosnu kategoriju (value category) koja može, ali ne mora biti lvrednost (pored još nekih).
+Dakle, lvrednost je binarno svojstvo vrednosti: neka vrednost ili jeste, ili nije lvrednost
+❖ Lvrednosti su sledeće stvari:
+• ime varijable, funkcije ili podatka člana, bez obzira na tip
+• string-literal (ali ne i ostali literali)
+• rezultat poziva funkcije, uključujući i operatorske funkcije, ako je taj rezultat referenca, koja se zato naziva
+referenca na lvrednost (lvalue reference)
+• rezultat sledećih ugrađenih operatora:
+• dodele a=b i složene dodele a+=b itd.
+• preﬁksnog inkrementiranja ++a i dekrementiranja --a (ali ne i postﬁksnog)
+• indirekcije *p
+• indeksiranja a[i], gde je jedan operand pokazivač ili niz koji je lvrednost
+• izraza za pristup članu objekta (a.m) ili indirektan pristup članu objekta (p->m), osim ako je m enumerator ili
+nestatička funkcija članica
+• izraza a, b, ako je b lvrednost
+• izraza a?b:c, ako je b ili c lvrednost, u zavisnosti od toga šta je rezultat izraza a
+UNIT NAME: Lvrednosti
+ 291
+

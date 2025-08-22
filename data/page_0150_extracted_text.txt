@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Obrada izuzetaka
+enum DeviceException {deviceFaulty, communicationFailed};
+Temperature readTemperature ();
+Pressure readPressure ();
+Humidiry readHumidity ();
+…
+void readMeteo () {
+
+  try {
+      Temperature temp = readTemperature();
+      Pressure press = readPressure();
+      Humidity hum = readHumidity();
+      // Finally, do the job with temp, press, and hum
+  }
+  catch (DeviceException& de) {
+    // Handle exceptions
+  }
+}
+ 150
+try blok uokviruje regularan tok u kom se može baciti izuzetak
+Ukoliko se try blok završi bez izuzetka, završava se
+ceo konstrukt try-catch  (catch blokovi se preskaču)
+Ukoliko se tokom izvršavanja try bloka baci
+izuzetak, prekida se izvršavanje tog try bloka i
+kontrola prebacuje na catch blok (exception handler)
+koji prihvata izuzetak tog tipa kao svoj argument
+

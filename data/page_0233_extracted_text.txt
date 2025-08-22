@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Reference
+❖ Motivacija:
+• Zbog orijentacije na to da se i objekti klasa i objekti neklasnih tipova koriste što sličnije, objekti klasa
+mogu se koristiti po vrednosti: kreirati u svim kategorijama životnog veka, kopirati, prenositi kao
+argumenti
+• Zbog toga postoji opisani problem beskonačne rekurzije za prenos argumenta konstruktora kopije
+• U skladu sa istim opredeljenjem, mogu se preklapati operatori za objekte klasa; kako postići istu
+notaciju kao za prenos po vrednosti, za operatore koji treba da menjaju neki od svojih operanada, ili
+ne žele da kopiraju operande, na primer:
+complex c1, c2;
+…
+c1 += c2;
+❖ Zato je na jeziku C++ moguć prenos argumenata po referenci (call by reference):
+void f (int i, int &j) {
+  i++;
+  j++;
+}
+
+int main () {
+  int si=0,sj=0;
+  f(si,sj);
+  cout<<"si="<<si<<", sj=“<<sj<<"\n";
+}
+ 233
+Argument i prenosi se po vrednosti, a j po referenci
+Stvarni argument se neće promeniti
+Stvarni argument će se promeniti
+Izlaz će biti: si = 0, sj = 1
+

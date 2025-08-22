@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Binarni, inﬁksni relacioni operatori se obično preklapaju kao funkcije nečlanice, jer su im
+operandi ravnopravni
+❖ Preklapaju se tako što se implementira operator == i, ako je potrebno, operator <, a onda ostali
+svode na njih:
+bool operator== (const X& x1, const X& x2) {
+  …
+}
+inline bool operator!= (const X& x1, const X& x2)
+  { return !(x1==x2); }
+bool operator< (const X& x1, const X& x2) {
+  …
+}
+inline bool operator> (const X& x1, const X& x2)
+  { return x2<x1; }
+inline bool operator<= (const X& x1, const X& x2)
+  { return (x1<x2)||(x1==x2); }
+inline bool operator>= (const X& x1, const X& x2)
+  { return x2<=x1; }
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 446
+

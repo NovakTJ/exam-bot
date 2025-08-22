@@ -1,0 +1,29 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Još jedna varijanta izbegavanja kopiranja jeste i dalje opciona (i u verziji C++17) i naziva se optimizacija
+imenovane povratne vrednosti (named return value optimization, NRVO): ako je operand naredbe return ime
+(ali ne nepostojanog) automatskog objekta koji nije parametar te funkcije ili parametar catch bloka, i koji
+je istog tipa kao povratni tip funkcije (uz ignorisanje cv-kvaliﬁkacije), zapravo se taj automatski objekat
+izgrađuje (inicijalizuje) u prostoru objekta koji se vraća iz funkcije; sve operacije nad tim automatskim
+objektom vrše se u tom memorijskom prostoru. Na primer:
+string join (const string& s1, const string& s2) {
+  string s = s1 + " " + s2;
+  return s;
+}
+❖ U opštijem slučaju:
+T f () {
+  T t;
+  …
+  return t;
+}
+❖ Ova optimizacija implementira se na isti opisani način: funkcija prima kao skriveni parametar adresu
+prostora u koji treba da vrati rezultat; pošto na osnovu koda tela funkcije prevodilac može lako da
+zaključi da se iza return imenuje automatski objekat, sve operacije nad tim objektom (uključujući i poziv
+konstruktora) može da usmeri na taj memorijski prostor, odnosno tu adresu smatra adresom tog
+automatskog objekta
+UNIT NAME: Kopiranje objekata
+ 373
+NRVO: automatski objekat s zauzimaće memorijski prostor povratne vrednosti i
+njegova inicijalizacija i sve druge operacije nad njim vršiće se u tom prostoru
+NRVO: automatski objekat t zauzimaće memorijski prostor povratne vrednosti i
+njegova inicijalizacija i sve druge operacije nad njim vršiće se u tom prostoru
+

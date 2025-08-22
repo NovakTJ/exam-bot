@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nizovi
+❖ Osim toga, kada se objekti, pa i nizovi objekata, koriste po vrednosti, nema nikakve supstitucije:
+Base b[5];
+Derived d;
+b[0]=d;
+❖ Zbog ovoga, ukoliko se računa sa nasleđivanjem i supstitucijom, ne treba praviti nizove objekata
+(po vrednosti), već nizove pokazivača na objekte:
+void f (Base* b[], int i) { cout<<b[i]->bi; }
+…
+Base b1,b2; Derived d1,d2,d3; d2.bi=77;
+Base* b[5]; b[0]=&d1; b[1]=&b1; b[2]=&d2; ...
+f(b,2);
+❖ Sada navedena greška nije više moguća, jer se niz tipa Derived*[] može konvertovati u Derived**,
+ali se to ne može konvertovati implicitno u Base** (što bi funkcija sa parametrom tipa Base*[]
+prihvatila):
+Derived* d[5]; d[0]=&d1; d[1]=&d2; …
+f(d,2);
+ 232
+b[0] je objekat tipa Base i sadrži kopiju podobjekta osnovne klase iz objekta d
+Sada se ovo korektno računa, pošto su
+elementi niza pokazivači (čija veličina ne
+zavisi od tipa objekta na koji ukazuju)
+Greška u prevođenju: Derived*[] se ne može implcitno konvertovati u Base**
+

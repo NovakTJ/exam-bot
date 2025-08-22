@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Modularnost i enkapsulacija
+❖ Enkapsulacija na nivou modula u proceduralnom programiranju: razlika između
+• interfejsa modula; na jeziku C u fajlu zaglavlju (header ﬁle, .h):
+/* File: stack.h */
+int push (unsigned in);
+int pop (unsigned* out);
+• implementacije tog modula; na jeziku C u fajlu zaglavlju (.c ﬁle):
+/* File stack.c */
+#include "stack.h"
+
+#define MaxStackSize 256
+unsigned stack[MaxStackSize];  // Stack
+int sp = 0; // Stack pointer
+int push (unsigned in) {
+  …
+}
+int pop (unsigned* out) {
+  …
+}
+❖ Da globalni identiﬁkatori koji ne pripadaju interfejsu ne bi bili dostupni u drugim modulima, tj. da bi bili sakriveni od
+drugih modula, moraju se deklarisati tako da imaju tzv. interno vezivanje (internal linking):
+static unsigned stack[MaxStackSize];  // Stack
+static int sp = 0; // Stack pointer
+ 46
+

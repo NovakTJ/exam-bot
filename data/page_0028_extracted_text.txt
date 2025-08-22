@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nasleđivanje
+❖ Pravimo apstrakciju “hotelskog predvorja” u kom je više časovnika koji
+pokazuju trenutno vreme u različitim gradovima sveta:
+class Lobby {
+public:
+  Lobby (unsigned numOfClocks, string cities[], int lags[]);
+  void tick (); // Tick a second
+  void print ();  // Displays the clocks
+  void setTime (int h, int m, int s); // Sets the referential time
+private:
+  int num;
+  Clock* clocks[MaxNumOfClocks];
+  string cities[MaxNumOfClocks];
+  int lags[MaxNumOfClocks];
+};
+ 28
+

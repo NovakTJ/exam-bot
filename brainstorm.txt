@@ -1,0 +1,11 @@
+GENERATION
+- just generate (one-shot + nice prompt)
+- generate (one-shot + units)
+- generate (one-shot + subunits of one unit)
+- generate (one-shot + picked topic + units)
+VALIDATION
+- human eyes
+- RAG (hard)
+- fetch units based on LLM decision, given a list of all units
+DIFFICULTY
+- easy / medium / tricky / higher OOP course needed

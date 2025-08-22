@@ -1,0 +1,32 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Relacije i zavisnosti između klasa
+❖ Umesto da objekat-klijent sam kreira potrebne objekte-servere sa kojima sarađuje, ili sam traži pristup do njih i identiﬁkuje ih (npr.
+pozivom nekih usluga drugih klasa), praksa pokazuje da je bolji pristup da neko drugi, i to onaj ko koristi posmatranu klasu,
+spolja, injektira te veze, odnosno deﬁniše zavisnosti od servera
+❖ Ovo se može uraditi na sledeće načine:
+• kroz konstruktor posmatrane klase, ali samo ako su te veze obavezne (minimalna multiplikativnost je veća od 0, odnosno
+objekat mora biti vezan):
+class Controller {
+public:
+  Controller (Reader* reader, Translator* translator);
+  …
+};
+Controller::Controller (Reader* reader, Translator* translator) {
+  this->myReader = reader; this->myTranslator = translator;
+}
+• kroz posebnu operaciju klase kojom se ova veza uspostavlja, ako se takva veza može menjati tokom života objekta:
+class Controller {
+public:
+  void setReader (Reader* reader);
+  void setTranslator (Translator* translator);
+  …
+};
+void Controller::setReader (Reader* reader) {
+  this->myReader = reader;
+}
+• ili oba, ako važi i jedno i drugo:
+Controller::Controller (Reader* reader, Translator* translator) {
+  this->setReader(reader); this->setTranslator(translator);
+}
+ 110
+

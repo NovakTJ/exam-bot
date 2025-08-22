@@ -1,0 +1,44 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstrakcije
+❖ Banalno rešenje: preslikati dati opis u klase i raspored njihovih svojstava
+❖ Problemi:
+• nepotrebno mnogostruko kopiranje podataka, jer jedna osoba ima mnogo izdatih dokumenata
+• ako je potrebno čuvati istoriju promena podataka, prave se kopije svih podataka, iako se menja samo
+manji deo njih; gde čuvati te promene?
+ 86
+Person
+personalID : PersonalID
+dateOfBirth : Date
+placeOfBirth : Text
+gender : Gender
+firstName : Text
+lastName : Text
+address : Text
+place : Text
+photo : Binary
+fingerprint : Binary
+irisScan : Binary
+…
+1 * Document
+dateOfBirth : Date
+placeOfBirth : Text
+gender : Gender
+firstName : Text
+lastName : Text
+address : Text
+place : Text
+photo : Binary
+fingerprint : Binary
+irisScan : Binary
+…
+UML simbol za asocijaciju (association): relacija između klasa
+koja deﬁniše skup veza (link) koje mogu postojati između
+objekata tih klasa.
+UML oznaka multiplikativnosti (multiplicity)
+kraja asocijacije:  jedan objekat klase
+Document može biti vezan za tačno 1 objekat
+klase Person vezama ove asocijacije.
+Jedan objekat klase Person može biti vezan za
+proizvoljno mnogo (*) objekata klase
+Document vezama ove asocijacije.
+

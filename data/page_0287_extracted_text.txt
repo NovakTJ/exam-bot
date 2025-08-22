@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Na primer, operatori inkrementiranja ++ i dekrementiranja -- imaju bočne efekte i imaju
+dva oblika:
+• preﬁksni: ++operand inkrementira operand, a kao rezultat vraća njegovu novu
+vrednosti
+• postﬁksni: operand++ inkrementira operand, a kao rezultat vraća njegovu staru
+vrednosti (pre inkrementiranja)
+Slično važi i za dekrementiranje. Na primer:
+a = i++;
+b = --k;
+❖ Dodela vrednosti je takođe operator: osim što dodeljuje vrednost (bočni efekat, zapravo
+primarna uloga), on vraća vrednost; pritom, grupiše zdesna nalevo:
+x = y = f()+z
+❖ Postoje operatori složene dodele: a+=b znači isto što i a = a+b, osim što se operand (ako
+je podizraz) a izračunava samo jednom; na primer:
+*p++ += 3
+UNIT NAME: Operatori
+ 287
+a dobija vrednost i pre inkrementiranja; b dobija vrednost k nakon dekrementiranja
+Izračunava se: x = (y = (f()+z))
+Izračunava se kao (*(p++)) += 3. Izraz *p++ = *p++ + 3 bi inkrementirao p dva puta
+

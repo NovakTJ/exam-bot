@@ -1,0 +1,14 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Glava 14: Inicijalizacija
+❖ Inicijalizacija
+❖ Konstantna inicijalizacija
+❖ Inicijalizacija nulom
+❖ Podrazumevana inicijalizacija
+❖ Inicijalizacija vrednošću
+❖ Inicijalizacija kopiranjem
+❖ Direktna inicijalizacija
+❖ Inicijalizacija listom
+❖ Agregatna inicijalizacija
+❖ Inicijalizacija referenci
+ 403
+

@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Neki osnovni pojmovi jezika
+❖ Sledeće stvari nisu objekti:
+• vrednost: rezultat izraza (operacije nad operandom), osim kada se zahteva pravljenje privremenog objekta
+• referenca
+• funkcija
+• enumerator: član enumeracije (simbolička konstanta)
+• tip
+• nestatički član klase
+• šablon
+• this
+• i još neke stvari
+❖ Varijabla (variable) je objekat ili referenca koji nije nestatički podatak član i koji je uveden deklaracijom
+❖ Objekti se prave:
+• deﬁnicijama: posebne vrste deklaracija koje imaju efekat pravljenja objekta
+• operatorom new
+• operatorom throw
+• kada se zahteva pravljenje privremenog objekta
+❖ Deklaracija (declaration) je iskaz koji uvodi identiﬁkator u program: svaki identiﬁkator mora se deklarisati pre
+upotrebe
+ 163
+

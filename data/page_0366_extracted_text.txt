@@ -1,0 +1,33 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Potpuno analogno, ako se predviđa korišćenje ovih objekata po vrednosti (svih kategorija životnog veka),
+korisnici ove klase očekivaće i mogućnost dodele kopiranjem. Na primer:
+int main () {
+  string s1(“Hello”), s2;
+  s2 = s1;
+  …
+}
+❖ Prema već navedenim pravilima, ako se u klasi ne navede eksplicitno operator dodele kopiranjem,
+prevodilac će generisati implicitni operator dodele kopiranjem koji vrši dodelu kopiranjem objekata
+članova pozivom njihovih operatora dodele kopiranjem; međutim, za članove koji su ugrađenih tipova,
+vrši se prosto kopiranje vrednosti, što je ovde slučaj, pošto je član str pokazivač. Prema tome, i u ovom
+slučaju objekti klase string biće dodelom plitko kopirani
+❖ Zato nam je ovde neophodan i korisnički deﬁnisan operator dodele kopiranjem koji vrši duboko
+kopiranje, ali za razliku od konstruktora kopije, on mora najpre da oslobodi postojeći dinamički niz (ono
+što radi destruktor), pa onda alocira i kopira novi niz (ono što radi konstruktor kopije):
+string& string::operator= (const string& s) {
+  if (this == &s) return *this;
+  delete [] str; str = nullptr;
+  if (!s.str) return;
+  str = new char[std::strlen(s.str)+1];
+  std::strcpy(str,s.str);
+  return *this;
+}
+UNIT NAME: Objekti sa zauzetim resursima
+ 366
+U slučaju poziva s=s, ne radi dalje, jer bi to obrisalo
+dinamički niz objekta s
+Zadatak:
+Ova implementacija obezbeđuje osnovnu garanciju
+sigurnosti od izuzetaka. Objasniti zašto i prepraviti
+je tako da obezbeđuje jaku garanciju.
+

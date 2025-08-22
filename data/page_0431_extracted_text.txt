@@ -1,0 +1,8 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Glava 15: Preklapanje operatora
+❖ Preklopljeni operatori
+❖ Preporučeni načini preklapanja
+operatora
+❖ Operatori new i delete
+ 431
+

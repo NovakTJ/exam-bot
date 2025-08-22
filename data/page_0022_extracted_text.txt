@@ -1,0 +1,13 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ Da li bi bilo dobro da neko uradi i ovako nešto?
+Clock* pClk1 = new Clock;
+pClk1->h = 45;
+pClk1->m = -2;
+pClk1->s = 185;
+cout << pClk1->getTime() << endl;
+❖ Očigledno ne. Potrebno je sakriti podatke članove,
+“učauriti” ih u “oklop” klase, sprečiti neposredan
+pristup spolja - enkapsulacija (encapsulation)
+ 22
+

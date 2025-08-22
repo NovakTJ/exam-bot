@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Termin “lvrednost” ima poreklo u tome što “može da stoji sa leve strane znaka dodele”, ali to
+ne važi za svaku lvrednost: samo promenljive lvrednosti (modiﬁable lvalues) mogu da stoje sa
+leve strane znaka dodele (i složene dodele)
+❖ Ime niza, funkcije ili konstatnog objekta nije promenljiva lvrednost, pa ne može stajati sa leve
+strane operatora dodele ili složene dodele:
+int a[5], f();
+const int c = 3;
+a = …
+f = …
+c = …
+&a
+&f
+&c
+❖ Pojam lvrednosti je na jeziku C++ upravo značajan zbog toga što postoji mogućnost
+korišćenja objekata klasa po vrednosti, preklapanja operatora za korisničke tipove (klase), sa
+notacijom kao za ugrađene tipove i njihove operande; blisko povezan sa svim tim jeste i
+pojam reference na lvrednost, koja je i uvedena sa ciljem podrške takvom korišćenju, ali je sve
+to i značajno zakomplikovalo jezik
+UNIT NAME: Lvrednosti
+ 294
+Greška u prevođenju, jer a, f i c nisu promenljive lvrednosti
+Ispravno, jer a, f i c jesu lvrednosti
+

@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Oba problema se mogu prevazići idiomom kopiranja i zamene (copy-and-swap idiom):
+• ako je desni operand operatora dodele lvrednost, najpre se konstruktorom kopije pravi lokalni automatski
+objekat - parametar operatorske funkcije, koji kopira resurs argumenta u formalni parametar
+• potom se radi prosta i eﬁkasna razmena (swap) resursa između parametra i objekta domaćina (onog na koga
+ukazuje this); ta zamena radi se pomoćnom operacijom swap koja ne baca izuzetak (non-throwing)
+• kada se izlazi iz ove operatorske funkcije, parametar, kao lokalni automatski objekat biće uništen pozivom
+destruktora, koji će obrisati prethodni resurs koji je objekat domaćin imao u sebi:
+inline string& string::operator= (string other) {
+  swap(*this,other);
+  return *this;
+}
+❖ Sada će se dešavati sledeće:
+• ako je desni operand operatora dodele dvrednost, npr. privremeni objekat, formalni parametar operatorske
+funkcije biće inicijalizovan njime i to ili direktnom konstrukcijom, zbog izostavljanja kopiranja (svakako za C+
++17), ili konstruktorom premeštanja ako ove optimizacije nema:
+s = string("Hello");
+• ako je desni operand operatora dodele lvrednost, formalni parametar operatorske funkcije biće inicijalizovan
+pozivom konstruktora kopije; ako se pri alokaciji njegovog resursa baci izuzetak, to će biti urađeno pre ulaska u
+operatorsku funkciju, pa objekat domaćin (levi operand operatora dodele) neće biti promenjen:
+s1 = s2;
+UNIT NAME: Premeštanje resursa
+ 382
+Funkcija swap će samo razmeniti vrednosti
+pokazivača this->str i other.str, bez bacanja izuzetka
+Formalni parametar other biće inicijalizovan ili pozivom konstruktora konverzije
+string(const char*), ili pozivom konstruktora premeštanja string(string&&) (pre C++17)
+Formalni parametar other biće inicijalizovan pozivom konstruktora kopije string(const string&)
+Objekat other se ovde uništava i njegov destruktor
+briše niz koji je ranije bio pridružen objektu *this
+

@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ključna razlika i smisao uvođenja referenci na dvrednosti jeste u sledećem: kada
+argument poziva funkcije dvrednost, i ako su na raspolaganju dve preklopljene
+funkcije, jedna koja prima parametar koji je referenca na dvrednost (T&&) a druga
+koja prima referencu na konstantnu lvrednost (const T&), biće pozvana ona koja
+prima referencu na dvrednost; prema tome, ako postoji i konstruktor kopije i
+konstruktor pomeranja, odnosno operator dodele kopiranjem i premeštanjem, biće
+pozvan onaj za premeštanje
+❖ Na primer:
+T f (const T&);
+T f (T&&);
+T t;
+f(t);
+f(f(t));
+f(std::move(t));
+f (T());
+UNIT NAME: Reference na dvrednosti
+ 395
+Pošto je t lvrednost, poziva se T f(const T&)
+Pošto je f(t) dvrednost, poziva se T f(T&&)
+Pošto je std::move(t) vraća T&&, poziva se T f(T&&)
+Pošto je T() dvrednost (čdvrednost), poziva se T f(T&&)
+

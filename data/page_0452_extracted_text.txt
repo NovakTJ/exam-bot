@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Operator () se preklapa za klase čiji se objekti mogu posmatrati kao tzv. funkcijski objekti (function object), tj. objekti koji
+se mogu koristiti kao funkcije, jer se na njih može primeniti operator poziva funkcije (kao za obične funkcije):
+x(expression1, expression2)
+tumači se kao:
+x.operator()(expression1, expression2)
+❖ Za razliku od običnih funkcija, funkcijski objekti, kao i svaki drugi objekti, mogu imati (i tipično imaju) svoje stanje,
+koje “nose” sa sobom (svaki objekat svoje nezavisno stanje) i mogu da ga menjaju i akumuliraju
+❖ Ovakvi objekti se tipično prenose, slično kao i pokazivači na funkcije, kao argumenti nekih operacija koje sprovode
+određene postupke, odnosno algoritme, za koji su im potrebne implementacije elementarnih operacija-koraka tog
+algoritma; zato takav algoritam poziva nazad dostavljenu funkciju, odnosno funkcijski objekat (tzv. callback
+mehanizam), ili ga primenjuje na neke elemente koje obilazi tokom algoritma (npr. obilasci raznih struktura)
+❖ Na primer, funkcija for_each iz standardne biblioteke iterira kroz kolekciju, dok kao treći parametar očekuje funkcijski
+objekat koga primenjuje na svaki posećeni element, dostavljajući mu taj posećeni element kao argument operatora ():
+struct Sum {
+    int sum;
+    Sum () : sum(0) {}
+    void operator() (int n) { sum += n; }
+};
+std::vector<int> v{…};
+Sum s = std::for_each(v.begin(), v.end(), Sum());
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 452
+

@@ -1,0 +1,29 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Konstruktor se ne nasleđuje, u sledećem smislu: ako osnovna klasa ima konstruktor sa određenim parametrima, ne
+znači da i izvedena klasa implicitno ima (nasleđuje) takav konstruktor, odnosno da se i objekti te izvedene klase
+mogu inicijalizovati istim argumentima, već takav konstruktor mora eksplicitno da se deﬁniše u izvedenoj klasi,
+ako je potreban
+❖ Međutim, konstruktori se mogu i naslediti (inheriting constructors), upotrebom direktive using u izvedenoj klasi:
+ako se u deﬁniciji izvedene klase Derived navede direktiva using Base::Base, gde je Base direktna osnovna klasa, onda
+se u opseg potrage za konstruktorima pri inicijalizaciji objekta izvedene klase uvode svi konstruktori te osnovne
+klase; ako se pri inicijalizaciji objekta izvedene klase odabere neki od tih konstruktora, on će inicijalizovati
+podobjekat te osnovne klase, dok će objekti članovi te izvedene klase i ostale njene osnovne klase biti inicijalizovani
+podrazumevanom inicijalizacijom; pritom, konstruktor izvedene klase sakriva ovakav nasleđeni konstruktor sa
+istim potpisom. Na primer:
+struct Base {
+  Base (int, int);
+  Base (const char*);
+};
+struct Derived : Base {
+  using Base::Base;
+  Derived (const char*);
+};
+int main () {
+  Derived d1(1,2);
+  Derived d2("Hello");
+}
+UNIT NAME: Konstruktor
+ 350
+U redu: podobjekat Base unutar d1 se inicijalizuje pozivom Base::Base(int,int)
+Objekat d2 se inicijalizuje pozivom Derived::Derived(const char*)
+

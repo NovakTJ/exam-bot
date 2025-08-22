@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni tipovi pokretnog zareza
+❖ Literali mogu da sadrže:
+• mantisu i eksponent zapisane decimalno ili heksadeciomalno (počinju znacima 0x ili 0X)
+• decimalnu tačku
+• eksponent iza znaka e ili E za decimalne, odnosno p ili P za heksadecimalne zapise (da bi se razlikovao od e i E
+koji su heksadecimalne cifre); eksponent za heksadecimalne zapise je obavezan i predstavlja stepen dvojke, ne
+stepen 10
+• znak mantise i znak eksponenta
+• suﬁks za tip: f ili F za ﬂoat i l ili L za long double
+• apostrofe ‘, koje prevodilac ignoriše (odvajaju hiljade)
+❖ Tip ovakvog literala je podrazumevano double, osim ako ima suﬁks za tip
+❖ Na primer:
+23.
+45e2
+123.456e-78
+.1E2f
+0x10.1p0
+0x10.2p-3
+ 206
+Ovo je decimalno 16.125*2^(-3)
+Za heksadecimalni zapis eksponent je obavezan
+Tip je double
+Vrednost 100 tipa ﬂoat
+

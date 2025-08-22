@@ -1,0 +1,38 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Primer: struktura za alokaciju prostora za objekte tipa T, bez fragmentacije (ostataka slobodnog prostora):
+template <class T, int size>
+class Storage {
+public:
+  constexpr Storage () : head(slots) { slots[size-1].next = nullptr; }
+  void* alloc () { Slot* p=head; if (p) head=p->next; return p->slot; }
+  void  free (void* addr) { head = new (addr) Slot(head); }
+private:
+  struct Slot {
+    constexpr Slot () : next(this+1) {}
+    Slot (Slot* nxt) : next(nxt) {}
+    union {
+      Slot* next;
+      char slot[sizeof(T)];
+    };
+  };
+  Slot* head;
+  Slot slots[size];
+};
+Storage<Clock,50> clockStorage;
+UNIT NAME: Konstantna inicijalizacija
+ 410
+Zadatak:
+Funkcija Store::free nije pouzdana ako joj se dostavi pokazivač
+koji ne ukazuje na neki od elemenata niza slots. Napraviti je
+tako da bude otporna na ovakve greške.
+Konstruktor je constexpr, pa se može koristiti za konstantnu
+inicijalizaciju statičkih objekata u toku prevođenja
+Ovaj statički objekat bi mogao da se inicijalizuje konstantnom inicijalizacijom u
+toku prevođenja, ali nažalost, izgleda da još uvek nema načina da se ovo garantuje
+na prenosiv način u opštem slučaju, pa će inicijalizacija ipak po pravilu biti
+dinamička. Ako bi se ovaj objekat deklarisao kao constexpr, njegova inicijalizacija bi
+bila konstantna, ali bi i on bio konstantan i ne bi mogao da se menja
+Konstruktor strukture Slot je constexpr, pa se može
+pozvati iz konstruktora Storage koji je constexpr
+Članovi moraju imati inicijalizatore koji su konstantni izrazi
+

@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Reference
+❖ Ne postoji operacija nad samom referencom koja bi joj promenila vrednost, odnosno
+“prevezala” je na neki drugi objekat nakon inicijalizacvije: svaka upotreba reference nakon
+njenog deklarisanja odnosi se na referencirani objekat; zbog toga se referenca često naziva
+sinonimom za objekat (ukoliko sama referenca ima svoje ime, što ne mora)
+❖ Na primer:
+int i = 1;
+int& j = i;
+i=3;
+j=5;
+int* p = &j;
+j+=1;
+int k=j;
+int m=*p;
+❖ Treba dobro razlikovati znak & upotrebljen u deklaraciji reference (sastavni deo tipa), od
+znaka & upotrebljenog u izrazu, kada označava operaciju uzimanja adrese; ako se u ovom
+drugom slučaju kao operand nađe referenca, uvek se odnosi na referencirani objekat
+❖ Pristup do objekta preko reference ne zahteva operator: sama upotreba reference u izrazu
+odnosi se na referencirani objekat; pristup do objekta preko pokazivača zahteva operator
+ 235
+j je referenca tipa int& koja se vezuje za objekat i (upućuje na njega)
+Svaka upotreba reference j u izrazu odnosi se na referencirani objekat - menja se i
+p je pokazivač na int; inicijalizuje se izrazom &j; upotreba reference u izrazu odnosi se
+na referencirani objekat; pošto je inicijalizator izraz, operacija &j je operacija uzimanja
+adrese referenciranog objekta i
+Isto što i i+=1; Pristup do objekta preko reference ne zahteva operator: sama
+upotreba reference u izrazu odnosi se na referencirani objekat.
+Pristup do objekta preko pokazivača zahteva operator.
+

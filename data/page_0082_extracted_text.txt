@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstrakcije
+Još nekoliko primera:
+❖ Lice (Person), koje može biti Fizičko lice (Natural person) ili Pravno lice (Legal person)
+❖ Šahovska tabla (Chess board), Figura (Figure), Kralj (King)…
+❖ Katastarska parcela (Parcel), Građevinski objekat (Building)
+❖ Lični identiﬁkicaioni dokument (Personal ID Document), Pasoš (Passport), Lična karta (ID Card)
+❖ Vozilo (Vehicle), Prevoznik (Transporter)
+❖ i mnogo, mnogo drugih
+ 82
+NaturalPerson
+personalID : PersonalID
+firstName : Text
+lastName : Text
+dateOfBirth : Date
+gender : Gender
+UML simbol za klasu bez navođenja detalja
+UML relacija generalizacije/specijalizacije (nasleđivanja)
+LegalPerson
+vatNo : VatNo
+longName : Text
+shortName : Text
+dateOfReg : Date
+Person
+

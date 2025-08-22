@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Jezik C++ ima mnogo vrsta deklaracija, od kojih se mnoge mogu navoditi unutar
+bloka (složene naredbe), odnosno unutar tela funkcija; sve takve deklaracije mogu se
+navoditi i van tela funkcija
+❖ Unutar bloka, ovakve deklaracije imaju istu sintaksnu kategoriju kao i naredbe,
+odnosno mogu se naći bilo gde u bloku, ne samo na njegovom početku; tako se imena
+(npr. varijable) mogu uvoditi na mestu na kom su potrebna, ne obavezno pre toga:
+int main () {
+  unsigned n;
+  cin>>n;
+
+  long sum = 0;
+  for (unsigned i=0; i<n; i++) {
+    int x;
+    cin>>x;
+    sum+=x;
+  }
+
+  cout<<sum;
+}
+Deklaracija unutar bloka (tela funkcije)
+UNIT NAME: Deklaracije
+ 261
+Deklaracija unutar bloka
+Deklaracija unutar bloka
+

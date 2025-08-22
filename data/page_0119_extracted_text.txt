@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ Statička funkcija članica može da se pozove bez navođenja objekta za koji se poziva (mada taj
+objekat može i da se navede):
+int num = Clock::getCount ();
+❖ Statičke funkcije članice implementiraju se isto kao i globalne funkcije nečlanice, jer nemaju
+pokazivač this;  zbog toga se umesto statičke funkcije članice može upotrebiti i globalna funkcija, ali
+je korišćenje statičkih funkcija članica bolje u mnogim slučajevima, jer je statička funkcija članica:
+• deo klase kao logičke celine, logički je “upakovana” u nju, pa je jasnija njena upotreba i namena
+- program je čitljiviji i lakši za razumevanje
+• u oblasti važenja klase, a nije globalna, pa se ne sukobljava po imenu (name clashing) sa ostalim
+globalnim imenima (može da se zove isto)
+• članica klase, kao i svaki drugi član, pa se može enkapsulirati: ona može da bude zaštićena ili
+privatna
+• članica klase, pa ima pravo pristupa do privatnih i zaštićenih članova te klase (globalna bi
+morala da bude prijatelj toj klasi)
+❖ Zbog toga, neki noviji jezici (npr. Java) i ne omogućavaju globalne operacije, a umesto njih
+podržavaju statičke operacije: svaka operacija mora biti članica neke klase (statička ili nestatička)
+ 119
+

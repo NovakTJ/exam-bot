@@ -1,0 +1,35 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Kada traži preklopljeni operator za date tipove operanada, isto kao i za ostale pozive funkcija,
+prevodilac sprovodi postupak potrage zavisne od argumenata (argument dependent lookup, ADL);
+pojednostavljeno rečeno, ovaj postupak traži funkciju, uključujući i preklopljen operator, ne samo prema
+uobičajenim pravilima potrage za nekvaliﬁkovanim imenom u tekućoj oblasti važenja, nego i po
+klasama kojima pripadaju argumenti (i njihovim osnovnim klasama), ali i po prostorima imena kojima
+pripadaju te klase
+❖ Ovo omogućava da preklopljeni operatori budu deklarisani u različitim prostorima imena, a da ipak
+budu odabrani za argumente određenog tipa; na primer:
+namespace complex {
+
+  class complex {
+    …
+    friend std::ostream& operator<< (std::ostream& os, const complex& c) {
+      return os<<'('<<c.real<<','<<c.imag<<')';
+    }
+  };
+}
+int main () {
+  complex::complex c1, c2;
+  …
+  std::cout<<c1<<‘,’<<c2;
+}
+UNIT NAME: Preklopljeni operatori
+ 436
+Poziva se preklopljeni operator << za tipove char i
+double, deﬁnisan u prostoru imena std, jer je
+operand os tipa std::ostream.
+Ovaj izraz vraća referencu na isti objekat klase
+ostream koji je dostavljen kao argument
+Poziva se preklopljeni operator << za tip complex, deﬁnisan u prostoru imena
+complex, jer je operand c1 tipa complex::complex.
+Pošto je ovaj operator vratio referencu na objekat tipa ostream, može se upotrebiti
+kao levi operand istog operatora
+

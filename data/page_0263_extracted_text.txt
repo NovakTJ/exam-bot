@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Veoma često je potrebno deklarisati varijablu koja se inicijalizuje vrednošću nekog izraza, uključujući i
+poziv funkcije. Relativno često, a posebno u slučaju korišćenja šablonskih klasa iz standardne biblioteke
+i njihovih operacija, tip takve povratne vrednosti je veoma složen i uključuje parametrizovane šablonske
+klase, cv-kvaliﬁkatore i slično; slična situacija je i u deﬁnisanju samih metoda složenih šablonskih klasa,
+gde tip neke varijable zavisi od parametara šablona
+❖ U takvim situacijama programeru može biti teško i nepraktično da obavezno precizira taj tip u
+deklaraciji varijable, ili bi time program postao teže čitljiv. Sa druge strane, prevodilac tip te povratne
+vrednosti izraza ili funkcije sasvim pouzdano zna za vreme prevođenja
+❖ Za ovakve potrebe, moguće je deklarisati varijablu bez eksplicitnog navođenja tipa, uz ključnu reč auto.
+Time varijabla ima i dalje statički deﬁnisan tip, ali taj tip određuje sam prevodilac na osnovu tipa
+inicijalizatora te varijable, i dalje ga koristi kao da je on eksplicitno naveden u deklaraciji
+❖ Ovo se može koristiti u bilo kojoj deklaraciji koja deﬁniše varijablu sa inicijalizatorom, što može da
+olakša pisanje koda i učini ga kompaktnijim. Na primer:
+template<typename T>
+T sum (const list<T>& array) {
+  T sum = 0;
+  for (auto it=array.cbegin(); it!=array.cend(); it++)
+    sum += *it;
+  return sum;
+}
+Ova funkcija vraća objekat - iterator koji je u
+stanju da iterira kroz kolekciju (ovde listu)
+sve do kraja i obezbeđuje pristup do tekućeg
+elementa kolekcije
+UNIT NAME: Deklaracije
+ 263
+Tačan tip ovog objekta nije ni bitan, već su bitne samo operacije koje on obezbeđuje
+(prekolopljeni operatori ++ za pomeranje na sledeći element i * za pristup tekućem).
+Tip ovog objekta prevodilac zna - to je tip povratne vrednosti ove funkcije
+

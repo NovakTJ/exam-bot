@@ -1,0 +1,43 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Prevođenje
+❖ Sada deﬁnisane entitete želimo da koristimo u drugom fajlu B.cpp, ali tako da
+se odnose na entitete već deﬁnisane u A.cpp:
+// B.cpp
+
+void g () {
+  n++;
+  f();
+}
+❖ Ako se u ovom fajlu ne navede deklaracija objekta n i funkcije f, prevodilac će
+prijaviti grešku jer identiﬁkator nije deklarisan
+❖ Ako se u B.cpp navede sledeća deklaracija:
+int n;
+onda će prevodilac nju i dalje smatrati deﬁnicijom, i ponovo će alocirati prostor
+za taj objekat, iako nije inicijalizovan; osim toga, mogao bi da operacije sa n u
+potpunosti prevede, koristeći adresiranje lokacije tog alociranog prostora
+❖ Ovo nije željeno ponašanje, već želimo da se ove operacije odnose na n i f
+deﬁnisane u drugom fajlu A.cpp, a ne da se deﬁnišu novi entiteti
+ 169
+int n;
+void g () {
+  n++;
+  f();
+}
+B.cpp
+symbols
+  ↑n: data:0
+  ↑g: code:0
+end symbols
+seg data
+n: 00 00 00 00
+end seg
+
+seg code
+g: ld r1,n
+   inc r1
+   st r1,n
+   call f
+   ret
+end seg
+B.obj
+

@@ -1,0 +1,37 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ I klasa može biti deﬁnisana unutar tela funkcije - tzv. lokalna klasa (local class). Takva klasa nije dostupna van opsega važenja te
+funkcije i ima neka ograničenja: ne može imati statičke podatke članove, njene funkcije članice moraju biti deﬁnisane unutar
+deﬁnicije te klase i drugo
+❖ Ovakve klase tipično se prave da bi se na licu mesta napravili ad-hoc objekti koji zadovoljavaju neki interfejs i samo
+redeﬁnišu neke polimorfne operacije, tj. objekti su neke klase izvedene iz neke apstraktne klase, s tim da su takve pojave
+bitne samo na datom mestu, a ne šire, odnosno takvi objekti se prave samo tu, dok ih svi ostali vide samo kroz te apstraktne,
+generalizovane interfejse, a nikad kao instance te lokalne klase (pa je zato ta klasa i lokalna, enkapsulirana u funkciju)
+❖ Na primer, neka funkcija očekuje kao parametar objekat koji zadovoljava neki interfejs, kako bi pozvala neku njegovu
+operaciju (tzv. callback mehanizam):
+class ISubscriber {
+public:
+  virtual void notify (Message*);
+};
+class Publisher {
+public:
+  static void subscribe (ISubscriber*);
+};
+void Component::Component () {
+  struct Sub : public ISubscriber {
+    Sub (Component* c) : comp(c) {}
+    virtual void notify (Message* msg) { if (comp) comp->processMessage(msg); }
+    Component* comp;
+  };
+  Publisher::subscribe(new Sub(this));
+}
+UNIT NAME: Opseg važenja bloka
+ 271
+Da bi se neko prijavio da prima objave (notiﬁkacije), mora
+da zadovolji ovaj interfejs, tj. (re)deﬁniše operaciju notify
+Da bi se neko prijavio da prima objave (notiﬁkacije), mora
+da se prijavi ovom “oglašivaču” operacijom subscribe
+Da bi se komponenta prijavila “oglašivaču”, pravi jedan ad-hoc objekat
+lokalne klase Sub, koja služi samo da redeﬁniše polimorfnu operaciju
+notify, kao i da sačuva pokazivač na komponentu kojoj treba da
+prosledi poruku kad je primi objavom
+

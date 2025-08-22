@@ -1,0 +1,35 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstrakcije
+❖ Ideja boljeg rešenja: uvesti koncept Personalnog zapisa (Personal Record) koji sadrži određene lične podatke:
+• umesto da sadrže kopije, Osoba i Dokument referenciraju (vezani su za) Personalne zapise: sve dok se
+podatak ne menja, ovi objekti vezani su za iste zapise
+• prilikom promene nekog podatka, pravi se nova kopija zapisa u kom se taj podatak menja
+• kako bi se dodatno smanjilo kopiranje, podaci su grupisani u različite specijalizacije zapisa, po tome
+koliko se često i da li se zajedno ili odvojeno menjaju
+• za Osobu se mogu čuvati i raniji zapisi, sa svim podacima koji su ikada bili registrovani za tu osobu
+(nezavisno od Dokumenata u kojima su upotrebljeni)
+ 87
+dateOfBirth : Date
+placeOfBirth : Text
+gender : Gender
+* *PersonalRecord
+BirthRecord
+firstName : Text
+lastName : Text
+NameRecord
+address : Text
+place : Text
+AddressRecord
+photo : Binary
+fingerprint : Binary
+irisScan : Binary
+BiometricRecord
+0..1 *
+0..1 *
+currentRecords
+oldRecords
+UML oznaka uloge (role) kraja asocijacije: objekti
+na ovom kraju veza igraju ovu ulogu u relaciji.
+Multiplikativnost od 0 do 1.
+DocumentPerson
+

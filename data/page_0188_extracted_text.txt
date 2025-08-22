@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Tipovi
+❖ Neko ime (identiﬁkator) se može deklarisati kao ime tipa na jedan od sledećih načina:
+• deklaracijom klase
+• deklaracijom enumeracije (enum)
+• typedef deklaracijom
+• deklaracijom sinonima za deﬁnisani tip
+❖ typedef deklaracija ima isti oblik kao kada se imenom deklariše entitet datog tipa, samo što
+ime ne deklariše takav entitet, već novo ime (sinonim) za taj isti tip (ne deﬁniše se novi tip);
+tipično se koristi za konciznije pisanje složenih tipova:
+typedef X* (*PXTransFun)(X*);
+PXTransFun vtable[N];
+❖ Potpuno isto se postiže sledećom deklaracijom sinonima za tip:
+using PXTransFun = X*(*)(X*);
+❖ Na mnogim mestima može se navesti neki tip koji nema ime, na primer kao odredišni tip
+operatora eksplicitne konverije (cast); takav bezimeni tip piše se isto kao i tip u deklaraciji
+typedef, samo bez imena, odnosno kao u deklaraciji sinonima i naziva se type-id
+ 188
+Ovo je složen tip pokazivača na funkciju koja prima X* i vraća X*;
+PXTransFun je sinonim za taj tip; vtable je niz takvih pokazivača
+

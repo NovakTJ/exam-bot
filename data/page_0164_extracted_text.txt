@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Prevođenje
+❖ Program na jeziku C++ sastoji se od jednog ili više modula, pri čemu se modulom smatra
+sadržaj jednog fajla za izvornim kodom (tipična ekstenzija imena je .cpp)
+❖ Svaki izvorni fajl je odvojena jedinica prevođenja (compilation unit): svaki fajl se prevodi
+odvojeno i nezavisno: kada prevodilac (compiler) prevodi jedan fajl, ne izlazi iz granica tog
+fajla, odnosno ne tretira druge fajlove programa
+❖ Kada prevodi jedan fajl sa izvornim kodom (.cpp), prevodilac će generisati jedan fajl sa
+prevedenim kodom, fajl sa tzv. objektnim kodom (object ﬁle, tipična ekstenzija .obj ili .o; termin
+nema veze sa objektno orijentisanim programiranjem)
+❖ Bilo koja greška u prevođenju uzrokuje da prevodilac ne proizvede izlazni obj fajl; bez
+obzira na to, prevodilac po pravilu nastavlja prevođenje, pokušavajući da prevaziđe svaku
+grešku i prijavljuje sve eventualne druge greške na koje naiđe
+❖ Fajl sa izvornim kodom sastoji se isključivo od deklaracija: tipova (uključujuči i klase),
+funkcija, objekata i drugog. Deklaracija (declaration) je iskaz koji uvodi identiﬁkator u
+program
+❖ Svako ime (identiﬁkator) koje se koristi u programu mora najpre biti deklarisano, u
+suprotnom će prevodilac prijaviti grešku u prevođenju
+ 164
+

@@ -1,0 +1,36 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Obrada izuzetaka
+❖ Zbog ovog redosleda, catch blok koji prima objekat izvedene klase (po vrednosti ili preko reference ili pokazivača
+na izvedenu klasu) mora da bude ispred onog koji hvata objekat osnovne klase (po vrednosti ili preko reference
+ili pokazivača na osnovnu klasu), jer u suprotnom nikada neće biti aktiviran:
+try {
+  …
+}
+catch (Derived& e) {
+  …
+}
+catch (Base& e) {
+  …
+}
+❖ catch(…)  hvata izuzetke bilo kog tipa i, shodno tome, mora uvek biti poslednji u nizu (inače ostali nikada ne bi
+bili aktivirani); ovakav hvatač može poslužiti kao obezbeđenje za to da nijedan izuzetak ne bude bačen iz date
+funkcije:
+try {
+  …
+}
+catch (ThermometerException& e) {
+  …
+}
+catch (ManometerException& e) {
+  …
+}
+catch (...) {
+  …
+}
+ 154
+Ovaj hvatač biće aktiviran za izuzetke tipa Derived…
+… a ovaj za ostale koji su tipa Base, ali nisu Derived.
+Da je ovaj ispred prvog, uvek bi on bio aktiviran (jer je
+svaki Derived ujedno i Base)
+Hvata izuzetke bilo kog tipa
+

@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ Što se tiče pravila jezika C++, bilo koji član može biti bilo koje vrste dostupnosti: javan
+(public), zaštićen (protected) ili privatan (private) ; međutim, iskustvena preporuka jeste ta da se
+klasa pravi tako da (osim ako postoje jaki razlozi i opravdanje za drugačije odluke):
+• podaci članovi budu isključivo privatni, kako bi pristup do njih mogao lakše da se
+kontroliše i menja; ako je potrebno pristupati podacima članovima, napraviti operacije za:
+• čitanje, tzv. getter operacije koje čitaju i vraćaju vrednost podatka (npr. getName)
+• upis, tzv. setter operacije koje postavljaju vrednost podatka (npr. setName)
+• javne treba da budu samo operacije koje čine interfejs date klase
+• zaštićene mogu da budu operacije:
+• getter/setter operacije, ukoliko ne predstavljaju deo javnog interfejsa klase, a
+izvedenim klasama je potreban pristup do podataka članova
+• pomoćne (helper) operacije, jer se one koriste za implementaciju metoda operacija iz
+interfejsa, pa je velika šansa da takve iste budu potrebne i u redeﬁnisanim metodama
+izvedenih klasa; tu se uključuju i “kukice” (hook), jer su one svakako predviđene za
+redeﬁnisanje u izvedenim klasama
+ 113
+

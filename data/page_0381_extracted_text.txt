@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Vratimo se na implementaciju operatora dodele kopiranjem:
+inline string& string::operator= (const string& s) {
+  if (this != &s) {
+    release();
+    allocate(s.str);
+    copy(s.str);
+  }
+  return *this;
+}
+❖ Ova implementacija ima sledeća dva nedostatka:
+• provera na “samododeljivanje” (self assignment) u naredbi if izvršava se uvek i
+troši režijsko vreme u svakom pozivu, iako se verovatno nikada u programu
+neće dogoditi problematična situacija samododeljivanja (jer nema smisla)
+• ova implementacija pruža samo osnovni (slabi) nivo garancije od izuzetaka: ako
+alokacija prostora u funkciji allocate ne uspe i baci izuzetak, objekat domaćin (na
+koga ukazuje this) već je izmenjen u operaciji release; bilo bi bolje da se obezbedi
+jaka garancija
+UNIT NAME: Premeštanje resursa
+ 381
+

@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstraktnog tipa podataka
+❖ Prenos objekata kao argumenata poziva funkcija po vrednosti, kopiranjem, se rešava na isti način:
+complex complex::add (complex ca, complex cb);
+…complex::add(c3,c4)…
+❖ Ponovo se formalni argument ca (cb) inicijalizuje stvarnim argumentom c3 (c4) pozivom konstruktora kopije, sa
+istom semantikom:
+complex ca = c3;
+complex cb = c4;
+❖ I povratna vrednost funkcije tj. rezultat poziva funkcije se vrši po vrednosti, takođe kopiranjem, na isti način
+❖ Na mestu poziva funkcije, u trenutku povratka iz funkcije, kreira se privremeni (temporary) objekat koji se
+inicijalizuje izrazom iz naredbe return; semantika ove inicijalizacije je ista kao i svake druge inicijalizacije:
+complex complex::add (complex ca, complex cb) {
+  …
+  return result;
+}
+…complex::add(c1,c2)…
+Rezultat poziva complex::add jeste jedan bezimeni, privremeni objekat koji se kreira na mestu poziva ove funkcije,
+u trenutku povratka iz nje, i inicijalizuje rezultatom izraza iza naredbe return - objektom result. Poziva se
+konstruktor kopije, sa sledećim značenjem:
+complex temp = result;
+ 71
+Poziv negde u izrazu; kao da je tu kreiran privremeni, bezimeni objekat temp
+tipa complex koji prihvata vraćenu vrednost i inicijalizovan sa result:
+complex temp = result;
+Poziva se konstruktor kopije complex::complex(complex&
+other) za temp, pri čemu se referenca - formalni argument other
+vezuje za stvarni argument result
+Poziva se konstruktor kopije complex::complex(complex& other) za ca, pri
+čemu se referenca - formalni argument other vezuje za stvarni argument c3
+

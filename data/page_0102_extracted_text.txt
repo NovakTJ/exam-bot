@@ -1,0 +1,17 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Algoritamska dekompozicija
+❖ U OOP algoritamska dekompozicija ima podjednako važnu ulogu, mada ne
+više centralnu i nije jedini element, već sastavni element objektne dekompozicije
+❖ Kao i u proceduralnom programiranju, algoritamska dekompozicija se
+koristi za razlaganje određenog postupka, ali uz jednu bitnu razliku: u
+okviru razlaganja postupka, za svaki korak deﬁniše se činilac koji je
+odgovoran za izvršavanje tog koraka
+❖ Koraci se raspodeljuju činiocima (apstrakcijama, klasama) na osnovu
+njihovih ranije deﬁnisanih opsega odgovornosti, ali je moguće i obratno:
+dekompozicijom na korake se raspodeljuju odgovornosti po apstrakcijama,
+ali se mogu i uvoditi ili identiﬁkovati nove apstrakcije
+❖ Zbog toga se postupci dekomponovani na korake i raspoređeni kao
+odgovornosti po klasama nazivaju češće scenarijima (scenario) ili mehanizmima
+(mechanism)
+ 102
+

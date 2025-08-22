@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Raspodela odgovornosti
+❖ Preduslov za postizanje opisanih vrlina jeste dobro razdvajanje brige (separation of concerns)
+i raspodela odgovornosti (distribution of responsiblity) po apstrakcijama, klasama, modulima
+❖ Elemente softvera (podatke, funkcionalnosti) treba grupisati u klase ili module po
+principu jake kohezije i slabe sprege (strong cohesion/loose coupling):
+• elementi unutar iste klase ili modula treba da budu jako i tesno međusobno povezani
+(kohezija, cohesion)
+• elementi iz različitih klasa i modula treba da budu slabo spregnuti (loose coupling)
+❖ Ponekad se ovo izražava i kao princip jedinstvene odgovornosti klase (single responsibility
+principle): klasa treba da ima ograničenu odgovornost, tako da postoji samo jedan razlog
+za njenu izmenu
+❖ Ako se različite odgovornosti mogu nezavisno menjati, postoji ozbiljan razlog za
+razdvajanje tih odgovornosti u različite klase
+❖ Klasa svakako ne treba da ima previše odgovornosti, posebno ako su one slabo povezane
+ili nepovezane - raspodela odgovornosti je jedan element objektne dekompozicije
+ 97
+

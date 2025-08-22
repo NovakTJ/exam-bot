@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pretprocesiranje
+❖ Direktive #if, #elif (znači “else-if”), #ifdef (znači “if-deﬁned”) i #ifndef (znači “if-not-deﬁned”)
+omogućuju uslovno prevođenje: tekst uokviren odgovarajućim direktivama biće prevođen
+samo ako je odgovarajući uslov ispunjen; za direktive #ifdef/#ifndef, uslov je ispunjen ako je
+dati simbol deﬁnisan/nije deﬁnisan pretprocesoru (pomoću prethodne direktive #deﬁne):
+#ifdef _a_h
+  …
+#endif
+❖ Ove direktive mogu da se koriste npr. za prevođenje delova koda koji treba da postoji samo
+ako se program prevodi za odgovarajuću platformu, konﬁguraciju i slično; prevodioci
+dozvoljavaju da im se zada simbol pretprocesora koji se smatra generalno (globalno)
+deﬁnisanim za sve fajlove, iako nije eksplicitno deﬁnisan direktivom #deﬁne:
+#ifdef Windows
+ … // Windows-dependent code
+#elif defined(Linux)
+ … // Linux-dependent code
+#endif
+ 180
+Ovaj kod biće prevođen samo ako je simbol _a_h deﬁnisan
+direktivom #deﬁne pretprocesora
+Ovaj kod biće prevođen samo ako je simbol Windows
+deﬁnisan, što se tipično radi podešavanjem prevodioca,
+tako da se dati simbol smatra deﬁnisanim pri
+pretprocesiranju svih fajlova
+

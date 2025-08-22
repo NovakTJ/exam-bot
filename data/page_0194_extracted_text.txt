@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Konverzije
+❖ Kod eksplicitne konverzije operatorom cast nasleđenim iz jezika C
+(new_type)expression
+prevodilac pokušava redom sledeće konverzije izvorišnog u odredišni tip, i primenjuje prvu koja odgovara datim
+tipovima, čak i ako ona nije dozvoljena (u kom slučaju prijavljuje grešku):
+a) const_cast<new_type>(expression)
+b) static_cast<new_type>(expression), sa tim proširenjem što pokazivač/referenca na izvedenu klasu može da se
+konvertuje u pokazivač/referencu na osnovnu klasu, čak i ako ta osnovna klasa nije dostupna (to znači, ne
+uzima se u obzir to što je osnovna klasa izvedena kao private ili protected)
+c) static_cast (sa proširenjem), iza koje sledi const_cast
+d) reinterpret_cast<new_type>(expression)
+e) reinterpret_cast, iza koje sledi const_cast
+❖ Prema tome, ovim operatorom mogu se vršiti sve konverzije navedenih operatora speciﬁčnih konverzija, osim
+operatora dynamic_cast, ali se ipak preporučuje korišćenje upravo nekog od ovih operatora umesto operatora cast iz
+sledećih razloga:
+• upotrebom nekog od navedenih speciﬁčnih operatora naglašava se namera date konverzije, tj. njena svrha i
+cilj, pa program može biti razumljiviji
+• ukoliko ta namera nije korektna, u smislu da zahtevana konverzija nije dozvoljena tim operatorom za date
+tipove, prevodilac će programeru ukazati na grešku (dok bi operator cast “ćutke” možda primenio neku
+drugu, nenameravanu konverziju)
+ 194
+

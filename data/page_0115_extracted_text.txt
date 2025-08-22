@@ -1,0 +1,33 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ Na primer, želimo da samo operacija conﬁgure klase Conﬁgurator može da kreira objekte klase Controller:
+class Controller {
+public:
+  …
+protected:
+  friend void Configurator::configure();
+  Controller (Reader*, Translator*);
+  …
+private:
+  …
+};
+void Configurator::configure () {
+  …
+  …new Controller(…)…
+  …
+}
+❖ Ako je cela klasa prijatelj nekoj drugoj klasi, onda su sve njene funkcije članice prijatelji toj drugoj klasi:
+friend class Configurator;
+❖ Za “prijateljstvo” važi sledeće:
+• ono se ne može “preoteti”, jer ne može bilo ko da sebe proglasi prijateljem neke klase, pošto bi to narušilo
+enkapsulaciju te klase; “prijateljstvo” se odobrava: prijatelji se deklarišu u samoj klasi koja im odobrava pristup
+• ono se ne nasleđuje: ako je klasa B prijatelj klasi X, a klasa D nasleđuje klasu B, klasa D nije implicitno prijatelj klasi X
+• ono nije ni tranzitivna relacija: ako je klasa B prijatelj klasi A, a klasa C prijatelj klasi B, klasa C nije implicitno prijatelj
+klasi A
+ 115
+Nijedan konstruktor nije javan, pa se van ove klase ne mogu
+kreirati objekti te klase (osim u izvedenim klasama, jer je
+njima konstruktor dostupan, pošto je zaštićen)
+Funkcija conﬁgure članica klase Conﬁgurator je prijatelj klasi Controller,
+pa ima pristup do njenih privatnih i zaštićenih članova
+

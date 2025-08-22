@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Za polimorfne klase (polymorphc class), a to su klase sa bar jednom (makar i nasleđenom)
+virtuelnom funkcijom, odnosno klase čiji objekti imaju u sebi VTP , ovakav downcast se
+može izvršiti i bezbednije, dinamičkom konverzijom (dynamic cast):
+Circle* crc = dynamic_cast<Circle*>(fig);
+❖ Ukoliko se iza pokazivača kojim rezultuje izraz unutar zagrada ovog operatora krije
+zaista objekat koji jeste (direktna ili indirektna) instanca tražene ciljne klase, rezultat će
+biti validan pokazivač na objekat te klase; u suprotnom, rezultat će biti nula pokazivač
+(null) (ako je odredišni tip referenca, u ovom slučaju biće bačen izuzetak)
+❖ Upotreba dinamičke konverzije u ovakve svrhe je opravdana u situacijama kada se zna
+ili se očekuje da je iza pokazivača instanca potrebne specijalizacije; međutim, pogrešna
+upotreba može da signalizira propuštanje neke apstrakcije i polimorﬁzma:
+Circle* crc = dynamic_cast<Circle*>(fig);
+if (crc) drawCircle(crc);
+Rectangle* rct = dynamic_cast<Rectangle*>(fig);
+if (rct) drawRectangle(rct);
+…
+ 133
+Očigledno polimorﬁzam!
+

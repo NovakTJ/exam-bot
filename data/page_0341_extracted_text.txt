@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Pre verzije C++17, privremeni objekti obavezno su se pravili i u sledećim situacijama, pored još
+nekih:
+• konverzija koja ne vraća lvrednost, uključujući i eksplicitan poziv konstruktora; na primer:
+complex c1(3.0,0.0), c2(0.0,4.0), c3;
+c3 = (c1 + c2) * (complex(1.,0.) + c2);
+• prilikom inicijalizacije kopiranjem (copy initialization, inicijalizacija sa znakom =):
+comlex c4 = (c1 + c2) * (complex(1.,0.) + c2);
+• kada se referenca inicijalizuje izrazom drugog, ali konvertibilnog tipa
+❖ Pritom, za navedeni drugi slučaj inicijalizacije kopiranjem, kao i na nekim drugim mestima,
+prevodiocu se dopušta (ali se ne obavezuje) optimizacija izostavljanja kopiranja (copy elision):
+umesto da se najpre napravi privremeni objekat kao rezultat inicijalizacionog izraza, a potom
+njime inicijalizuje deklarisani objekat konstruktorom kopije, prevodilac može odmah da
+inicijalizuje deklarisani objekat rezultatom inicijalizacionog izraza, izostavljajući kopiranje, čak
+i ako konstruktor kopije ima vidljive bočne efekte, ali samo pod uslovom da su sve
+odgovarajuće funkcije, uključujući i konstruktor kopije, dostupne na mestu deklaracije
+(proveravaju se prava pristupa kao da se kopiranje ne izostavlja, tzv. as-if pravilo)
+UNIT NAME: Privremeni objekti
+ 341
+Do C++17, rezultat ovog eksplicitnog poziva
+konstruktora, kao i bilo koje konverzije u klasni tip,
+jeste privremeni objekat tipa complex, baš kao i rezultat
+svake od ovih operatorskih funkcija + i * čiji je povratni
+tip complex
+Do C++17, rezultat inicijalizatorskog izraza sa desne
+strane znaka = je privremeni objekat tipa  complex kojim
+se inicijalizuje objekat c4 pozivom konstruktora kopije
+

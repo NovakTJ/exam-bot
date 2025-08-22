@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Direktna inizijalizacija (direct initialization) inicijalizuje objekat eksplicitnim skupom argumenata
+konstruktora u sledećim situacijama:
+• Inicijalizacija imenovanog objekta nepraznom listom izraza unutar zagrada:
+T t (expression, …)
+• Inicijalizacija objekta neklasnog tipa jednim izrazom unutar velikih zagrada:
+T t {expression}
+• Inicijalizacija privremenog objekta kao čdvrednosti nepraznom listom izraza unutar zagrada:
+T (expression, …)
+• Inicijalizacija privremenog objekta kao čdvrednosti izraza static_cast:
+static_cast<T>(expression)
+• Inicijalizacija dinamičkog objekta u izrazu new pomoću inicijalizatora sa nepraznim zagradama:
+new T (expression, …)
+• Inicijalizacija podobjekta osnovne klase ili podobjekta člana unutar liste inicijalizatora u
+konstruktoru za nepraznom listom unutar zagrada:
+C::C (…),  B (expression, …), m (espression,…) {…}
+UNIT NAME: Direktna inicijalizacija
+ 420
+

@@ -1,0 +1,32 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ U mnogim situacijama objekti neke klase imaju zauzete (alocirane), pridružene resurse, kao što su, na primer:
+• dinamički alocirani objekti
+• otvoreni fajlovi
+• drugi resursi alocirani uslugom operativnog sistema ili izvršnog okruženja programa, kao što su npr. memorija, niti,
+semafori, priključnice (socket), neki drugi kanali komunikacije, “ključevi” (lock, mutex) i sl.
+❖ Ovi resursi po pravilu se alociraju pri inicijalizaciji objekta, što obezbeđuju odgovarajući konstruktori
+❖ Na primer, posmatrajmo klasu string koja treba da realizuje apstraktni tip podataka za nizove znakova, za koje želimo da se
+mogu dimenzionisati dinamički, u trenutku pravljenja, na osnovu potrebe onoga čime se inicijalizuju; osim toga, želimo da
+implementiramo operacije konkatenacije dva stringa (npr. preklapanjem operatora +) i mnoge druge. Zbog toga nam je
+potrebno da objekti ove klase imaju pridruženi dinamički niz znakova, jer se samo tako može napraviti niz čija se dimenzija
+zna tek prilikom pravljenja. Početna skica ove klase:
+class string {
+public:
+  string () : str(nullptr) {}
+  string (const char*);
+  …
+private:
+  char* str;
+};
+string::string (const char* s) : string() {
+  if (!s) return;
+  str = new char[std::strlen(s)+1];
+  std::strcpy(str,s);
+}
+UNIT NAME: Objekti sa zauzetim resursima
+ 363
+Omogućava inicijalizaciju ugrađenim nizovima znakova:
+string s("Hello");
+Omogućava podrazumevanu inicijalizaciju:
+string s;
+

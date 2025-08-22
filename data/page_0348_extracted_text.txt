@@ -1,0 +1,9 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Glava 12: Konstruktor, destruktor i operator dodele
+❖ Konstruktor
+❖ Podrazumevani konstruktor
+❖ Konstruktor kopije
+❖ Destruktor
+❖ Operator dodele kopiranjem
+ 348
+

@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Neki osnovni pojmovi jezika
+❖ U skladu sa opredeljenjem za to da objekte klasa tretira što sličnije, ako ne i isto kao i primerke ugrađenih tipova,
+C++ uvodi uopštenje pojma objekta, pošto mnoga pravila važe podjednako za primerke ugrađenih tipova i klasa
+❖ Na jeziku C++, objekat jeste oblast skladišta (region of storage), odnosno deo memorije, koji ima:
+• veličinu, koja se može odrediti operatorom sizeof (u jedinicama sizeof(char))
+• poravnanje (alignment) u memoriji, koje se može odrediti operatorom alignof
+• trajanje skladištenja (storage duration), koje može biti automatsko, statičko, dinamičko ili lokalno za nit
+(thread-local)
+• životni vek (lifetime), koji je određen trajanjem skladištenja ili je privremen (temporary): vreme tokom
+izvršavanja za koje objekat postoji
+• tip, koji može biti klasni tip (klasa, struktura ili unija) ili neklasni tip
+• vrednost, koja može biti i neodređena
+• opciono ime: identiﬁkator u programu koji se odnosi na taj objekat
+❖ Prema tome, termin objekat može imati donekle različito značenje, u zavisnosti od konteksta:
+• u širem kontekstu objektno orijentisanog programiranja, objekat je primerak (instanca) klase
+• u užem kontekstu pravila jezika C++, objekat može biti primerak klase ili neklasnog (ugađenog) tipa
+❖ Najveći broj pravila i najveći deo složenosti semantike i pravila jezika C++ jeste posledica upravo ove odluke!
+ 162
+

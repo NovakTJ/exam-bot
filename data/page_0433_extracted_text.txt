@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Postoje sledeća ograničenja:
+• Ne mogu da se preklope sledeći operatori: ::, ., .* i ?:, kao ni operatori koji nisu simboli,
+već ključne reči (sizeof, const_cast, static_cast, dynamic_cast, reinterpret_cast itd.)
+• Ne mogu da se deﬁnišu novi operatori, npr. ** ili <>
+• Preklopljeni operatori && i || gube svojstvo izračunavanja prečicom (short-circuit
+evaluation)
+• Preklopljeni operatori =, (), [], i -> moraju biti nestatičke funkcije članice
+• Preklopljeni operator -> mora da vrati ili običan pokazivač, ili objekat (po vrednosti ili
+referenci) za koji je ponovo deﬁnisan preklopljeni operator ->
+• Ne može da se promeni broj operanada, način grupisanja i prioritet operatora; zapravo
+se ne može promeniti način tumačenja (parsiranja) izraza i pridruživanja operanada
+operatorima, jer to određuju pravila jezika; ali kada pridruži operande operatorima,
+prevodilac traži odgovarajuću preklopljenu funkciju za operande koji su tipa klase ili
+enumeracije
+❖ Povratni tip preklopljenog operatora može biti bilo koji, pa i void
+UNIT NAME: Preklopljeni operatori
+ 433
+

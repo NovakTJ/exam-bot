@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Polimorfizam
+❖ Objekti klase ClockWithDate moraju drugačije da reaguju na
+• operaciju tick, jer moraju da paze i na ažuriranje datuma
+• operaciju getTime, jer želimo da vrate i datum i vreme
+❖ Funkcija članica koja će u izvedenim klasama imati drugačiju implementaciju deklariše se u osnovnoj klasi
+kao virtuelna funkcija (virtual). Izvedena klasa može da dâ svoju deﬁniciju virtuelne funkcije, ali i ne mora:
+class Clock {
+public:
+  Clock (int hh, int mm, int ss);
+  virtual void tick (); // Tick a second
+  virtual string getTime ();  // Returns current time
+  void setTime (int hh, int mm, int ss);
+
+  int getHour() { return h; }
+  int getMinute() { return m; }
+  int getSecond() { return s; }
+  bool isMidnight () { return (h==0 && m==0 && s==0;) }
+private:
+  int h, m, s;  // Hour, minute, second
+};
+ 34
+Virtuelne funkcije članice
+

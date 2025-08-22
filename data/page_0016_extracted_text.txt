@@ -1,0 +1,13 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klase i objekti
+❖ Apstrakcija časovnika (clock):
+• meri vreme u toku dana (00:00:00 - 23:59:59)
+• otkucava sekunde (tick)
+• može da prikaže vreme (getTime)
+• može da mu se podesi vreme (setTime)
+❖ Klasa (class) je koncept OOP podržan OO jezikom kojim se realizuje
+apstrakcija
+❖ Klasa grupiše strukturu (podatke) i ponašanje (operacije nad
+strukturom) u jedinstvenu logičku celinu
+ 16
+

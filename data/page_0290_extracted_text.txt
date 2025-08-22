@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Zbog čega su sledeći izrazi ispravni:
+&a
+*(p+3)
+x += 1
+a sledeći nisu?
+&(i+3)
+(i+j) += k
+❖ Intuitivno je jasno da u nekim od ovih situacija operacija nije dozvoljena jer njen operand ne
+predstavlja nekakav “čvrst” objekat koji se može identiﬁkovati, koji zauzima neku memoriju,
+ali je to suviše neformalno tumačenje koje prevodilac ne može da sprovodi: potrebna su
+precizna, formalna pravila kojima prevodilac može da proverava ispravnost ovakvih izraza
+❖ Još je u jeziku C postojao kocept (on vodi poreklo iz nekih starijih jezika) tzv. lvrednosti
+(lvalue), kao “nečega što može da stoji sa leve strane znaka =“ i koji se koristio za ovakvu
+namenu; ovaj koncept u jeziku C++ ima složenije značenje, ali i veći značaj, pošto se operatori
+mogu preklapati, pa operandi mogu biti i objekti klasa
+❖ Pored sintaksne provere i provere tipova operanada, prevodilac proverava i svojstvo
+lvrednosti za izraze
+UNIT NAME: Lvrednosti
+ 290
+

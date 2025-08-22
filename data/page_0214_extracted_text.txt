@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pokazivači na objekte
+❖ Pokazivač tipa void* može da ukazuje na bilo koji objekat: postoji implicitna
+konverzija iz bilo kog pokazivačkog tipa u tip void*; sa objektom na koji
+ukazuje ovaj pokazivač ne može se raditi ništa
+❖ Ovakav pokazivač se vrlo ograničeno upotrebljava, tipično u starim C
+interfejsima, gde se prihvata pokazivač na bilo šta; na primer, nit (thread) u
+biblioteci POSIX kreira se zadavanjem argumenta funkcije koji je pokazivač
+tipa void*
+❖ Da bi se preko tog pokazivača uradilo nešto sa onim na šta on ukazuje,
+mora se izvršiti eksplicitna konverzija na odredišni tip, s tim da
+odgovornost za ispravnost te konverzije nosi programer:
+void DocumentSaver::run (void* p) {
+  DocumentSaver* ds = static_cast<DocumentSaver*>(p);
+  if (ds) ds->save();
+  delete ds;
+}
+ 214
+

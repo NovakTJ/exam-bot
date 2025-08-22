@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Operator dodele kopiranjem (copy assignment operator) klase X je nestatička operatorska funkcija
+članica te klase  sa imenom operator= čiji je jedini parametar tipa X, X&, const X&, volatile X&
+ili const volatile X&
+❖ Ova funkcija poziva se kada se objekat klase X nalazi kao levi operand operatora dodele =, i
+kada se baš ona odabere u postupku odabira preklopljene operatorske funkcije za desni
+operand tog operatora:
+struct X {
+  X& operator= (const X&);
+  …
+};
+X x1, x2 = x1, x3;
+x3 = x2;
+❖ Operacija dodele kopiranjem je potpuno drugačija operacija od inicijalizacije kopiranjem:
+• inicijalizacija kopiranjem se vrši na početku životnog veka objekta, i tada se poziva
+konstruktor kopije; pre toga objekat koji se inicijalizuje ne postoji
+• dodela kopiranjem se vrši u izrazu, kao operacija dodele, i tada se poziva operator
+dodele; pre toga objekat kome se dodeljuje već postoji i inicijalizovan je ranije
+UNIT NAME: Operator dodele kopiranjem
+ 360
+UNIT NAME: Operator dodele kopiranjem
+Ovde se poziva konstruktor kopije
+Ovde se poziva podrazumevani konstruktor
+Ovde se poziva operator dodele kopiranjem: x3.operator=(x2)
+

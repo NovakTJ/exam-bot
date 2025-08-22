@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Osim navedenih ograničenja, pravila jezika ne nameću bilo koja druga, pa stoga:
+• preklopljeni operator može imati bilo kakve efekte i bilo kakvo značenje; na primer,
+operator dodele = uopšte ne mora raditi dodelu kopiranjem, ili operator + uopšte ne
+mora raditi sabiranje (šta god to značilo za dati tip)
+• preklapanje jednog operatora ne znači implicitno i preklapanje nekog drugog, blisko
+povezanog operatora; na primer, ako je za klasu preklopljen operator ==, nije
+implicitno preklopljen i operator !=, ili, ako je za klasu preklopljen operator <, nije
+implicitno preklopljen i operator > i slično
+• veze koje postoje za ugrađene operatore ne moraju biti takve i za preklopljene
+operatore; na primer, za ugrađene operatore +, = i += važi odgovarajuća sprega, koja
+uopšte ne mora da važi za preklopljene operatore (da a+=b ima efekat kao a=a+b)
+• preklopljeni operatori mogu da vraćaju bilo koji tip, pa i tip void, iako ugrađeni
+operatori vraćaju odgovarajuće tipove; na primer, ugrađeni operator dodele vraća
+lvrednost koja upućuje na levi operand, dok preklopljeni operator dodele može
+vratiti bilo koji tip i bilo kakvu vrednost
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 441
+

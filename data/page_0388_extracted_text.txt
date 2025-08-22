@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Glvrednost (glvalue) je lvrednost (lvalue) ili xvrednost (xvalue) i za svaku glvrednost (a to znači i za lvrednost i za
+xvrednost) važi:
+• može se implicitno konvertovati u čdvrednost (prvalue) konverzijom lvrednosti u dvrednost (rvalue), niza u
+pokazivač i funkcije u pokazivač
+• može biti polimorfna: dinamički tip objekta koji identiﬁkuje ne mora biti isti kao i statički tip određen za
+vreme prevođenja (za objekte na koje ukazuju reference i pokazivači)
+• može imati nekompletan tip tamo gde je to dozvoljeno izrazom
+❖ Dvrednost (rvalue) je čdvrednost (prvalue) ili xvrednost (xvalue) i za svaku dvrednost (a to znači i za čdvrednost i za
+xvrednost) važi:
+• ne može se uzimati njena adresa
+• ne može biti levi operand operatora dodele i složene dodele
+• može se koristiti za inicijalizaciju reference na konstantnu lvrednost (const T&) ili reference na dvrednost
+(T&&); u slučaju da identiﬁkuje privremeni objekat, životni vek tog objekta se produžava do kraja trajanja
+reference, ali najviše do izlaska iz funkcije u kom je taj privremeni objekat napravljen
+• kada se koristi kao argument poziva funkcije, i ako su na raspolaganju dve preklopljene funkcije, jedna koja
+prima parametar koji je referenca na dvrednost (T&&) a druga koja prima referencu na konstantnu lvrednost
+(const T&), biće pozvana ona koja prima referencu na dvrednost; prema tome, ako postoji i konstruktor kopije i
+konstruktor pomeranja, odnosno operator dodele kopiranjem i premeštanjem, biće pozvan onaj za
+premeštanje
+UNIT NAME: Kategorije vrednosti
+ 388
+

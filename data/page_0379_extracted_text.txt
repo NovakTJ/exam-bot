@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Pošto većina prevodilaca izostavlja kopiranje čak i kada je to neobavezno, a od verzije C++17 mnoge od
+navedenih optimizacija postale su obavezne, premeštanje zbog izbegavanja kopiranja resursa iz privremenih
+objekata gubi na značaju
+❖ Međutim, semantika premeštanja ipak ima svoj značaj (koji postoji oduvek) i koji je možda i važniji od
+navedenog: premeštanje se može vršiti i na mestima za koje nisu predviđene optimizacije, ukoliko je ono
+eﬁkasnije i nema potrebe za kopiranjem
+❖ Na primer, bibliotečna šablonska klasa vector predstavlja niz promenljivih dimenzija koji se implicitno
+proširuje po potrebi (operacija resize). U tom slučaju za niz elemenata alocira se nov prostor, a elementi vektora
+se po vrednosti kopiraju na novo alocirano mesto. Ukoliko tip elementa vektora ima semantiku premeštanja,
+biće upotrebljeno premeštanje umesto kopiranja; ako odgovarajuće operacije premeštanja nisu deﬁnisane,
+vršiće se kopiranje
+❖ Osim toga, neke apstrakcije ne dozvoljavaju kopiranje (jer to nema smisla), ali se njihovi alocirani resursi
+mogu premeštati; jedan takav primer je apstrakcija ulaznog ili izlaznog znakovnog toka (istream i ostream)
+❖ U ovakvim situacijama moguće je i eksplicitno zahtevati semantiku premeštanja, iako bi se podrazumevano
+pozivao konstruktor kopije ili operator dodele kopiranjem: izraz koji je lvrednost se može eksplicitno
+konvertovati u dvrednost pozivom bibliotečne funkcije std::move koja vraća referencu na dvrednost za
+argument koji može biti i lvrednost; za ovakav rezultat onda se vezuju funkcije čiji parametri primaju
+reference na dvrednosti, pa i konstruktor premeštanja ili operator dodele premeštanjem:
+string s1("Hello");
+string s2 = std::move(s1);
+UNIT NAME: Premeštanje resursa
+ 379
+Objekat s2 biće inicijalizovan konstruktorom premeštanja i preoteće resurse iz
+objekta s1, recimo zato što objekat s1 više nema potrebe za tim resursom
+

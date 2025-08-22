@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Jedan aspekt može biti veoma bitan pri odlučivanju o tome da li neki preklopljeni operator treba
+napraviti kao nestatičku funkciju članicu ili kao funkciju nečlanicu (ako je to moguće):
+• poziv nestatičke funkcije članice za neki izraz ne dozvoljava “promociju” tog izraza, odnosno
+bilo kakvu implicitnu konverziju levog operanda operatora .: zahteva se da klasa kojoj
+pripada taj objekat, ili neka njena osnovna klasa, ima navedenu funkciju, inače poziv nije
+dozvoljen:
+complex complex::operator+ (complex c) {…}
+complex::complex (double d) {…}
+complex c1(3.,4.); double d = 5.0;
+complex c2 = d+c1;
+• pri pozivu funkcije nečlanice vrše se dozvoljene i deﬁnisane implicitne konverzije
+argumenata; za navedeni primer klase complex, ukoliko se operator + deﬁniše kao funkcija
+nečlanica i deﬁniše navedeni konstruktor konverzije iz tipa double, moguće su sve varijante
+poziva za različite tipove argumenata:
+complex operator+ (complex c1, complex c2) {…}
+complex::complex (double d) {…}
+complex c1(3.,4.); double d = 5.0; int i = 3;
+complex c2 = d+c1, c3 = c2+i, c4 = c2+c3;
+UNIT NAME: Preklopljeni operatori
+ 437
+Konstruktor konverzije, deﬁniše implicitnu
+konverziju iz double u complex
+Greška u prevođenju: tumači se kao d.operator+(c1),
+a levi operand operatora + ne konvertuje se u objekat
+

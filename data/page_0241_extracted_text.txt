@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Konstantni tipovi i funkcije članice
+❖ Svaki objektni tip (tj. tip koji nije referenca ili funkcija) može da bude kvaliﬁkovan kao konstantan (constant).
+Objekti ovakvog tipa ne mogu se menjati: neposredan pokušaj operacije nad ovakvim objektom koja bi
+promenila taj objekat prevodilac prijavljuje kao grešku, dok indirektan pokušaj izmene takvog objekta, npr.
+preko pokazivača ili reference na nekonstantan objekat rezultuje nedeﬁnisanim ponašanjem (može izazvati
+čak i izuzetak od hardvera ako je konstantan objekat smešten u deo memorije zabranjen za upis)
+❖ Konstantni objekti moraju biti inicijalizovani u deﬁniciji, jer kasnije svakako ne mogu da se promene. Na
+primer:
+const float pi = 3.14;
+const char plus = '+';
+pi++;
+plus = '-';
+❖ Konstantni objekti fundamentalnih tipova mogu da se koriste u konstantnim izrazima koje prevodilac treba da
+izračuna tokom prevođenja, na primer, u izrazima koje deﬁnišu dimenzije nizova:
+const int MaxNumOfClocks = 100;
+…
+
+Clock* clocks[MaxNumOfClocks];
+❖ Umesto korišćenja makro zamene #deﬁne, bolje je koristiti konstantne objekte, jer oni imaju svoj tip koji može
+biti različit od tipa literala kojim se makro u direktivi #deﬁne zamenjuje; u određenim situacijama, prevodilac
+ne mora ni da alocira konstantan objekat za vreme izvršavanja, već da njegovu konstantnu vrednost potpuno
+iskoristi za vreme prevođenja na svim mestima njenog korišćenja
+ 241
+Greške u prevođenju
+

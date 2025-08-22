@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ Ako je statički podatak član instanca neke klase, njegova inicijalizacija zahteva poziv odgovarajućeg
+konstruktora, a kod za taj poziv se izvršava u vreme izvršavanja programa i prevodilac treba negde da ga
+generiše; jedino što se od prevodioca zahteva i garantuje jeste to da se ta inicijalizacija sigurno vrši pre bilo kog
+pristupa tom objektu ili poziva funkcije članice te klase koji se nalazi u istom fajlu u kom je taj statički podatak
+član deﬁnisan; ovo ne mora biti pre početka izvršavanja funkcije main
+❖ Zbog toga je korišćenje statičkih podataka članova kao instanci klasa nepouzdano, jer ne moraju obavezno biti
+propisno inicijalizovani pre svakog korišćenja; zato je umesto njih bolje koristiti lokalne statičke objekte (detalji
+kasnije)
+❖ Statički podaci članovi klase imaju isti životni vek i skladište se na isti način u memoriji kao i globalni statički
+objekti, ali je korišćenje statičkih podataka članova bolje u mnogim slučajevima, jer je statički podatak član:
+• deo klase kao logičke celine, logički je “upakovan” u nju, pa je jasnija njegova upotreba i namena - program
+je čitljiviji i lakši za razumevanje
+• u oblasti važenja klase, a nije globalan, pa se ne sukobljava po imenu (name clashing) sa ostalim gobalnim
+imenima (može da se zove isto)
+• član klase, kao i svaki drugi, pa se može (i po pravilu treba) enkapsulirati: on može da bude zaštićen ili
+privatan, pa tako i nedostupan ostalim delovima programa (osim izvedenim klasama, ako je zaštićen)
+❖ Zbog toga, neki noviji jezici (npr. Java) i ne omogućavaju globalne objekte (tačnije reference na njih), a umesto
+njih podržavaju statičke podatke članove: svaka referenca na objekat mora biti članica neke klase (statička ili
+nestatička)
+ 117
+

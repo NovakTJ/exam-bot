@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstrakcije
+❖ Apstrakcija (abstraction) je misaoni (mentalni) postupak kojim se:
+• problem, pojava, sistem ili entitet od interesa posmatra pojednostavljeno, zanemarujući aspekte,
+efekte i detalje koji nisu od značaja za dato rešenje, kako bi se ono što preostane učinilo dovoljno
+pojednostavljenim da bi se moglo rešiti ili realizovati
+• zanemaruju različitosti pojedinačnih entiteta zarad isticanja njihovih zajedničkih osobina, kako bi se
+ti entiteti posmatrali generalizovano (uopšteno), grupisani u određene kategorije po svojoj sličnosti,
+opet zarad pojednostavljenja (posmatrati individualne entitete na isti način, umesto svaki posebno)
+— klasiﬁkacija (classiﬁcation), generalizacija (generalization)
+• ovakvim pojednostavljenjem osmišljava pojam (koncept) koji poseduje istaknute zajedničke
+osobine, a bez zanemarenih detalja
+❖ Apstrakcijom se naziva i rezultat ovog procesa, apstrahovani pojam, koncept osmišljen tim postupkom
+❖ Apstrakcija je, pored dekompozicije, osnovno oruđe koje čovek primenjuje u borbi protiv kompleksnosti
+domena problema (problem domain) koji se rešava (softverom u našem interesu)
+❖ Apstrakcija je osnovni postupak u inženjerstvu, jer se inženjerske discipline bave pojednostavljenim
+(apstrahovanim) modelima realnih pojava, sistema i entiteta, kako bi se mogli projektovati, ispitati i
+konstruisati (npr. matematički modeli, numerički modeli, simulacioni modeli, makete itd.)
+ 80
+

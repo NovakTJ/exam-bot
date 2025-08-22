@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pretprocesiranje
+❖ Direktivom #deﬁne uvodi se nov simbol (identiﬁkator) u pretprocesiranje (u
+tabelu simbola pretprocesora deﬁnisanih ovom direktivom)
+❖ Opciono se može deﬁnisati i makrozamena: svaka pojava datog simbola
+zamenjuje se datim tekstom u nastavku direktive; mogući su i argumenti
+makrozamene:
+#define _a_h
+#define N 10
+#define max(a,b) (((a)>=(b))?(a):(b))
+int a[N];
+void f (int a, int b){
+  ...
+  int c = max(x/3,y+1);
+  ...
+}
+ 179
+Jednostavno deﬁniše simbol _a_h u tabelu simbola pretprocesora
+Svaka pojava simbola N zamenjuje se tekstom (literalom 10)
+Makrozamena sa argumentima
+Prevodilac će videti deklaraciju:  int a[10];
+Prevodilac će videti deklaraciju:
+int c = (((x/3)>=(y+1))?(x/3):(y+1));
+

@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Neki ugrađeni operatori zahtevaju kao neki svoj operand lvrednost, pa se kao taj operand
+može pojaviti samo izraz koji jeste lvrednost; ako operator ima bočni efekat nad operandom,
+onda taj operand mora biti lvrednost
+❖ Činjenica da rezultat nekog operatora jeste lvrednost prestavlja činjenicu da ta vrednost
+upućuje na neki “čvrst” entitet, koji ima svoj identitet, a koja se onda može upotrebiti kao
+operand operatora koji zahteva lvrednost
+❖ Tako prevodilac proverava ispravnost izraza. Na primer:
+• Operator dodele = zahteva kao svoj levi operand lvrednost, da bi nad njim proizveo bočni
+efekat, ali ne zahteva da njegov desni operand bude lvrednost; operator + ne proizvodi
+lvrednost:
+a = (b+c)
+(b+c) = a
+• I rezultat operatora dodele jeste lvrednost, koja se odnosi na istu stvar na koju i njegov levi
+operand (koji svakako jeste lvrednost), pa se rezultat ovog operatora može upotrebiti tamo
+gde se zahteva lvrednost; na primer:
+(a = b) = c
+UNIT NAME: Lvrednosti
+ 292
+Ispravno pod uslovom da je a ime varijable, što jeste lvrednost; desni operand
+operatora = ne mora biti lvrednost
+Greška u prevođenju, jer levi operand operatora = nije lvrednost
+Rezultat izraza a=b jeste lvrednost koja se odnosi na a, pa se njemu dodeljuje vrenost c
+

@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni celobrojni tipovi
+❖ Aritmetički operatori primaju operande najmanje tipa int; ukoliko je neki operand
+manjeg tipa, implicitno se konvertuje u tip int; ako je jedan operand binarnog
+operatora većeg tipa od drugog, onaj manji se implicitno konvertuje u tip većeg. Ove
+konverzije čuvaju vrednost. Ovo se naziva integralna promocija (integral promotion):
+• signed char ili signed short može da se konvertuje u int
+• unsigned char ili unsigned short može se konvertovati u int ako ovaj može da
+prihvati ceo opseg vrednosti, odnosno u unsigned int u suprotnom
+• char se može konvertovati u int ili unsigned int u zavisnosti od njegove
+interpretacije (signed char ili unsigned char)
+• wchar_t, char16_t i char32_t mogu da se konvertuju u prvi od sledećih tipova koji
+može da prihvati ceo opseg vrednosti: int, unsigned int, long, unsigned long, long
+long, unsigned long long
+• tip bool može da se konvertuje u tip int, pri čemu vrednosti false postaje 0, a
+vrednost true postaje 1
+ 203
+

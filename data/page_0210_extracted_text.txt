@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Nabrajanja (enumeracije)
+❖ Postoji implicitna konverzija iz tipa enumeracije u celobrojni tip, koja spada u
+skup celobrojnih promocija. Vrednost tipa enumeracije konvertuje se u:
+• prvi od sledećih tipova koji može da prihvati ceo opseg vrednosti te
+enumeracije, ukoliko nije eksplicitno zadat potporni tip: int, unsigned int, long,
+unsigned long, long long, or unsigned long long
+• u potporni tip enumeracije, kao i u tip u koji se on može promovisati, ako je
+potporni tip eksplicitno zadat
+❖ Međutim, takva konverzija najčešće nije adekvatna, jer meša tipove i suprotna je
+navedenim principima. Samo u posebnim slučajevima koje treba dobro
+lokalizovati i enkapsulirati, ovo ima smisla. Na primer:
+enum Status { initiated, suspended, committed, canceled, failed };
+int i = suspended; // i gets the value 1
+Status s = canceled;
+…
+if (s==4) ... // conversion Status->int evaluates to true if s==failed
+ 210
+Ovo nije dobar način programiranja!
+

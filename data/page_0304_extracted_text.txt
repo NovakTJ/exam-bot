@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Vrlo često je potrebno da funkcija ima nekoliko varijanti, odnosno da
+se može pozvati sa nekim argumentom ili bez njega, pri čemu
+izostvaljeni argument treba da uzme neku podrazumevanu vrednost
+(default argument); na primer:
+complex::complex(double re=0.0, double im=0.0);
+template <typename T>
+list& list::insert (T t, int at=0);
+❖ Ako se neki stvarni argument u pozivu ovakve funkcije izostavi, taj
+argument dobiće podrazumevanu vrednost navedenu u deklaraciji
+funkcije:
+complex c1(1.,1.), c2(1.), c3;
+list<complex> lst;
+lst.insertAt(c1).insertAt(c2,1).insertAt(c3);
+UNIT NAME: Podrazumevani argumenti
+ 304
+Podrazumevani argument
+Inicijalizacija: c1(1.,1.), c2(1.,0.0), c3(0.0,0.0)
+Podrazumevani argument, sa značenjem da
+se podrazumeva početak ako se izostavi
+insertAt(c1,0).insertAt(c2,1).insertAt(c3,0)
+

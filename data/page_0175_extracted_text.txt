@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pretprocesiranje
+❖ Posledica: za svaki entitet deﬁnisan u fajlu A koji treba da se koristi u drugim fajlovima B moraju
+postojati deklaracije u svim tim fajlovima B
+❖ Ali šta se dešava ako te deklaracije nisu identične, npr. kao posledica greške? Na primer, promenjena je
+projektna odluka da promenljiva x ne bude tipa int nego tipa double, ali izmena nije urađena svuda:
+// A.cpp                   // B.cpp
+
+double x = 2.3;            extern int x;
+                           void g () {
+                             …x++…
+                           }
+❖ Prevodilac neće prijaviti grešku, jer je za njega kod u fajlu B.cpp ispravan; još gore, on će prevesti
+operacije sa x kao operacije sa celobrojnom promenljivom, a ne kao sa racionalnim brojem - potpuno
+drugačija implementacija i tretman binarnog sadržaja (može biti i različite veličine)
+❖ Grešku neće prijaviti ni linker, jer je simbol x korektno izvezen i uvezen, osim ako prevodilac u
+generisani simbol (kao niz znakova) ne enkoduje i informaciju o tipu (što se često radi), npr. ako za ovaj
+x u zaglavlju obj fajla napravi simbol poput x@int
+❖ Problem je nastao zbog prekršaja principa lokalizacije projektne odluke: manifestacije odluke da je x
+određenog tipa raštrkane su po kodu i redundantno kopirane kao deklaracije tog x; u slučaju potrebe za
+promenom, može se dogoditi ovakva greška zbog nekonzistentne izmene
+ 175
+

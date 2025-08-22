@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ U nekom proceduralnom jeziku bismo se oslonili na već pokazano, klasično rešenje:
+switch (fig->kind) {
+  case rectangle: drawRectangle(fig,vp);
+  case polyline: drawPolyline(fig,vp);
+  case circle: drawCircle(fig,vp);
+  …
+}
+❖ Pošto je Crtež (Drawing) klijent koji različite ﬁgure posmatra na isti način, jer sve želi da ih nacrta (draw),
+potrebna nam je generalizacija različitih vrsta ﬁgura
+❖ Ova generalizacija onda grupiše i zajedničke osobine i zajednički interfejs posebnih klasa:
+• činjenicu da se mogu smeštati na crtež
+• uslugu da se iscrtaju
+ 126
+*
+figures
+draw()
+Figure
+Drawing
+Rectangle Polyline Circle
+

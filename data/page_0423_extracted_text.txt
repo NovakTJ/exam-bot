@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Tip std::initializer_list iz standardne biblioteke predstavlja tip objekata posrednika koji prenose
+vrednosti iz inicijalizatorske liste u konstruktore klasa i druge funkcije čiji se parametri
+inicijalizuju listom izraza unutar velikih zagrada. Na primer:
+class TaskList {
+public:
+  TaskList (std::initializer_list<Task*> lst) { this->add(lst); }
+  TaskList& add (std::initializer_list<Task*>);
+  …
+};
+TaskList& TaskList::add (std::initializer_list<Task*> lst) {
+  for (auto t : lst) {
+    //… add t to the list
+  }
+  return *this;
+}
+int main () {
+  Task t1, t2, t3, t4, t5, t6;
+  TaskList tlst{&t1, &t2, &t3};
+  tlst.add({&t4, &t5}).add({&t6});
+}
+UNIT NAME: Inicijalizacija listom
+ 423
+

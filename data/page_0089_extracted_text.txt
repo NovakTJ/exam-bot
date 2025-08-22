@@ -1,0 +1,32 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija softverske mašine
+❖ U ovakvim sistuacijama, za modelovanje ponašanja objekata neke klase koristi se mašina stanja (state machine) —
+koncept  višeg nivoa apstrakcije koji modeluje ponašanje, uz mogućnost predstavljanja modela dijagramom
+❖ Mašine stanja su napredan softverski koncept koji potiče od konačnih automata, ali dodaje mnoge druge,
+naprednije koncepte, kao što su hijerarhijska (ugnežđena) stanja, ulazne i izlazne akcije i mnoge druge
+❖ Nažalost, nijedan klasičan OO programski jezik ne podržava mašine stanja: ovakvo ponašanje se mora
+implementirati ručno, što je naporno i podložno greškama
+❖ Rešenje: generisanje koda iz modela - softversko inženjerstvo zasnovano na modelima (model-based software
+engineering)
+ 89
+error
+UML simbol za stanje (state)
+inOrder
+collecting
+selecting
+ready
+preparing
+outOfOrder
+reset
+entry:
+  switchOff()
+entry: reset()
+cancel/refund()
+cancel/refund()
+insert/collect()
+key
+insert/collect()
+UML simbol za tranziciju (transition): trigger[guard]/action
+key[selected]
+Ulazna (entry) akcija
+

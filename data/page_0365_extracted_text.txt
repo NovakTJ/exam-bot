@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Dalje, ako se predviđa korišćenje ovih objekata po vrednosti (svih kategorija životnog veka), korisnici ove klase
+očekivaće i mogućnost inicijalizacije kopiranjem. Na primer:
+int main () {
+  string s1(“Hello”), s2(s1);
+  …
+}
+❖ Prema već navedenim pravilima, ako se u klasi ne navede eksplicitno konstruktor kopije, prevodilac će generisati
+implicitni konstruktor kopije koji vrši inicijalizaciju kopiranjem objekata članova pozivom njihovih konstrukora kopije;
+međutim, za članove koji su ugrađenih tipova, vrši se prosto kopiranje vrednosti, što je ovde slučaj, pošto je član str
+pokazivač. Prema tome, u ovom slučaju, objekti klase string biće plitko kopirani (shallow copy), što znači da će se kopirati
+samo pokazivač, a ne i dinamički niz na koji on ukazuje
+❖ Ovo nije željeno ponašanje, jer će dovesti do toga da kopirani objekti (npr. s1 i s2 u primeru gore) dele isti dinamički niz,
+pa će promene učinjene u jednom biti vidljive i u drugom. Ovde je namera da ti objekti postoje kao nezavisni entiteti i
+da se njihove izmene rade nezavisno
+❖ Zato nam je ovde neophodan korisnički deﬁnisan konstruktor kopije koji vrši duboko kopiranje (deep copy):
+class string {
+public:
+  string () : str(nullptr) {}
+  string (const char*);
+  string (const string& s) : string(s.str) {}
+ ~string () { delete [] str; str = nullptr; }
+  …
+};
+UNIT NAME: Objekti sa zauzetim resursima
+ 365
+Objekat s2 inicijalizuje se kopiranjem objekta  s1
+

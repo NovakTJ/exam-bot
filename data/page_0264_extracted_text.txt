@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ista stvar može se iskoristiti za lakše pisanje koda bez obaveznog određivanja tipa
+rezultata izraza, koji može zavisiti od tipova operanada; na primer:
+auto z = x*exp(y);
+auto u = static_cast<decltype(v)>(z);
+❖ U nekim situacijama, posebno kod šablonskih funkcija, povratni tip funkcije je teško
+ili nemoguće odrediti. Tada se povratni tip funkcije može odrediti na osnovu tipa
+izraza i speciﬁkatora decltype navedenog iza znaka ->:
+template<typename T, typename U>
+auto add(T t, U u) -> decltype(t + u) {
+    return t+u;
+}
+❖ Funkcija može imati povratni tip koji nije eksplicitno naveden, već se takođe
+zaključuje, ali na osnovu tipa izraza iza naredbe return:
+template<typename T, typename U>
+auto add(T t, U u) {
+    return t+u;
+}
+Povratni tip ove funkcije određuje sam
+prevodilac, kao tip izraza t+u, koji zavisi od
+povratnog tipa operatora + deﬁnisanog za
+operande tipova T i U koji su parametri šablona
+UNIT NAME: Deklaracije
+ 264
+Tip varijable z zavisi od tipa varijable x i povratnog
+tipa one funkcije exp koja prima tip varijable y
+

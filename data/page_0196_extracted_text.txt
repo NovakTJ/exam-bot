@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni znakovni tipovi
+Znakovni tipovi:
+❖ signed char: tip znakova sa reprezentacijom koja uključuje i aritmetički znak
+❖ unsigned char: tip znakova sa reprezentacijom bez aritmetičkog znaka; koristi se i za
+inspekciju reprezentacije objekata, odnosno predstavljanje “presne memorije”
+❖ char: tip znakova sa reprezentacijom koja se na ciljnom sistemu može najeﬁkasnije
+procesirati; ima istu reprezentaciju i poravnanje ili kao signed char ili kao unsigned char
+(zavisi od sistema), ali je uvek različit tip; stringovi znakova sa višebajtnom
+reprezentacijom koriste ovaj tip za predstavu jedinice kodovanja; ovi znakovni tipovi su
+dovoljno veliki da predstave bilo koji jedinicu kodovanja UTF-8
+❖ wchar_t: tip za “široku” reprezentaciju znakova; dovoljno velik da prihvati bilo koji
+podržanu kodnu tačku (code point) - 32 bita na sistemima koji podržavaju Unicode ( sa
+izuzetkom sistema Windows, gde je wchar_t 16-bitni i sadrži UTF-16 kodne jedinice); ima
+istu veličinu, označenost i poravnanje kao jedan od celobrojnih tipova, ali je različit tip
+❖ char16_t: tip za reprezentaciju UTF-16 znakova (16-bitni)
+❖ char32_t: tip za reprezentaciju UTF-32 znakova (32-bitni)
+ 196
+

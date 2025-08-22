@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Izraz (operator) new uvek radi sledeće stvari, ovim redom:
+1. alocira prostor za smeštanje jednog objekta datog tipa ili niza objekata datog tipa, ako se pravi niz
+2. inicijalizuje jedan objekat ili svaki objekat u nizu (ako se pravi niz objekata) zadatim inicijalizatorom
+3. vraća vrednost tipa pokazivača na dati tip koji ukazuje na napravljeni objekat, ili na prvi element napravljenog niza
+(ako se pravi niz objekata datog tipa)
+❖ Alokacija prostora (prvi korak) vrši se pozivom neke od (preklopljenih) operatorskih funkcija koje su standardno deﬁnisane
+jezikom (postoje i ovakve operatorske funkcije sa još nekim parametrima):
+void* operator new   (std::size_t count);
+void* operator new[] (std::size_t count);
+❖ Tip size_t je neoznačeni celobrojni tip deklarisan u nekoliko zaglavlja standardne biblioteke koji se koristi za izražavanje
+veličina tipova; ovo je tip rezultata operatora sizeof
+❖ Parametar ovih funkcija tipa size_t prenosi veličinu prostora koji treba alocirati (u jedinicama sizeof(char))
+❖ Podrazumevana implementacija ovih funkcija upravlja slobodnom memorijom (heap, free store), odnosno radi dinamičku
+alokaciju i dealokaciju u za to predviđenom delu memorije programa
+❖ Programer može promeniti način alokacije prostora na neki od sledećih načina:
+• zameniti implementaciju neke od ovih funkcija svojom implementacijom, čime će promeniti način alokacije dinamičke
+memorije (preusmeriti na svoj alokator); dovoljno je samo negde u programu deﬁnisati takvu funkciju, bez posebne
+deklaracije na nekom drugom mestu
+• deﬁnisati ove funkcije za svoje klasne tipove, čime će promeniti način alokacije prostora samo za objekte te klase
+UNIT NAME: Dinamički životni vek
+ 330
+Poziva se ako se pravi jedan objekat
+Poziva se ako se pravi niz objekata
+

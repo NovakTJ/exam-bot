@@ -1,0 +1,32 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Konstantni tipovi i funkcije članice
+❖ Prevodilac zapravo sprovodi ista opšta pravila za pokazivače na (ne)konstantne objekte, jer je:
+• u nekonstantnoj, nestatičkoj funkciji članici klase X, pokazivač this implicitno deklarisan kao
+pokazivač tipa X* const (konstantan pokazivač na nekonstantan objekat)
+• u konstantnoj, nestatičkoj funkciji članici klase X, pokazivač this je implicitno deklarisan kao
+pokazivač tipa const X* const (konstantan pokazivač na konstantan objekat)
+class X {
+public:
+  X (int ii) { set(ii); }
+  int read () const { return i; }
+  void write (int ii) { i = ii; }
+private:
+  int i;
+};
+…
+X x(0);
+const X cx(1);
+x.read();
+x.write();
+cx.read();
+cx.write();
+ 247
+Prilikom poziva, this se inicijalizuje ovako:
+const X* const this = &x, što je dozvoljeno, jer je x tipa X
+Prilikom poziva, this se inicijalizuje ovako:
+X* const this = &x, što je dozvoljeno, jer je x tipa X
+Prilikom poziva, this se inicijalizuje ovako:
+const X* const this = &cx, što je dozvoljeno, jer je cx tipa const X
+Greška u prevođenju, jer se this inicijalizuje ovako:
+X* const this = &cx, što nije dozvoljeno, jer je cx tipa const X
+

@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Na taj način, ako je osnovna klasa u zaglavlju deﬁnicije izvedene klase označena kao javna (public)
+osnovna klasa, ovaj podobjekat osnovne klase dostupan je (implicitnom) konverzijom pokazivača (ili
+reference) na tu izvedenu klasu u pokazivač (ili referencu) na tu osnovnu klasu na svim mestima gde su
+dostupne i te klase:
+class ListElem {…};
+class Task : public ListElem {…};
+Task* aTask = …;
+List* taskList = …;
+taskList->addAtTail(aTask);
+❖ Osim toga, svi javni članovi javne osnovne klase jesu i javni članovi izvedene klase, pa se može raditi
+npr:
+aTask->insert(…)
+❖ Zaštićeni članovi osnovne klase dostupni su u izvedenoj klasi, ali ne i van nje i ostaju zaštićeni i dalje;
+privatni članovi osnovne klase nisu dostupni u izvedenoj klasi
+❖ Dakle, važi pravilo supstitucije i sve što se može uraditi sa objektom osnovne klase može se uraditi i sa
+objektom izvedene klase - javno izvođenje klasa na jeziku C++ jeste jezički koncept koji realizuje
+nasleđivanje kao objektni koncept
+ 137
+Implicitna konverzija pokazivača aTask tipa Task* u
+pokazivač tipa ListElem* na javnu osnovnu klasu
+

@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstrakcije
+❖ Klasa može predstavljati realan (ﬁzički) koncept (apstrakciju) iz stvarnog sveta i domena problema,
+ali i njeno uopštenje (generalizaciju /generalization/) ili specijalizaciju (specialization)
+❖ Na primer, pojam osobe u realnom svetu je veoma složen koncept, praktično nedokučiv: svaka
+osoba u realnom svetu je individua za sebe i osobe se razlikuju po bezbroj svojstava, počev od
+svog DNK, preko bioloških i antropoloških veličina, karaktera, prošlosti itd.
+❖ Međutim, za potrebe određenog softverskog sistema, uvodimo apstrakciju Osobe (Person) koja
+predstavlja (drastično) pojednostavljenje ovog realnog koncepta - apstrakciju:
+instance klase Person će imati samo svojstva od interesa za dati sistem koji se implementira (npr.
+matični broj, ime i prezime, datum rođenja, pol)
+ 81
+Person
+personalID : PersonalID
+firstName : Text
+lastName : Text
+dateOfBirth : Date
+gender : Gender
+UML simbol za klasu
+Odeljak sa nazivom klase
+Odeljak sa atributima klase.
+Format zapisa atributa:
+naziv : tip
+

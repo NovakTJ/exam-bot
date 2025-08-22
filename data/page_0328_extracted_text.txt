@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Zbog svega ovoga, umesto statičkih objekata koji nisu lokalni (npr. globalni ili podaci
+članovi), bolje je koristiti lokalne statičke objekte, odnosno statičke objekte “umotati” u
+funkciju (po pravilu nečlanicu ili statičku članicu). Tako se garantuje propisna
+inicijalizacija, ali i bolja enkapsulacija. Na primer:
+class Clock {
+public:
+  Clock (…) { getClockRegister()->add(this); }
+  static const ClockRegister* getClocks () { return getClockRegister(); }
+private:
+  static ClockRegister* getClockRegister ();
+};
+ClockRegister* Clock::getClockRegister () {
+  static ClockRegister clockRegister(…);
+  return &clockRegister;
+}
+❖ Svi statički objekti žive do kraja programa i uništavaju se nakon završetka funkcije main.
+Ako neki statički objekat (npr. lokalni) nije inicijalizovan, neće biti ni uništen (neće biti
+pozvan njegov destruktor)
+UNIT NAME: Statički životni vek
+ 328
+Lokalni statički objekat. Enkapsuliran je u ovu
+funkciju, pa mu se može pristupiti samo preko
+nje. Pri prvom pozivu te funkcije (a drugačije mu
+se i ne može pristupiti), on će biti inicijalizovan
+pozivom konstruktora, koji može da uradi bilo
+kakvu dinamičku inicijalizaciju.
+

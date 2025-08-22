@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Da bi se rešio ovaj problem, osnovna klasa User treba da se deklariše kao tzv. virtuelna osnovna
+klasa:
+class User {…};
+class PrivilegedUser : virtual public User {…};
+class NonprivilegedUser : virtual public User {…};
+class Teacher : virtual public User {…};
+class Student : virtual public User {…};
+class PrivilegedTeacher : public PrivilegedUser, public Teacher {…};
+❖ Značenje virtuelne osnovne klase je sledeće: ako se objekat neke klase (PrivilegedUser, Teacher,
+… ) nađe kao podobjekat unutar objekta neke izvedene klase (PrivilegedTeacher), u njega
+ugrađen podobjekat virtuelne osnovne klase (User) će biti zajednički (deljen) za sve druge
+podobjekte unutar tog objekta koji takođe imaju tu osnovnu klasu kao virtuelnu
+❖ Ovo se implementira na sledeći način: unutar objekta izvedene klase postoji pokazivač na
+podobjekat virtuelne osnovne klase, jer on ne mora uvek biti na unapred poznatom mestu
+unutar tog objekta (na njegovom početku), pošto se može nalaziti unutar nekog drugog
+objekta sa kojim se deli
+❖ Zbog toga prevodilac ne može generisati kod za pristup članovima virtuelne osnovne klase
+statičkim vezivanjem (adresiranjem preko adresa, tj. pomeraja u odnosu na adresu početka
+objekta poznatim u vreme prevođenja), već dinamičkim vezivanjem, preko ovog pokazivača
+ 144
+:Privileged
+User
+:Teacher
+:PrivilegedTeacher
+:User
+

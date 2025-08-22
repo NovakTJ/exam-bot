@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Međutim, kako C++ uvek implementira objekte izvedene klase tako da u njih ugrađuje po jedan objekat
+svake osnovne klase (i tako rekurzivno), sledi:
+• objekat klase PrivilegedTeacher u sebi ima podobjekat klase PrivilegedUser, a ovaj u sebi podobjekat
+klase User
+• objekat klase PrivilegedTeacher u sebi ima podobjekat klase Teacher, a ovaj u sebi podobjekat klase User
+❖ Tako će objekat klase PrivilegedTeacher u sebi imati dva podobjekta osnovne klase User, što znači dva
+kompleta svih svojstava, što nije poželjno. Ova pojava naziva se “problem dijamanta” (diamond problem),
+zbog grafa nasleđivanja oblika romba (liči na dijamant i često se tako naziva na engleskom)
+UNIT NAME: Hijerarhijska dekompozicija
+ 143
+User
+Privileged
+User Teacher
+Privileged
+Teacher
+❖ Ovim podobjektima može se pristupiti navođenjem kvaliﬁkovanog
+imena (staze) i operatora ::
+this->PrivilegedUser::username = …;
+this->Teacher::username = …;
+this je tipa PrivilegedTeacher*,
+a username je član klase User
+

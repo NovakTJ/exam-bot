@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Nakon što je alociran prostor za objekat, a pre nego što je započeo njegov životni vek, kao i nakon što je završen životni vek, a
+pre nego što je dealociran njegov prostor, neke operacije imaju nedeﬁnisane efekte, na primer pristup do nestatičkog podatka
+člana ili poziv nestatičke funkcije članice tog objekta
+❖ Pojam životnog veka je ortogonalan pojmu opsega važenja:
+• životni vek je koncept vezan za izvršavanje, dok je opseg važenja vezan za prevođenje programa
+• životni vek je vremenski koncept, opseg važenja je prostorni (vezan za deo izvornog koda programa)
+❖ Svaka varijabla ima jednu od sledećih kategorija životnog veka:
+• statički
+• automatski
+• dinamički
+• lokalni za nit (thread local)
+• privremeni (temporary)
+❖ Jedan od osnovnih principa dizajna jezika C++ je bio taj da objekti svih tipova (i klasnih i neklasnih) mogu biti svih kategorija
+životnog veka. Ovo je jedan od najvažnijih uzroka koji je doveo do ogromne složenosti ovog jezika; mnoga složena pravila, kao i
+koncepti, posledica su ove odluke: konstruktori kopije, preklapanje operatora, operator dodele, konstruktor premeštanja,
+reference, lvrednosti i reference na lvrednosti, dvrednosti i reference na dvrednosti itd.
+❖ Zato je većina drugih, novijih OO jezika krenula drugačijim putem: u njima postoji stroga podela, tako da objekti klasa mogu
+biti samo dinamički i anonimni, dok instance ugrađenih tipova mogu biti svih drugih kategorija životnog veka i samo oni mogu
+biti imenovane varijable; i obratno: dinamički mogu biti samo objekti klasa, ostali ne mogu. Ovo je značajno pojednostavilo
+semantiku tih jezika
+UNIT NAME: Trajanje skladišta i životni vek
+ 317
+

@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Kao cv-kvaliﬁkator (cv-qualiﬁer) objektnog tipa, potpuno analogno sa kvaliﬁkatorom const, može da se
+koristi kvaliﬁkator volatile (nestalan, nepostojan): označava da se vrednost ovog objekta može promeniti
+nezavisno od toka kontrole koda u kome se koristi, tipično od strane:
+• hardvera: u memoriju u kojoj je objekat uskladišten neki hardverski uređaj može asinhrono, tj.
+potpuno nezavisno od operacija programa, u proizvoljnim, nepredvidivim trenucima, upisati tj.
+promeniti njegovu vrednost
+• signala, odnosno rutina koje obrađuju asinhrone signale (signal handler) koji dolaze od operativnog
+sistema (ili hardvera, ali koje operativni sistem pretvara u asinhrone signale programu)
+❖ Ovaj kvaliﬁkator nalaže prevodiocu da ne vrši optimizacije koda i premeštanja operacija sa ovakvim
+objektom, što preciznije znači da sve operacije koje se po semantici izvršavaju pre neke date operacije
+čitanja ili promene ovakvog objekta moraju završiti pre te operacije, a one koje su po semantici iza te
+operacije ne smeju početi pre nego što se ta operacija završi
+❖ Drugim rečima, prevodilac će svaku operaciju čitanja ili upisa u nestalan objekat izvršiti bez
+optimizacija i promena redosleda koda, ne sme je pročitati ili upisati pre nego što su sve operacije pre
+nje završene i svaki put je čita/upisuje iznova, iako program možda ne menja vrednost tog objekta
+❖ Kvaliﬁkator volatile se koristi potpuno analogno kao i kvaliﬁkator const, i sva navedena pravila vezana
+za pokazivače, reference i konverzije važe na potpuno isti način
+❖ Objekat može biti istovremeno i const i volatile
+UNIT NAME: Nestalni tipovi
+ 249
+

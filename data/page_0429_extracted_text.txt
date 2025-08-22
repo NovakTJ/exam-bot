@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Reference obe vrste (i na lvrednosti i na dvrednosti) mogu se inicijalizovati na sve navedene načine (u svim
+slučajevima umesto jednog znaka & za referencu na lvrednost, može stajati i dva znaka && za referencu na
+dvrednost):
+• Kada se imenovana referenca deklariše sa inicijalizatorom:
+T& ref = expression;
+T& ref(expression);
+T& ref = {expression, expression, …};
+T& ref{expression, expression, …};
+• Kada se argument prenosi u pozvanu funciju, a parametar je referenca:
+void f (T& t);
+f(expression);
+f({expression, expression, …});
+• Kada je povratna vrednost funkcije referenca:
+T& f () {
+  …
+  return expression;
+}
+• Kada se nestatički podatak član inicijalizuje u listi inicijalizatora članova u konstruktoru klase:
+X::X (…) : ref(expression) {…}
+Inicijalizacija reference
+ 429
+

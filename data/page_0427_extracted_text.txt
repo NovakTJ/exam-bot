@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Agregatna inizijalizacija (aggregate initialization) je specijalan slučaj iniciajlizacije listom, kada je tip
+objekta koji se inicijalizuje tzv. agregatni tip (aggregate type), u sledećim situacijama:
+T t = {expression, expression, …};
+T t {expression, expression, …};
+❖ Agregatni tip je tip niza ili klasni tip koji nema:
+• privatne ili zaštićene nestatičke podatke članove
+• korisnički deklarisane ili nasleđene konstruktore
+• privatne, zaštićene ili virtuelne osnovne klase
+• virtuelne funkcije članice
+❖ U praksi je to najčešće niz, struktura (bez konstruktora) ili unija, a agregatna inicijalizacija služi
+da neposredno inicijalizuje elemente niza, odnosno podobjekte strukture (osnovne klase i
+članove) elementima liste. Na primer:
+struct Coord {
+  double x, y, z;
+};
+Coord points[] = {{0.,0.}, {3.,0.}, {3.,4.}};
+UNIT NAME: Agregatna inicijalizacija
+ 427
+Niz points imaće tri elementa, svaki predstavlja instancu
+strukture Coord inicijalizovanu jednom od ugnežđenih listi
+

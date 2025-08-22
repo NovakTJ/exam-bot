@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Funkcija se može deklarisati kao inline navođenjem ovog speciﬁkatora u deklaraciji. Funkcije
+članice klase X, kao i prijateljske funkcije klasi X koje su deﬁnisane u deﬁniciji date klase X (u
+deﬁniciji klase im je navedeno i telo) su implicitno inline, čak i ako se to ne naglasi:
+inline void strcpy(char* to, const char* from) { while (*to++ = *from++); }
+class Person {
+public:
+  string getName () const { return name; }
+  Person& setName (const string& newName) { name = newName; return *this; }
+  …
+};
+ili:
+class Person {
+public:
+  inline string getName () const;
+  inline Person& setName (const string& newName);
+  …
+};
+string Person::getName () const { return name; }
+Person& Person::setName (const string& newName) { name = newName; return *this; }
+UNIT NAME: Inline funkcije
+ 302
+Ove funkcije su implicitno inline
+

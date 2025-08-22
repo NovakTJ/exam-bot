@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Za podršku semantici premeštanja u jezik (počev od verzije C++11) uveden je tip reference na dvrednosti (rvalue reference)
+❖ Reference na dvrednosti deklarišu se sa dva znaka & umesto jednim
+❖ Reference na dvrednosti se u mnogim aspektima ponašaju slično referencama na lvrednosti (npr. inicijalizacija, cv-
+kvaliﬁkacija,  konverzije itd.)
+❖ Reference na dvrednosti mogu se inicijalizovati slično kao i reference na lvrednosti:
+• u deklaraciji sa inicicijalizatorom:
+T&& r = object;
+• prilikom poziva funkcije koja ima referencu kao parametar:
+void f(T&& r);
+f(object);
+• prilikom povratka iz funkcije koja ima referencu kao povratni tip:
+T&& f() {
+  …
+  return object;
+}
+• kada se inicijalizuje nestatički podatak član koji je tipa reference:
+C::C (…) : r(object) {…}
+❖ Referenca na dvrednost može se inicijalizovati izrazom koji je dvrednost (rvalue) ili koji se u taj tip može implicitno
+konvertovati
+UNIT NAME: Reference na dvrednosti
+ 394
+

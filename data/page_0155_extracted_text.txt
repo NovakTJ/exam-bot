@@ -1,0 +1,38 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Obrada izuzetaka
+❖ try-catch konstrukt može da uokviri celo telo funkcije, uključujuči i inicijalizatore podobjekta osnovne klase i članova klase za
+konstruktore te klase (u kojima se ovo tipično i koristi); svaki catch za ovakav try treba da se završi bacanjem izuzetka; ukoliko toga
+nema, isti izuzetak koji se obrađuje se implicitno baca na kraju catch bloka (kao sa throw;)
+template <typename T>
+class huge_vector : public vector<T> {
+  …
+}
+template <typename T>
+huge_vector<T>::huge_vector<T> () try : vector<T>(0x100000000) {
+}
+catch (bad_alloc& e) {
+  cerr<<"Cannot allocate a huge vector: “<< e.what() << “\n";
+}
+❖ Ako se ne pronađe odgovarajući hvatač za bačeni izuzetak sve do dna steka poziva za tekuću nit, izvršava se bibliotečna funkcija
+terminate koja podrazumevano prekida izvršavanje programa (ali se to može promeniti)
+❖ Ako se funkcija označi kao noexcept, onda ona implicitno hvata sve izuzetke koji eventualno nisu obrađeni unutar nje i poziva
+funkciju terminate; takva funkcija tako nikada ne baca (ne prosleđuje) izuzetke:
+void transaction () noexcept {
+  …
+}
+isto ovo se može postići i eksplicitno:
+void transaction () noexcept {
+  try {
+    …
+  }
+  catch (...) {
+    std::terminate();
+  }
+}
+ 155
+Ovde je implicitan thow;
+Ova funkcija ne baca izuzetke,
+čak i ako ih ne obrađuje
+Pokušaj alokacije niza ove veličine;
+može baciti izuzetak ako alokacija ne uspe
+

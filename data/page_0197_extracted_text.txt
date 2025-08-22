@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni znakovni tipovi
+❖ Znakovni literali:
+• 'a' — običan, “uski” znak tipa char; ako ne može da stane u jedan bajt,
+tip je int i vrednost koja zavisi od implementacije
+• u8'a' — UTF-8 znak tipa char, ako se može predstaviti kao jedna kodna
+jedinica u UTF-8
+• u'貓' (ali ne u’
+🍌') — UCS-2 znak tipa char16_t, sa vrednošću datog
+Unicode znaka
+• U'貓' ili U’
+🍌' — UCS-4 znak tipa char32_t, sa vrednošću datog Unicode
+znaka
+• L'貓' ili L'β' — “široki” znak tipa wchar_t
+• 'AB' — kada literal sadrži dva ili više znakova unutar apostrofa,
+predstavlja literal tipa int sa vrednošću koja zavisi od implementacije
+ 197
+

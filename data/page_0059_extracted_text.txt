@@ -1,0 +1,37 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: polimorfizam
+❖ Ideja — osloniti se na strukture podataka i na (dinamičko) ulančavanje
+pokazivača i pokazivače na funkcije, a onda i na dinamičko vezivanje:
+// Table of pointers to implementations
+// of virtual functions (“virtual table”)
+struct Figure_VFTable {
+  int (*canMoveTo) (Figure* fig, unsigned col, unsigned row);
+  int (*display) (Figure* fig, …);
+  …
+};
+
+int canPawnMoveTo (Figure* fig, unsigned col, unsigned row);
+int canBishopMoveTo (Figure* fig, unsigned col, unsigned row);
+…
+
+Figure_VFTable pawnVFTable;
+pawnVFTable.canMoveTo = &canPawnMoveTo;
+pawnVFTable.display = &displayPawn;
+…
+
+Figure_VFTable bishopVFTable;
+bishopVFTable.canMoveTo = &canBishopMoveTo;
+bishopVFTable.display = &displayBishop;
+…
+ 59
+canPawnMoveTo()
+pawnVFTable
+displayPawn()
+canMoveTo
+display
+canBishopMoveTo()
+bishopVFTable
+displayBishop()
+canMoveTo
+display
+

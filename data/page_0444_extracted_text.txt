@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Veze koje postoje za ugrađene operatore treba da budu takve i za preklopljene
+operatore; na primer, za ugrađene operatore +, = i += važi odgovarajuća sprega, koja
+treba da važi i za preklopljene operatore (da a+=b ima efekat kao a=a+b)
+❖ Preklopljeni operatori treba da vraćaju očekivani tip, po uzoru na ugrađene operatore, i
+istu kategoriju vrednosti: na primer, ugrađeni operatori dodele i složene dodele vraćaju
+lvrednost koja upućuje na levi operand, pa to isto treba raditi i za preklopljene
+operatore, kako bi moglo da se radi i npr. sledeće:
+(a = b) = c;
+(a = b) ++;
+❖ Za preklopljene operatore dodele = kopiranjem i premeštanjem preporučuje se sledeće:
+• da vraćaju referencu na svoj levi operand (kao nekonstantu)
+• da ne rade ništa u slučaju samododeljivanja (x=x)
+• da operator dodele premeštanjem ostavi desni operand (argument) u konzistentnom
+stanju, barem tako da se može propisno uništiti i da ne baca izuzetke (noexcept)
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 444
+

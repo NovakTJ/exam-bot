@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Svi savremeni OO jezici, pa i C++, podržavaju ovaj princip sledećim pravilom implicitne konverzije: pokazivač/referenca na
+izvedenu klasu može se konvertovati (implicitno, bez eksplicitnog zahteva) u pokazivač/referencu na osnovnu klasu - tzv.
+“kalupljenje nagore” (upcast):
+DerivedClass* → BaseClass*
+DerivedClass& → BaseClass&
+❖ Upravo ova konverzija omogućava da se objektima konkretnih, izvedenih klasa pristupa kao instancama osnovnih,
+generalizovanih klasa
+❖ Informacija o konkretnom tipu objekta (klasi čija je on direktna instanca) treba da bude što manje bitna i poznata ostatku
+softvera; ta informacija se može zanemariti odmah nakon kreiranja objekta:
+Figure* fig = new Circle(…);
+❖ Suprotna konverzija, nadole (downcast), nije uvek bezbedna, jer objekat osnovne klase ne mora biti i instanca neke izvedene
+klase; pošto prevodilac ne može da proveri tu činjenicu, ovakva konverzija ne može se raditi implicitno:
+Figure* fig = new Circle(…);
+Circle* crc = fig;
+ali može eksplicitno:
+Circle* crc = (Circle*)fig;
+❖ Prevodilac generiše kod za pristup objektu te izvedene preko tog pokazivača, bez ikakvih dodatnih provera. Na ovaj način,
+programer preuzima odgovornost da se iza pokazivača na osnovnu klasu zaista krije objekat tražene izvedene klase. Ako ovo
+nije zadovoljeno, program će se ponašati potpuno nepredvidivo u vreme izvršavanja (nepredvidive posledice: greška u
+logici, poremećaj podataka ili izuzetak na nivou hardvera ili operativnog sistema zbog neovlašćenog pristupa delu memorije)
+ 132
+Greška u prevođenju: konverzija Figure* u Circle* ne može se raditi implicitno
+

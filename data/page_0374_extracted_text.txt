@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Treba primetiti da ovakva optimizacija ne može da “pređe granice” poziva funkcije (osim eventualno za inline
+funkcije), jer prevodilac u opštem slučaju ne može da zna kako izgleda upotreba parametara u telu funkcije na
+mestu poziva te funkcije, a parametar mora svakako da se inicijalizuje stvarnim argumentom prilikom poziva.
+Upravo zato NRVO isključuje parametre, iako su i oni automatski po trajanju skladišta. Na primer:
+T f (T t) {
+  return t;
+}
+T x;
+f(x);
+❖ Takođe treba primetiti da se, ukoliko funkcija ima parametre tipa reference, ta referenca samo vezuje za stvarni
+argument; ukoliko je stvarni argument privremeni objekat, pa zato nije lvrednost, referenca mora biti na
+konstantu, inače ova inicijalizacija nije dozvoljena. U takvom slučaju, kopiranja svakako nema:
+T f (const T& t);
+f(T());
+❖ Ako je parametar klasnog tipa (a ne referenca), kopiranja uvek ima i samo ponekad se može izostaviti:
+T f (T t);
+T x;
+f(x);
+f(T());
+UNIT NAME: Kopiranje objekata
+ 374
+Ovde se ne vrši NRVO: konstruktor kopije pozvaće se i za inicijalizaciju parametra
+stvarnim argumentom (T t(x)), a potom i za inicijalizaciju privremenog objekta koji
+predstavlja rezultat poziva funkcije objektom ia return (T temp(t))
+Pošto je parametar funkcije referenca, nema kopiranja stvarnog argumenta
+Pošto je parametar funkcije klasnog tipa, stvarni argument se kopira u
+parametar, tj. poziva se konstruktor kopije
+Ovde se može (ili mora, za C++17) izostaviti kopiranje
+

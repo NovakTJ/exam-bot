@@ -1,0 +1,34 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ako klasa nema nijedan eksplicitno deklarisan konstruktor (tj. korisnički deﬁnisan konstruktor), prevodilac će implicitno
+deklarisati jedan podrazumevani konstruktor koji je javan, inline i koji vrši podrazumevanu inicijalizaciju podobjekata osnovnih
+klasa i objekata članova. Na primer:
+struct X {
+  …
+};
+struct Y {
+  X x1, x2;
+  Y () {}
+  …
+};
+X x;
+❖ Ako klasa ima neki konstruktor (pa prevodilac ne generiše implicitni podrazumevani konstruktor), programer ipak može
+forsirati automatsko generisanje podrazumevanog konstruktora koji bi prevodilac implicitno generisao speciﬁkatorom =default:
+struct X {
+  X (int);
+  X () = default;
+};
+❖ Može se i sprečiti automatsko generisanje ovog podrazumevanog konstruktora, ako se on označi kao obrisan speciﬁkatorom
+=delete. Tada će prevodilac sprečiti pokušaj inicijalizacije svakog objekta te klase koja bi zahtevala poziv podrazumevanog
+konstruktora
+❖ Ukoliko prevodilac implicitno deklariše podrazumevani konstruktor ili je on eksplicitno deklarisan kao =default, a neki od
+podobjekata nema podrazumevanu inicijalizaciju (npr. nema podrazumevani konstruktor, ili je referenca ili konstantni objekat i
+slično), prevodilac će smatrati ovaj podrazumevani konstruktor obrisanim: to znači da će prijaviti grešku samo ako se pravi
+objekat ove klase za koji se traži podrazumevana inicijalizacija
+UNIT NAME: Podrazumevani konstruktor
+ 354
+Ovde nema deklarisanih konstruktora, prevodilac
+automatski generiše podrazumevani konstruktor
+Sve ovo je u redu, jer klasa X ima podrazumevani konstruktor
+Forsiranje generisanja podrazumevanog konstruktora sa
+podrazumevanom inicijalizacijom podobjekata
+

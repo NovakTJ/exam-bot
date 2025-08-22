@@ -1,0 +1,54 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Povezivanje
+❖ Zadatak da od skupa objektnih fajlova napravi program, tj. izvršiv fajl, ima povezivač, tj. linker (linker); linkeru se
+zadaje spisak ulaznih obj fajlova i zadatak da napravi određeni exe fajl kao svoj izlaz
+❖ Linker taj zadatak obavlja u dva prolaza:
+• u prvom prolazu analizira ulazne fajlove, veličinu njihovog binarnog sadržaja (prevoda), i pravi mapu exe
+fajla; osim toga, sakuplja infomacije iz tabela simbola obj fajlova i izgrađuje svoju tabelu simbola; u tu tabelu
+simbola unosi izvezene simbole iz obj fajlova, za koje odmah može da izračuna adresu u odnosu na ceo exe fajl
+• u drugom prolazu generiše binarni kod, i ujedno razrešava nerazrešena adresna polja mašinskih instrukcija na
+osnovu informacija o adresama u koje se preslikavaju simbola
+iz svoje tabele simbola
+ 171
+symbols
+  ↑g: code:0
+  ↓a: …
+  ↓f: …
+end symbols
+seg code
+g: ld r1,?
+   inc r1
+   st r1,?
+   call ?
+   ret
+end seg
+A.obj
+symbols
+  ↑n: data:0
+  ↑f: code:0
+end symbols
+seg data
+n: ff ff ff f0
+end seg
+
+seg code
+f: …
+end seg
+…
+B.obj C.obj P .exe
+seg data
+n: ff ff ff f0
+end seg
+
+seg code
+f: …
+end seg
+seg code
+g: ld r1,n
+   inc r1
+   st r1,n
+   call f
+   ret
+end seg
+…
+

@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Poziv funkcije obavlja se ugrađenim operatorom poziva funkcije (), čiji je levi
+operand funkcija, pokazivač na funkciju ili referenca na funkciju, a unutar zagrada
+su izrazi, razdvojeni zarezima, čije vrednosti predstavljaju stvarne argumente
+❖ Prilikom poziva funkcije, formalni parametri se, kao objekti, inicijalizuju stvarnim
+argumentima, uz eventualne implicitne konverzije po potrebi; ukoliko se radi o
+objektima klasa, pozivaju se njihovi konstruktori:
+struct X { X (int); }
+X f (X x1) {
+  return 2;
+}
+int main () {
+  f(1);
+}
+❖ Rezultat funkcije jeste vrednost izraza iza izvršene naredbe return; ukoliko je
+povratni tip funkcije void, rezultat funkcije nije vrednost (funkcija nema rezultat)
+UNIT NAME: Poziv funkcije
+ 311
+Formalni parametar x1 inicijalizuje se stvarnim argumentom 1 kao X x1(1)
+Povratna vrednost funkcije je objekat tipa X koji se inicijalizuje izrazom iza
+naredbe return pozivom konstruktora X(2)
+

@@ -1,0 +1,41 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Klasa kao realizacija strukture podataka
+template <typename T, int MaxStackSize>
+class Stack {
+public:
+  Stack ();
+  int push (T in);
+  int pop (T* out);
+private:
+  T stack[MaxStackSize];  // Stack
+  int sp; // Stack pointer
+};
+template <typename T, int MaxStackSize>
+Stack<T,MaxStackSize>::Stack () {
+  this->sp = 0;
+}
+template <typename T, int MaxStackSize>
+int Stack<T,MaxStackSize>::push (T in) {
+  if (this->sp==MaxStackSize) return -1;
+  this->stack[this->sp++] = in;
+  return 0;
+}
+template <typename T, int MaxStackSize>
+int Stack<T,MaxStackSize>::pop (T* out) {
+  if (this->sp==0) return -1;
+  *out = this->stack[--this->sp];
+  return 0;
+}
+ 78
+❖ Konkretne klase se generišu na zahtev, kada se
+prvi put upotrebi konkretan tip sa stvarnim
+parametrima šablona:
+Stack<unsigned,256> parPositions;
+Stack<Figure*,256> moves;
+…
+parPositions.push(pos);
+❖ Klasu generiše prevodilac i ona ima sve
+karakteristike obične klase, s tim što joj naziv
+sadrži sve parametre:
+Stack<unsigned,256>
+

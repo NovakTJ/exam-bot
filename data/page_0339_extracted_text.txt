@@ -1,0 +1,29 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Varijable koje bi inače bile statičke po životnom veku (lokalne, u prostoru imena ili u oblasti klase) mogu
+biti deklarisane kao thread_local; tada imaju životni vek vezan za nit
+❖ Ovakve varijable nastaju pri kreiranju svake nove niti i nestaju kada se nit završi
+❖ Svaka nit ima svoju instancu ove varijable, nezavisnu od ostalih niti; svako obraćanje toj varijabli odnosi
+se na onu instancu koja pripada niti u čijem kontekstu se izvršava taj pristup. Na primer:
+thread_local int i=0;
+void f (int ii) {
+  i = ii;
+}
+void tf (int id) {
+  f(id);
+  std::cout<<++i<<std::endl;
+}
+int main () {
+  i = 10;
+  std::thread t1(tf,1);
+  std::thread t2(tf,2);
+  std::thread t3(tf,3);
+  std::cout<<i<<std::endl;
+}
+UNIT NAME: Životni vek vezan za nit
+ 339
+UNIT NAME: Životni vek vezan za nit
+Odnosi se na instancu i koja pripada niti u čijem kontekstu se ovo izvršava
+Odnosi se na instancu i koja pripada niti u čijem kontekstu se ovo izvršava
+Funkcija main se izvršava u kontekstu početne, “glavne” niti programa
+Odnosi se na instancu i koja pripada niti u čijem kontekstu se ovo izvršava
+

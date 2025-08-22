@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ideja ove tehnike je zapravo to da se čitav deo programa, uključujući deﬁnicije klasa,
+kreiranje njihovih objekata i pozive funkcija, a ne samo izračunavanje prostih izraza,
+izvršava za vreme prevođenja, kako bi se proizveo odgovarajući željeni rezultat
+❖ Ova tehnika može se koristiti na primer za:
+• prekonﬁgurisanje, odnosno inicijalizaciju složenijih struktura podataka ili
+objekata i njihovih veza koja se može izvršiti za vreme prevođenja, a koje se onda
+koriste u izvršavanju programa
+• složenija izračunavanja parametara programa
+koja se mogu izvršiti za vreme prevođenja, kako se ne bi trošilo vreme i zauzimao
+memorijski prostor prilikom svakog izvršavanja programa, tipično prilikom
+pokretanja programa
+❖ Ovo može da bude značajno na primer za sistemski, ugrađeni (embedded) softver,
+posebno za onaj za koji se zahteva mali memorijski otisak (memory footprint), brzo
+pokretanje i izvršavanje, ili što manja potrošnja energije pri izvršavanju
+UNIT NAME: Konstantna inicijalizacija
+ 408
+

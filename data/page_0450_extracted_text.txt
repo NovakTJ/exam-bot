@@ -1,0 +1,15 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Unarni logički operator negacije ! se preklapa za klase čiji
+se objekti koriste u kontekstu gde se očekuju Bulovi izrazi
+❖ Zbog toga ove klase najčešće imaju i operator konverzije u
+tip bool koji je explicit, a operator ! svodi se na negaciju te
+konvertovane vrednosti:
+X::operator bool () {
+  …
+}
+inline bool operator! (const X& x) {
+  return !bool(x);
+}
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 450
+

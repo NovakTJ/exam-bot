@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Binarni, inﬁksni aritmetički operatori, kao i binarni, inﬁksni
+operatori nad bitima se obično preklapaju kao funkcije nečlanice, jer
+su im operandi ravnopravni (simetrični)
+❖ Pošto su uobičajeno praćeni operatorima složene dodele, obično se
+aritmetički operatori svode na operatore složene dodele na sledeći
+način:
+X& X::operator+= (const X& other) {
+  …
+  return *this;
+}
+X operator+ (const X& x1, const X& x2) {
+  X temp(x1);
+  temp += x2;
+  return temp;
+}
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 445
+

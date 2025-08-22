@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ukoliko je funkcija virtuelna funkcija članica, poziv funkcije je polimorfan (tj.
+polimorﬁzam se aktivira) ako i samo ako se poziv vrši preko pokazivača ili
+reference na objekat:
+class Base {
+  public: virtual void f();
+};
+class Derived : public Base {
+  public: virtual void f() override;
+};
+void g (Base* pb) {
+  pb->f();
+}
+void main () {
+  Derived d;
+  g(&d);
+  Base b;
+  g(&b);
+}
+UNIT NAME: Poziv funkcije
+ 312
+Ovaj poziv je uvek polimorfan; isto je i za poziv preko reference
+Poziva se Derived::f()
+Poziva se Base::f()
+

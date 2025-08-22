@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Leksički elementi
+❖ Komentar može biti u jednom od dva oblika:
+• počinje znakovima /* i završava znakovima */; može se prostirati na više redova:
+/*
+  File: clock.h
+  Author: dmilicev
+*/
+/***********************************************************
+  Clock: an abstraction that measures time and ticks seconds
+***********************************************************/
+• počinje znakovima // i završava znakom za novi red; najčešći i koncizniji oblik komentara (lakši za pisanje), jer
+komentar najčešće zauzima ceo red ili kraj reda (iza koda koji komentariše):
+// File: clock.h
+// Author: dmilicev
+//
+//  Clock: an abstraction that measures time and ticks seconds
+//
+int sum=0;  // The sum of all items
+❖ Komentari se ne mogu ugnežđivati:
+• unutar komentara između znakova /* i */, znaci /* i // nemaju nikakvo posebno značenje
+• unutar komentara koji počinje znakovima //, znaci /*, */ i // nemaju nikakvo posebno značenje
+❖ Pre same faze pretprocesiranja, svaki komentar zamenjuje se jednim znakom-belinom, što znači da samo razdvaja lekseme i
+nema nikakvo drugo značenje dalje tokom pretprocesiranja i prevođenja (ne postoje tokom faza pretprocesiranja i
+prevođenja)
+ 182
+

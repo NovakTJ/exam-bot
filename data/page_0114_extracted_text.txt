@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ U nekim situacijama deo interfejsa (tj. neki članovi) jedne klase ne treba da bude dostupan
+svim ostalim delovima programa, bez razlike, već samo nekoj “povlašćenoj” operaciji neke
+druge klase ili mnogim/svim operacijama te druge klase
+❖ U osnovi, takvi članovi morali bi biti javni, kako bi bili dostupni toj drugoj klasi, ali su oni
+onda dostupni i ostalim delovima programa kojima je ta klasa dostupna, bez izuzetka; na taj
+način može biti kompromitovana enkapsulacija posmatrane klase
+❖ Jezik C++ pruža delimičnu podršku za rešavanje ovakvih situacija u vidu tzv. prijateljskih
+funkcija (friend function) ili prijateljskih klasa (friend class):
+• prijateljska funkcija f nekoj klasi X je funkcija koja nije članica te klase X, već je članica
+neke druge klase ili je globalna (nije članica nijedne klase), a ima pravo pristupa do
+privatnih i zaštićenih članova klase X
+• prijateljska klasa F nekoj klasi X je klasa čije sve funkcije članice imaju pravo pristupa do
+privatnih i zaštićenih članova klase X
+❖ Prijateljske funkcije ili klase klasi X speciﬁkuju se navođenjem njihovih deklaracija u bilo
+kom delu deﬁnicije klase X (svejedno u kom delu, tj. iza bilo kog speciﬁkatora public,
+protected, private)
+ 114
+

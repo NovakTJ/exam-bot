@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Kada izvršavanje napušta blok na bilo koji način (prolaskom kroz kraj bloka, naredbom return ili zbog bačenog izuzetka),
+propisno se uništavaju svi automatski objekti tog bloka koji su kreirani, ali i samo oni: ako neki objekat nije kreiran (recimo
+zato što je pre izvršavanja njegove deﬁnicije bačen izuzetak), objekat neće biti ni uništen
+❖ Ovo važi i za napuštanje bloka zbog podignutog izuzetka: svi objekti koji su kreirani, a čiji se blokovi napuštaju do ulaska u
+odgovarajući catch blok, propisno se uništavaju (pozivom destruktora); ovo obuhvata i okružujuće blokove, odnosno blokove
+funkcija koje su pozvane, a nisu završene
+❖ Analogno važi i za objekte koji su samo delimično kreirani, jer je izuzetak podignut tokom njihove inicijalizacije (poziva
+konstruktora): svi njihovi podobjekti osnovnih klasa i članovi koji su kreirani biće propisno uništeni, a oni koji nisu, neće
+❖ Ovaj postupak naziva se razmotavanje steka (stack unwinding):
+void f () {
+  try {
+    X x1;
+    g();
+  }
+  catch (…) {}
+}
+void g () {
+  X x2;
+  h();
+}
+void h () {
+  X x3;
+  thow 0;
+}
+❖ Automatski objekti se uništavaju po redusledu uvek tačno obrnutom od onog kojim su kreirani
+UNIT NAME: Automatski životni vek
+ 322
+Ulaskom u ovaj catch zbog izuzetka bačenog u funkciji h
+biće uništeni objekti x3, x2 i x1
+

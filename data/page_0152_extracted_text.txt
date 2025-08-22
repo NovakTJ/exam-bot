@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Obrada izuzetaka
+❖ Izuzetak na jeziku C++ može biti objekat bilo kog tipa, ugrađenog tipa ili klase
+❖ Funkcije iz standardne biblioteke bacaju izuzetke koji su bezimeni objekti klasa
+izvedenih iz osnovne klase exception; sve ove izvedene klase imaju sledeća
+osnovna svojstva:
+• objekti ovih klasa mogu se kreirati pozivom konstruktora sa argumentom koji
+predstavlja niz znakova koji daje objašnjenje za izuzetak:
+  …throw out_of_range("Argument pos in function vector::at out of
+range.");
+• objekti ovih klasa mogu se kopirati (prilikom inicijalizacije ili operatorom
+dodele =)
+• polimorfnu operaciju what koja vraća niz znakova koja predstavlja objašnjenje
+(zadat inicijalizacijom)
+❖ Po pravilu, i korisnički deﬁnisani izuzeci treba da slede isti obrazac, odnosno da
+budu objekti klasa (izvedenih iz klasa) iz ove hijerarhije
+ 152
+

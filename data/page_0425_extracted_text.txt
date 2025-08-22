@@ -1,0 +1,17 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Direktna inizijalizacija listom (direct-list-initialization) inicijalizuje varijablu listom izraza
+unutar velikih zagrada u sledećim situacijama:
+• Kada se imenovana varijabla inicijalizuje listom bez znaka =:
+T t {expression, expression, …}
+• Kada se privremeni objekat inicijalizuje listom:
+T {expression, expression, …}
+• Kada se dinamički objekat inicijalizuje u izrazu new listom:
+new T {expression, expression, …}
+• Kada se nestatički podatak član inicijalizuje listom bez znaka =:
+class X { T t {expression, expression, …}; };
+• Kada se podobjekat osnovne klase ili podobjekat član inicijalizuje listom, unutar
+liste inicijalizatora u konstruktoru klase:
+C::C (…),  B {expression, …}, m {espression,…} {…}
+UNIT NAME: Inicijalizacija listom
+ 425
+

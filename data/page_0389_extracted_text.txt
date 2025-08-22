@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Kategorije vrednosti
+ 389
+W
+iM
+lvalue
+im
+xvalue
+Im
+prvalue
+i
+glvalue
+m
+rvalue
+Može se konvertovati u prvalue
+Može biti polimorfan
+Može biti nekompletnog tipa
+Ne može &rv
+Ne može rv =…, rv+=…, …
+Može const T& r = rv;
+Može T&& r = rv;
+Vezuje se za pozive move funkcija
+

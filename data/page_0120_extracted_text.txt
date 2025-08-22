@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Hijerarhijska dekompozicija (hierarchical decomposition) je još jedan element objektne dekompozicije i
+podrazumeva kreiranje hijerarhija klasa povezanih relacijama nasleđivanja (inheritance)
+❖ Relacija nasleđivanja označava da izvedena klasa nasleđuje sve osobine osnovne klase i to:
+• semantiku (značenje): svaka tvrdnja ili ograničenje koje važi za instance osnovne klase, važi i za
+instance izvedene klase (obrnuto ne mora)
+• intefejs: sa objektima izvedene klase može se raditi sve što i sa objektima osnovne klase (obrnuto ne
+mora)
+• svojstva i ponašanje: objekti izvedene klase poseduju i strukturu i ponašanje deﬁnisano u
+implementaciji osnovne klase, s tim što ih mogu redeﬁnisati i proširiti
+❖ Ovakve relacije mogu se ravnopravno otkrivati ili osmišljavati u oba smera:
+• specijalizacija (specialization): izvedena klasa predstavlja konkretizaciju, posebnu ili pojedinačnu
+potkategoriju (podskup) instanci osnovne klase koje imaju neke speciﬁčnosti, redeﬁnišu, variraju i/ili
+specijalizuju ponašanje
+• generalizacija (generalization): osnovna klasa je apstrakcija, generalizacija, uopštenje više izvedenih
+klasa, unija njihovih instanci i generalizuje (uopštava) njihove interfejse i prikuplja zajednička svojstva
+❖ Prema tome, ista relacija između dve klase može se posmatrati u oba smera, pa se na jeziku UML ona i
+naziva relacija generalizacije/specijalizacije
+ 120
+

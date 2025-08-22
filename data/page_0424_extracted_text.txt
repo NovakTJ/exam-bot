@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Inizijalizacija kopiranjem-listom (copy-list-initialization) se obavlja kada se varijabla tipa T inicijalizuje listom izraza unutar velikih
+zagrada u sledećim slučajevima:
+• Kada se imenovana varijabla inicijalizuje listom iza znaka =:
+T t = {expression, expression, …};
+• Kada se argument prenosi u pozvanu funciju, a parametar inicijalizuje listom:
+void f (T t);
+f({expression, expression, …});
+• Kada se povratna vrednost funkcije inicijalizuje listom:
+T f () {
+  …
+  return {expression, expression, …};
+}
+• U izrazu za indeks kod korisnički deﬁnisanog preklopljenog operatora [], kada se listom inicijalizuje parametar tog operatora:
+object[{expression, expression, …}]
+• U desnom operandu korisnički deﬁnisanog preklopljenog operatora dodele, kada se listom inicijalizuje parametar tog operatora:
+object = {expression, expression, …}
+• U izrazu eksplicitne konverzije u obliku funkcionalnog poziva i u eksplicitnim pozivima konstruktora, kada se parametar
+odgovarajuće konverzione funkcije ili konstruktora inicijalizuje listom (njome se ne inicijalizuje rezultat, nego parametar):
+X({expression, expression, …})
+• Kada se nestatički podatak član inicijalizuje listom iza znaka =:
+class X { T t = {expression, expression, …}; };
+UNIT NAME: Inicijalizacija listom
+ 424
+

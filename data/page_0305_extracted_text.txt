@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Podrazumevani argumenti nisu deo tipa funkcije. Ako se deklaracije funkcije
+ponavljaju, ne smeju ponovo navoditi podrazumevani argument za isti parametar, čak i
+ako je identičan. Na mestu poziva funkcije, podrazumevani argumenti predstavljaju
+uniju svih do tada deklarisanih podrazumevanih argumenata, s tim da ne sme postojati
+parametar koji nema podrazumevani argument iza parametra koji ima podrazumevani
+argument:
+void f(int p1, int p2 = 2,int p3);
+void f(int p1, int p2 = 2,int p3);
+void f(int p1 = 1, int p2, int p3);
+f(3);
+void f(int p1, int p2,int p3=3);
+f(0);
+❖ U principu, ovaj koncept predstavlja notacionu pogodnost: da ga nema, bilo bi potrebno
+pisati više varijanti funkcija sa različitim parametrima; na primer, umesto:
+double log (double x, double base=10.0);
+moralo bi da se piše:
+double log (double x, double base);
+double log (double x) { return log(x,10.0); }
+UNIT NAME: Podrazumevani argumenti
+ 305
+Greška u prevođenju: ponovljena deﬁnicija
+podrazumevanog argumenta
+Poziv: f(0,2,3)
+Greška u prevođenju: ne može da bude
+void f(int=0,int=0,int)
+

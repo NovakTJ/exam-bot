@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Kao što je pokazano, podrazumevana inizijalizacija u nekim situacijama poziva podrazumevane konstruktore, dok
+za automatske i dinamičke objekte neklasnih tipova ne radi nikakvu inicijalizaciju, ostavljajući ih sa nedeﬁnisanim
+vrednostima. U mnogim situacijama potrebno je da takvi objekti budu deﬁnisani određenom vrednošću, odnosno
+inicijalizovani nulom
+❖ U verziji jezika C++03, u kontekstima gde je to bilo moguće, ovo se postizalo inicijalizatorom sa praznim
+zagradama:
+C::C () : t() {}
+T* p = new T();
+❖ Međutim, u mnogim kontekstima to nije moguće, jer takva notacija znači deklaraciju funkcije bez parametara koja
+vraća tip T, a ne objekta tipa T:
+T t();
+❖ U takvim situacijama morala se koristiti drugačija inicijalizacija, ali ona ima i drugu semantiku (inicijalizacije
+kopiranjem ili agregatne inicijalizacije):
+T t = T();
+T t = {};
+❖ Ili nešto drugo, u zavisnosti od tipa, ali problem ostaje kada je tip nepoznat, kao što je slučaj sa šablonima:
+int i = 0;
+Clock clk;
+int a[10]{}
+UNIT NAME: Inicijalizacija vrednošću
+ 415
+UNIT NAME: Inicijalizacija nulom
+UNIT NAME: Podrazumevana inicijalizacija
+UNIT NAME: Agregatna inicijalizacija
+Inicijalizacija kopiranjem, uz moguće izostavljanje kopiranja
+

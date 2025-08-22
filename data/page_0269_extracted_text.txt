@@ -1,0 +1,32 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Inicijalna naredba naredbe for može biti deklaracija varijable; njeno ime ima potencijalni opseg važenja od tačke deklarisanja
+do kraja naredbe koja čini telo te naredbe for, i ne važi van te naredbe. Na primer:
+void read (int a[], int b[], int size) {
+  for (int i=0; i<size; i++)
+    cin>>a[i];
+  for (int i=0; i<size; i++)
+    cin>>b[i];
+}
+❖ Međutim:
+template<typename T>
+int search (T array[], int size, T x) {
+  for (int i=0; i<size && array[i]!=x; i++);
+  if (i<size) return i;
+  else return -1;
+}
+❖ Ako je potrebno koristiti ovu varijablu i nakon petlje, potrebno je deklaraciju izvući izvan naredbe for:
+template<typename T>
+int search (T array[], int size, T x) {
+  int i=0;
+  for (; i<size && array[i]!=x; i++);
+  if (i<size) return i;
+  else return -1;
+}
+UNIT NAME: Opseg važenja bloka
+ 269
+Greška u prevođenju, i nije u opsegu važenja
+Opseg važenja imena i je samo naredba for, pa se iza
+kraja te naredbe može ponovo deﬁnisati nova varijabla
+sa istim imenom, pošto prethodna više ne važi
+Opseg važenja imena i je samo naredba for
+

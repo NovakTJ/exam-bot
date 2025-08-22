@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+• Kao desni operand operatora :: kom je levi operand ta klasa ili klasa izvedena iz te klase. Na primer, čest
+je slučaj da redeﬁnisana operacija u izvedenoj klasi treba da uradi isto što i metoda osnovne kalse, ali i
+još nešto (u bilo kom redosledu); drugim rečima, da treba da pozove metodu iz osnovne klase:
+class Base {
+public:
+  virtual void f();
+};
+class Derived : public Base {
+public:
+  virtual void f();
+};
+void Derived::f () {
+  …
+  Base::f();
+  …
+}
+❖ Operator ::, koji je inače asocijativan sleva nadesno, navodi da prevodilac vrši kvaliﬁkovanu potragu (qualiﬁed
+lookup) na sledeći način: Base::f znači da se najpre sprovodi nekvaliﬁkovana potraga za imenom Base;
+pronađe se to ime i njegova deklaracija, odnosno deklaracija klase Base; zatim se u oblasti važenja te klase
+traži deklaracija za ime f; ako se ne nađe takva deklaracija, traži se u njenoj osnovnoj klasi, ako je ima itd.
+UNIT NAME: Opseg važenja klase
+ 274
+Poziv po nekvaliﬁkovanom imenu f bi značio rekurzivni poziv iste ove funkcije,
+što nije korektno
+

@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Tip deﬁnisan unutar oblasti važenja klase se koristi upravo u
+ovakvim sistuacijama, kada je on bitan samo za interfejs ili
+implementaciju te klase. Umesto ugnežđivanja takvog tipa, mogao
+bi se on deklarisati i globalno, ali to je lošije nego ugnežđivanje iz
+sledećih razloga:
+• ugnežđeni tipovi su “logički upakovani” u okružujuću klasu, što
+povećava razumljivost programa jer naglašava značaj i upotrebu
+takvog tipa
+• ugnežđeni tipovi pripadaju oblasti važenja klase, pa ne ”prljaju”
+globalni prostor imena, odnosno ne uzrokuju sukob imena
+• mogu biti enkapsulirani, jer mogu biti privatni ili zaštićeni,
+ukoliko su bitni samo za implementaciju, a ne i za interfejs klase
+UNIT NAME: Opseg važenja klase
+ 276
+

@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Destruktor (destructor) je posebna nestatička funkcija članica klase koja se poziva uvek na kraju životnog veka objekta. Svrha
+destruktora je da oslobodi resurse koje je objekat eventualno zauzimao tokom svog životnog veka
+❖ Destruktor se deklariše kao funkcija članica klase sa imenom te klase i znakom ~ ispred imena klase:
+struct X {
+  ~X ();
+  …
+};
+❖ Destruktor nikada nema parametre, pa klasa ima najviše jedan destruktor (ne može se preklopiti). Destruktor nema povratni
+tip. Destruktor ima pokazivač this, kao i svaka nestatička funkcija članica
+❖ Destruktor se poziva implicitno uvek na kraju životnog veka objekta, bez obzira na taj životni vek:
+• na kraju izvršavanja programa, za statičke objekte
+• po završetku izvršavanja niti, za objekte sa životnim vekom vezanim za nit (thread local)
+• po izlasku iz opsega važenja bloka, za automatske objekte napravljene u tom bloku i privremene objekte čiji je životni
+vek produžen jer je za njih vezana referenca
+• izrazom delete, za objekte sa dinamičkim životnim vekom
+• završetkom celog izraza, za privremene objekte napravljene u tom izrazu
+• prilikom razmotavanja steka kod bačenog izuzetka, za sve automatske objekte koji su napravljeni, a čiji se blokovi
+napuštaju do hvatanja izuetka
+❖ Destruktor se može pozvati i eksplicitno, za objekte koji su napravljeni pomoću operacije placement new. Ako se destruktor
+pozove eksplicitno za objekat čiji se destruktor kasnije poziva i implicitno, ponašanje je nedeﬁnisano
+UNIT NAME: Destruktor
+ 357
+UNIT NAME: Destruktor
+

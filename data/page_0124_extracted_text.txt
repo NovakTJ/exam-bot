@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Samo u izuzetnim situacijama i sa posebnim razlogom, neka operacija ne treba da bude
+polimorfna, tj. potrebno je sprečiti njeno redeﬁnisanje; takve operacije nazivaju se u mnogim
+jezicima završnim (ﬁnal) i mogu se tako označiti
+❖ Primer su operacije koje ﬁksiraju neki postupak (algoritam), tako da se on ne može
+promeniti (jer bi to moglo da uzrokuje propuste), ali dozvoljavaju da neke korake tog
+postupka izvedene klase deﬁnišu ili redeﬁnišu (“kukice”)
+❖ I na jeziku C++ virtuelna funkcija može da se označi kao ﬁnal; tada se ona ne može
+redeﬁnisati u izvedenim klasama (prevodilac će prijaviti grešku u suprotnom):
+class Controller {
+public:
+  virtual void main () final;
+  …
+};
+❖ I klasa može biti završna, čime se sprečava njena dalja specijalizacija:
+class ExtendedTranslator final : public Translator {
+  …
+};
+ 124
+Reč ﬁnal je identiﬁkator sa posebnim značenjem samo na ovim
+mestima, a nije rezervisana ključna reč (može se koristiti kao
+identiﬁkator na drugim mestima)
+

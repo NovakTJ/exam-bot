@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Potencijalni opseg važenja varijable koja je uvedena deklaracijom unutar bloka (složene naredbe) počinje
+od tačke deklarisanja i završava se na kraju tog bloka. Stvarni opseg važenja je isti kao i potencijalni
+opseg važenja, osim ako postoji ugnežđeni blok sa deklaracijom koja uvodi identično ime; u takvom
+slučaju, iz potencijalnog opsega važenja se isključuje taj ugnežđeni blok:
+void f () {
+  int x = 1;
+  x = 2;
+  {
+    long x = 0;
+    x = 2;
+  }
+  x = 3;
+}
+int y = x;
+❖ Potencijalni opseg važenja imena formalnog parametra funkcije počinje od tačke deklarisanja i završava
+se na kraju cele deklaracije te funkcije
+❖ Potencijalni opseg važenja imena deklarisanog u hvataču izuzetka (parametar catch bloka) počinje od
+tačke deklarisanja i završava se na kraju tog catch bloka, i nije u opsegu važenja u drugom catch bloku
+istog try konstrukta
+UNIT NAME: Opseg važenja bloka
+ 268
+Ovo ime x odnosi se na ono u ugnežđenom bloku, tipa long
+Lokalno ime x, sakriva isto to globalno ime
+Ovo ime x odnosi se na ono u okružujućem bloku, tipa int
+Greška u prevođenju, x nije u opsegu važenja
+Drugo lokalno ime x, sakriva isto to ime iz okružujućeg bloka
+

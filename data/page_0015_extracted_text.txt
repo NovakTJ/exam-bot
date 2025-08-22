@@ -1,0 +1,10 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Glava 3: Pregled osnovnih koncepata OOP na jeziku C++
+❖ Klase i objekti
+❖ Enkapsulacija
+❖ Konstruktori i destruktori
+❖ Nasleđivanje
+❖ Polimorﬁzam
+❖ Uvod u jezik C++
+ 15
+

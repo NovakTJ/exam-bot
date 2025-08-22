@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pretprocesiranje
+❖ Pre same faze prevođenja u užem smislu, prevodilac sprovodi fazu tzv. pretptrocesiranja
+❖ Pretprocesor je deo prevodioca koji transformiše tekst izvornog koda i rezultujući tekst prosleđuje dalje na
+prevođenje
+❖ Pretprocesorom se upravlja pomoću direktiva (directive); svaka direktiva zauzima jedan red i ima sledeći format:
+• znak #
+• pretprocesorska instrukcija: deﬁne, undef, include, if, ifdef, ifndef, else, elif, endif, line, error, pragma; svaki
+prevodilac može reagovati i na druge  instrukcije koje nisu deo standarda i koje drugi prevodioci prosto
+ignorišu (npr. #warning za poruke upozorenja); u svakom slučaju, rezultujući tekst izvornog koda očišćen je od
+svih direktiva
+• opciono argumenti, u zavisnosti od vrste direktive
+• znak za novi red, kojim se završava direktiva
+❖ Pretprocesor ima sledeće mogućnosti transformacije teksta izvornog koda:
+• uslovno prevođenje delova izvornog koda (direktive #if, #ifdef, #ifndef, #else, #elif i #endif)
+• zamena tekstualnih makroa uz moguću konkatenaciju ili uokviravanje identiﬁkatora u navodnike (direktive
+#deﬁne i #undef i operatori # i ##)
+• uključivanje drugih fajlova (direktive #include i provera postojanja fajla pomoću __has_include)
+• izazivaju grešku u prevođenju (direktiva #error)
+ 176
+

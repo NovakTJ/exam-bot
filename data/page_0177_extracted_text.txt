@@ -1,0 +1,29 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pretprocesiranje
+❖ Direktiva #include ima za posledicu to da se sadržaj imenovanog fajla umetne u tekući izvorni kod umesto ove direktive
+(formalno, odmah nakon linije sa ovom direktivom); takav uključen kod se dalje pretprocerisa, potencijalno rekurzivno (jer
+uključeni fajl može imati druge #include direktive)
+❖ Ova direktiva ima dva oblika:
+• #include <ﬁlename> pretprocesor traži imenovani fajl počev od predeﬁnsanog mesta; uobičajeno je da se ovo
+koristi za fajlove koji sadrže deklaracije iz standardnih biblioteka koje dolaze uz prevodilac, pa se oni traže počev od
+direktorijuma u kome se nalaze ti bibliotečni fajlovi koji dolaze sa instalacijom prevodioca
+• #include “ﬁlename” pretprocesor traži imenovani fajl počev od nekog drugog predeﬁnisanog mesta, npr. od
+direktorijuma u kome je i tekući fajl ili koreni direktorijum podešen prevodiocu; koristi se za korisničke fajlove koji
+čine sam program
+❖ Ovaj princip može se iskoristiti za rešavanje opisanog problema:
+• deklaracije elemenata programskog modula koji je dat u jednom fajlu, a čine interfejs tog modula (dakle ne svih
+elemenata koji su u tom moduli deﬁnisani, već samo onih koje drugi moduli treba da koriste), izdvajaju se u fajlove-
+zaglavlja (header ﬁle), sa tipičnom ekstenzijom .h
+• u fajlovima u kojima je potrebno koristiti te elemente, ali i u fajl u kome je sama deﬁnicija (istim modul), deklaracije se
+uvoze uključivanjem fajla zaglavlja:
+// A.h                     // B.cpp
+extern int x;              #include "A.h"
+                           void g () {
+// A.cpp                     …x++…
+#include "A.h"             }
+int x = 1;
+ 177
+Ako deklaracija iz A.h ne odgovara deﬁniciji u A.cpp,
+prevodilac će prijaviti grešku kada bude prevodio
+A.cpp, jer je x dva puta deklarisan različito
+

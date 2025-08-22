@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Inizijalizacija varijable tipa T listom radi sledeće (nabrojana su samo neka pravila, i to okvirno):
+• Ako je T agregatni tip, a lista sadrži samo jedan element istog ili tipa izvedenog iz T (bez cv-kvaliﬁkacija),
+objekat se inicijalizuje tim elementom (inicijalizacijom kopiranjem ili direktnom inicijalizacijom, kako je
+objašnjeno)
+• Inače, ako je T niz znakova, a lista sadrži samo jedan element koji je string literal odgovarajućeg tipa, niz
+znakova se inicijalizuje string literalom kao što je uobičajeno
+• Ako je T agregatni tip, primenjuje se agregatna inicijalizacija
+• Inače, ako je lista prazna, a T klasa sa podrazumevanim konstruktorom, primenjuje se inicijalizacija
+vrednošću
+• Inače, ako je T specijalizacija tipa std::initializer_list, objekat se inicijalizuje (direktno ili kopiranjem) iz
+čdvrednosti istog tipa koja se odnosi na datu listu
+• Inače, traži se konstruktor klase T koji može da se pozove sa jednim argumentom tipa std::initializer_list i
+on se poziva sa datom listom
+• Inače, ako T nije klasa, a lista ima samo jedan element, i T je ili referenca kompatibilna sa tipom elementa
+ili nije refenca, inicijalizuje se direktno ili kopiranjem tog elementa
+• Inače, ako je T referenca, vezuje se za privremeni objekat tipa na koji upućuje referenca, koji se inicijalizuje
+listom
+• Inače, ako lista nema elemente, vrši se inicijalizacija vrednošću
+UNIT NAME: Inicijalizacija listom
+ 426
+

@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: klase i objekti
+❖ Pokazivač this se može koristiti kao i svaki drugi pokazivač unutar funkcije članice, jer on prosto
+ukazuje na objekat (čija je funkcija pozvana), na primer, ako je drugom objektu potreba veza ka tom
+objektu
+❖ Na primer, hoćemo da objekti klase Clock imaju vezu ka objektu klase Lobby koji ih sadrži:
+class Clock {
+public:
+  Clock (Lobby* owner, int hh, int mm, int ss);
+  …
+private:
+  Lobby* myOwner; // The Lobby that contains this Clock
+  …
+};
+Clock::Clock (Lobby* owner, int hh, int mm, int ss) {
+  this->myOwner = owner;
+}
+Lobby::Lobby (unsigned n, string ct[], int lg[]) {
+  …
+  for (int i=0; i<num; i++) {
+    …
+    this->clocks[i] = new Clock(this,h,0,0);
+  }
+}
+ 53
+

@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni celobrojni tipovi
+❖ Osim integralne promocije, postoje i implicitne konverzije iz bilo kog integralnog
+tipa u bilo koji drugi integralni tip. Ako odredišni tip može da prihvati ceo opseg
+vrednosti izvorišnog tipa, vrednost se čuva; u suprotnom, vrednost se može
+izgubiti:
+• ako je odredišni tip neoznačen: u zavisnosti od toga da li je odredišni tip širi ili
+uži od izvorišnog, označeni brojevi se proširuju znakom ili odsecaju, a
+neoznačeni brojevi se proširuju nulama ili odsecaju, respektivno
+• ako je odredišni tip označen, vrednost se ne menja ako se izvorišni broj može
+predstaviti odredišnim tipom, u suprotnom je vrednost zavisna od
+implementacije
+❖ Na primer:
+char c1 = ‘0’;
+for (int i=0; i<10; i++) {
+  char c2 = c1+i;
+  …
+}
+ 204
+1. U operaciji + vrši se integralna promocija vrednosti c1 tipa char u int;
+rezultat operacije + je tipa int
+2. Pri inicijalizaciji c2 vrši se implicitna konverzija iz int u char (može
+izgubiti vrednost)
+Pošto u svim sistemima kodovanja znakovi za cifre imaju susedne
+kodove, c2 će uzimati vrednost znaka za cifre od 0 do 9
+

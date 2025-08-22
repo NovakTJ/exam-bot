@@ -1,0 +1,13 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Sadržaj, ciljevi i preduslovi
+❖ Preduslovi:
+• Dobro poznavanje osnovnih principa i koncepata
+proceduralnog programiranja
+• Poznavanje rada na računaru i koriščenje osnovnih alatki za
+programiranje (editor, prevodilac, debager)
+• Dobro savladano gradivo predmeta Programiranje 1 i 2,
+Praktikum iz programiranja
+• Veština u programiranju na jeziku C
+• Samostalan, praktičan i kontinuiran rad!
+ 6
+

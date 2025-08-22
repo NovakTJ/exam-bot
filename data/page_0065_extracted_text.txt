@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstraktnog tipa podataka
+❖ Primetimo sledeće: vrednosti tipa complex su za jezik C proste strukture i imaju semantiku kreiranja i kopiranja po vrednosti
+(value semantics, copy semantics):
+• Kreiraju se instance (primerci, promenljive) svih vrsta životnog veka (automatski, statički, privremeni itd.):
+complex result;
+complex c1, c2, c3, c4;
+• Inicijalizuju se drugim instancama istog tipa, ponovo po vrednosti, prostim kopiranjem:
+complex c5 = c3;
+• Prenose se kao argumenti poziva funkcija po vrednosti, prostim kopiranjem:
+…complex_add(c1,c2)…
+• Vraćaju se kao rezultati poziva funkcija po vrednosti, prostim kopiranjem:
+return result;
+…
+c3 = complex_add(c1,c2);
+• Dodeljuju se drugim instancama istog tipa, ponovo po vrednosti, prostim kopiranjem:
+c4 = complex_sub(c1,c2);
+c3 = c4;
+❖ Sve ovo je zato što je na jeziku C ovako deﬁnisana semantika za strukture, na potpuno isti način kao i za sve ostale
+ugrađene tipove (celobrojne, racionalne, pokazivače itd.)
+❖ Zašto nam ovo ovako odgovara: zato što različite instance ovog tipa, sa istim vrednostima (svih svojih atributa)
+predstavljaju isti konceptualni entitet - isti kompleksan broj; zato se mogu slobodno kopirati
+ 65
+

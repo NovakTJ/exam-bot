@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Funkcija može, a ne mora imati parametre. Funkcija koja nema parametre deklariše se
+kao f() ili f(void), svejedno (radi se o istoj stvari)
+❖ U tip funkcije ulazi povratni tip, kao i tipovi svih parametara, pri čemu se ne pravi
+razlika između sledećih tipova parametara:
+• niza elemenata tipa T sa dimenzijom ili bez nje i pokazivača na T
+• funkcije nekog tipa i pokazivača na funkciju istog tipa
+• parametra sa cv-kvaliﬁkacijom i bez nje
+Na primer, sledeće deklaracije istih imena su deklaracije istih funkcija (a deklaracije
+različitih imena su deklaracije različitih funkcija):
+void f(int);
+void f(const int);
+void g(const int*);
+void g(const int* const);
+void h(int[]);
+void h(int[5]);
+void h(int*);
+Deklaracija i definicija funkcije
+ 297
+

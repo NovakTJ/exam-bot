@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Modularnost i enkapsulacija
+❖ Implementacija na jeziku C: modul je jedan .c fajl
+#define MaxStackSize 256
+unsigned stack[MaxStackSize];  // Stack
+unsigned sp = 0; // Stack pointer
+
+int push (unsigned in) {
+  if (sp==MaxStackSize) return -1; // Exception: stack full
+  stack[sp++] = in;
+  return 0;
+}
+
+int pop (unsigned* out) {
+  if (sp==0) return -1; // Exception: stack empty
+  *out = stack[--sp];
+  return 0;
+}
+ 43
+

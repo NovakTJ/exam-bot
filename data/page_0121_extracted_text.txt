@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Specijalizacijom se uvode izvedene klase koje imaju neke speciﬁčnosti, proširuju, redeﬁnišu, variraju i/ili
+specijalizuju ponašanje
+❖ Na primer, u već postojeću konstrukciju primera sa interpretacijom komandi, mogu se uvesti
+specijalizacije klasa Reader i/ili Translator. Ove klase mogu redeﬁnisati polimorfne operacije interfejsa
+osnovnih klasa read i translate, čime se postiže promena ponašanja sistema bez izmene ostalih postojećih delova
+ 121
+read():Command*
+Reader 1
+myTranslator
+Na jeziku UML sve operacije su
+podrazumevano polimorfne
+translate(:Command*)
+Translator
+Controller
+myReader
+1
+FileReader MessageReader ExtendedTranslator
+

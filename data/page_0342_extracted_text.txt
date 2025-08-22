@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Počev od verzije jezika C++17, ova semantika je značajno izmenjena: rezultat poziva funkcije
+(uključujući i operatorske funkcije), baš kao i rezultat bilo koje operacije i izraza jeste vrednost (value), a
+ne privremeni objekat
+❖ Vrednost je poseban entitet u programu i odnosi se na rezultat izraza koji se dalje može koristiti kao
+argument poziva funkcije. Na taj način se između poziva funkcija u izrazima prosleđuju vrednosti
+❖ Pravljenje privremenog objekta se sada maksimalno odlaže do trenutka kada postane zaista neophodno,
+i vrši se samo u nekim situacijama; ovo se naziva materijalizacija privremenog objekta (temporary
+materialization); na primer, navedeno izostavljanje kopiranja kod inicijalizacije, kao i na mnogim drugim
+mestima, gde god je moguće kopiranje izostaviti, nije više dozvoljena, ali neobavezna optimizacija
+prevodioca, već je deﬁnisana semantika: na navedenom mestu se privremeni objekat nikada ne pravi
+❖ Referenca (na lvrednost) se može inicijalizovati izrazom koji nije lvrednost samo ako je ta referenca na
+konstantu; tada se (i pre, i od verzije C++17), pravi privremeni objekat za koji se vezuje ta referenca:
+complex& r1 = complex(1.,0.);
+const complex& r2 = complex(1.,0.);
+❖ Zbog ovoga, ako neka funkcija ima parametar koji je referenca (na lvrednost), ona treba da bude
+referenca na konstantu, inače se ta funkcija ne bi mogla pozvati sa argumentima koji to nisu:
+complex operator+ (const complex&, const complex&);
+…c1+complex(1.,0.)
+UNIT NAME: Privremeni objekti
+ 342
+Greška u prevođenju: referenca na nekonstantnu lvrednost ne
+može se incijalizovati izrazom koji nije lvrednost
+Ovaj poziv ne bi bio ispravan kada bi
+parametar bio referenca na nekonstantu
+

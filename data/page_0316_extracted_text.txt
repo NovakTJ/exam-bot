@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Svaka varijabla (objekat ili referenca) u programu ima svoj životni vek (lifetime): vreme tokom izvršavanja
+programa za koje ta varijabla živi i za koje joj se može pristupati:
+• životni vek objekata klasnog tipa i agregata takvih objekata, kao i njihovih podobjekata, počinje nakon
+što se završi njihova inicijalizacija (poziv konstruktora), osim ako se inicijalizuju tzv. trivijalnim
+konstruktorom (implicitni konstruktor koji nema baš nikakve efekte za vreme izvršavanja)
+• životni vek objekata klasnog tipa završava se kada započne izvršavanje destruktora (osim ako je
+destruktor trivijalan - nema baš nikakve efekte)
+• za sve druge objekte (objekte neklasnih tipova, objekte sa trivijalnim konstruktorima i destruktorima,
+nizovi takvih objekata), životni vek počinje kada se za njih alocira prostor, a završava kada se prostor
+dealocira
+• životni vek reference počinje kada se završi njena inicijalizacija, a traje kao da je ona skalarni objekat
+❖ Prema tome, iz ovoga sledi:
+• životni vek objekta je isti ili je ugnežđen u vreme trajanja njegovog skladišta (memorijskog prostora)
+• pre početka životnog veka objekta klasnog tipa uvek se (bez ikakvog izuzetka) poziva njegov
+konstruktor, a nakon završetka životnog veka uvek (bez ikakvog izuzetka) njegov destruktor
+• životni vek referenciranog objekta (na koga ukazuje pokazivač ili upućuje referenca) može biti kraći
+od životnog veka tog pokazivača ili reference - problem visećih pokazivača/referenci (dangling
+reference)
+UNIT NAME: Trajanje skladišta i životni vek
+ 316
+

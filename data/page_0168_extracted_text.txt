@@ -1,0 +1,40 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Prevođenje
+❖ Međutim, osim toga, prevodilac u prevedenom fajlu ostavlja i informacije o
+svim imenima (simbolima) koji su deﬁnisani u datom fajlu, a mogu se
+koristiti u drugim fajlovima; ovakva imena nazivaju se imena sa spoljašnjim
+vezivanjem (external linking)
+❖ U posebnom delu objektnog fajla, tipično u zaglavlju, prevodilac pravi
+tabelu takvih, izvezenih simbola, ostavljajući samo informaciju o:
+• imenu (simbolu, prost niz znakova), bez ikakvih informacija o tome
+kakav je entitet predstavljalo to ime u programu (šta je, kog je tipa itd.)
+• adresi, relativnoj u odnosu na početak binarnog prevoda (ili segmenta)
+u koji se to ime preslikava
+❖ Na primer, po pravilima jezika C++, globalni objekat ili funkcija ima
+spoljašnje vezivanje, osim ako je eksplicitno deklarisana kao static (tada ima
+interno vezivanje)
+❖ Imena koja imaju interno vezivanje (internal linking) ne mogu se koristiti u
+drugim fajlovima; prevodilac za ovakva imena ne ostavlja ovakve
+informacije u generisanoj tabeli simbola u objektnom fajlu
+ 168
+int n = -16;
+void f () {
+  n++;
+}
+A.cpp
+symbols
+  ↑n: data:0
+  ↑f: code:0
+end symbols
+seg data
+n: ff ff ff f0
+end seg
+
+seg code
+f: ld r1,n
+   inc r1
+   st r1,n
+   ret
+end seg
+A.obj
+

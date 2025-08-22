@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pokazivači na objekte
+❖ Pokazivač može da ne ukazuje ni na šta; vrednost takvog pokazivača naziva se null vrednost
+❖ Simbolička vrednost null označava se kao nullptr; pre njegovog uvođenja, kao simbolička
+vrednost null koristio se:
+• literal 0, sa simboličkom vrednošću null za pokazivače
+• makro NULL defnisan u standardnom zaglavlju jezika C
+❖ Ove stare simboličke vrednosti mogu i dalje da se upotrebljavaju, ali one mogu da dovedu
+do drugačijeg tumačenja tipa u različitim kontekstima (kao celobrojni literal 0) , dok je
+nullptr različitog tipa
+❖ Pokazivač se može:
+• inicijalizovati vrednošću null ili mu se dodeliti ta vrednost:
+Clock* pc1 = nullptr;
+• porediti na jednakost/nejednakost sa tom vrednošću
+if (pc1==nullptr)…
+if (pc1!=nullptr)…
+ 215
+

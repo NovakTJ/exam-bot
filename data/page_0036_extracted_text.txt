@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Polimorfizam
+❖ Drugi delovi programa koji objektima pristupaju generalizovano, kao (direktnim
+ili indirektnim) instancama osnovne klase Clock, ne moraju da se menjaju:
+void Lobby::tick () {
+  for (int i=0; i<num; i++)
+    clocks[i]->tick();
+}
+void Lobby::print () {
+  for (int i=0; i<num; i++)
+    cout<< cities[i] << ": "
+        << clocks[i]->getTime() << endl;
+}
+❖ Bez obzira na to što se objektu obraća kao instanci osnovne klase (pokazivač je
+tipa Clock*), odaziva se ona implementacija operacije koja odgovara klasi čija je
+objekat direktna instanca; svaki objekat reaguje na način svojstven svojoj klasi
+❖ Ovaj mehanizam naziva se polimorﬁzam (polymorphism, poly - više, μορφή - oblik,
+pojavljivanje u više oblika)
+ 36
+Polimorﬁzam: pokazivač clocks[i] je tipa Clock*
+clocks
+Clock Clock
+With
+Date
+Clock
+

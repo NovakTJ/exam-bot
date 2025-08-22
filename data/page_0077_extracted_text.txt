@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Klasa kao realizacija strukture podataka
+❖ Zaključujemo:
+• tip T može biti bilo koji tip, sve dok su za taj tip T deﬁnisane operacije koje se u ovoj klasi očekuju:
+• inicijalizacija kopiranjem, zbog prenosa argumenata u operaciju push i inicijalizacije niza stack (podrazumevano
+imaju svi ugrađeni tipovi i klase)
+• dodela vrednosti, zbog smeštanja u elemente niza stack u operaciji push i smeštanja povratne vrednosti u
+operaciji pop (podrazumevano imaju svi ugrađeni tipovi i klase)
+• kapacitet steka može biti bilo koja celobrojna pozitivna vrednost
+• ako želimo nešto od ovoga da promenimo, tj. da napravimo više klasa sa promenjenim vrednostima nekog od ovih
+parametara, moramo da radimo dosadan, pravolinijski, ﬁzički posao proste zamene svih pojava određenog
+parametra, uz variranje naziva za svaku od tih klasa
+❖ Očigledna potreba za automatizacijom: umesto programera, ovaj rutinski posao može da radi prevodilac
+❖ Koncept šablonske klase (template class) ili generičke klase (generic class): obrazac klase, parametrizovan tipovima i/ili
+konstantama, po kome će prevodilac generisati kod zamenom svih parametara šablona konkretnim, stvarnim
+parametrima
+❖ Rezultat je isti kao da je ovaj posao urađen ručno: generisane klase su različite klase, nemaju nikakve posebne međusobne
+veze
+❖ Dakle, klasa može realizovati i apstraktnu strukturu podataka (abstract data structure): strukturu koja skladišti elemente
+proizvoljnog tipa, pri čemu zahteva od tog tipa samo određena svojstva i usluge, ne i obavezu da bude neki konkretan tip
+ 77
+

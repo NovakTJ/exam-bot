@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Enumeracije koje su do sada pominjane uvode enumeratore (simboličke konstante)
+u okružujući opseg važenja, što znači da se imena tih enumeratora mogu sukobiti sa
+drugim istim imenima u oblasti važenja u kojoj je ta enumeracija deﬁnisana
+❖ Da bi se ovo sprečilo, enumeracija se može deklarisati tako da bude sa opsegom
+važenja (scoped enumeration), navođenjem ključne reči class ili struct, svejedno:
+enum class Color { red, green, blue };
+❖ Sada su enumeratori u oblasti važenja svoje enumeracije, pa se van te oblasti
+važenja mogu koristiti samo kvaliﬁkovano:
+Color r = Color::blue;
+switch (r) {
+    case Color::red  : std::cout << "red\n";   break;
+    case Color::green: std::cout << "green\n"; break;
+    case Color::blue : std::cout << "blue\n";  break;
+}
+❖ Za ovakve enumeracije ne postoji implicitna konverzija u integralne tipove; može se
+vršiti eksplicitna konverzija operatorom static_cast
+Enumeracija sa opsegom važenja
+ 282
+

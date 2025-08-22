@@ -1,0 +1,17 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Prevođenje
+❖ Kada naiđe na novu deklaraciju, prevodilac dodaje deklarisani identiﬁkator u strukturu
+podataka koju izgrađuje tokom prevođenja i koja se tradicionalno naziva tabela simbola
+(symbol table); u ovoj strukturi prevodilac čuva informacije o svakom deklarisanom
+identiﬁkatoru: o tome kojoj jezičkoj kategoriji pripada (tip, objekat, funkcija itd.), kog je
+tipa, kao i sva ostala svojstva deklarisanog entiteta deﬁnisana pravilima jezika
+❖ Kada naiđe na neki upotrebljen identiﬁkator, prevodilac:
+• proverava da li je taj identiﬁkator deklarisan i da li je dostupan, po pravilima jezika;
+ako nije, prijavljuje grešku;
+• proverava da li je identiﬁkator upotrebljen u skladu sa pravilima jezika i ako nije,
+prijavljuje grešku; na primer, ne može se vršiti operacija f++ ako je f funkcija, ili
+operacija a() ako je a objekat tipa int i slično;
+• ako je to deﬁnisano semantikom jezika, zna kako da generiše kod za upotrebu tog
+identiﬁkatora u odgovarajućem kontekstu
+ 166
+

@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UML simbol za komunikaciju između
+objekata - poziv operacije
+UNIT NAME: Algoritamska dekompozicija
+ 103
+: Reader
+1: readCmd()
+UML dijagram interakcije (interaction diagram) koji ilustruje
+neki scenario, interakciju između objekata
+: Controller
+: Translator :: StackMachine
+UML simbol za instancu klase: opcioni
+naziv (koji se može koristiti u
+dijagramu za referenciranje te
+instance) i tip iza dvotačke, sve
+podvučeno (simbolizuje instanciranje)
+cmd : Command
+2: cmd
+3: translate(cmd)
+4: perform(cmd)
+UML simbol za vezu (link)
+između objekata
+Redni broj ovog događaja
+u scenariju i oznaka
+pozvane operacije
+Oznaka za povratnu
+vrednost poziva operacije
+

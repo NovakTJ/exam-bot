@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Sve nelokalne varijable (objekti i reference) sa statičkim trajanjem skladišta, a to
+obuhvata statičke podatke članove i varijable deﬁnisane u oblasti važenja prostora
+imena, inicijalizuju se pri pokretanju programa, pre poziva funkcije main (mada to
+nije garantovano i nije uvek slučaj, kao što je ranije objašnjeno)
+❖ Sve varijable sa životnim vekom vezanim za nit (thread_local) inicijalizuju se pri
+pokretanju niti, pre izvršavanja funkcije niti
+❖ Obe ove kategorije varijabli inicijalizuju se u dve faze, sledećim redom:
+• Statička inicijalizacija (static initialization)
+• Dinamička inicijalizacija (dynamic initialization)
+❖ Statička inicijalizacija vrši se za vreme prevođenja
+❖ Dinamička inicijalizacija se konceptualno vrši nakon statičke inicijalizacije, a
+praktično za vreme izvršavanja (pokretanja) programa, mada je u nekim
+slučajevima moguće, a to je prevodiocu i dozvoljeno, da i nju izvrši za vreme
+prevođenja (tzv. rana dinamička inicijalizacija, early dynamic initialization)
+UNIT NAME: Inicijalizacija
+ 404
+

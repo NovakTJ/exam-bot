@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pokazivači na objekte
+• korumpiran pokazivač:
+int a[5]; // array of 5 integers in range [0..4]
+Clock* p = new Clock(…);
+U jednom kontekstu:
+for (int i = 0; i<=5; i++) // i:=0..5
+  a[i]=i;
+A onda u nekom potpuno drugom kontekstu:
+p->tick();
+• Zaštita — pažljivo programiranje:
+• obavezna inicijalizacija, posebno pokazivača
+• provera granica prilikom pristupa nizovima, posebno baferima u koje se
+učitavaju podaci sa potencijalno neograničenim ili prevelikim sekvencama
+(provera na prekoračenje niza ili bafera, buffer overﬂow)
+ 218
+p je verovatno alociran u memoriji odmah iza niza a
+Za poslednju vrednost i==5 pregaziće pokazivač p
+p najverovatnije ima invalidnu vrednost
+

@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Od verzije C++20 postoji operator <=> koji se može preklopiti, a kad je on preklopljen, implicitno
+su deﬁnisani i svi drugi relacioni operatori u prirodnom obliku:
+int operator<=> (const string& s1, const string& s2) {
+  return strcmp(s1.str,s2.str);
+}
+❖ Kad je ovaj operator preklopljen, implicitno je deﬁnisano i svih šest ostalih relacionih operatora u
+prirodnom obliku:
+inline bool operator== (const string& s1, const string& s2) { return (s1<=>s2)==0; }
+inline bool operator!= (const string& s1, const string& s2) { return !(s1==s2); }
+inline bool operator< (const string& s1, const string& s2) { return (s1<=>s2) < 0; }
+inline bool operator> (const string& s1, const string& s2) { return s2<s1; }
+inline bool operator<= (const string& s1, const string& s2)
+  { return (s1<s2)||(s1==s2); }
+inline bool operator>= (const string& s1, const string& s2) { return (s2<=s1); }
+❖ Može se tražiti i generisanje podrazumevane implementacije ovog operatora, koja se svodi na isti
+operator primenjen redom na podobjekte, u poretku njihovog deklarisanja:
+bool operator<=> (const X&, const X&) = default;
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 447
+

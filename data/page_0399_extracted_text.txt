@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Do verzije C++17, optimizacija izostavljanja kopiranja bila je neobavezna i važilo je as-if pravilo: čak i kada se kopiranje
+izbegava, odgovarajući konstruktor kopije ili premeštanja morao je da bude deﬁnisan za navedene situacije inicijalizacije
+privremenim objektima, čak i kada je sigurno da se ti konstruktori nikada ne pozivaju (jer prevodilac uvek vrši ovu
+optimizaciju i programer to može da zna)
+❖ Zato su morali da se prave prestupi i deﬁnišu ovakvi konstruktori i za klase koje prirodno ne treba da budu takve da se
+njihovi objekti mogu kopirati ili premeštati, ili su pravljena drugačija zaobilazna rešenja, ako se želi prenos po vrednosti
+❖ Počev od verzije C++17, optimizacija izbegavanja kopiranja (copy elision) obavezna je (a ne samo opciona) na sledećim
+mestima:
+• u naredbi return, kada je operand ove naredbe čdvrednost (prvalue) istog klasnog tipa (ignorišući cv-kvaliﬁkacije) kao i
+povratni tip funkcije (RVO):
+X f () {
+  return X();
+}
+f();
+• pri inicijalizaciji varijable, kada je inicijalizator čdvrednost (prvalue) istog klasnog tipa (ignorišući cv-kvaliﬁkacije) kao i
+varijabla:
+X x = X(X(f()));
+❖ Odgovarajući konstruktori kopije i premeštanja čak više ne moraju ni da postoje niti da budu dostupni, jer semantika jezika
+garantuje da se oni ne pozivaju na ovim mestima
+❖ Optimizacija NRVO je i dalje opciona: ako se ona ne vrši, poziva se odgovarajući konstruktor premeštanja ili kopije prilikom
+inicijalizacije povratne vrednosti ako je operand naredbe return imenovana automatska varijabla (ali ne parametar)
+Semantika vrednosti od C++17
+ 399
+Samo jedan poziv podrazumevanog konstruktora X()
+Samo jedan poziv podrazumevanog konstruktora X() koji inicijalizuje x
+

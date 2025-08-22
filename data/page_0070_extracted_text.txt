@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstraktnog tipa podataka
+❖ Ideja rešenja: umesto prenosa po vrednosti (pass by value), prenositi argumente po referenci (pass by
+reference) - formalni argument je referenca na objekat (posrednik do objekta), slično kao pokazivač:
+complex::complex (complex& other) {
+    this->re = other.re;
+    this->im = other.im;
+}
+❖ Sada je rekurzija prekinuta, jer se prilikom poziva konstruktora kopije:
+complex::complex(c3)
+formalni argument other, kao referenca, vezuje tako da referencira (upućuje) na stvarni argument c3
+❖ Svaka upotreba reference, nakon njene inicijalizacije, odnosi se na referencirani objekat (bez izuzetka);
+zato se kaže da je referenca alijas (alias) za objekat za koji je vezan
+❖ Nema načina da se izvrši operacija nad referencom, veza reference sa objektom na koji ona upućuje ne
+može se raskinuti ili preusmeriti kao za pokazivače, iako se u principu implementira i ponaša slično:
+complex::complex (complex& other) {
+    this->re = other.re;
+    this->im = other.im;
+}
+ 70
+Pristup do člana objekta na koji upućuje referenca other -
+upotreba reference u izrazu uvek se odnosi na
+referencirani objekat - stvarni argument funcije u ovom
+slučaju
+

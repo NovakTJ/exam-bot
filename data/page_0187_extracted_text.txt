@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Tipovi
+❖ Za svaki od tipova, osim tipova funkcija ili referenci, postoje tzv. cv-kvaliﬁkovane (cv-qualiﬁed) varijacije:
+const (konstantni), volatile (nestalni) i const volatile
+❖ Tipovi su grupisani i u različite kategorije po nekim svojim svojstvima:
+• objektni tipovi (object types) su (potencijano cv-kvaliﬁkovani) tipovi koji nisu tipovi funkcija, referenci
+i tip void; objekti mogu biti nekog od ovih tipova
+• skalarni tipovi (scalar types) su (potencijano cv-kvaliﬁkovani) tipovi koji nisu tipovi nizova ili klasni
+tipovi; entiteti ovih tipova nemaju u sebi ugrađene objekte
+❖ trivijalni tipovi (trivial types), tzv. POD (Plain Old Data) tipovi, tipovi literala (literal types) i drugi
+❖ Za svaku od navedenih kategorija i potkategorija, u standardnoj biblioteci postoji odgovarajuća
+šablonska struktura is_… sa podatkom članom value koji u vreme prevođenja rezultuje vrednostima true
+ili false, u zavosnosti od toga da li je tip koji je argument šablona pripadnik date kategorije; na primer:
+bool b = std::is_integral<float>::value; // b==false
+b = std::is_reference<float&>::value; // b==true
+❖ Speciﬁkator decltype određuje tip datog entiteta ili tipa izraza datog u zagradama, na osnovu deklaracija,
+i to u vreme prevođenja (izraz kao operand se ne izračunava za vreme izvršavanja, već se njegov tip
+određuje za vreme prevođenja); ovo se može koristiti za deﬁnisanje tipova koje je teško odrediti, ili koji
+zavise od tipova drugih entiteta, tipično u šablonima; na primer:
+b = is_reference<decltype(x+y)>::value;
+ 187
+Biće true akko operator + nad
+operandima x i y vraća tip reference
+

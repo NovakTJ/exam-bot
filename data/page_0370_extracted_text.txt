@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Pre verzije jezika C++17, svaki rezultat izraza klasnog tipa, uključujući poziv funkcije koja ima
+povratni tip klase i eksplicitan poziv konstruktora klase, kao rezultat proizvodi privremeni,
+bezimeni objekat koji se pravi na mestu poziva funkcije, tokom izvršavanja izraza koji sadrži taj
+poziv i inicijalizuje u trenutku povratka iz te funkcije izrazom iza naredbe return
+❖ Na primer, osnovna semantika (pre verzije C++17) sledeće inicijalizacije
+string s = s1 + s2;
+je sledeća: rezultat izraza s1+s2 je privremeni objekat klase string koji je inicijalizovan prilikom
+povratka iz funkcije odgovarajućim konstruktorom; nakon povratka, objekat s klase string
+inicijalizuje se pozivom konstruktora kopije sa tim privremenim objektom kao argumentom
+poziva konstruktora; naravno, ti konstruktori moraju da budu dostupni na odgovarajućim
+mestima
+❖ Potpuno ista situacija je i u sledećem slučaju:
+string s = string("Hello");
+❖ U određenim situacijama, prevodiocu je na raspolaganju optimizacija izostavljanja kopiranja
+(copy elision) koju može, ali ne mora da izvrši (pre verzije C++17), čak i kada konstruktori čiji se
+pozivi izostavljaju imaju bočne efekte
+UNIT NAME: Kopiranje objekata
+ 370
+

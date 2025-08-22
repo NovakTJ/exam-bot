@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nasleđivanje
+❖ Želimo novu apstrakciju, časovnika sa datumom
+❖ Časovnik sa datumom je jedna vrsta časovnika, specijalizacija ili proširenje
+apstrakcije časovnika
+❖ Klasa ClockWithDate nasleđuje (inherits) klasu Clock:
+class ClockWithDate : public Clock {
+public:
+  ClockWithDate (int y, int m, int d, int h, int min, int s);
+  string getDate ();  // Returns current date
+  void setDate (int yy, int mm, int dd); // Year, month, day
+private:
+  int y, m, d;  // Year, month, day
+};
+ 30
+

@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Zbog svega ovoga se pri projektovanju klasa po pravilu računa na polimorﬁzam i operacije
+podrazumevano treba da budu polimorfne, što i jesu u praktično svim OO jezicima novijim od jezika C++
+❖ Neki dinamički OO jezici (npr. JavaScript) omogućavaju redeﬁnisanje operacija na nivou svakog
+pojedinačnog objekta, a ne samo cele klase, kako je uobičajeno u statički orijentisanim jezicima
+❖ Na jeziku C++, polimorfnu operaciju treba označiti posebno, ključnom reči virtual
+❖ U izvedenim klasama reć virtual ne mora (ali može) da se piše: funkcija sa identičnim potpisom kao i
+virtuelna funkcija članica osnovne klase je takođe virtuelna
+❖ Da bi se poboljšala čitljivost i smanjila mogućnost greške (zbog nepoklapanja potpisa), iza redeﬁnisane
+virtuelne funkcije može se pisati reč override: ona označava da je ovo redeﬁnisana virtuelna funkcija;
+ukoliko potpis funkcije nije identičan, prevodilac će generisati grešku:
+class Reader {
+public:
+  virtual Command* read ();
+  …
+};
+class FileReader : public Reader {
+public:
+  virtual Command* read () override;
+
+  …
+};
+ 123
+Reč override je identiﬁkator sa posebnim značenjem samo na
+ovim mestima, a nije rezervisana ključna reč (može se koristiti
+kao identiﬁkator na drugim mestima)
+

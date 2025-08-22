@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Konstruktori i destruktori
+❖ Prilikom nastanka svakog objekta te klase (apsolutno bez izuzetka) poziva
+se konstruktor klase (jedan od više mogućih)
+❖ Ovaj poziv obezbeđuje prevodilac implicitno (automatski):
+Clock* pClk1 = new Clock(23,25,36);
+❖ Ako konstruktor klase zahteva argumente, onda se ovo ne može zaboraviti
+i izostaviti - prevodilac će prijaviti grešku:
+Clock* pClk1 = new Clock;
+❖ Moguće je deﬁnisati i funkciju koja se uvek implicitno poziva kada
+objekat prestaje da živi (uništava se).
+Ova funkcija naziva se destruktor (destructor):
+delete pClk1;
+ 27
+Implicitan poziv konstruktora
+Greška u prevođenju
+Implicitan poziv destruktora
+

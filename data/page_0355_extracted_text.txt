@@ -1,0 +1,29 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Konstruktor klase X čiji je prvi parametar tipa X&, const X&, volatile X& ili const volatile X&,  a koji ili nema druge
+parametre, ili svi ostali parametri imaju podrazumevane vrednosti, naziva se konstruktor kopije (copy constructor)
+❖ Ovaj konstruktor poziva se kada se objekat klase X inicijalizuje objektom istog tipa (osim ako postupak odabira
+konstruktora ne odabere neki drugi konstruktor koji više odgovara pozivu), kao što su sledeće situacije:
+• inicijalizacija objekta: X x1 = x2 ili X x1(x2), gde je x2 objekat klase X ili iz nje izvedene klase
+• prenos argumenta pri pozivu funkcije f(x) koja ima taj parametar tipa X, gde je x objekat klase X ili iz nje izvedene
+klase
+• povratak vrednosti iz funkcije f koja ima povratni tip X naredbom return x, gde je x objekat klase X ili iz nje
+izvedene klase
+❖ Ako se objekat izvedene klase inicijalizuje objektom osnovne klase, i ako se odabere ovaj konstruktor, kao i na svim
+drugim mestima, referenca na osnovnu kalsu inicijalizuje se referencom na podobjekat osnovne klase unutar objekta
+izvedene klase:
+struct Base {
+  Base (const Base&);
+  …
+};
+struct Derived : Base {
+  Derived ();
+  …
+};
+Derived d;
+Base b(d);
+UNIT NAME: Konstruktor kopije
+ 355
+Ovde se poziva konstruktor kopije osnovne klase Base::Base(const Base&), čiji se
+parametar - referenca vezuje za podobjekat osnovne klase unutar objekta d
+UNIT NAME: Konstruktor kopije
+

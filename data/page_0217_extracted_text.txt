@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pokazivači na objekte
+Prema tome, pokazivači na jezicima C i C++ su veoma nebezbedni i mogu da uzrokuju veoma
+neprijatne greške. Evo nekih tipičnih problema sa pokazivačima:
+❖ Neispravan (invalidan) pokazivač:
+• Uzrok: pristup do objekta preko pokazivača koji ima invalidnu vrednost (predstavlja adresu
+na kojoj se ne nalazi objekat datog tipa); ni pokazivač ni objekat na koga on ukazuje se ne
+proveravaju za vreme izvršavanja:
+Clock* p;
+p->tick();
+• Efekti:
+• moguća greška za vreme izvršavanja, npr. izuzetak koji podiže hardver i prosleđuje
+operativni sistem, zbog nelegalnog pristupa delu memorije, tipično završava gašenjem
+programa
+• nedeﬁnisano ponašanje (“tiha” greška): program nastavlja dalje sa potpuno
+nedeﬁnisanim ponašanjem i na kraju možda negde kasnije izaziva izuzetak
+• Tipične situacije u kojima nastaje:
+• neinicijalizovan pokazivač: gornji primer
+ 217
+Ovaj pokazivač ima nedeﬁnisanu početnu vrednost
+Vrlo moguća greška za vreme izvršavanja
+

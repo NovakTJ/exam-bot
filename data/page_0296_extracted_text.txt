@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Funkcije su jedini oblik potprograma na jezicima C i C++: procedure su specijalne vrste funkcija koje
+imaju povratni tip void (ne vraćaju rezultat)
+❖ Deklaracija funkcije koja nije deﬁnicija može da se pojavi u bilo kom opsegu važenja (na bilo kom
+mestu)
+❖ Deklaracija funkcije u opsegu važenja klase deklariše funkciju članicu, osim ako je deklarisana
+speciﬁkatorom friend
+❖ Ako deklaracija funkcije uključuje i njeno telo, onda je deﬁnicija
+❖ Deﬁnicija funkcije može da se pojavi samo u opsegu važenja prostora imena i unutar deﬁnicije klase.
+Deﬁnicija funkcije ne može da se pojavi unutar druge funkcije - ne postoji statičko ugnežđivanje funkcija
+kao npr. na jeziku Pascal. Naravno, dozvoljeno je dinamičko ugnežđivanje poziva funkcija, pa i rekurzija
+❖ Deﬁnicija funkcije može, umesto tela, da sadrži = delete. Ovakva funkcija naziva se obrisanom (deleted).
+Svaka upotreba ovakve funkcije, npr. njen poziv, je neispravna i uzrokuje grešku u prevođenju; ovako se
+mogu sprečiti npr. neke implicitne konverzije ili inicijalizacije implicitno generisanim konstruktorima;
+na primer:
+class X {
+public:
+  X (const X&) = delete;
+  …
+};
+Deklaracija i definicija funkcije
+ 296
+Konstruktor kopije je obrisan, pa se objekti ove klase ne mogu
+inicijalizovati kopiranjem
+

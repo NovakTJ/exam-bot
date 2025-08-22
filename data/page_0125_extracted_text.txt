@@ -1,0 +1,40 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Generalizacijom se uvode osnovne klase koje
+uopštavaju, apstrahuju, grupišu zajednička svojstva i
+ponašanje posebnih klasa
+❖ Sama činjenica da neke klase imaju zajednička svojstva
+ili operacije može, ali ne mora biti dobar razlog za
+uvođenje njihove generalizacije
+❖ Osnovni motiv za generalizaciju jeste to što neka
+druga apstrakcija ili drugi deo softvera (klijent) ima
+potrebu da instance datih različitih pojedinačnih klasa
+posmatra  i koristi na isti način, kroz isti uopšteni
+interfejs, ne praveći razliku između njih
+❖ Na primer, u programu za crtanje dijagrama, na crtežu
+(Drawing) se nalaze ﬁgure različitih vrsta:
+pravougaonici (Rectangle), poligonalne linije (Polyline),
+krugovi (Circle) itd. Kako ih iscrtati?
+class Rectangle {
+public:
+  void draw (Viewport*);
+  …
+};
+class Polyline {
+public:
+  void draw (Viewport*);
+  …
+};
+class Circle {
+public:
+  void draw (Viewport*);
+  …
+};
+void Drawing::draw (Viewport* vp)
+{
+  // How to draw figures
+  // of different kind?
+}
+…
+ 125
+

@@ -1,0 +1,29 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ Svi elementi deklarisani unutar klase, a to mogu biti podaci članovi, funkcije članice, ali i tipovi (enumeracije,
+strukture, pa i klase) nazivaju se njenim članovima (member)
+❖ Speciﬁkatori public:, protected: i private: se mogu navoditi u proizvoljnom redosledu, pa i više puta ponavljati
+(pa čak i navoditi ispred svakog člana); ako se ne navede neki od ovih speciﬁkatora od početka deﬁnicije klase,
+podrazumeva se da su ti članovi private
+class Controller {                                                   class Controller {
+  …                                                                  public:
+protected:                                                             …
+  …                                                                  protected:
+public:                                                                …
+…                                                                    private:
+private:                                                               …
+…                                                                    };
+public:
+…
+};
+❖ Međutim, radi povećanja čitljivosti, preporučuje se sledeći stil i redosled:
+• public, jer je to interfejs klase i smatra se da je najviše onih koji su zainteresovani za interfejs, jer koriste tu
+klasu
+• protected, jer je to speciﬁčan interfejs klase, za povlašćene korisnike - one koji prave izvedene klase
+• private, jer je to implementacija klase i ona treba da bude sakrivena, a za nju je najmanje zainteresovanih -
+oni koji se bave implementacijom klase
+ 112
+Loš stil (nepregledno),
+mada je dozvoljeno jezikom
+Podrazumeva se private Preporučen stil
+

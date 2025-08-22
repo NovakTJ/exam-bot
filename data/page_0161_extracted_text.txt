@@ -1,0 +1,9 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Glava 6: Elementi i principi prevođenja i povezivanja
+❖ Neki osnovni pojmovi jezika
+❖ Prevođenje
+❖ Povezivanje
+❖ Pretprocesor
+❖ Leksički elementi
+ 161
+

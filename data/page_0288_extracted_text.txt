@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Redosled izračunavanja operanada neke operacije, kao i redosled izračunavanja
+vrednosti operacije i njenih bočnih efekata, ne samo u odnosu jednih na druge, nego i u
+odnosu na druge operacije unutar izraza, nije uvek precizno deﬁnisan, što znači da se
+ostavlja prevodiocu (ili hardveru procesora u vreme izvršavanja) da premešta
+instrukcije, izvršava ih isprepletano ili uporedo
+❖ Postoje precizna pravila koja deﬁnišu parcijalni redosled izvršavanja, dok ono za šta nije
+deﬁnisano uređenje može da se izvršava proizvoljno i stoga efekti ne moraju biti uvek
+određeni. Pritom, mnogi operatori uključuju izračunavanje identiteta opranada (onih na
+koje deluju bočnim efektima), izračunavanje vrednosti i izvršavanje bočnih efekata
+❖ Pravila jezika samo deﬁnišu odnos sekvenciranja (sequencing), kao parcijalne relacije
+između dva izračunavanja (vrednosti ili bočnih efekata) koja zahteva da se jedno završi
+pre nego što drugo počne; ako ne postoji ovakva relacija, izračunavanja se mogu
+preplitati ili izvršiti sekvencijalno u proizvoljnom redosledu
+❖ Na primer, redosled izračunavanja operanada nekih operacija nije deﬁnisan i nije
+obavezno sekvenciran:
+i = ++i + i++;
+UNIT NAME: Operatori
+ 288
+Nedeﬁnisano ponašanje. Ovo je svakako loš stil programiranja!
+

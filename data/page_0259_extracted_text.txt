@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Slična potreba međusobnog unakrsnog referenciranja postoji i kod klasa: u deﬁniciji jedne može biti
+potrebna druga i obratno, recimo, kada su objekti tih klasa obostrano povezani (klase su povezane
+obostrano navigabilnom asocijacijom); tada se ova cirkularna zavisnost može razrešiti navođenjem
+deklaracije - najave klase (forward declaration) koja nije deﬁnicija:
+class Lobby;
+class Clock {
+public:
+  Clock (Lobby* owner);
+  …
+private:
+  …
+  Lobby* myLobby;
+};
+class Lobby {
+private:
+  …
+  Clock* myClock[MaxNumOfClocks];
+};
+❖ Nakon ovakve najave klase unapred, klasa se smatra nekompletnim tipom i ne mogu se deﬁnisati
+objekti te klase, ali se mogu deﬁnisati pokazivači i reference na tu klasu; međutim, sa objektima na koje
+upućuju ti pokazivači i reference se ne može raditi ništa, jer nisu poznati (deklarisani) članovi te klase
+Deklaracija - najava klase
+UNIT NAME: Deklaracije
+ 259
+Za deklarisanje pokazivača nije potrebna potpuna deﬁnicija klase,
+dovoljna je najava
+

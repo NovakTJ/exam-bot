@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Preklopljeni operatori mogu biti deklarisani ili kao nestatičke funkcije članice ili kao funkcije nečlanice
+(često prijateljske); neki operatori mogu biti preklopljeni na bilo koji od ta dva načina, a neki samo kao
+članice
+❖ Preklopljeni operatori mogu biti unarni (imaju jedan operand) ili binarni (imaju dva operanda)
+❖ Unarni operator @ ima jedan operand, pa može biti preklopljen kao:
+• nestatička funkcija članica klase X bez parametara:
+T X::operator@ ();
+tada se operacija @x tumači kao
+x.operator@ ()
+- jedini operand je objekat čija se funkcija članica poziva
+• funkcija nečlanica klase X sa jednim parametrom koji prihvata argument tipa X:
+T operator@ (X);
+tada se operacija @x tumači kao
+operator@ (x)
+- jedini operand se prenosi kao argument funkcije
+UNIT NAME: Preklopljeni operatori
+ 434
+

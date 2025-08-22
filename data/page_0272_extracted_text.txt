@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Oblast važenja imena deklarisanog unutar deﬁnicije klase je od tačke deklaracije do ostatka
+deﬁnicije te klase, ali se proteže i kroz tela svih funkcija članica te klase i izvedenih klasa, čak i
+ako su ta tela navedena van deﬁnicije klase ili pre date deklaracije
+❖ Unutar deﬁnicije klase mogu se navoditi deklaracije ne samo objekata i funkcija, nego i tipova
+(typedef sinonimi, enumeracije, klase itd.); na primer:
+class DatabaseManager {
+public:
+  enum DBStatus { ok, failed, refused };
+  DatabaseManager (const char* name);
+  DBStatus openConnection();
+  DBStatus closeConnection();
+  DBStatus getConnectionStatus();
+  DBStatus performQeury (const char* sqlQuery);
+private:
+  char* name;
+  …
+};
+UNIT NAME: Opseg važenja klase
+ 272
+Ova enumeracija bitna je samo za ovu klasu, odnosno
+za njen interfejs i implementaciju, pa je prirodno da
+bude logički “upakovana” u tu klasu, kao i da ima
+opseg važenja te klase; osim toga, nema potrebe da
+“prlja” globalni prostor imena i generiše potencijalni
+sukob imena u njemu
+

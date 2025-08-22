@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: polimorfizam
+❖ Nešto pregledniji pristup — razdvojiti obradu svake situacije u zaseban potprogram:
+int canMoveTo (Figure* fig, unsigned col, unsigned row) {
+  switch (fig->kind) {
+    case pawn: return canPawnMoveTo(fig,col,row);
+    case bishop: return canBishopMoveTo(fig,col,row);
+    …
+  }
+}
+int canPawnMoveTo (Figure* fig, unsigned col, unsigned row) {
+     if (fig->color==white) …
+     else …
+}
+int canBishopMoveTo (Figure* fig, unsigned col, unsigned row) {
+  …
+}
+…
+❖ I dalje moramo menjati switch u slučaju da dodajemo novu vrstu objekata, i to na svim
+ovakvim mestima (polimorfnim operacijama)
+ 58
+

@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Tzv. curenje memorije (memory leak) je problem koji može nastupiti nekorektnim rukovanjem dinamičkim
+objektima, tako što se dinamički objekti repetitivno prave, ali se ne uništavaju, jer je programer zaboravio da
+propisno uništava dinamičke objekte koji više nisu potrebni (a program iznova pravi nove kada su potrebni)
+❖ Nakon dužeg izvršavanja programa, slobodna memorija će biti iscrpljena, pa memorije za nove dinamičke
+objekte više neće biti, i naredna operacija new baciće izuzetak (ili vratiti null vrednost); nakon toga, program više
+neće radi kako se od njega očekuje
+❖ Na primer, sledeći deo koda je banalan, ali i očigledan primer curenja memorije:
+int i = *new int(0);
+❖ Tipičan uzrok jeste nepažljivo dodeljena odgovornost za brisanje dinamički napravljenih objekata. Na primer,
+korisniku neke funckije koja pravi nov dinamički objekat i vraća pokazivač (ili referencu) na njega nije jasno da je
+odgovornost za brisanje tog objekta na njemu (a ne na onom ko ga je koristio), pa će zaboraviti da ga obriše:
+extern X* getAnX (…);
+X* px = getAnX(…);
+❖ Uzrok može biti i situacija u kojoj se objekat ne obriše zbog izuzetka:
+void f () {
+  int* p = new int(1);
+  g();
+  delete p;
+}
+UNIT NAME: Dinamički životni vek
+ 336
+Problem: ovom objektu ne može se pristupiti, pa se on ne može ni obrisati
+Nije sasvim jasno da li pozivalac ima odgovornost za brisanje objekta
+na kog ukazuje vraćeni pokazivač
+Ako funkcija g baci izuzetak, dinamički objekat neće biti obrisan
+

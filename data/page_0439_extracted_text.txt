@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Operatori ++ i -- imaju preﬁksni i postﬁksni oblik koji se mogu razlikovati tako što se
+preklopljeni postﬁksni operatori deﬁnišu sa parametrom koji prihvata drugi operand
+tipa int; pri pozivu preklopljene operatorske funkcije, ovaj argument ima vrednost 0:
+complex& complex::operator++ () {…}
+complex complex::operator++ (int) {…}
+complex c(3.,4.);
+c++;
+++c;
+❖ Preklopljeni operator -> mora biti nestatička funkcija članica koja nema parametre i
+koja mora da vrati ili običan pokazivač, ili (referencu na) objekat za koji je takođe
+preklopljen operator ->:
+template<typename T>
+T* smart_ptr<T>::operator-> () {…}
+smart_ptr<Clock> p = &clk;
+p->tick();
+UNIT NAME: Preklopljeni operatori
+ 439
+Preﬁksni operator, vraća lvrednost
+Tumači se kao c.operator++(0)
+Postﬁksni operator, vraća čdvrednost
+Tumači se kao c.operator++()
+Tumači se kao (p.operator->())->tick();
+

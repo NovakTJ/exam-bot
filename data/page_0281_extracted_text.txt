@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Prostori imena se mogu proizvoljno ugnežđivati; kvaliﬁkovani pristup imenu iz ugnežđene oblasti važenja vrši se
+višestrukim nadovezivanjem operatora ::, npr. domain::core::users::User
+❖ U svakoj jedinici prevođenja podrazumeva se jedan implicitno deﬁnisan, bezimeni prostor imena, tzv. globalni opseg važenja
+(global scope ili ﬁle scope); ime deklarisano van svih deﬁnicija funkcija, klasa ili prostora imena ima globalnu oblast važenja
+ovog implicitnog prostora imena, počev od tačke deklarisanja, do kraja fajla u kom je ta deklaracija
+❖ U nekoj ugnežđenoj oblasti važenja u kojoj je globalno ime skriveno, tom imenu se može pristupiti kvaliﬁkacijom preko
+unarnog operatora :: (bez levog operanda):
+int x = 0;
+void f () {
+  int x = 2;
+  x = 3;
+  ::x = 3;
+}
+int* p = &x;
+❖ Može se deﬁnisati i bezimen prostor imena (unnamed namespace): opseg važenja imena deklarisanih u njemu uključuje i
+okružujuću oblast važenja, ali takva imena imaju interno vezivanje; na ovaj način se mogu deklarisati globalna imena sa
+internim vezivanjem (umesto stare upotrebe speciﬁkatora static), odnosno delovi implementacije nekog modula koji su
+skriveni od drugih modula:
+namespace {
+  …
+}
+UNIT NAME: Prostori imena
+ 281
+Globalno ime x, važi od tačke deklarisanja, do kraja ovog fajla
+Lokalno ime x, sakriva globalno ime x
+Odnosi se na lokalno x
+Odnosi se na globalno x
+Odnosi se na globalno x, jer je lokalna oblast važenja bloka završena
+

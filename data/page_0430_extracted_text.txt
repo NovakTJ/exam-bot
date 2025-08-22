@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ako se za inicijalizaciju upotrebljava lista, onda se primenjuje inicijalizacija listom: pravi
+se privremeni objekat tipa T i taj objekat se inicijalizuje datom listom:
+int (&ref)[] = {0, 1, 2};
+❖ Ako je referenca na lvrednost, a izraza kojim se inicijalizuje je lvrednost tipa T ili tipa
+izvedenog iz T, referenca se vezuje za objekat koji identiﬁkuje taj izraz, onosno na
+njegov podobjekat osnovne klase tipa T:
+Base& ref = *new Derived;
+❖ Ako je referenca na lvrednost, može se inicijalizovati izrazom koji je dvrednost samo
+ako je referenca na konstantu; tada se opet pravi (materijalizuje) privremeni objekat za
+koji se vezuje referenca:
+const int& ref = a+b;
+❖ Takav privremeni objekat nastavlja da živi dok je na njega vezana referenca, ali ne
+nakon izlaska iz funkcije u kojoj se to dešava
+❖ Izraz kojim se inicijalizuje referenca može biti i tipa za koji postoji konverzija koja vraća
+odgovarajuću referencu
+Inicijalizacija reference
+ 430
+

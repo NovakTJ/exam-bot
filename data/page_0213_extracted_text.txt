@@ -1,0 +1,41 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pokazivači na objekte
+❖ Na primer:
+int i=0, j=0;
+int* pi = &i;
+*pi = 1;
+pi = &j;
+*pi = 2;
+❖ Pošto su i pokazivači i nizovi objekti, pokazivač može ukazivati i na njih:
+int i=0, j=0;
+int* pi=&i;
+int** ppi;
+ppi=&pi;
+*pi=1;
+**ppi=2;
+*ppi=&j;
+ppi=&i;
+int a[10];
+int (*pa)[10] = &a;
+❖ Ako pokazivač ukazuje na objekat klasnog tipa, može se pristupiti članu tog objekta preko operatora ->;
+ukoliko se radi o objektu polimorfne klase (sa bar jednom virtuelnom funkcijom), aktivira se
+polimorﬁzam:
+Clock* pc = new ClockWithDates;
+pc->tick();
+(*pc).tick();
+ 213
+pi ukazijue na i
+i dobija vrednost 1
+pi sada ukazuje na j
+j dobija vrednost 2
+Ovo je isto
+ppi je tipa  pokazivač na - pokazivač na - int
+ppi ukazuje na pi
+i dobija vrednost 1
+Izračunava se: *(*ppi); i dobija vrednost 2
+pi sada ukazuje na j
+Greška u prevođenju: ppi je tipa int**, a &i je tipa int*; ne postoji ova implicitna konv.
+pa je tipa pokazivač na - niz od 10
+elemenata tipa - int i ukazuje na niz a
+koji je baš takvog tipa
+

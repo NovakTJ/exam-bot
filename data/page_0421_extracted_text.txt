@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Direktna inizijalizacija radi sledeće:
+• Ako je T klasa, a jedini izraz kojim se inicijalizuje jeste čdvrednost (prvalue) koja je istog tipa T (bez cv-
+kvaliﬁkacije), onda se izostavlja kopiranje i objekat inicijalizuje onim što ta čdvrednost predstavlja, kao što je
+ranije objašnjeno (pre verzije C++17, pravio se privremeni objekat kao rezultat izraza koji se premeštao ili
+kopirao u parametar konstruktora kojim se objekat inicijalizuje, uz moguće izostavljanje kopiranja):
+X x1 (x2);
+• Ako je T klasa, a tip izraza kojim se objekat inicijalizuje (bez cv-kvaliﬁkacije) nije jedini ili nije istog tipa,
+pretražuju se konstruktori klase T koji mogu da prihvate te argumente i bira se onaj konstruktor koji najbolje
+odgovara, po pravilima rezolucije za preklapanje funkcija; objekat se onda inicijalizuje tim konstruktorom
+• Ako T nije klasa, a tip izraza kojim se objekat inicijalizuje (bez cv-kvaliﬁkacije) jeste klasa, traže se korisnički
+deﬁnisane konverzione operatorske funkcije klase izraza ili njene osnovne klase, ako ih ima, i bira se ona koja
+najbolje odgovara, i objekat tipa T se onda inicijalizuje tom konverzijom
+• Inače, ako je T tip bool, a izvorni tip std::nullptr_t (tip konstante nullptr), vrednost se inicijalizuje na false
+• U preostalim slučajevima, kada ni T ni tip izraza nisu klase, vrednost izraza se prosto kopira u objekat, ako je
+izraz istog tipa T, ili se po potrebi koriste standardne konverzije da konvertuju vrednost izraza u tip objekta:
+Base* pb(new Derived);
+❖ Direktna inizijalizacija je manje restriktivna i više dozvoljava nego inicijalizacija kopiranjem: inicijalizacija
+kopiranjem uzima u obzir samo korisnički deﬁnisane konverzije (konstruktore konverzije i konverzione funkcije)
+koje nisu explicit, dok direktna inicijalizacija uzima u obzir i njih
+UNIT NAME: Direktna inicijalizacija
+ 421
+

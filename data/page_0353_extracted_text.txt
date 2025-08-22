@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Konstruktor koji se može pozvati bez stvarnih argumenata, što znači da ili nema
+nijedan parametar, ili svi parametri imaju podrazumevane vrednosti argumenata,
+naziva se podrazumevani konstruktor (default constructor)
+❖ Ovaj konstruktor poziva se pri podrazumevanoj inicijalizaciji, tj. kada se za
+inicijalizaciju nekog objekta ne navede eksplicitan inicijalizator, ili se navede prazan
+inicijalizator. Na primer:
+struct X {
+  X (int=0);
+  …
+};
+struct Y {
+  X x1, x2;
+  Y () : x2() {}
+  …
+};
+int main () {
+  X x;
+}
+UNIT NAME: Podrazumevani konstruktor
+ 353
+UNIT NAME: Podrazumevani konstruktor
+Ovde se poziva podrazumevani konstruktor X::X(0) za objekte članove x1 i x2
+Ovde se poziva podrazumevani konstruktor X::X(0) za objekat x
+

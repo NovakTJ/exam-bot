@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Kao što je već objašnjeno, izraz oblika
+new (placement_params) T (init)
+uvek radi sledeće tri stvari:
+1. Poziva neku od ugrađenih globalnih alokatorskih funkcija oblika
+void* ::operator new (size_t size, placement_params)
+void* ::operator new [] (size_t size, placement_params)
+2. Inicijalizuje objekat odgovarajučom inicijalizacijom
+3. Vraća pokazivač na napravljeni dinamički objekat
+❖ Ovaj postupak je uvek isti i ne može se promeniti, u smislu skupa i redosleda koraka, ali se poziv
+alokatorske funkcije u prvom koraku može preusmeriti na drugu funkciju, pa i onu deﬁnisanu
+posebno za neku klasu preklapanjem alokatorske funkcije new za tu klasu
+❖ U prvom koraku, ugrađene alokatorske funkcije ::new podrazumevano rade sa slobodnim delom
+memorije u kom pronalaze slobodan prostor tražene veličine size i alociraju ga
+❖ Ove funkcije mogu da se zamene drugim, korisnički deﬁnisanim, sa istim potpisom; dovoljno je
+deﬁnisati neku od njih u nekom fajlu
+UNIT NAME: Operatori new i delete
+ 453
+

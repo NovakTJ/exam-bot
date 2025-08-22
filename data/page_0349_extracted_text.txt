@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Konstruktor (constructor) je specijalna nestatička funkcija članica klase koja se koristi za inicijalizaciju objekata
+te klase
+❖ Konstruktor može imati proizvoljne parametre, pa klasa može imati više konstruktora. Postupak izbora
+konstruktora koji će biti pozvan na mestu inicijalizacije određuje se po istim pravilima kao i za ostale
+preklopljene funkcije, na osnovu tipova argumenata u inicijalizaciji
+❖ Konstruktor nema povratni tip (čak ni void)
+❖ Konstruktor ima pokazivač this, kao i svaka druga nestatička funkcija članica
+❖ Kao i svaka druga funkcija članica, konstruktor može biti javan, zaštićen ili privatan. Na mestu inicijalizacije,
+prevodilac proverava dostupnost konstruktora koji je odabran. Prema tome, pošto se pri inicijalizaciji objekta
+izvedene klase inicijalizuje i podobjekat osnovne klase pozivom konstruktora, ako su svi konstruktori neke
+klase privatni, iz te klase se ne može izvesti klasa za koju se mogu praviti objekti ili podobjekti
+❖ Konstruktor ne može biti virtuelan, niti može biti cv-kvaliﬁkovan: cv-kvaliﬁkacija nekog objekta stupa na
+snagu kada je u potpunosti završena njegova inicijalizacija
+❖ Konstruktor zapravo nema ime i ne može se pozvati eksplicitno - on se uvek poziva implicitno za potrebe
+inicijalizacije kompletnog objekta ili podobjekta
+❖ Ako se tokom izvršavanja tela konstruktora ili u inicijalizaciji podobjekata pozove virtuelna funkcija tog
+objekta, pozvaće se implementacija te funkcije koja pripada toj klasi čiji se konstruktor izvršava. Ovo je stoga
+što generisani kod za svaki konstruktor postavlja vrednost VTP tog objekta tako da ukazuje na VT baš te klase,
+pa konstruktor izvedene klase postavlja na svoju VT prepisujući prethodnu vrednost itd.
+UNIT NAME: Konstruktor
+ 349
+

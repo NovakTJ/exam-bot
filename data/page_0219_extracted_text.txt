@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pokazivači na objekte
+❖ Dereferenciranje null vrednosti pokazivača:
+• Uzrok: pristup do objekta preko pokazivača koji ima null vrednost; vrednost se ne
+proverava za vreme izvršavanja prilikom dereferenciranja:
+Clock* pc = nullptr;
+pc->tick();
+• Efekti:
+• po pravilu greška za vreme izvršavanja, npr. izuzetak koji podiže hardver i
+prosleđuje operativni sistem (zbog nelegalnog pristupa delu memorije, tipično
+završava gašenjem programa
+• Tipične situacije u kojima nastaje:
+• neka funkcija koja treba da vrati pokazivač na objekat koji se zahteva, može i da ne
+vrati to, jer ne može da uradi to što se od nje traži, što je regularna situacija, ili je
+neregularna, ali funkcija ne podiže izuzetak (a trebalo bi):
+Clock* pc = ClockFactory::getClock();
+…
+pc->tick();
+ 219
+Greška za vreme izvršavanja
+Ova funkcija možda vraća null
+

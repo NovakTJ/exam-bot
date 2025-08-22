@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Sledeći dijagram (oblika slova W) prikazuje ovu
+kategorizaciju, pri čemu oznaka i znači identiﬁable,
+m znači movable, a podvučeno veliko slovo znači
+da dato svojstvo i ili m ne važi
+❖ Kategorije gore su disjunktne: svaka vrednost
+pipada jednoj i samo jednoj od te tri kategorije,
+lvalue, xvalue ili prvalue
+❖ Kategorije dole su generalizacije (unije) po dve
+susedne kategorije:
+• glvalue = lvalue U xvalue
+• rvalue = xvalue U prvalue
+❖ Neka vrednost je ili lvrednost (lvalue) ili dvrednost
+(rvalue), nikad oba i ništa osim toga
+❖ Neka vrednost je ili glvrednost (glvalue) ili
+čdvrednost (prvalue), nikad oba i ništa osim toga
+UNIT NAME: Kategorije vrednosti
+ 387
+W
+iM
+lvalue
+im
+xvalue
+Im
+prvalue
+i
+glvalue
+m
+rvalue
+

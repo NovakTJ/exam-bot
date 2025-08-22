@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Povratni tip funkcije ne može biti funkcija ili niz (ali može biti pokazivač ili
+referenca na funkciju ili niz)
+❖ Povratni tip funkcije može da se navede i iza parametara i znaka ->, što olakšava
+pisanje i čitanje deklaracija ako je povratni tip složen, ili ako se ne može odrediti,
+npr. zato što zavisi od tipova argumenata unutar šablona:
+auto redirect (int(*)(int)) -> int(*)(int(*)(int));
+template <typename U, typename V>
+auto combine (U u, V v) -> decltype(u+v);
+❖ Povratni tip ne mora da se navodi eksplicitno, nego da se ostavi prevodiocu da ga
+sam izvede, na osnovu tipa izraza iza naredbe return; svi tipovi iza višestrukih
+naredbi return moraju biti konzistentni; ova mogućnost nije dozvoljena za
+virtuelne funkcije:
+template <typename U, typename V>
+auto combine (U u, V v, double scalar1, double scalar2) {
+  return u*scalar1 + v*scalar2;
+}
+Deklaracija i definicija funkcije
+ 298
+Ovo bi bilo prilično teško napisati klasičnom notacijom
+Povratni tip ove funkcije je decltype(u*scalar1 + v*scalar2)
+

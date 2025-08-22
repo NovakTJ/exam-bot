@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nizovi
+❖ Treće pravilo: ugrađeni operator indeksiranja x[y], gde su x i y
+izrazi, izračunava se uvek kao *(x+y)
+❖ Na primer:
+int a[10];
+int* p = a;
+a[2]=1;
+p[3]=3;
+p=p+1;
+*(p+2)=1;
+p[-1]=0;
+2[p-1] = 0;
+ 228
+p ukazuje na a[0]
+Isto što i *(p+(-1)) = 0
+a[2] se izračunava kao *(a+2); pošto je a niz, konvertuje se u pokazivač na svoj prvi
+element; zbir tog pokazivača i celog broja 2 je vrednost koja ukazuje na a[2]
+p[3] se izračunava kao *(p+3); pošto je p ukazuje na a[0], zbir tog pokazivača i celog
+broja 3 je vrednost koja ukazuje na a[3]
+p sada ukazuje na a[1]
+p+2 ukazuje na a[3] koji dobija vrednost 1
+Isto što i *(2+(p-1)) = 0
+

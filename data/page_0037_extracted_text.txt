@@ -1,0 +1,15 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Uvod u jezik C++
+❖ C++ je standardan, objektno orijentisan programski jezik opšte namene
+❖ C++ je vertikalno kompatibilan (uz manje izuzetke) sa jezikom C: svi C
+programi se mogu prevoditi prevodiocem za C++
+❖ Međutim, C++ je jezik nove generacije i različite paradigme nego što je C!
+Razlika između jezika C i C++ je veća (konceptualna i paradigmatska) nego što
+je između jezika C++ i drugih OO jezika, npr. jezika Java
+❖ C++ podržava sve osnovne OO koncepte, ali dozvoljava i neobjektne delove
+programa ili cele programe
+❖ Kao i svaki jezik, C++ je alat koji pomaže u pisanju objektnih programa i
+izražavaznju objektnih koncepata, ali ne sprečava pravljenje loših programa
+❖ C++ je sredstvo za izražavanje objektne koncepcije programa
+ 37
+

@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Deklaracija uvodi jedno ili više imena u program. Deklaracija može i da se ponovi,
+odnosno da ponovo uvede isto ime u program, pod uslovom da je identična
+prethodnoj i da nije deﬁnicija
+❖ Deﬁnicija je ona deklaracija koja u potpunosti deﬁniše deklarisani entitet. Ne
+mogu postojati dve deﬁnicije istog imena, čak i ako su identične. Deklaracija nije
+deﬁnicija samo u nekim posebnim, navedenim slučajevima
+❖ Deklaracija varijable ili funkcije može da počne i speciﬁkatorom extern ili static koji
+utiču na način vezivanja deklarisanog imena:
+• Speciﬁkator extern deklariše ime sa spoljašnjim (eksternim) vezivanjem; ovakve
+deklaracije nisu deﬁnicije, osim ako imaju inicijalizator
+• Speciﬁkator static deklariše ime sa unutrašnjim (internim) vezivanjem
+extern const int a;
+extern const int b = 1;
+static const int c = 1;
+Deklaracija koja nije deﬁnicija, ime sa ekternim vezivanjem
+UNIT NAME: Deklaracije
+ 257
+Deﬁnicija imena sa eksternim vezivanjem
+Deﬁnicija imena sa internim vezivanjem
+

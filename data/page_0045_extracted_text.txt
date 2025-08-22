@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Modularnost i enkapsulacija
+❖ Rudiment enkapsulacije u proceduralnom programiranju: razlika između
+• deklaracije (potpisa, signature) nekog potprograma:
+int push (unsigned in);
+• implementacije (potpune deﬁnicije tela) tog potprograma:
+int push (unsigned in) {
+  if (sp==MaxStackSize) return -1; // Exception: stack full
+  stack[sp++] = in;
+  return 0;
+}
+❖ Motivacija je izvorno banalna — nezavisno prevođenje modula: na mestu poziva, za
+generisanje koda pozivaoca, dovoljno je znati samo potpis potprograma, ne i celo telo; telo
+je potrebno na mestu gde se generiše kod za telo tog potprograma
+❖ Opštije, ova ista rudimentarna tehnika predstavlja i podršku enkapsulaciji na nivou
+potprograma, kao osnovne gradivne jedinice proceduralnog programa
+❖ Sličan princip potreban je i na krupnijem stepenu granularnosti - modulu
+ 45
+

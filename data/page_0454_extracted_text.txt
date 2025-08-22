@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Posmatrajmo izgled slobodnog prostora tokom sukcesivnih operacija
+alokacije i dealokacije delova memorije različite veličine: kada se dealocira
+neki dinamički objekat, u oslobođeni prostor njegove veličine može se
+alocirati nov dinamički objekat koji je najčešće manji (može biti i jednak, što je
+manje verovanto, ali nikako veći) od tog dela; tako ostaje fragment slobodne
+memorije koji možda nije dovoljan da se u njega smesti bilo koji nov objekat
+❖ Posle dužeg rada programa može se dogoditi to da je slobodna memorija
+rascepkana (fragmentirana) na male slobodne delove, pa iako je ukupno ima
+sasvim dovoljno, nijedan slobodan deo nije dovoljno velik da bi se u njega
+smestio traženi objekat; tada program više ne može alocirati prostor za
+traženi novi dinamički objekat i više ne radi regularno
+❖ Ovakav problem naziva se fragmentacija memorije (memory fragmentation)
+❖ Ovaj problem nije primetan ni značajan kod programa koji rade neko vreme i
+onda se gase, npr. kod interaktivnih uslužnih programa, ali kod programa
+koji rade neprekidno, npr. onih ugrađenih u hardver koji radi neprekidno
+(embedded software) može da bude veoma ozbiljan
+UNIT NAME: Operatori new i delete
+ 454
+
+

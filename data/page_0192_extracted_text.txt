@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Konverzije
+❖ Implicitna konverzija se vrši kad god se izraz jednog tipa T1 koristi u kontekstu u kom se ne
+prihvata taj tip, nego se prihvata neki drugi tip T2, a to su sledeće situacije:
+• kada se izraz tipa T1 koristi kao stvarni argument poziva funkcije čiji je odgovarajući
+formalni parametar deklarisan sa tipom T2
+• kada u funkciji koja ima deklarisan povratni tip T2 naredba return vraća izraz tipa T1
+• kada se izraz tipa T1 koristi kao operand operatora koji očekuje taj operand tipa T2
+• kada se inicijalizuje novi objekat tipa T2 izrazom tipa T1
+• kada je izraz upotrebljen u narebi switch tipa T1 koji nije integralan tip (T2 je integralan
+tip)
+• kada je izraz upotrebljen u narebi if ili u naredbi petlje (naredbe for, do, while) tipa T1 koji
+nije tip bool (T2 je tip bool)
+❖ Implicitna konverzija može se vršiti i tranzitivno, tj. prevodilac može izvršiti i čitav niz
+sukcesivnih implicitnih konverzija, ali taj niz ne može sadržati više od jedne korisnički
+deﬁnisane konverzije — sve ostale moraju biti tzv. standardne konverzije (standard conversion)
+ 192
+

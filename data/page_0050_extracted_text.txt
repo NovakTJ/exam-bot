@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: klase i objekti
+❖ Na jeziku C++, svaka (nestatička) funkcija članica klase poseduje lokalni, implicitno
+deklarisan pokazivač this; ovaj pokazivač je konstantan (ne može mu se promeniti vrednost)
+❖ Tokom izvršavanja tela ovakve funkcije članice pokazivač this pokazuje na objekat za koga je
+ta funkcija pozvana
+❖ Svaki neposredan pristup članu klase unutar ovakve funkcije smatra se implicitnim
+pristupom članu onog objekta na koga pokazuje this (uvek se može vršiti i eksplicitan
+pristup, što ponekad može poboljšati čitljivost ili razrešiti višeznačnost):
+sp = 0;
+je isto što i:
+this->sp = 0;
+❖ Privid da svaki objekat “poseduje svoju” funkciju članicu je zapravo posledica toga što se
+funkcija članica poziva za dati objekat, a članovima u tekstu tela funkcije može pristupati
+neposredno, bez navođenja objekta (podrazumeva se pristup članu onog objekta “čija” se
+funkcija izvršava). Ovaj privid stvara se jednostavnim opisanim mehanizmom implicitnog
+pristupa preko pokazivača this
+ 50
+

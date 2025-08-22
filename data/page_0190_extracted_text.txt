@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Konverzije
+❖ Konverzija može biti deﬁnisana (u smislu da je propisan način kako se vrši, za koje tipove i kada se može vršiti
+i šta joj je semantika):
+• samim pravilima jezika: tzv. ugrađena (built-in); na primer, konverzija char u int, ili konverzija pokazivača/
+reference na izvedenu klasu u pokazivač/referencu na dostupnu osnovnu klasu
+• u programu: tzv. korisnički deﬁnisane konverzije (user-deﬁned conversion), za korisničke tipove, odnosno klase
+❖ Konverzija se može raditi:
+• implicitno, što znači da je radi prevodilac bez ikakvg posebnog eksplicitnog zahteva programera; ako je na
+datom mestu potrebna konverzija, i ako je ona deﬁnisana tako da se može raditi implicitno, prevodilac će
+je izvršiti; ovakve konverzije su samo one koje se smatraju “bezbednim”, u smislu da na neki način čuvaju
+korektnost semantike programa
+• eksplicitno zahtevane u programu jednim od sledećih operatora:
+• const_cast
+• static_cast
+• dynamic_cast
+• reinterpret_cast
+• operator cast nasleđen iz jezika C: (type)expression
+ 190
+

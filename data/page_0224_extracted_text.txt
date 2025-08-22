@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nizovi
+❖ Niz može da se inicijalizuje tzv. agregatnim inicijalizatorom (aggregate initializer) između velikih zagrada; tada ne mora da se
+navede dimenzija niza, ona se određuje na osnovu broja elemenata u inicijalizatoru i smatra se deﬁnisanom:
+int a[3] = {1, 2, 3};
+int b[] = {4, 5, 6};
+int c[3] = {1};
+❖ Niz može da se deklariše i bez zadavanja (prve) dimenzije (ako je u pitanju niz nizova, sve ostale dimenzije moraju da se
+zadaju, jer one deﬁnišu tip elementa niza); ovaj niz je nekompletnog tipa (osim ako je inicijalizovan agregatnim
+inicijalizatorom). Za ovakve nizove mogu se praviti pokazivači i reference na njih, ali se ti pokazivači i reference ne mogu
+inicijalizovati tako da ukazuju na nizove sa poznatim dimenzijama. Takvi pokazivači se mogu dereferencirati i prenositi
+kao parametri funkcija, ali ne mogu učestvovati u pokazivačkoj aritmetici:
+extern int a[];
+int (*p)[] = &a;
+int (*q)[2] = &a;
+❖ Nizovi ne mogu da se kopiraju operacijom dodele, tj. ne mogu biti levi operandi operatora dodele. Međutim, ako je niz
+podatak član nekog klasnog tipa (strukture ili klase), on se može kopirati kao deo objekta kome pripada:
+int a[10], b[10];
+class X { public: int a[10]; };
+X x1, x2;
+a = b;
+x1 = x2;
+ 224
+b je niz od 3 elementa tipa int, tj. tipa int[3]
+Greška u prevođenju (ovo je ispravno na jeziku C)
+c je niz od 3 elementa tipa int, inicijalizovanih redom na 1, 0 i 0
+Greška u prevođenju
+Niz x2.a kopira se u niz x1.a
+p je pokazivač na niz nekompletnog tipa (nepoznate veličine)
+

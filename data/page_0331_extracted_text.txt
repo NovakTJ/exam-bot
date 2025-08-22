@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Izraz (operator) new ima redom sledeće elemente iza ključne reči new:
+• opcione argumente za tzv. parametre smeštanja (placement parameters)
+• speciﬁkator objektnog tipa, kao type-id, za objekat koji se kreira
+• opcioni inicijalizator, kao inače pri inicijalizaciji varijabli na drugim mestima
+new (std::nothrow) Clock (9,0,0)
+❖ Speciﬁkator tipa je type-id koji mora biti objektni tip (ne tip reference), i može biti tip koji predstavlja jedan objekat
+ili niz objekata nekog tipa:
+new (Clock*) (nullptr)
+new (Clock*[n]) {}
+❖ Ukoliko je speciﬁkovan tip niza, sve dimenzije tog niza osim prve moraju biti date kao konstatni izrazi sa
+pozitivnom celobrojnom vrednošću; prva dimenzija može biti izraz koji se izračunava u trenutku izvršavanja
+izraza new - tako se jedino i mogu praviti dinamički dimenzionisani nizovi (sa dimenzijom poznatom tek za vreme
+izvršavanja):
+const int Max = 100;
+extern int n;
+new (Clock[2*n][Max]) (nullptr)
+new (Clock[2*n][n]){}
+❖ U speciﬁkatoru tipa (type-id) može da se koristi i auto, s tim da je inicijalizator tada obavezan, jer se na osnovu
+njegovog tipa određuje tip objekta koji se kreira
+UNIT NAME: Dinamički životni vek
+ 331
+Argumenti za parametre smeštanja Speciﬁkator tipa (type-id)
+Inizijalizator
+Pravi se jedan objekat tipa Clock*
+Pravi se niz od n objekata tipa Clock*
+Greška u prevođenju: druga dimenzija nije konstantan izraz
+

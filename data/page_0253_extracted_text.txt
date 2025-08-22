@@ -1,0 +1,38 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Standardne konverzije mogu da se rade implicitno, i to tranzitivno (u nizu), pa jedna korisnički deﬁnisana konverzija iz tipa X u
+ugrađeni tip može da znači i implicitnu konverziju u neki drugi ugrađeni tip; ako se ovo želi sprečiti, ta druga konverzija
+deklariše se posebno, čime ona nadjačava tranzitivne konverzije, ali se označi kao obrisana (deleted), speciﬁkatorom =delete iza
+zagrada, pa je prevodilac neće dozvoliti. Ovo može da spreči neke nepredviđene upotrebe objekata tipa X, na primer kada se
+želi upotreba tih objekata kao Bulovih vrednosti (tzv. “problem sigurnog tipa bool”, safe bool problem):
+class Assertion {
+public:
+  operator bool ();
+  operator int () = delete;
+};
+void f (Assertion x) {
+  x << 1;
+  if (x) …
+}
+❖ Slično se može postići i deklarisanjem operatora konverzije u tip bool kao explicit, jer naredba if i naredbe petlji dozvoljavaju
+korisnički deﬁnisanu konverziju koja je eksplicitna:
+class Assertion {
+public:
+  explicit operator bool ();
+};
+void f (Assertion x) {
+  x << 1;
+  if (x) …
+}
+Korisnički definisane konverzije
+ 253
+Greška u prevođenju: ne postoji deklarisan operator << za ovu klasu, dok je operator
+implicitne konverzije u tip int deklarisan kao obrisan. Da ovaj operator nije tako
+deklarisan, prevodilac bi izvršio implicitnu, korisnički deﬁnisanu konverziju iz tipa
+Assertion u tip bool, pa potom i implicitnu, standardnu konverziju iz tipa bool u tip int
+i ovakav kod bez smisla bi bio moguć
+Implicitna konverzija iz Assertion u bool je dozvoljena: objekti ove klase su namenjeni za
+korišćenje kao Bulovi izrazi, pa je zato deﬁnisana ova implicitna konverzija u bool
+Greška u prevođenju: nije dozvoljena implicitna konverzija iz tipa Assertion u
+tip int, čak ni tranzitivno, jer konverzija iz Assertion u bool nije implicitna
+Ovo je u redu, jer je deﬁnisana konverzija iz tipa Assertion u tip bool
+

@@ -1,0 +1,13 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstrakcije
+❖ Klasa može predstavljati logički koncept (apstrakciju) iz domena problema (uključujući i
+generalizaciju ili specijalizaciju)
+Nekoliko primera:
+❖ Telefonski poziv (Phone call), Pozivalac (Caller), Pozvani (Callee)
+❖ Graﬁčka kontrola (GUI Control), Dugme (Button), Tekstualno polje (Textbox), …
+❖ Porudžbina (Order), Isporuka (Delivery), Račun (Invoice), Plaćanje (Payment)
+❖ Zahtev za izdavanje ličnog dokumenta (Application for ID Document), Odobrenje (Approval), Izdavanje
+(Issuance)
+❖ i mnogo, mnogo drugih
+ 83
+

@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Međutim, izvedene klase iz različitih skupova generalizacija često imaju zajedničke instance,
+odnosno presek. Na primer, jedan nastavnik može biti privilegovan korisnik
+❖ U nekim jezicima, kao što je UML, objekat može biti instanca više klasa (koje nisu u relaciji
+generalizacije/specijalizacije). Štaviše, objekat se može dinamički reklasiﬁkovati (reclassify) tokom svog
+životnog veka: mogu mu se dodavati i oduzimati klase kojima pripada (time se dodaju ili oduzimaju
+sva svojstva tih klasa)
+❖ U tradicionalnim, statički tipiziranim OO programskim jezicima, kakav je i C++, ovo nije podržano,
+pa objekat uvek mora biti direktna instanca jedne i samo jedne klase. Ta klasa se uvek mora odrediti
+u trenutku kreiranja tog objekta i objekat se ne može reklasiﬁkovati tokom svog životnog veka
+❖ Kako onda rešiti ovakvu situaciju? Višestrukim izvođenjem nove klase koja predstavlja presek dve
+osnovne:
+class User {…};
+class PrivilegedUser : public User {…};
+class NonprivilegedUser : public User {…};
+class Teacher : public User {…};
+class Student : public User {…};
+class PrivilegedTeacher : public PrivilegedUser, public Teacher {…};
+ 142
+

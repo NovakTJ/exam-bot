@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Prema tome, u ovakvim i sličnim izrazima, vrši se potencijalno mnogo poziva konstruktora kopije ili
+operatora dodele kopiranjem koji kopiraju sadržaj, tj. alociraju nove pridružene resurse samo da bi
+kopirali taj isti sadržaj iz privremenih objekata, koji ubrzo potom nestaju
+❖ Kopiranje resursa iz privremenog objekta je prilično beskoristan posao i čist režijski trošak za vreme
+izvršavanja, pošto privremeni objekat iz kog se pridruženi sadržaj kopira (uz potencijalnu alokaciju
+novog resursa) ubrzo nestaje, i sigurno se ne može koristiti za bilo šta drugo, jer je on nedostupan - on
+je svakako implicitan rezultat izraza koji se koristi eventualno samo kao operand (argument)
+naredne operacije i ni za šta više
+❖ Količina kopiranja je utoliko veća ukoliko:
+• prevodilac ne sprovodi optimizaciju izostavljanja kopiranja na svim mestima na kojima je to
+moguće i dozvoljeno pravilima jezika
+• se parametri u funkcije prenose po vrednosti, a ne po referenci
+• funkcije vraćaju rezultate kopiranjem automatskih objekata
+• se objekti ugrađuju u druge objekte po vrednosti (a ne preko pokazivača), posebno u apstraktne
+strukture podataka (kolekcije, kontejnere), što je često slučaj, pa se umetanjem u strukturu i
+vraćanjem vrednosti iz strukture objekti kopiraju (operatorima dodele ili konstruktorima kopije)
+UNIT NAME: Kopiranje objekata
+ 376
+

@@ -1,0 +1,36 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Konstantni tipovi i funkcije članice❖ Prevodilac neće dozvoliti poziv nekonstantne funkcije članice za konstantan objekat (uključujući i indirektan pristup preko
+pokazivača ili reference na konstantan objekat). Na primer:
+class X {
+public:
+  X (int ii) { write(ii); }
+  int read () const { return i; }
+  void write (int ii) { i = ii; }
+private:
+  int i;
+};
+…
+X x(0);
+const X cx(1);
+X* px = &x;
+const X* pcx = &cx;
+X& rx = x;
+const X& rcx = cx;
+x.read();
+x.write();
+cx.read();
+cx.write();
+px->read();
+px->write();
+pcx->read();
+pcx->write();
+rx.read();
+rx.write();
+rcx.read();
+rcx.write();
+ 246
+Greške u prevođenju (označeno crvenim): ne može se pozivati nekonstantna
+funkcija članica za konstantan objekat
+Sve ovo je u redu, jer se za nekonstantan objekat može pozivati i konstantna i
+nekonstantna funkcija članica
+

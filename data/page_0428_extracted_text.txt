@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Agregatna inizijalizacija radi sledeće:
+• Inicijalizuje kopiranjem svaki element niza, odnosno podobjekat osnovne klase i
+podobjekat član, po redosledu indeksa, odnosno deklarisanja, odgovarajućim
+elementom liste
+• Ako je element liste ugnežđena lista, odgovarajući element/podobjekat se inicijalizuje
+tom listom (što opet može biti agregatna inicijalizacija, koja je stoga rekurzivna)
+• Ako je tip objekta koji se inicijalizuje niz sa nepoznatim brojem elemenata, taj broj
+elemenata određen je brojem elemenata u listi:
+Coord points[] = {{0.,0.}, {3.,0.}, {3.,4.}};
+• Ako elemenata u listi ima više nego elemenata niza/podobjekata koje treba
+inicijalizovati, prijavljuje se greška
+• Ako elemenata u listi ima manje nego elemenata niza/podobjekata koje treba
+inicijalizovati, preostali se inicijalizuju praznim listama, po pravilima inicijalizacije
+praznom listom (inicijalizacija vrednošću):
+Coord points[3] = {{3.,0.}, {3.,4.}};
+UNIT NAME: Agregatna inicijalizacija
+ 428
+Niz points ima tri elementa
+Treći element niza biće inicijalizovan nulom
+

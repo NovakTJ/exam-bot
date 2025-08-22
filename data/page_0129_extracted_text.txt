@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Kako treba da izgleda implementacija operacije (metoda) draw klase Figure? Može li se nacrtati
+ﬁgura koja “nije ništa posebno” (a takva i ne postoji, jer je ova klasa apstraktna)?
+❖ U nekim slučajevima, polimorfna operacija apstraktne klase se može implementirati u toj klasi:
+• kada ova operacija ima neko logično podrazumevano ponašanje, makar i prazno
+• ona je pomoćna (helper) metoda koja se može, ali ne mora redeﬁnisati; recimo, opciono
+proširenje podrazumevano praznog koraka neke složenije metode osnovne klase
+❖ Ako to nije slučaj, operacija je apstraktna (abstract operation): predstavlja samo speciﬁkaciju usluge
+koja se može tražiti od objekata, ali ne daje implementaciju te usluge (metodu); tu
+implementaciju daće izvedene klase
+ 129
+*
+figures
+draw()
+Figure
+Drawing
+Rectangle Polyline Circle
+Na jeziku UML, apstraktna
+operacija obeležava se nazivom
+napisanim kosim slovima
+

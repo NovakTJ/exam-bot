@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Xvrednost (xvalue) su, pored još nekih, sledeći izrazi:
+• poziv funkcije ili operator za preklopljenu operatorsku funkciju, ako je povratni tip
+referenca na dvrednost, npr. std::move(x)
+• a[n], pod uslovom da je jedan operand niz koji  je dvrednost
+• x.m, član objekta, ako je x dvrednost a m nestatički podatak član koji nije tipa reference
+• a?b:c, ugrađeni ternarni uslovni operator pod određenim uslovima
+• rezultat konverzije u referencu na dvrednost objektnog tipa, npr. static_cast<int&&>(x)
+• bilo koji izraz koji se odnosi na privremeni objekat nakon materijalizacije privremenog
+objekta (od verzije C++17)
+❖ Svojstva xvrednosti:
+• sve kao za dvrednosti i za glvrednosti, konkretno:
+• kao i dvrednosti, xvrednosti se vezuju za reference na dvrednosti, pa se za njih pozivaju
+funkcije premeštanja
+• kao i glvrednosti, mogu biti polimorfne
+UNIT NAME: Kategorije vrednosti
+ 392
+

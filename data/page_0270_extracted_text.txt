@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Opštije, varijable se mogu deklarisati na sledećim mestima unutar naredbi, i
+tada takva imena imaju opseg važenja samo do kraja te naredbe:
+• kao inicijalna naredba naredbi if, switch i for:
+const string myString = "My Hello World Greeting”;
+if (const auto it = myString.find("Hello"); it != string::npos)
+    cout << it << " Hello\n”;
+if (const auto it = myString.find("World"); it != string::npos)
+    cout << it << " World\n";
+• kao uslov naredbi if, switch, while i for:
+Base* pb = …;
+if (Derived* pd = dynamic_cast<Derived*>(pb)) {
+    pd->f();
+    …
+}
+UNIT NAME: Opseg važenja bloka
+ 270
+Opseg važenja imena it je samo naredba if, pa se iza kraja te
+naredbe može ponovo deﬁnisati nova varijabla sa istim imenom
+Ovo je inicijalna naredba naredbe if
+Ovo je uslov naredbe if
+Opseg važenja imena pd je samo naredba if, odnosno blokovi
+njenih then i else delova, pa se iza kraja te naredbe može ponovo
+deﬁnisati nova varijabla sa istim imenom
+

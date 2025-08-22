@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Jedna ideja za alokaciju prostora za objekte klase X koja nema problem fragmentacije, jer objekte smešta u niz
+slotova veličine tipa X, pri čemu slobodne slotove ulančava u listu (pa su operacije alokacije i dealokacije
+kompleksonsti O(1)):
+template <class T, int size>
+class Storage {
+public:
+  Storage () : head(slots) { slots[size-1].next = nullptr; }
+  void* alloc () { Slot* p=head; if (p) head=p->next; return p?p->slot:nullptr; }
+  void  free (void* addr) { head = new (addr) Slot(head); }
+private:
+  struct Slot {
+    Slot () : next(this+1) {}
+    Slot (Slot* nxt) : next(nxt) {}
+    union {
+      Slot* next;
+      char slot[sizeof(T)];
+    };
+  };
+  Slot* head;
+  Slot slots[size];
+};
+UNIT NAME: Operatori new i delete
+ 458
+Poziva se ugrađena alokatorska funkcija za placement new i
+klasu Slot
+

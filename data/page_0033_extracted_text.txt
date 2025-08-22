@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nasleđivanje
+❖ Objekat izvedene klase ima sva svojstva osnovne klase — u sebi ima
+ugrađen podobjekat osnovne klase
+❖ Za inicijalizciju podobjekta osnovne klase, odnosno nasleđenih svojstava,
+odgovoran je konstruktor te osnovne klase
+❖ Kada se kreira objekat izvedene klase, poziva se konstruktor te (izvedene)
+klase. Taj konstruktor, pre izvršavanja svog tela, uvek poziva konstruktor
+osnovne klase:
+ClockWithDate::ClockWithDate (int y, int m, int d,
+    int h, int min, int s)
+    : Clock (h,min,s) {
+  setDate(y,m,d);
+}
+Clock* clk = new ClockWithDate(…);
+ 33
+Clock
+ClockWithDate
+Poziv konstruktora osnovne klase kome se
+prosleđuju neki dobijeni argumenti
+Poziv konstruktora izvedene klase
+(koji onda poziva konstruktor
+osnovne klase)
+

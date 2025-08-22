@@ -1,0 +1,14 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Zašto OOP?
+❖ Problemi u razvoju softvera:
+• Zahtevi korisnika su složeni i stalno se povećavaju
+• Softverski sistemi su inherentno složeni
+❖ Uvek je potrebno povećati produktivnost proizvodnje softvera. Kako? Povećanjem
+broja programera u timu? Problemi – interakcija između delova softvera!
+❖ Način povećanja produktivnosti – ponovna upotreba softvera (software reuse).
+Kako obezbediti?
+❖ Problemi održavanja softvera: ispravljanje grešaka, promena zahteva i dodavanje
+zahteva. Kako postići?
+❖ Kako odgovoriti na izazove? Unapređenjem koncepata!
+ 12
+

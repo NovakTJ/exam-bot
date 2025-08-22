@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Analogno, dealokatorska funkcija delete može se preklopiti za neku klasu T kao statička
+funkcija članica te klase (čak i ako se ne deklariše kao static, uvek je implicitno statička):
+void T::operator delete (void*)
+void T::operator delete [] (void*)
+❖ Ove funkcije mogu da se preklope u još nekim dostupnim oblicima (npr. onim kojim
+primaju veličinu prostora koji se dealocira)
+❖ Ove funkcije ne treba da pozivaju destruktore eksplicitno; destruktor se uvek poziva
+kao korak u izvršavanju izraza delete
+❖ Ove funkcije imaju zadatak da memorijski prostor na zadatoj adresi proglase slobodnim
+i ništa više
+❖ Upravo zato i primaju pokazivač tipa void* koji sadrži adresu prostora koji treba
+dealocirati (a ne pokazivač na objekat klase, jer je objekat već uništen)
+❖ Ako klasa ima ovakvu funkciju, ona će biti pozivana u izvršavanju drugog koraka
+izraza delete kada se dealociraju objekti, odnosno nizovi objekata te klase
+UNIT NAME: Operatori new i delete
+ 457
+

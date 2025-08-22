@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni znakovni tipovi
+❖ Znak unutar apostrofa ne može biti ‘ (apostrof), \ (obrnuta kosa crta, backslash) ili znak za novi
+red (newline), ali može biti znak deﬁnisan tzv. escape sekvencom, koja predstavlja sekvencu koja
+počinje znakom \; neke češće korišćene escape sekvence:
+• \’ — apostrof ( qoute, ASCII kod 27h)
+• \” — navodnik ( double quote, ASCII kod 22h)
+• \\ — obrnuta kosa crta ( backslah, ASCII kod 5Ch)
+• \n — znak za novi red ( newline, ASCII kod 0Ah); na znakovnim izlaznim uređajima
+interpretira se kao novi red
+• \t — horizontalni tabulator ( horizontal tab, ASCII kod 09h)
+• \nnn — znak sa navedenim jednobajtnim kodom datim u oktalnom zapisu sa do tri oktalne
+cifre nnn;
+najčešći je znak \0 — znak kojim se, po konvenciji iz jezika C, završavaju nizovi znakova
+kakve očekuju sve funkcije iz standardne C biblioteke (null-terminated strings), kao i string-
+literali
+• \xnn — znak sa datim jednobajtnim kodom datim u heksadecimalnim zapisu sa do dve
+heksadecimalne cifre nn
+ 198
+

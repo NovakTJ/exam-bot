@@ -1,0 +1,18 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: klase i objekti
+❖ Na ovaj način postiže se potpuna eﬁkasnost — kod generisan za funkcije članice i njihov
+poziv, kao i pristup članovima objekata podjednako je eﬁkasan kao i ekvivalentan C kod,
+jer nema nikakve dodatne režije (overhead)
+❖ Sa druge strane, postiže se višestruka dobit u pisanju i strukturiranju programa, kao i u
+podršci prevodioca koji vrši odgovarajuće automatske provere (samo u vreme
+prevođenja), umesto da sve to zavisi samo od discipline i pedantnosti programera:
+• Koncept klase kao apstrakcije se jasno ističe i podstiče programera da je na ispravan
+način deﬁniše, odnosno grupiše strukturu i ponašanje (operacije nad tom strukturom)
+• Struktura i operacije nad njom su “upakovani” u jedinstvenu, jasno istaknutu logičku
+celinu, i pripadaju oblasti važenja klase (class scope)
+• Podržana je enkapsulacija, jer prevodilac kontroliše i ne dozvoljava neovlašćen
+pristup do implementacije klase (privatnih članova)
+• Postoji koncept konstruktora (i destruktora), pa je inicijalizacija objekata lakša,
+očiglednija i manje podložna greškama
+ 52
+

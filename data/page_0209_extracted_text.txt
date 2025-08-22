@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Nabrajanja (enumeracije)
+❖ Enumeracije nisu fundamentalan, celobrojan tip (nisu isto što i int), iako postoji implicitna konverzija iz tipa enumeracije
+u celobrojni tip
+❖ Enumeracije treba koristiti kad god postoji potreba za tipom podataka koji apstrahuje koncept iz domena problema (ili
+rešenja) i čije instance uzimaju vrednosti iz konačnog, diskretnog skupa vrednosti koje se simbolički imenuju
+❖ Nije dobro koristiti fundamentalan, celobrojni tip umesto enumeracije u ovakvim slučajevima, zato što:
+• je program tada teži za razumevanje, jer je teško razumeti značenje celobrojnih konstanti i nije ih lako razlikovati
+od drugog značenja istih konstanti (npr. kao zaista instanci matematičkog koncepta celog broja)
+• za vrednosti apstraktnog tipa enumeracije po pravilu nisu deﬁnisane (konceptualno) aritmetičke operacije
+(sabiranje, oduzimanje, množenje, deljenje itd)
+• program je manje ﬂeksibilan: ako je potrebno promeniti odluku o implementaciji apstraktnog tipa, ili promeniti
+preslikavanje na celobrojne vrednosti, potrebno je zameniti sve pojave tih celobrojnih konstanti i pažljivo ih
+razlikovati od upotrebe istih vrednosti sa potpuno različitim značenjem
+❖ Neke tipične upotrebe:
+• statusi operacija (funkcija)
+• stanja objekata
+• komande, signali i slično
+• statusi ili komande hardverskih uređaja
+• tip sa malim, konačnim i konstantnim, predeﬁnisanim skupom instanci (npr. dani u nedelji, meseci u godini)
+ 209
+

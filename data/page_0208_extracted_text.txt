@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Nabrajanja (enumeracije)
+❖ Nabrajanje (enumeracija, enumeration) je poseban tip čije su vrednosti ograničene na konačan
+skup vrednosti, a koje predstavljaju simboličke imenovane konstante i koje se nazivaju
+enumeratori (enumerators)
+❖ Na primer:
+enum Bool { FALSE, TRUE };
+enum Reply { YES, NO, CANCEL };
+enum Status { initiated, suspended, committed, canceled, failed };
+Status s1 = initiated;
+…
+if (s1==committed) …
+❖ Za enumeraciju se može i eksplictno deﬁnisati “potporni tip”, tip koji “leži ispod” njega
+(undelying type); to je tip se koristi kao tip kojim se skladište vrednosti ovog tipa
+(podrazumeva se int), pod uslovom da može da prihvati sve nabrojane enumeratore:
+enum Status : unsigned short { initiated, suspended, committed, canceled,
+failed };
+Status s1 = initiated;
+…
+if (s1==committed) …
+ 208
+Tip enumeracije
+Enumerator
+Potporni tip
+

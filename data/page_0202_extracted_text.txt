@@ -1,0 +1,17 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni celobrojni tipovi
+❖ Tip celobrojnog literala je prvi tip koji može da prihvati datu vrednost, počev od tipa
+int, ili od tipa long ako je dat suﬁks l ili L, odnosno od tipa long long ako je dat suﬁks ll ili
+LL, i neoznačen ako je dat suﬁks u ili U
+❖ Na primer:
+int d = 42;
+int o = 052;
+int x = 0x2a;
+int X = 0X2A;
+int b = 0b101010;
+unsigned long long l1 = 18446744073709550592ull;
+unsigned long long l2 = 18'446'744'073'709'550'592LLU;
+ 202
+Svi imaju istu vrednost
+Oba imaju istu vrednost
+

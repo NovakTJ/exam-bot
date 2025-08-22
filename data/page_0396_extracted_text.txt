@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Konstruktor klase X čiji je prvi parametar tipa X&&, const X&&, volatile X&& ili const volatile X&&,  a
+koji ili nema druge parametre, ili svi ostali parametri imaju podrazumevane vrednosti, naziva se
+konstruktor premeštanja (move constructor)
+❖ Ovaj konstruktor poziva se kada se objekat klase X inicijalizuje dvrednošću (do verzije C++17), odnosno
+xvrednošću (od verzije C++17) istog tipa, uključujući:
+• inicijalizaciju objekta: X x1 = std::move(x2) ili X x1(std::move(x2)), gde je x2 objekat klase X ili iz nje
+izvedene klase
+• prenos argumenta pri pozivu funkcije f(std::move(x)), koja ima taj parametar tipa X: void f(X x)
+• povratak vrednosti iz funkcije f koja ima povratni tip X naredbom return x, gde je x objekat klase X
+ili iz nje izvedene klase
+❖ Do verzije C++17, ako je inicijalizator čdvrednost (prvalue), poziv ovog konstruktora je bio najčešće
+izostavljan zbog optimizacije, dok je od verzije C++17 ta optimizacija obavezna, pa se konstruktor
+premeštanja nikada ne poziva za inicijalizaciju pomoću čdvrednosti (poziva se za inicijalizaciju samo
+pomoću xvrednosti)
+❖ Svrha konstruktora premeštanja jeste da preotme (premesti) resurse iz objekta kojim se dati objekat
+domaćin inicijalizuje, ostavljajući taj objekat u validnom, konzistentnom stanju (barem tako da se on
+može ispravno uništiti)
+UNIT NAME: Konstruktor premeštanja
+ 396
+

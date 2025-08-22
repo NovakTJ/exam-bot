@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Da bi ugradio kod inline funkcije na mestu poziva, prevodilac mora da ima kompletnu deﬁniciju (tela) te
+funkcije. Zato su za ove funkcije dozvoljene višestruke deﬁnicije u istom programu, ali samo po jedna u svakoj
+jedinici prevođenja; po pravilu, deﬁnicije inline funkcija navode se u zaglavljima
+❖ Čak i ako se nalaze u različitim jedinicama prevođenja, višestruke deﬁnicije inline funkcija odnose se na istu
+funkciju i semantika te funkcije se ne menja: ona će imati istu adresu, lokalni statički objekti su jedinstveni za
+sve deﬁnicije (sve iste deﬁnicije takvog objekata odnose se na jedan jedinstveni entitet) i slično
+❖ Sve deﬁnicije iste inline funkcije u različitim jedinicama prevođenja moraju biti identične; ako nisu,
+ponašanje programa je nedeﬁnisano
+❖ Sa jedne strane, prevodilac ne mora ispoštovati zahtev za ugrađivanje inline funkcije u kod pozivaoca, već
+generisati kod za uobičajen poziv. Sa druge strane, ne brani se prevodiocu da kod i neke druge funkcije koja
+nije inline ugradi na mesto poziva kao optimizaciju. Zbog toga se osnovni smisao inline funkcija zapravo
+gubi, pa inline formalno ne znači ništa više nego to da su dozvoljene višestruke deﬁnicije iste funkcije u
+različitim jedinicama prevođenja u istom programu
+❖ Zbog toga je u jezik uveden i koncept inline statičkih varijabli (objekata ili referenci): dozvoljene su
+višestruke deﬁnicije inline statičke varijable u različitim jedinicama prevođenja istog programa (ali samo po
+jedna deﬁnicija u jednoj jedinici), pod uslovom da su te deﬁnicije identične; sve one se odnose na isti entitet
+❖ Ovo omogućava kompletne deﬁnicije biblioteka u fajlovima zaglavljima, bez potrebe za deﬁnisanje objekata
+u .cpp fajlovima
+inline istream cout;
+UNIT NAME: Inline funkcije
+ 303
+

@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Međutim, preklopljene operatore treba praviti tako da
+imaju očekivano značenje i efekte, kao i da njihova
+upotreba što više liči na upotrebu ugrađenih operatora, jer
+to i jeste osnovna motivacija i namera celog koncepta
+preklapanja operatora - da se korisnički deﬁnitisani tipovi
+mogu upotrebljavati na isti način kao i ugrađeni tipovi, pa i
+u izrazima
+❖ Prvo, preklopljeni operatori treba da imaju očekivane,
+logične efekte; na primer, operator dodele = treba da radi
+dodelu kopiranjem ili premeštanjem, a operator + (ako je
+deﬁnisan) treba da radi sabiranje (šta god to značilo za dati
+tip)
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 442
+

@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni tipovi pokretnog zareza
+❖ Postoje sledeće implicitne konverzije deﬁnisane jezikom:
+• ﬂoat se konvertuje u double promocijom (ﬂoating-point promotion) koja se
+vrši u aritmetičkim operacijama, slično kao za celobrojne tipove, uz
+očuvanje vrednosti
+• bilo koji tip racionalnog broja u pokretnom zarezu može se konvertovati
+implicitno u bilo koji drugi takav tip, sa potencijalnim gubitkom
+vrednosti ili tačnosti
+• bilo koji tip racionalnog broja u pokretnom zarezu može se konvertovati
+implicitno u bilo koji celobrojni tip, uz potencijalno odsecanje
+• bilo koji celobrojni tip može se konvertovati u bilo koji tip racionalnog
+broja u pokretnom zarezu, uz eventualni gubitak vrednosti ako se ta
+vrednost ne može tačno predstaviti u pokretnom zarezu
+ 207
+

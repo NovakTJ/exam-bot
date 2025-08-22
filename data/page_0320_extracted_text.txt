@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Varijable sa automatskim životnim vekom su lokalne varijable koje nisu označene kao static, extern ili
+thread_local
+❖ Automatska varijabla inicijalizuje se svaki put kada izvršavanje dođe do mesta njene deﬁnicije; svaki
+nailazak izvršavanja na deﬁniciju pravi novu instancu varijable
+❖ Automatska varijabla se uništava (pozivom destruktora, ako je objekat klase) kada izvršavanje napusti
+blok u kom je deﬁnisana, i to na bilo koji način: prolaskom do kraja bloka, naredbom return, ili zbog
+bačenog izuzetka
+int f (…) {
+  int i = …;
+  … f(…) …
+  for (i=0; i<10; i++) {
+    int j = i+5;
+    …
+  }
+}
+❖ Za svako izvršavanje deﬁnicije ovakvog objekta postoji posebna instanca za vreme izvršavanja; zato
+prevodilac ne može alocirati prostor za takve objekte u prevedenom fajlu statički, pošto može biti više
+nezavršenih aktivacija datog bloka (rekurzija ili više niti); zato se ovakvi objekti alociraju na steku
+UNIT NAME: Automatski životni vek
+ 320
+Automatski objekat: alocira se i inicijalizuje pri svakom pozivu funkcije f
+Rekurzija: ugnežđeni poziv kreiraće novi skup svojih automatskih varijabli
+Automatski objekat: j se kreira i inicijalizuje u svakoj iteraciji ove petlje
+j prestaje da živi
+i prestaje da živi
+

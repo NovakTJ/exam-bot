@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Obrada izuzetaka
+Bacanje izuzetka:
+❖ Operatorom throw:
+template<typename T>
+T& vector<T>::at (int pos) {
+  if (pos<0 || pos>=this->size) throw out_of_range;
+  return this->array[pos];
+}
+Unutar catch bloka, tekući izuzetak koji se obrađuje može biti ponovo bačen operatorom throw bez operanda:
+try {
+  …
+}
+catch (…) {
+  device->reset();
+  throw;
+}
+❖ Mnoge funkcije iz standardne biblioteke jezika C++ mogu da bace izuzetke, npr. vector::at, string::substr
+itd, čime signaliziraju greške (nemogućnost da urade zahtevano npr. zbog nekorektnosti argumenta)
+❖ Neki operatori ugrađeni u jezik mogu da bace izuzetke, npr. dynamic_cast (ako rezultat izraza koji se
+konvertuje nije zahtevanog odredišnog tipa za reference) ili new (ako ne može da alocira prostor u memoriji za
+objekat koji se kreira), opet signalizirajući grešku
+ 151
+

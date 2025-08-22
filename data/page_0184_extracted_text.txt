@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Glava 7: Tipovi i konverzije
+❖ Tipovi
+❖ Konverzije
+❖ Fundamentalni tipovi
+❖ Nabrajanja
+❖ Pokazivači
+❖ Nizovi
+❖ Reference
+❖ Klasni tipovi
+❖ Konstanti tipovi i funkcije članice
+❖ Nestalni tipovi
+❖ Korisnički deﬁnisane konverzije
+❖ Korisnički deﬁnisani literali
+ 184
+

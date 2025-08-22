@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Na pimer, enumeratorske klase, tj. klase sa konstantnim skupom instanci predstavljaju
+uopštenje pojma enumeracije, jer su tipovi čiji skupovi instanci ne mogu da se menjaju
+tokom izvršavanja programa, ali su, za razliku od enumeracija čije su instance proste,
+skalarne simboličke vrednosti, instance ovakvih klasa objekti sa svim svojim svojstvima
+❖ Na primer, želimo da napravimo predeﬁnisan, prekonﬁgurisan skup korisničkih uloga
+u programu koje se inicijalizuju statički, u toku prevođenja, pri čemu su te uloge
+predstavljene objektima koji imaju odgovarajuće usluge (npr. proveru da li korisnik sa
+tom ulogom može da izvrši datu komandu):
+class UserRole {
+public:
+  constexpr UserRole (const char* name, …);
+  const char* name = nullptr;
+  bool isAuthorizedFor (Command* cmd) const;
+  …
+};
+constexpr UserRole ordinary("Ordinary user", …);
+constexpr UserRole privileged("Privileged user", …);
+constexpr UserRole admin("Administrator", …);
+UNIT NAME: Konstantna inicijalizacija
+ 409
+Konstruktor je constexpr, pa se može koristiti
+za konstantnu inicijalizaciju statičkih objekata
+u toku prevođenja, pod uslovom da se poziva
+sa argumentima koji su konstantni izrazi
+Ovi objekti se inicijalizuju statički, konstantnom inicijalizacijom
+i konstantni su
+

@@ -1,0 +1,42 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Prevođenje
+❖ Da bismo napravili deklaraciju koja nije i deﬁnicija, za ovakav statički objekat
+potrebno je navesti ključnu reč extern:
+extern int n;
+Sada prevodilac neće alocirati prostor za ovaj objekat
+❖ Za funkciju je dovoljna deklaracija bez tela funkcije, ona nije deﬁnicija (reč extern
+može da se piše, ali ne mora):
+extern void f ();
+❖ Međutim, pošto n i f nisu deﬁnisani, prevodilac ne može u potpunosti prevesti
+operacije sa njima; umesto toga, on će generisati binarni kod za mašinske instrukcije
+koje implementiraju potrebne operacije, ali sa adresnim poljima u kojima je potrebno
+deﬁnisati adrese tih entiteta postavljenim na proizvoljnu, nedeﬁnisanu vrednost (npr.
+sve nule); ovakva polja tako ostaju nerazrešena (unresolved) u vreme prevođenja
+❖ Zbog toga prevodilac u zaglavlju objektnog fajla, u spisku simbola, ostavlja
+informacije o svim takvim uvezenim simbolima, tj. simbolima koji se koriste, a nisu
+deﬁnisani u datom fajlu, kao i o mestima u binarnom kodu na kojima se nalaze
+nerazrešena adresna polja mašinskih instrukcija u koja treba naknadno upisati adrese
+❖ Time prevodilac završava svoj posao; prema tome, objektni fajl nije izvršiv, između
+ostalog, zbog toga što mašinske instrukcije mogu da imaju nerazrešena adresna polja
+ 170
+extern int n;
+void f();
+void g () {
+  n++;
+  f();
+}
+B.cpp
+symbols
+  ↓n: …
+  ↓f: …
+  ↑g: code:0
+end symbols
+seg code
+g: ld r1,?
+   inc r1
+   st r1,?
+   call ?
+   ret
+end seg
+B.obj
+

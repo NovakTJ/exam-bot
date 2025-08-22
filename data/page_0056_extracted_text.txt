@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: polimorfizam
+❖ Drugi primer: pravimo program (na jeziku C) za igranje šaha na računaru. Skica delova:
+enum FigureKind { pawn, bishop, knight, rook, queen, king };
+enum FigureColor { white, black };
+struct Figure {
+  FigureKind kind;
+  FigureColor color;
+  unsigned posCol, posRow; // Current position
+  …
+};
+
+int canMoveTo (Figure* fig, unsigned col, unsigned row);
+❖ Kako implementirati fukciju canMoveTo (da li data ﬁgura može da se pomeri na dato polje)?
+ 56
+

@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Nabrajanja (enumeracije)
+❖ Vrednost koja se dobija ovom konverzijom deﬁnisana je na sledeći način:
+• ona koja je eksplicitno zadata inicijalizatorom (koji mora biti konstantni izraz)
+• ako inicijalizator nije zadat, jednaka je vrednosti prethodnog enumeratora
+plus 1; vrednost prvog enumeratora je podrazumevano 0, ako nije eksplicitno
+zadat inicijalizator:
+enum Status { initiated = 1, suspended,  //suspended == 2
+              committed, canceled = 5,
+              failed = committed+4 }; // failed == 7
+❖ Suprotna konverzija iz celobrojnog tipa u tip enumeracije može se raditi samo
+eksplicitno, ne i implicitno; ukoliko data celobrojna vrednost ne spada u skup
+vrednosti enumeratora, ponašanje je nedeﬁnisano; ovakve konverzije svakako
+nisu preporučljive:
+Status s = 3;
+Status s = static_cast<Status>(3);
+ 211
+Ovo nije dobar način programiranja!
+Greška u prevođenju
+

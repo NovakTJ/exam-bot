@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Na primer:
+int i, *pi;
+constexpr double pi = 3.1415926;
+double radius = 20.;
+inline double area (double r) { return  r*r*pi; }
+double a = area(radius);
+struct S {
+  S () { cout<<"S::S()\n"; }
+};
+S s;
+❖ Dinamička inicijalizacija statičkih varijabli unutar iste jedinice prevođenja obavlja se
+redosledom njihovih deﬁnicija. Redosled inicijalizacije varijabli iz različitih jedinica
+nije uređen
+❖ Ukoliko se tokom inicijalizacije ovakvih statičkih varijabli dogodi izuzetak, poziva
+se std::terminate()
+UNIT NAME: Statički životni vek
+ 325
+Statička inicijalizacija nulama: i ima vrednost 0, p ima vrednost null
+Statička konstantna inicijalizacija
+Dinamička inicijalizacija (koju bi prevodilac mogao da izvrši i za
+vreme prevođenja)
+Dinamička inicijalizacija - poziv konstruktora S::S()
+

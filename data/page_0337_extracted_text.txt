@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Pažljivim projektovanjem programa mora se unapred odrediti odgovornost za uništavanje dinamičkih
+objekata koji se kreiraju. Dobro imenovanje funkcija i njihovo dokumentovanje pomaže u sprečavanju
+ovog problema. Na primer:
+X* px = createAnX(…);
+❖ Postoje i razvojni alati koji nadziru izvršavanje programa i mogu da daju izveštaj o dianamičkim
+objektima koji su kreirani, a nisu uništeni tokom izvršavanja programa
+❖ U nekim drugim programskim jezicima (npr. Java), dinamički objekat uništava se implicitno, kada
+poslednja referenca koja na objekat ukazuje prestane da živi (pošto se tada objektu svakako više ne može
+pristupiti, jer se objektima u tim jezicima ne može pristupiti drugačije nego preko referenci)
+❖ Ovo implicitno brisanje naziva se “skupljanje đubreta” (garabage collection) i obavlja ga poseban deo
+izvršnog okruženja jezika (garbage collector) povremeno, po nahođenju izvršnog okruženja
+❖ Ovakav pristup značajno smanjuje pojavu curenja memorije, ali ne može da je potpuno spreči, jer mogu
+postojati trajne reference koje ukazuju na objekat i tako ne dozvoljavaju njegovo brisanje, iako on
+zapravo nije neophodan; na primer, kada grupa objekata međusobno ciklično ukazuju referencama
+jedan na drugog
+❖ Postoje i soﬁsticiranije metode otkrivanja ovakvih pojava, ali one ne mogu nikada biti potpuno
+delotvorne, pa problem curenja memorije i dalje ostaje kao pretnja. Osim toga, na sličan način mogu
+“curiti” bilo koji drugi resursi koji se dinamički alociraju (recimo niti), a ne uništavaju kada je potrebno
+UNIT NAME: Dinamički životni vek
+ 337
+Ovaj naziv funkcije sugeriše pozivaocu da obrati pažnju na odgovornost za
+uništavanje objekta koji je napravljen u ovoj funkciji
+

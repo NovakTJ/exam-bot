@@ -1,0 +1,15 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klase i objekti
+❖ Klasa je
+• deo programa
+• deﬁnicija tipa (korisničkog)
+• obrazac za kreiranje objekata
+• speciﬁkacija svojstava i usluga svih svojih pripadnika (objekata)
+❖ Objekti
+• žive (nastaju i nestaju) u vreme izvršavanja programa
+• postoje u memoriji računara
+• imaju sva svojstva svoje klase
+• jesu nezavisni primerci svoje klase, svaki objekat ima svoje vrednosti podataka
+članova
+ 19
+

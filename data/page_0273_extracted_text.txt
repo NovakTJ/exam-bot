@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ime iz oblasti važenja klase može se koristiti samo na jedan od sledećih načina:
+• Unutar oblasti važenja iste klase ili oblasti važenja izvedenih klasa:
+DatabaseManager::DatabaseManager(const char* nm) {
+  …
+  name = new char[sizeof(nm)+1];
+  …
+}
+• Kao desni operand operatora . kom je levi operand objekat te klase ili klase
+izvedene iz te klase:
+DatabaseManager* p = new DatabaseManager(…);
+…
+(*p).openConnection();
+• Kao desni operand operatora -> kom je levi operand pokazivač na objekat
+te klase ili klase izvedene iz te klase:
+p->openConnection();
+UNIT NAME: Opseg važenja klase
+ 273
+Ime name je u opsegu važenja
+

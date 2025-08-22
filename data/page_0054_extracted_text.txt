@@ -1,0 +1,15 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: polimorfizam
+❖ Rudiment polimorﬁzma u proceduralnom programiranju — isti kao i za
+modularnost i enkapsulaciju, isključivo statički, vezan za pisanje i prevođenje
+programa:
+• deklaracija (potpis, signature) nekog potprograma:
+int printf (char* format, …);
+• implementacije (potpune deﬁnicije tela) tog potprograma:
+int printf (char* format, …) {
+  …
+}
+❖ Iza istog interfejsa se može kriti različita implementacija i ona se može i promeniti,
+ali isključivo promenom koda implementacije i njegovim ponovnim prevođenjem.
+ 54
+

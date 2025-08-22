@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nasleđivanje
+❖ Objekti izvedene klase su (indirektne) instance i osnovne klase!
+❖ Pravilo supstitucije (Substitution rule, B. Liskov): gde god i kad god se očekuje objekat osnovne klase, može se
+pojaviti i objekat izvedene klase, jer
+• je objekat izvedene klase takođe i primerak (instanca) osnovne klase, jer
+• se sa njim može raditi sve što i sa objektima osnovne klase, jer
+• objekat izvedene klase ima (nasleđuje) sve osobine osnovne klase.
+❖ Konverzija koju dozvoljava C++ i to implicitno:
+DerivedClass* → BaseClass*
+ClockWithDate* → Clock*
+Lobby::Lobby (unsigned n, string ct[], int lg[], int dateYN[]) {
+  …
+  for (int i=0; i<num; i++) {
+    …
+    if (dateYN[i])
+      clocks[i] = new ClockWithDate(1970,1,1,h,0,0);
+    else
+      clocks[i] = new Clock(h,0,0);
+  }
+}
+ 32
+Pravilo supstitucije i implicitna konverzija
+ClockWithDate* u Clock*
+clocks
+Clock Clock
+With
+Date
+Clock
+

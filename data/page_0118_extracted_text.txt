@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Enkapsulacija
+❖ Slično, postoje potrebe za usluge koje se ne traže od svakog pojedinačnog objekta, već od cele klase,
+odnosno predstavljaju uslugu te klase
+❖ U OOP i na jeziku C++, kao i na mnogim drugim jezicima, na raspolaganju su statičke operacije, tj.
+funkcije članice (static member functions)
+❖ Za prethodni primer, usluga dobijanja informacije koliko je objekata klase Clock ukupno napravljeno
+jeste usluga cele te klase:
+class Clock {
+public:
+  Clock ();
+  static int getCount ();
+  …
+private:
+  static int count;
+  …
+};
+int Clock::getCount () {
+  return count;
+}
+❖ Statička funkcija članica nema pokazivač this, pa ne može pristupati nestatičkim članovima svoje klase
+bez eksplicitnog navođenja objekta kome ti članovi pripadaju
+ 118
+Statička funkcija članica
+

@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Klasa Figure neće imati svoje direktne instance, već samo indirektne instance (koje su direktne instance izvedenih
+klasa)
+❖ Ovakva klasa se naziva apstraktnom klasom (abstract class) ili apstraktnom generalizacijom
+❖ Neki jezici omogućavaju da se apstraktna klasa posebno označi
+❖ Na jeziku C++ nema posebne oznake za apstraktnu klasu, ali se pravljenje objekata te klase (direktnih instanci) može
+sprečiti deklarisanjem svih postojećih konstruktora zaštićenim (protected). Zašto baš zaštičenim?
+• ne mogu se kreirati nezavisni objekti te klase, jer konstruktor nije javan (public), pa bi prevodilac generisao
+grešku pri svakom pokušaju kreiranja tog objekta van te klase
+• kada se pravi objekat izvedene klase, poziva se konstruktor te izvedene klase; ali svaki konstruktor izvedene
+klase obavezno poziva neki konstruktor osnovne klase; ako bi on bio privatan (private), ne bi bio dostupan ni u
+izvedenim klasama, pa se data klasa ne bi mogla nasleđivati
+ 128
+*
+figures
+draw()
+Figure
+Drawing
+Rectangle Polyline Circle
+Na jeziku UML, apstraktna klasa
+obeležava se nazivom napisanim
+kosim slovima (kurzivom, italic)
+

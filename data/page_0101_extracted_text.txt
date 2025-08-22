@@ -1,0 +1,60 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Algoritamska dekompozicija
+enum OpCode { add, sub, …};
+int main () {
+  int out;
+  string cmdin;
+  OpCode cmdout;
+  while (readCommand(out,cmdin)) {
+    translate(cmdin,cmdout);
+    performCmd(out,cmdout);
+  }
+}
+bool readCommand (int& out, string& cmd) {
+  bool ret = readOut(out);
+  if (!ret) return false;
+  return readCmd(cmd);
+}
+bool readOut (int& out) {
+  out = 0;
+  char c = getChar();
+  while (isDigit(c)) {
+      out = out*10 + (c-'0');
+      c = getChar();
+  }
+  return (c!=EOF);
+}
+bool readCmd (string& cmd) {
+  …
+}
+ 101
+struct Stack {
+  int stack[MaxStackSize];
+  unsigned sp;
+};
+Stack sm[N];
+…
+void translate (string cmdin, OpCode& cmdout) {
+  if (cmdin=="ADD") cmdout = add;
+  if (cmdin=="SUB") cmdout = sub;
+  …
+}
+void performCmd (int out, OpCode cmd) {
+  switch (cmd) {
+    case add: {
+      int op1 = pop(out);
+      int op2 = pop(out);
+      push(out,op1+op2);
+      break;
+    }
+    case sub: …
+    …
+  }
+}
+int pop (int out) {
+  if (sm[out].sp==0) return 0;
+  else return sm[out].stack[--sm[out].sp];
+}
+…
+Prenos argumenta po referenci (by reference)
+

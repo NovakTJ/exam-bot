@@ -1,0 +1,25 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ako klasa X nema nijedan eksplicitno deklarisan konstruktor kopije (tj. korisnički deklarisan konstruktor kopije),
+prevodilac će implicitno deklarisati konstruktor kopije koji je javan, inline, nije explicit, i za koji važi:
+• ako svaka direktna i virtuelna osnovna klasa B ima konstruktor kopije koji ima parametar tipa const B& ili const
+volatile B&, i ako svaka klasa M podatka člana ima konstruktor kopije koji prima parametar tipa const M& ili
+const volatile M&, onda i ovaj implicitno generisani konstruktor kopije ima parametar tipa const X&
+• u suprotnom, ovaj konstruktor kopije ima parametar tipa X&
+❖ Klasa može imati i više konstruktora kopije, recimo onaj koji prima X& i onaj koji prima const X&
+❖ Ako klasa ima neki konstruktor kopije (pa prevodilac ne generiše implicitni konstruktor kopije), programer ipak
+može forsirati automatsko deklarisanje konstruktora koji bi prevodilac implicitno deklarisao speciﬁkatorom =default:
+struct X {
+  X (X&);
+  X (const X&) = default;
+};
+❖ Ako podobjekti osnovnih klasa i objekti članovi ne mogu da se kopiraju, recimo zato što su objekti klasa koje nemaju
+dostupne konstruktore kopije, ili ako klasa ima korisnički, eksplicitno deklarisan konstruktor premeštanja (move
+constructor) ili operator dodele premeštanjem (move assignment operator), onda će ovaj implicitno deklarisani
+konstruktor kopije biti obrisan (smatraće se da njegov poziv nije dozvoljen, iako je on deklarisan)
+❖ U suprotnom, ako ovaj implicitno deklarisan ili podrazumevani konstruktor kopije nije obrisan, on će biti deﬁnisan i
+vršiće podrazumevano kopiranje podobjekata osnovnih klasa i objekata članova, po istom redosledu kao i u
+inicijalizaciji; ako su ti podobjekti objekti nekih klasa, pozivaju se njihovi konstruktori kopije, u suprotnom, vrši se
+prosto kopiranje vrednosti
+UNIT NAME: Konstruktor kopije
+ 356
+

@@ -1,0 +1,32 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Obrada izuzetaka
+❖ Kako se mogu tretirati izuzeci u slučaju da na programskom jeziku nemamo posebnu podršku za njihovu obradu?
+Svaki potprogram (koji može signalizirati izuzetak) može da vrati status svog izvršavanja kao povratnu vrednost:
+enum DeviceStatus {ok, deviceFaulty, communicationFailed};
+DeviceStatus readTemperature (Temperature* value);
+DeviceStatus readPressure (Pressure* value);
+DeviceStatus readHumidity (Humidity* value);
+…
+void readMeteo () {
+  Temperature temp;
+  Pressure press;
+  Humidity hum;
+  DeviceStatus status = readTemperature(&temp);
+  if (status==ok) {
+    status = readPressure(&press);
+    if (status==ok) {
+      status = readHumidity(&hum);
+      if (status==ok) {
+        // Finally, do the job with temp, press, and hum
+      } else {
+        // Handle readHumidity exception
+      }
+    } else {
+      // Handle readPressure exception
+    }
+  } else {
+    // Handle readTemperature exception
+  }
+}
+ 148
+

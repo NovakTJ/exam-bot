@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija apstraktnog tipa podataka
+❖ Prenos objekata kao argumenata poziva funkcija po vrednosti, kopiranjem:
+complex complex::add (complex ca, complex cb);
+…complex::add(c3,c4)…
+❖ Formalni argument, kao lokalni automatski objekat, inicijalizuje se stvarnim argumentom, na isti način -
+konstruktorom kopije:
+complex::complex (complex other);
+U trenutku poziva funkcije:
+complex::add(c3,c4)
+na mestu ulaska u funkciju, kreira se lokalni, automatski objekat - formalni argument ca (odnosno cb) i
+inicijalizuje stvarnim argumentom c3 (odnosno c4); semantika te inicijalizacije ista je kao i semantika bilo koje
+druge inicijalizacije, kao da je izvedeno:
+complex ca = c3;
+❖ A kako se vrši ova inicijalizacija? Pozivom konstruktora kopije za objekat ca koji se inicijalizuje objektom c3:
+complex::complex(c3)
+❖ Međutim, i konstruktor kopije ima formalni argument other, koji se opet formira kao automatski objekat i
+inicijalizuje stvarnim argumentom (c3) u trenutku ovog poziva. Kako? Pozivom istog tog konstruktora kopije…
+❖ Problem - beskonačna rekurzija.
+ 69
+

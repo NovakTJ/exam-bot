@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Uvod u jezik C++: Istorijat razvoja
+❖ 1972. C – D. Ritchie u Bell laboratorijama
+❖ 1980. B. Stroustrup u AT&T Bell laboratorijama, ”C sa klasama" za simulacije vođene događajima
+❖ 1983. C++
+❖ 1989. ANSI standard za C
+❖ 1997. ANSI/ISO prihvaćen ﬁnalni nacrt standarda za C++
+❖ 1998. publikovan C++ standard ISO/IEC 14882:1998 (C++98)
+❖ 2003. revizija C++ standarda ISO/IEC 14882:2003 (C++03)
+❖ 2011. novi C++ standard ISO/IEC 14882:2011 (C++11)
+❖ 2014. novi C++ standard ISO/IEC 14882:2014 (C++14)
+❖ 2017. novi C++ standard ISO/IEC 14882:2017 (C++17)
+❖ C++20, C++23…
+❖ Telo za standardizaciju: JTC1/SC22/WG21 - The C++ Standards Committee
+ 39
+

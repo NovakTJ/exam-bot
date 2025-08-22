@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klase i objekti
+void Clock::tick () {
+  s++;
+  if (s==60) s=0, m++;
+  if (m==60) m=0, h++;
+  if (h==24) h=0;
+}
+string Clock::getTime () {
+  return to_string(h) + ":" + to_string(m) + ":"
+         + to_string(s);
+}
+void Clock::setTime (int hh, int mm, int ss) {
+  h = (hh>=0 && hh<=23) ? hh : 0;
+  m = (mm>=0 && mm<=59) ? mm : 0;
+  s = (ss>=0 && ss<=59) ? ss : 0;
+}
+ 20
+Deﬁnicije funkcija članica klase Clock
+Pristup podatku članu s, m, h objekta čija je
+funkcija članica tick pozvana
+

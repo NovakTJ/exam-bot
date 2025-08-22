@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ U poređenje tipova ulaze i cv-kvaliﬁkacije, što znači da se razlikuju tipovi koji
+jesu ili nisu kvaliﬁkovani kao konstantni, uključujući i objekte i njihove funkcije
+članice koje jesu ili nisu konstantne. Na primer:
+Task& TaskQueue::at (int position = 0);
+inline const Task& TaskQueue::at (int position = 0) const;
+  return const_cast<TaskQueue* const>(this)->at(position);
+}
+Sada se na sledećim mestima pozivaju odgovarajuće funkcije, u zavisnosti od
+konstantnosti objekta za koji se one pozivaju:
+const TaskQueue* pcq = …;
+TaskQueue* pq = …;
+const Task& ct1 = pcq->at();
+const Task& ct2 = pq->at();
+Task& ct3 = pq->at();
+Task& ct4 = pcq->at();
+UNIT NAME: Preklapanje funkcija
+ 307
+Poziva se const Task& TaskQueue::at (int = 0) const
+Poziva se Task& TaskQueue::at (int = 0)
+Poziva se Task& TaskQueue::at (int = 0)
+Greška u prevođenju: poziva se const Task& TaskQueue::at (int = 0) const
+

@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Zapravo je formalna semantika povratnih vrednosti poziva funkcija (uključujući i
+rezultate operatorskih funkcija koje se pozivaju za preklopljene operatore) značajno
+promenjena od verzije C++17: ako funkcija vraća rezultat koji nije referenca, taj rezultat
+nije privremeni objekat, kao što je to ranije bilo, nego samo vrednost (value), i to čdvrednost
+(prvalue)
+❖ Čdvrednost predstavlja “potrebu za inicijalizacijom”, ali ne obavezno privremenog
+objekta (koja se opciono može i preskočiti): ta inicijalizacija obaviće se onako kako je
+deﬁnisano operandom naredbe return koja vraća tu vrednost, a obaviće se u zavisnosti
+od konteksta u kom se koristi
+❖ Iz funkcija se tako, formalno, vraćaju samo vrednosti i one se dalje prosleđuju kao
+argumenti/operandi ili inicijalizatori dalje u izrazima ili inicijalizacijama
+❖ Privremeni objekat se pravi samo u određenim situacijama, odnosno u zavisnosti od
+konteksta, kada se ta vrednost materijalizuje u privremeni objekat (temporary
+materialization)
+❖ Materijalizacija privremenog objekta se maksimalno odlaže do trenutka kada se taj
+objekat mora napraviti, a sve do tada se samo koristi vrednost
+Semantika vrednosti od C++17
+ 400
+

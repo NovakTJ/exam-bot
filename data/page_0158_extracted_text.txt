@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Obrada izuzetaka
+❖ Preporučeni stil tretiranja izuzetaka jeste taj da se, prema ovoj paradigmi, izuzetkom tretira nemogućnost
+zadovoljenja nekog od ovih logičkih uslova, i samo to (sve drugo nisu izuzeci):
+• preduslovi (precondition): pozvani potprogram, ukoliko nije ispunjen njegov preduslov (npr. neregularan
+argument) treba da podigne izuzetak; na primer, neispravan parametar
+• postuslovi (postcondition): ukoliko potprogram nije u mogućnosti da ispuni svoje postuslove, treba da
+signalizira izuzetak svom pozivaocu; na primer, funkcija ne može da kreira povratnu vrednost ili ne može
+da uspostavi njenu invarijantu, ne može da pronađe ono što bi morala da pronađe i vrati, i slično
+• invarijante (invariant): ukoliko metoda klase ne može da očuva invarijantu, treba da baci izuzetak;
+invarijante su zapravo preduslovi i postuslovi koji važe za objekat na ulazu i izlazu svake metode klase
+❖ Jedna tehnika za apstrahovano ispitivanje uslova - tzv. tvrdnje (assertion):
+assert(i>=0 && i<this->size);
+❖ U standardnoj biblioteci za C++, assert je deﬁnisan kao makro koji zavisi od drugog deﬁnisanog makroa
+NDEBUG koji nije deﬁnisan u biblioteci, već se može deﬁnisati (uključiti ili isključiti) u okruženju prevodioca:
+• ako je NDEBUG deﬁnisan (uključen), makro assert nema nikavog efekta (zamenjuje se sa ((void)0))
+• u suprotnom, zamenjuje se implementacijom koja ispituje vrednost datog skalarnog izraza; ako je ta
+vrednost nula, na standardni izlaz za greške ispisuje informacije o mestu u programu i završava program
+❖ Ovakvi slični makroi ili funkcije mogu da se koriste za ispitivanje preduslova, postuslova i invarijanti, ali tako
+da podižu izuzetke ukoliko uslov nije ispunjen
+ 158
+

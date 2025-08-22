@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Relacije i zavisnosti između klasa
+❖ Sa druge strane, veze mogu da nadžive izvršavanje operacije, pa se moraju
+skladištiti unutar objekta:
+class Controller {
+  …
+private:
+  Reader* myReader;
+  Translator* myReader;
+  StackMachine* mySMs[…];
+};
+❖ Ukoliko je gornja granica multiplikativnosti odgovarajućeg kraja asocijacije
+veća od 1, za implementaciju se mora koristiti neka kolekcija:
+class Teacher {
+public:
+  …
+  void addCourse(Course*);
+  void removeCourse(Course*);
+private:
+  list<Course*> myCourses;
+  …
+};
+ 109
+Operacije koje uspostavljaju i raskidaju veze
+između objekata klasa Teacher i Course
+

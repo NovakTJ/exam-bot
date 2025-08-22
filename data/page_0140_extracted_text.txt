@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Hijerarhijska dekompozicija
+❖ Treba primetiti da konverzija pokazivača na izvedenu klasu u pokazivač na osnovnu klasu daje kao
+rezultat pokazivač iste vrednosti u slučaju jednostrukog izvođenja klasa, ali može da daje promenjenu
+vrednost u slučaju višestrukog izvođenja; analogno važi i za konverziju nadole:
+class D1 : public B2 {…};
+class D2 : public B1, public B2 {…};
+❖ Kao i uvek, eksplicitna statička konverzija nadole ne proverava činjenicu da li se iza pokazivača zaista
+krije objekat tražene klase, pa stoga nije bezbedna iz ugla prevodioca, osim ako se to ne obezbedi nekim
+drugim načinom, odnosno logikom programa
+ 140
+U slučaju da pokazivač b1 ne ukazuje
+na objekat tipa B2, vratiće null vrednost
+:B1
+:B2
+d2:D2
+:B2
+d1:D1 (D2*)&d2
+(B1*)&d2
+(B2*)&d2
+(D1*)&d1
+(B2*)&d1
+❖ Dinamička konverzija je bezbednija, jer
+dinamički proverava ovo, i vraća null
+vrednost ako objekat nije tražene klase. Ona
+se može koristiti za konverzije nadole,
+nagore, ili bočno:
+D2* d = new D2;
+B1* b1 = d;
+B2* b2 = dynamic_cast<B2*>(b1);
+

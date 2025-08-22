@@ -1,0 +1,19 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Tipovi
+❖ Objekti, reference, funkcije i izrazi imaju svojstvo koje se naziva tip (type); ovo svojstvo ograničava skup operacija
+koje su dozvoljene za ove entitete i daje semantiku (značenje) sekvencama bita kojima se ti entiteti predstavljaju
+❖ Fundamentalni tipovi (fundamental types):
+ 185
+• tip void
+• tip std::nullptr_t
+• aritmetički tipovi (arithmetic types):
+• tipovi racionalnih brojeva u pokretnom zarezu (ﬂoating-point types): ﬂoat, double, long double
+• integralni tipovi (integral types):
+• tip bool
+• znakovni tipovi (character types):
+• uski znakovni tipovi (narrow character types): char, signed char, unsigned char
+• široki znakovni tipovi (wide character types): char16_t, char32_t, wchar_t
+• tipovi označenih celih brojeva (signed integer types): short int, int, long int, long long int
+• tipovi neoznačenih celih brojeva (unsigned integer types): unsigned short int, unsigned int, unsigned
+long int, unsigned long long int
+

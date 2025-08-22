@@ -1,0 +1,58 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: klase i objekti
+/* File: stack.h */
+#define MaxStackSize 256
+struct Stack;
+void stack_init (Stack* this);
+int stack_push (Stack* this, unsigned in);
+int stack_pop (Stack* this, unsigned* out);
+struct Stack {
+  unsigned stack[MaxStackSize];  // Stack
+  int sp; // Stack pointer
+};
+
+
+/* File stack.c */
+#include “stack.h"
+void stack_init (Stack* this) {
+  this->sp = 0;
+}
+int stack_push (Stack* this, unsigned in) {
+  if (this->sp==MaxStackSize) return -1;
+  this->stack[this->sp++] = in;
+  return 0;
+}
+int stack_pop (Stack* this, unsigned* out) {
+  if (this->sp==0) return -1;
+  *out = this->stack[--this->sp];
+  return 0;
+}
+ 51
+// File: stack.h
+const int MaxStackSize = 256;
+class Stack {
+public:
+  Stack ();
+  int push (unsigned in);
+  int pop (unsigned* out);
+private:
+  unsigned stack[MaxStackSize];  // Stack
+  int sp; // Stack pointer
+};
+
+// File stack.cpp
+#include "stack.h"
+Stack::Stack () {
+  this->sp = 0;
+}
+int Stack::push (unsigned in) {
+  if (this->sp==MaxStackSize) return -1;
+  this->stack[this->sp++] = in;
+  return 0;
+}
+int Stack::pop (unsigned* out) {
+  if (this->sp==0) return -1;
+  *out = this->stack[--this->sp];
+  return 0;
+}
+

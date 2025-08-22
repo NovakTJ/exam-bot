@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Evo još jedne ideje elegantnog rešenja čiji je način korišćenja skoro isti, a koje nema problem fragmentacije
+niti potrebe za dimenzionisanjem skladišta; proučiti njegovo delovanje:
+template <class T>
+class RecycleBin {
+public:
+  void* alloc () {
+    Slot* p=head;
+    if (p) head=p->next; else p = new Slot;
+    return p;
+  }
+  void  free (void* addr) { head = new (addr) Slot(head); }
+private:
+  struct Slot {
+    Slot (Slot* nxt=nullptr) : next(nxt) {}
+    union {
+      Slot* next;
+      char slot[sizeof(T)];
+    };
+  };
+  Slot* head = nullptr;
+};
+UNIT NAME: Operatori new i delete
+ 460
+Poziva se ugrađena alokatorska funkcija za klasu Slot koja
+radi sa ugrađenim alokatorom za slobodnu memoriju
+

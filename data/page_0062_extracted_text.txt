@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: polimorfizam
+Upravo na ovakav način se na jeziku C++ implementira polimorﬁzam:
+❖ za svaku klasu koja ima bar jednu virtuelnu funkciju članicu, prevodilac generiše tabelu virtuelnih funkcija (virtual table), sa
+pokazivačima koje (statički, u vreme prevođenja) inicijalizuje tako da ukazuju na verzije implementacija funkcija koje
+odgovaraju toj klasi (nasleđena ili redeﬁnisana)
+❖ u svakom objektu ovakve klase postoji pokazivač na tabelu virtuelnih funkcija (virtual table pointer); ovaj pokazivač inicijalizuje
+konstruktor; svaki konstrukor na tabelu koja odgovara baš toj klasi, tako da ga konstruktor osnovne klase najpre postavi na
+svoju tabelu (te osnovne klase), a onda konstruktor izvedene klase prepiše tako da ukazuje na tabelu te klase itd.
+❖ za svaki poziv virtuelne funkcije objekta kome se pristupa preko pokazivača, npr. ﬁg->canMoveTo(…) , prevodilac generiše
+kod koji taj poziv rešava dinamičkim vezivanjem, tj. indirektnim pristupom (memorijskim indirektnim adresiranjem) preko
+pokazivača na virtuelnu tabelu i pokazivača na funkciju u ulazu te tabele koji odgovara toj virtuelnoj funkciji u klasi
+ 62
+canPawnMoveTo()
+pawnVFTable
+displayPawn()
+canMoveTo
+display
+vtp
+…
+pawn:Figure
+fig:Figure*
+Kreira se i inicijalizuje statički
+(u vreme prevođenja)
+Kreira se i inicijalizuje dinamički (u
+vreme izvršavanja, za svaki objekat)
+

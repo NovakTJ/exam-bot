@@ -1,0 +1,26 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Pre uvođenja koncepta prostora imena (namespace) u jezik C++, imena deklarisana izvan svih deﬁnicija klasa i tela funkcija
+imala su globalni opseg važenja, što znači da su bila dostupna od tačke deklarisanja do kraja jedinice prevođenja (fajla)
+❖ Kada globalna imena imaju eksterno vezivanje, uzrokuju češće pojave sukoba imena (name clash, name conﬂict), pa je vrlo
+rizično upotrebljavati globalna opšta imena zbog velike šanse da se sukobe sa imenom iz nekog drugog dela programa ili
+biblioteke, npr. sa nazivima opštih tipova podataka (date, time itd.), struktura podataka (list, stack, queue itd.) i slično
+❖ Sa ciljem bolje organizacije programa u velikim projektima, uveden je koncept prostora imena (namsepace)
+❖ Prostor imena je posebna oblasti važenja koja, slično klasi, predstavlja “logičko pakovanje” entiteta, odnosno njihovih
+imena koja se van tog ospega važenja mogu koristiti samo na određeni način, kvaliﬁkovanim imenovanjem preko
+operatora ::. Za razliku od klase, prostor imena nije tip, pa nema instance kao klasa; prostor imena je samo logički paket
+entiteta
+❖ Prostor imena se deklariše pomoću ključne reči namespace, iza koje sledi niz bilo deklaracija uokvirenih u velike zagrade {}:
+namespace users {
+  class User {
+    …
+  };
+  class Role {
+    …
+  };
+  class UserGroup {
+    …
+  };
+}
+UNIT NAME: Prostori imena
+ 277
+

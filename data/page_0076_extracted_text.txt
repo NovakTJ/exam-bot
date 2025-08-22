@@ -1,0 +1,32 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Klasa kao realizacija strukture podataka
+❖ Šta ako nam treba stek koji će skladištiti elemente nekog drugog tipa T i/ili drugog kapaciteta?
+// File: stack.h
+const int MaxStackSize = 512;
+class Stack {
+public:
+  Stack ();
+  int push (T in);
+  int pop (T* out);
+private:
+  T stack[MaxStackSize];  // Stack
+  int sp; // Stack pointer
+};
+
+// File stack.cpp
+#include "stack.h"
+Stack::Stack () {
+  this->sp = 0;
+}
+int Stack::push (T in) {
+  if (this->sp==MaxStackSize) return -1;
+  this->stack[this->sp++] = in;
+  return 0;
+}
+int Stack::pop (T* out) {
+  if (this->sp==0) return -1;
+  *out = this->stack[--this->sp];
+  return 0;
+}
+ 76
+

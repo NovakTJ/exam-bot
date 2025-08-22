@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nizovi
+❖ String literali (string literals) predstavljaju literale tipa “niz (konstantnih) znakova”
+❖ Navode se između navodnika, uz mogućnost deﬁnisanja tipa znakova i načina kodovanja slično
+kao i za znakovne literale; između navodnika mogu da se nađu odgovarajuči znakovi i escape
+sekvence, kao za znakovne literale; na primer:
+"I said: \"Hello!\""
+L"Hello"
+u8"Hello"
+u"Hello"
+U"Hello"
+❖ Dva susedna string literala, razdvojena samo belinama (uključujući i znak za novi red) spajaju se
+u jedan nakon pretprocesiranja; ovako se dugački string literali mogu nastavljati u novi red:
+"This is a very, very long string literal that cannot fit in "
+"one single line of code, but has to be split in two lines."
+❖ Isto se može koristiti za specijalne potrebe, kada bi se dati niz susednih znakova između
+navodnika tumačio kao escape sekvenca:
+"\0" "1"
+ 229
+String literal tipa const char[]
+String literal tipa const wchar_t[]
+UTF-8 enkodovan string literal tipa const char[]
+UTF-16 enkodovan string literal tipa const char16_t[]
+UTF-32 enkodovan string literal tipa const char32_t[]
+U literalu "\01" bi se sadržaj između navodnika tumačio kao jedan znak sa
+oktalnim kodom 1, ovako su to dva znaka: znak za kodom 0 i znak za cifru 1
+

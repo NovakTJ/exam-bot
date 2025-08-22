@@ -1,0 +1,32 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Oblast ili opseg važenja (scope) je deo teksta programa, ponekad diskontinualan (razdvojen
+delovima koda koji ne pripadaju tom opsegu) u kom je neko ime važeće, odnosno u kom se ono
+može koristiti neposredno, bez posebnih kvaliﬁkacija, odnosno bez upotrebe operatora :: ili
+nekog drugog operatora ispred tog imena, npr. Clock::setTime ili pc->setTime
+❖ Pod imenom (name) se podrazumeva identiﬁkator, puno ime operatorske funkcije (npr. operator+
+ili operator new), ime korisnički deﬁnisanog konverzionog operatora (npr. operator bool) ili ime
+šablona sa stvarnim argumentima (npr. stack<int>)
+❖ U opsegu važenja nekog imena, prevodilac može da izvrši tzv. nekvaliﬁkovanu potragu (unqualiﬁed
+lookup) za deklaracijom tog imena, određujući tako entitet na koji se to ime odnosi. Na primer:
+class Clock {
+  …
+  void setTime (int hh, int mm, int ss);
+  …
+  int h, m, s;
+};
+void Clock::setTime (int hh, int mm, int ss) {
+  h = (hh>=0 && hh<=23) ? hh : 0;
+  m = (mm>=0 && mm<=59) ? mm : 0;
+  s = (ss>=0 && ss<=59) ? ss : 0;
+}
+UNIT NAME: Opseg važenja
+ 265
+Identiﬁkatori setTime, h, m, i s su deklarisani kao članovi klase,
+pa imaju opseg važenja klase
+Identiﬁkatori hh, mm, i ss su deklarisani kao parametri funkcije,
+pa imaju opseg važenja te funkcije
+Identiﬁkatori hh, mm, i ss, ali i h, m, i s se ovde mogu koristiti
+nekvaliﬁkovano, jer je ovo kod unutar njihovog opsega važenja
+Identiﬁkator Clock se ovde može koristiti nekvaliﬁkovano, jer je ovo mesto u oblasti njegovog
+važenja.  Međutim, identiﬁkator setTime ne može ovde da se koristi nekvaliﬁkovano
+

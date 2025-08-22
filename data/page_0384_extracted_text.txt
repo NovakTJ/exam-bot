@@ -1,0 +1,15 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ostaje još i da se deﬁniše konstruktor premeštanja, koji može da bude pozivan za
+argumente koji su dvrednosti. On vrši jednostavnu zamenu operacijom swap, pri čemu je
+najpre svoj pokazivač str postavio na vrednost null podrazumevanom konstrukcijom:
+inline string::string (string&& other) : string() {
+  swap(*this,other);
+}
+❖ Privremeni objekat kojim se inicijalizuje objekat za koji se konstruktor izvršava neće imati
+ništa da uništava, jer će u njegov pokazivač str ovom zamenom biti upisana null vrednost
+❖ Kako sve operacije swap takve da ne bacaju izuzetke (non-throwing, noexcept), ovakva
+implementacija obezbediće jaku garanciju od izuzetaka; osim toga, one su veoma
+eﬁkasne, jer vrše prostu i brzu razmenu vrednosti
+UNIT NAME: Premeštanje resursa
+ 384
+

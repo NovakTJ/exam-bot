@@ -1,0 +1,35 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Pretpostavimo da smo implementirali operatorsku funkciju operator+ koja vraća rezultat spajanja dva niza znakova iz
+operanada tipa string; taj rezultat mora biti objekat tipa string (po vrednosti), jer je on novonapravljeni objekat koji sadrži
+poseban dinamički niz znakova:
+string operator+ (const string&, const string&);
+❖ Osim toga, implementirali smo i nestatičku funkciju članicu substr koja vraća (ponovo po vrednosti) nov objekat tipa string
+koji sadrži samo podniz datog niza znakova objekta domaćina, počev od zadate pozicije i zadate dužine; za potrebe
+implementacije ove funkcije, napravili smo još nekoliko funkcija članica klase string:
+inline void allocate (size_t sz) {
+  if (sz+1==0) throw std::length_error;
+  if (sz) str = new char[sz+1];
+}
+inline void copy (const char* s, std::size_t count) {
+  if (!s || !count) return;
+  size_t i = 0;
+  while (i<count && *s) str[i++] = *s++;
+  str[i] = '\0';
+}
+inline size_t size () const { return str?std::strlen(str):0; }
+inline string substr (size_t pos, size_t count) const {
+  size_t sz = size();
+  if (pos>=sz) throw std::out_of_range;
+  if (pos+count>sz) count = sz - pos;
+  string s;
+  s.allocate(count);
+  s.copy(str+pos,count);
+  return s;
+}
+UNIT NAME: Kopiranje objekata
+ 369
+Pomoćna, zaštićena funkcija članica klase string
+Pomoćna, zaštićena funkcija članica klase string
+Javna funkcija članica klase string
+Javna funkcija članica klase string
+

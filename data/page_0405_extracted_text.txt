@@ -1,0 +1,24 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Statička inicijalizacija radi sledeće:
+• Ukoliko je dozvoljeno, vrši se konstantna inicijalizacija (constant initialization); u praksi, ova inicijalizacija obavlja
+se za vreme prevođenja tako što prevodilac izračunava konstantne izraze koji su inicijalizatori, a izračunate
+vrednosti upisuju se u prostor alociran za varijable u prevedenim fajlovima; na primer:
+const int n = 5;
+int x = 2*n+1, *p = &x;
+size_t s = sizeof(X);
+• U onim slučajevima u kojima se ne vrši konstantna inicijalizacija, vrši se inicijalizacija nulom (zero initialization);
+u praksi, za ove varijable ne odvaja se prostor u prevedenim fajlovima, već program u izvršavanju koristi
+uslugu operativnog sistema koja alocira segment memorije inicijalizovan nulama; na primer:
+int n, *p;
+❖ Dinamička inicijalizacija vrši se po redosledu koji određuju speciﬁčna pravila jezika; za nelokalne varijable koje ne
+spadaju u neke posebne kategorije (npr. statički podaci članovi šablonskih klasa ili inline varijable pod određenim
+uslovima), redosled je određen redosledom deﬁnisanja u jednoj jedinici prevođenja
+❖ Ako dinamička inicijalizacija ne menja vrednost nijednog objekta iz prostora imena pre njegove inicijalizacije, i ako
+bi statička inicijalizacija proizvela isti rezultat kao i dinamička, prevodiocu je dozvoljeno da dinamičku
+inicijalizaciju obavi kao statičku, zapravo za vreme prevođenja (rana dinamička inicijalizacija, early dyamic
+initialization)
+❖ Kao što je već objašnjeno, dinamička inicijalizacija ne mora biti završena pre početka izvršavanja funkcije main
+❖ Ako dinamička inicijalizacija baci izuzetak, poziva se funkcija std::terminate
+UNIT NAME: Inicijalizacija
+ 405
+

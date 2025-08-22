@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Privremeni objekti su anonimni (bezimeni) objekti klasa čiji je životni vek najčešće kratak; oni nastaju
+implicitno, u određenim situacijama, i nestaju implicitno, pod kontrolom prevodioca
+❖ Osnovna potreba za privremenim objektom jeste u tome da se rezultat nekog izraza, uključujući i poziv
+funkcije (i operatorske funkcije) može dalje iskoristiti kao operand neke druge operacije (ili argument
+funkcije)
+❖ Bez obzira na to kada se tačno privremeni objekat inicijalizuje i uništava, uvek se pri inicijalizaciji poziva
+njegov konstruktor, a pri uništavanju njegov destruktor
+❖ Pre verzije jezika C++17, rezultat poziva funkcije (uključujući i operatorske) koja ne vraća referencu (na
+lvrednost), odnosno čiji je povratni tip klasa (a ne referenca na nju), bio je uvek privremeni objekat: u
+trenutku povratka iz funkcije, na mestu poziva funkcije, pravi se privremeni objekat koji se inicijalizuje
+izrazom iza naredbe return:
+class X {…};
+X f (X x) {
+  return x;
+}
+int main () {
+  X x1;
+  …f(x1)…
+  …f( f(x1) )…
+}
+UNIT NAME: Privremeni objekti
+ 340
+Do C++17, rezultat ove funkcije u svakom pozivu je bezimeni,
+privremeni objekat koji se inicijalizuje izrazom iza naredbe
+return u trenutku povratka iz funkcije
+Do C++17, rezultat ugnežđenog poziva f je privremeni objekat
+tipa X koji prihvata rezultat tog poziva; njime se inicijalizuje
+stvarni argument poziva okružujućeg poziva funkcije f, čiji
+rezultat ponovo poredstavlja privremeni objekat
+

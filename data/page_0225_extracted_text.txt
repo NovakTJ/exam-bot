@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nizovi
+❖ Zbog svoje izvorne orijentacije na eﬁkasnost generisanog koda, operacije sa nizovima na jezicima C i
+C++ rade se sa najmanje moguće potrebnih informacija; da bi se izvršila operacija pristupa elementu
+niza, potrebno je, pored izračunavanja izraza koji određuje vrednost indeksa, znati samo sledeće:
+• početnu adresu (prvog elementa) niza i
+• veličinu (svakog) elementa niza, koja je poznata za vreme prevođenja iz tipa elementa tog niza
+Pomoću ovih informacija, generisani kod za pristup elementu niza tipa T izračunava adresu
+indeksiranog elementa na sledeći način:
+adresa_elementa := adresa_početka_niza + vrednost_indeksa * sizeof(T)
+❖ Informacija o adresi i tipu elementa sadržana je i u pokazivaču tipa T*
+❖ U saglasnosti sa ovim, nizovi se ne prenose kao parametri funkcija, niti se mogu vraćati kao vrednosti
+funkcija (kao kompletni paketi elemenata); umesto toga, prenose se i vraćaju pokazivači na početak
+(prvi element) niza (ili reference na nizove, potpuno slično)
+❖ Prema tome, pozvana funkcija nema implicitnu informaciju o stvarnoj veličini niza, nego se ona mora
+preneti funkciji na neki drugi način: ili preko posebnog parametra funkcije, ili niz mora imati neku
+posebnu vrednost koja označava njegov poslednji element (terminiran niz)
+❖ Zbog svega ovoga, nizovi i pokazivači povezani su sledećim pravilima jezika
+ 225
+

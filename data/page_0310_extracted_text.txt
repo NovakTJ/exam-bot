@@ -1,0 +1,30 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Ukoliko je funkcija jednoznačno odabrana ovim postupkom potrage kao ona koja treba da bude pozvana, a ta funkcija
+je označena kao obrisana (deleted), speciﬁkatorom =delete u deklaraciji, poziv neće biti ispravan, prevodilac će prijaviti
+grešku i neće tražiti neku drugu preklopljenu funkciju koju bi mogao da pozove uz implicitne konverzije argumenata.
+Ovako se mogu zabraniti neke implicitne konverzije, odnosno pozivi neke funkcije za neke tipove argumenata koji bi
+mogli biti konvertovani u tipove parametara postojećih funkcija. Na primer:
+int f (double) { return 0; }
+int f (int) = delete;
+int main () {
+   f(1);
+}
+❖ Analogno važi i za proveru prava pristupa: ukoliko odabrana funkcija nije dostupna na mestu poziva, poziv neće biti
+ispravan, prevodilac će prijaviti grešku i neće tražiti drugu preklopljenu funkciju koju može da pozove, a koja je
+dostupna; provera prava pristupa vrši se nakon i nezavisno od potrage i odabira pozvane preklopljene funkcije. Na
+primer:
+class X {
+public:
+  int f (double) { return 0; }
+private:
+  int f (int) { return 1; }
+};
+int main () {
+  X x;
+  x.f(1);
+}
+UNIT NAME: Preklapanje funkcija
+ 310
+Greška u prevođenju: f(int) je obrisana, ne poziva se f(double)
+Greška u prevođenju: X::f(int) nije dostupna, ne poziva se X::f(double)
+

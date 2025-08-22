@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: polimorfizam
+❖ Jedan, očigledan i jednostavan način je sledeći:
+int canMoveTo (Figure* fig, unsigned col, unsigned row) {
+  switch (fig->kind) {
+    case pawn:
+      if (fig->color==white) …
+      else …
+      break;
+    case bishop:
+      …
+      break;
+    …
+  }
+}
+❖ Problemi:
+• nepregledno, jer je obrada svih slučajeva smeštena u jedan glomazan switch, pa je podložno
+greškama
+• u nekom drugom slučaju, kada skup podvrsta objekata nije konačan i može se menjati i
+proširivati, nije lako dodavati nov slučaj, mora se menajti i ponovo prevoditi kod, i to na
+svim ovakvim mestima gde se radi grananje na osnovu vrste objekta
+ 57
+

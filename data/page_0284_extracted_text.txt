@@ -1,0 +1,17 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Izraz (expression) je iskaz koji se sastoji od niza operacija (operation) nad operandima (operand),
+koji podrazumeva neku obradu i može proizvesti rezultat i bočne efekte (side effect);
+operacije se zadaju operatorima (operator)
+❖ Rezultat operacije (i izraza) naziva se vrednost (value)
+❖ Operacija ima određen broj operanada i može proizvesti rezultat, koji se, ako postoji,
+potom može koristiti kao operand druge operacije; tako se grade složeni izrazi. Na primer:
+a+b*c
+i + p->val() - b<<k
+cout << "Counter = " << p->val() << "\n"
+❖ Kada analizira izraz, predilac kontroliše:
+• sintaksu izraza, uključujući i postojanje zahtevanog broja operanada svakog operatora
+• tipove operanada: ugrađeni operatori zahtevaju operande određenih tipova
+• svojstvo lvrednosti (lvalue)
+UNIT NAME: Izrazi
+ 284
+

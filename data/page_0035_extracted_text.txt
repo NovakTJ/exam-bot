@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Polimorfizam
+❖ Izvedena klasa može da dâ svoju deﬁniciju virtuelne funkcije, tj. da je redeﬁniše, ali i ne mora (onda nasleđuje
+implementaciju):
+class ClockWithDate : public Clock {
+public:
+  ClockWithDate (int y, int m, int d, int h, int min, int s);
+  virtual void tick ();
+  virtual string getTime ();
+  string getDate ();
+  void setDate (int yy, int mm, int dd);
+private:
+  int y, m, d;
+};
+void ClockWithDate::tick () {
+  Clock::tick();
+  if (isMidnight()) {
+    // increment the date
+  }
+}
+string ClockWithDate::getTime () {
+  return to_string(m) + "/" + to_string(d) + "/" +
+         to_string(y) + " " + Clock::getTime();
+}
+ 35
+Redeﬁnisane virtuelne funkcije
+Poziv verzije implementacije iz osnovne klase
+

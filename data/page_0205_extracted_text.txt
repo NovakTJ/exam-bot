@@ -1,0 +1,14 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Fundamentalni tipovi pokretnog zareza
+❖ Tipovi racionalnih brojeva u pokretnom zarezu:
+• ﬂoat — racionalni broj u pokretnom zarezu jednostruke tačnosti;
+obično 32-bitni broj u pokretnom zarezu prema standardu IEEE-754
+• double — racionalni broj u pokretnom zarezu dvostruke tačnosti;
+obično 64-bitni broj u pokretnom zarezu prema standardu IEEE-754
+• long double —  racionalni broj u pokretnom zarezu proširene
+preciznosti; ne mora da odgovara tipovima iz standarda IEEE-754;
+obično 80-bitni broj u pokretnom zarezu
+❖ Ako se razlikuju, veći tip ima veći opseg i veću preciznost; uvek važi:
+sizeof(float) <= sizeof(double) <= sizeof(long double)
+ 205
+

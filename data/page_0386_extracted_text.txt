@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Svaki izraz (rezultat operatora, literal ili ime varijable) ima dva svojstva: tip (type) i kategoriju vrednosti (value category)
+❖ Dakle, vrednost (value) je izraz i svaki izraz jeste vrednost koja pripada jednoj od kategorija vrednosti
+❖ Ideja za razvrstavanje na kategorije potiče od sledećih svojstava entiteta kog vrednost predstavlja:
+• entitet se može (ili ne može) identiﬁkovati (identiﬁable): može se odrediti da li se jedan izraz odnosi na isti entitet
+kao drugi izraz, recimo poređenjem adresa objekata ili funkcija koje ti izrazi identiﬁkuju
+• entitet se može (ili ne može) premeštati (movable): konstruktor premeštanja, operator dodele premeštanjem i druge
+preklopljene funkcije koje implementiraju premeštanje mogu da se vežu za takav izraz
+❖ Izrazi mogu biti jedne od sledećih disjunktnih kategorija:
+• ako ima identitet i ne može se premeštati, ima kategoriju lvrednosti (lvalue, od left value)
+• ako ima identitet i može se premeštati, ima kategoriju xvrednosti (xvalue, nema posebne motivacije za naziv, mada
+se često asocira sa expiring value)
+• ako nema identitet i može se premeštati, ima kategoriju čdvrednosti (prvalue, od pure rvalue, “čista dvrednost”)
+• izrazi koji nemaju identitet i ne mogu se premeštati se ne koriste (ne postoje jer nemaju smisla)
+❖ Izraz koji ima identitet, bez obzira na to da li se može ili ne može premeštati, dakle koji je lvrednost ili xvrednost,
+naziva se glvrednost (glvalue, od generalized lvalue)
+❖ Izraz koji se može premeštati, bez obzira na to da li ima ili nema identitet, dakle koji je čdvrednost ili xvrednost,
+naziva se dvrednost (rvalue, od right lvalue)
+UNIT NAME: Kategorije vrednosti
+ 386
+

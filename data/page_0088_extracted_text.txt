@@ -1,0 +1,27 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klasa kao realizacija softverske mašine
+❖ U nekim slučajevima, reakcija objekta zavisi ne samo od pobude (pozvane operacije), nego i od predistorije pobuda, odnosno
+od trenutnog stanja tog objekta
+❖ Primer: softver koji upravlja automatom za prodaju napitaka - reakcija na pritisak tastera za izbor artikla zavisi od toga šta
+se prethodno dogodilo
+❖ Automat može da bude ispravan ili u stanju van upotrebe (npr. zbog problema ili punog kontejnera za novac) itd.
+❖ Kako bi se ovakvo ponašanje implementiralo? Na primer:
+void VendingMachine::insertCoin (int value) {
+  if (this->inOrder)
+    this->amount += value;
+  else
+    if (!this->isRefundBarrierOpen)
+      this->openRefundBarrier();
+}
+void VendingMachine::selectArticle (int code) {
+  if (this->inOrder)
+    if (this->articles[code]>0 && this->prices[code]<=this->amount) {
+      this->amount -= this->prices[code];
+      this->deliverArticle(code);
+    }
+}
+…
+❖ Problem: kod složenijeg ponašanja, kod postaje nepregledan, težak za razumevanje, težak za održavanje (izmene,
+proširenja) i podložan greškama
+ 88
+

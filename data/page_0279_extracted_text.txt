@@ -1,0 +1,38 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Cela standardna biblioteka jezika C++, odnosno svi entiteti u njoj, deﬁnisani su u prostoru imena std, iako su deklaracije koje se
+uključuju u fajlove koji koriste delove te biblioteke grupisane po srodnosti u nekoliko desetina zaglavlja
+❖ Pre uvođenja prostora imena u jezik C++, zaglavlja standardne biblioteke imale su ekstenziju .h; aktuelne verzije istih zaglavlja, ali
+sa prostorom imena std nemaju ovu ekstenziju:
+• Stara verzija biblioteke:
+#include <iostream.h>
+#include <vector.h>
+int main () {
+  int n;
+  cin>>n;
+
+  vector<int> a(n);
+  for (int i=0; i<n; i++)
+    cin>>a[i];
+  …
+}
+• Aktuelna verzija biblioteke:
+#include <iostream>
+#include <vector>
+int main () {
+  int n;
+  std::cin>>n;
+
+  std::vector<int> a(n);
+  for (int i=0; i<n; i++)
+    std::cin>>a[i];
+  …
+}
+UNIT NAME: Prostori imena
+ 279
+U staroj verziji biblioteke, imena iz biblioteke su globalna
+i ne zahtevaju kvaliﬁkaciju (cin, vector)
+U aktuelnoj verziji biblioteke, imena iz biblioteke su u prostoru
+imena std i zahtevaju kvaliﬁkaciju (std::cin, std::vector)
+Različita zaglavlja sadrže različite deklaracije,
+grupisane po srodnosti, i uključuju se po potrebi
+

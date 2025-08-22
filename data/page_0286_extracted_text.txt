@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Jezici C i C++ su veoma bogati operatorima. Zapravo je najveći deo obrade u tipičnom
+C/C++ programu deﬁnisan izrazima
+❖ Bočni efekat (side effect) se naziva pojava da funkcija/operacija, za koju se izračunavanje
+rezultata (povratne vrednosti) smatra primarnim efektom, izvrši neku promenu u svom
+okruženju, npr. promenu svojih argumenata/operanada. U klasičnoj teoriji
+programiranja, bočni efekti se smatraju lošom praksom, jer smanjuju razumljivost
+programa: funkcija/operacija ima efekte koje čitalac ne očekuje i ne vidi direktno, jer je
+fokusiran na njen rezultat
+❖ Potpuno suprotno ovom uverenju, mnogi operatori na jezicima C i C++ imaju bočne
+efekte, tj. menaju neki od svojih operanada. Zapravo je za većinu njih taj bočni efekat
+upravo njihova primarna uloga!
+❖ Ovo je posledica izvorne orijentacije jezika C prema konciznim i eﬁkasnim izrazima u
+kojima programer sugeriše optimizacije prevodiocu: raniji prevodioci nisu bili toliko
+napredni i prevođenje u optimizovani kod je bilo jednostavnije ukoliko sam izraz
+deﬁniše način korišćenja neke vrednosti koja je pročitana ili proizvedena kao rezultat u
+jednoj operaciji kao operand neke naredne
+UNIT NAME: Operatori
+ 286
+

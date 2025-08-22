@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Prema tome, automatski i dinamički objekti neklasnih tipova imaju nedeﬁnisane podrazumevane
+vrednosti; statički i oni vezani za nit se inicijalizuju nulom. Reference se ne mogu podrazumevano
+inicijalizovati
+❖ Na primer:
+struct X {
+  int m;
+  X () {}
+};
+int i;
+int main () {
+  int j;
+  X x;
+}
+❖ Motivacija za ovakvo ponašanje je eﬁkasnost: u nekim situacijama nije neophodna nikakva
+određena inicijalna vrednost, pa nema potrebe gubiti vreme na inicijalizaciju (cilj je da prevedeni
+kod bude jednako eﬁkasan kao da je pisan):
+int m;
+cin>>m;
+UNIT NAME: Podrazumevana inicijalizacija
+ 414
+m nije pomenut u listi inicijalizatora članova, pa se
+podrazumevano inicijalizuje (nema akcije jer je tipa int)
+Inicijalizuje se najpre nulama, a onda podrazumevano (ništa), pa ostaje nula
+Podrazumevana inicijalizacija bez efekta, ima neodređenu vrednost
+Podrazumevana inicijalizacija, poziva se podrazumevani konstruktor,
+x.m ima neodređenu vrednost
+

@@ -1,0 +1,29 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Opisani problem predstavlja izvornu motivaciju za uvođenje tzv. semantike premeštanja (move semantics) u
+jezik C++ (počev od verzije C++11): umesto da se alocirani resursi pridruženi privremenom objektu
+kopiraju, oni mu se mogu preoteti, tj. premestiti u objekat koji se tim privremenim objektom inicijalizuje ili
+kom se taj privremeni objekat dodeljuje, pošto privremenom objektu svakako više nisu potrebni
+❖ Tako je (od verzije C++11) moguće deﬁnisati konstruktore i operatore dodele, pa i one koji kao argument
+mogu da prime objekat istog tipa, koji će se pozivati u slučaju da se kao argument pojavi dvrednost
+(rvalue), odnosno rezultat izraza koji nije lvrednost (lvalue)
+❖ Konstruktor koji prima referencu na dvrednost iste klase naziva se konstruktor premeštanja (move
+constructor); nestatička operatorska funkcija članica operator= koja prima ovakvu referencu na dvrednost
+iste klase naziva se operator dodele premeštanjem (move assignment)
+❖ Parametri koji se vezuju za dvrednosti su tzv. reference na dvrednosti (rvalue reference) i označavaju se u
+deklaraciji sa dva znaka &:
+class string {
+public:
+  …
+  string (const string& s);
+  string& operator= (const string& s);
+  string (string&& s);
+  string& operator= (string&& s);
+  …
+};
+UNIT NAME: Premeštanje resursa
+ 377
+UNIT NAME: Konstruktor kopije
+UNIT NAME: Operator dodele kopiranjem
+UNIT NAME: Konstruktor premeštanja
+UNIT NAME: Operator dodele premeštanjem
+

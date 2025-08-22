@@ -1,0 +1,12 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Glava 5: Objektna dekompoziija
+❖ Karakteristike lošeg i dobrog
+softvera
+❖ Raspodela odgovornosti
+❖ Algoritamska dekompozicija
+❖ Relacije i zavisnosti između
+klasa
+❖ Enkapsulacija
+❖ Hijerarhijska dekompozicija
+ 94
+

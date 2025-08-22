@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Nizovi
+❖ Kao podrška konvenciji nasleđenoj iz jezika C da se nizovi znakova završavaju
+terminalnim znakom '\0', a na koji se oslanjaju sve bibliotečne funkcije
+standardnih bilioteka koje rade sa nizovima znakova, svaki string literal ima
+još jedan, implicitan znak - taj terminalni znak ‘\0':
+"Hello"
+❖ String literali imaju statičko trajanje skladištenja: postoje za sve vreme
+izvršavanja programa (alociraju se i inicijalizuju za vreme prevođenja)
+❖ Pokušaj upisa u neki znak string literala, kao u element niza konstantnih
+znakova, ima nedeﬁnsan ishod (taj niz znakova može biti smešten u deo
+memorije sa zabranjenim upisom, pa upis može izazvati hardverski izuzetak)
+❖ String literali mogu da se koriste za inicijalizaciju nizova znakova; tada dati niz
+znakova ima poznatu dimenziju određenu dužinom znakovnog literala
+(uključujući i terminalni znak) i sadrži kopiju datog stringa:
+char str[] = "Hello";
+ 230
+String literal tipa const char[6] sa 6 znakova: 'H', 'e', 'l', 'l', 'o', '\0'
+str je tipa char[6] čiji su elementi redom znakovi: 'H', 'e', 'l', 'l', 'o', '\0'
+

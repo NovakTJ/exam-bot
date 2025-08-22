@@ -1,0 +1,34 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Lista inicijalizatora članova u konstruktoru klase može imati i samo jednu inicijalizaciju (i ništa više osim nje), koja navodi ime te
+iste klase i inicijalizator (listu argumenata u zagradi). Tada se radi o delegiranju inicijalizacije: posmatrani konstruktor je delegirajući
+(delegating constructor), a onaj određen inicijalizacijom u listi je ciljni konstruktor (target constructor)
+❖ Na primer:
+class Matrix {
+public:
+  Matrix (int m, int n);
+  Matrix (int m, int n, long copyFrom[]);
+  …
+private:
+  long (*mat)[N][N];
+  int m, n;
+};
+Matrix::Matrix (int mm, int nn) : m(mm), n(nn) {
+  if (m>N || n>N) throw MatrixTooLarge();
+  mat = new long[m][N];
+}
+Matrix::Matrix (int m, int n, long a[]) : Matrix(m,n) {
+  for (int i=0; i<m; i++)
+    …
+}
+❖ Prilikom inicijalizacije, najpre se izvršava ciljni konstruktor, određen na osnovu uobičajenih pravila odabira konstruktora prema
+stvarnim argumentima, a onda se izvršava telo delegirajućeg konstruktora
+❖ Na ovaj način se pravilna algoritamska dekompozicija može implementirati nešto kompaktnije, jer se zajednički deo dva
+konstruktora ne mora izdvajati u posebnu pomoćnu operaciju koja se poziva iz oba konstruktora, već se poziv onog prostijeg može
+“ugraditi” u onaj složeniji
+UNIT NAME: Konstruktor
+ 352
+Delegirajući konstruktor
+Ciljni konstruktor
+Zadatak: implementirati ovo isto
+bez delegirajućeg konstruktora
+

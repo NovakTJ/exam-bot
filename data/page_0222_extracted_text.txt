@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Pokazivači na objekte
+• vezivanje pokazivača za automatski objekat koji prestaje da postoji po
+povratku iz funkcije:
+int* f() {
+  int x = 5;
+  …
+  return &x;
+}
+…
+int* p = f();
+• Zaštita:
+• pažljivo programiranje
+• prevodioci mogu da upozore na pojave visećih pokazivača u nekim
+situacijama, posebno kod povratka iz funkcije i vezivanja za automatske
+objekte
+ 222
+x je automatski objekat
+x prestaje da postoji po izlasku iz funkcije
+p je sada viseći pokazivač
+

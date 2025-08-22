@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Parametri funkcije jesu lokalne, automatske varijable koje se inicijalizuju stvarnim argumentima u trenutku poziva te
+funkcije:
+void f (X x1) {…}
+void g () {
+  X x2;
+  …f(x2)…
+}
+❖ Pored tradicionalnog oblika for naredbe kao na jeziku C, jezik C++ ima još jedan oblik ove naredbe, za iteriranje u opsegu
+(range) neke sekvence:
+int a[] = {0, 1, 2, 3, 4, 5};
+std::vector<int> v = {0, 1, 2, 3, 4, 5};
+void f () {
+  for (int i : a) { cout<<i; }
+  for (int& i : a) { i++; }
+  for (auto i : v) { cout<<i; }
+  for (auto& i : v) { i++; }
+}
+❖ Katakteristike ovog oblika naredbe for su:
+• tip deklarisane varijable treba da bude tip elementa sekvence (uređene kolekcije) kojom se inicijalizuje ili referenca na taj
+tip; najčešće se koristi auto ili auto&
+• sekvenca range kroz koju se iterira može da bude niz ili objekat klase koja ima članove sa imenom begin i end
+• petlja iterira kroz dati niz (mora biti poznate dimenzije), ili počev od range.begin() do range.end()
+• u svakoj iteraciji petlje deklarisana varijabla inicijalizuje se tekućim elementom sekvence
+UNIT NAME: Automatski životni vek
+ 321
+Prilikom poziva funkcije f parametar x1 inicijalizuje se kao automatska
+varijabla: X x1=x2, kakav god da je tip X
+i je objekat tipa int koji se inicijalizuje (kopijom vrednosti) svakog elementa
+i je referenca na objekat tipa int koji se inicijalizuje tekućim elementom
+

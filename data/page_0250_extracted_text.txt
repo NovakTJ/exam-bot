@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Konstruktor klase X koji se može pozvati samo sa jednim stvarnim argumentom tipa T deﬁniše
+korisničku konverziju (user-deﬁned conversion) iz tipa T u tip X i naziva se konverzioni konstruktor (converting
+constructor):
+class X {
+public:
+  X (int);
+};
+❖ Funkcija se može pozvati sa samo jednim stvarnim argumentom tipa T ako ima samo jedan formalan
+parametar, ili ako svi drugi formalni parametri imaju podrazumevane vrednosti; taj prvi (ili jedini)
+parametar mora biti tipa T ili tipa reference na T (obično tipa const T&)
+❖ Ova konverzija može se vršiti eksplicitno, bilo kojim operatorom konverzije, ali i implicitno, gde god se
+vrši implicitna konverzija; u nizu tranzitivnih implicitnih konverzija koje se mogu vršiti od datog do
+odredišnog tipa, samo jedna može biti korisnička konverzija:
+X f (X x1) {
+  …
+  return 2;
+}
+void g () {
+  X x2 = f(1);
+}
+Konstruktor konverzije iz tipa int u tip X
+Korisnički definisane konverzije
+ 250
+Prilikom poziva funkcije f(1), formalni argument x1 tipa X inicijalizuje se stvarnim
+argumentom tipa int: vrši se implicitna konverzija iz int u X pozivom konverzionog
+konstruktora: X x1(2)
+Prilikom povratka iz funkcije f, povratna vrednosti tipa X dobija se konverzijom
+izraza iza naredbe return koji je tipa int: vrši se implicitna konverzija iz int u X
+pozivom konverzionog konstruktora: X x2(2)
+

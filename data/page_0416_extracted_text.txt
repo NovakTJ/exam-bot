@@ -1,0 +1,20 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Zato je počev od verzije C++11 u jezik uvedena inicijalizacija vrednošću (value initialization), čija je
+ideja da vrši podrazumevanu inicijalizaciju za objekte klasa, a inicijalizaciju nulom za objekte
+neklasnih tipova, i to u svim kontekstima na uniforman način:
+• kada se inicijalizuje bezimeni privremeni objekat sa praznim zagradama (običnim ili velikim):
+T()
+T{}
+• kada se inicijalizuje dinamički objekat u izrazu new sa praznim zagradama (običnim ili
+velikim):
+new T()
+new T{}
+• kada se inicijalizuje nestatički podatak član ili osnovna klasa u inicijalizatoru članova u
+konstruktoru klase sa praznim zagradama (običnim ili velikim):
+X::X (…) : T(), t() {…}
+X::X (…) : T{}, t{} {…}
+• kada se inicijalizuje imenovana varijabla sa praznim velikim zagradama:
+T t{};
+UNIT NAME: Inicijalizacija vrednošću
+ 416
+

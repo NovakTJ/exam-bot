@@ -1,0 +1,28 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ U suprotnom, ukoliko se poziv funkcije članice vrši preko objekta, poziv nije
+polimorfan:
+void h (Base b) {
+  b.f();
+}
+void main () {
+  Derived d;
+  h(d);
+  Base b;
+  h(b);
+}
+❖ Dinamičko vezivanje je implementaciona tehnika kojom se realizuju polimorfni pozivi.
+Treba primetiti to da bi u ovakvim pozivima za objekat (ne preko pokazivača ili
+reference), čak i ako bi taj poziv bio izvršen dinamičkim vezivanjem, rezultat bio isti (jer
+VTP objekta tipa Base ukazuje na VT baš te klase). Za pozive preko pokazivača ili
+reference, prevodilac, u opštem slučaju, ne može znati šta se krije iza objekta, jer to
+može biti i promenljivo (npr. za parametre funkcija), pa će te pozive uvek
+implementirati dinamičkim vezivanjem
+UNIT NAME: Poziv funkcije
+ 313
+Objekat b je direktna instanca klase Base i sigurno ništa osim toga, pa poziv
+nije polimorfan. Ovakve pozive prevodilac može da reši statičkim
+vezivanjem (za vreme prevođenja)
+Poziva se Base::f() u oba slučaja
+Formalni parametar b je objekat klase Base i nezavisan je od stvarnog
+argumenta kojim se inicijalizuje prilikom poziva funkcije
+

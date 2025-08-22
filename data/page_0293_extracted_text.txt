@@ -1,0 +1,31 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+• Operator & zahteva operand koji jeste lvrednost, ali mu rezultat nije lvrednost. Nasuprot tome,
+operator indirekcije * ne zahteva da operand bude lvrednost, ali mu rezultat jeste lvrednost:
+&a
+&a = …
+&(a+3)
+*(p+3)
+*(p+3) = …
+• Operator a<<b daje rezultat koji predstavlja binarnu vrednost celobrojnog operanda a
+pomerenu za b bita ulevo. Kako znati da li taj operator proizvodi bočni efekat ili ne, tj. da li
+menja (pomera) svoj levi operand? Ako ga menja, taj operand bi morao biti lvrednost, ali ovaj
+operator ne zahteva da levi operand bude lvrednost, pa onda sigurno ne proizvodi bočni efekat
+• Rezultat poziva funkcije je lvrednost akko funkcija vraća referencu na lvrednost, na primer:
+int& f ();
+f() += 1;
+X& X::operator+=(int);
+X x;
+X* p = &(x += 3);
+UNIT NAME: Lvrednosti
+ 293
+Ispravno pod uslovom da je a ime varijable ili funkcije, što jeste lvrednost
+Greška u prevođenju, jer levi operand operatora = nije lvrednost
+Greška u prevođenju, jer operand operatora & nije lvrednost
+Ispravno, jer operator * ne zahteva da operand jeste lvrednost, dok mu rezultat jeste lvrednost
+Funkcija f vraća referencu na lvrednost, pa rezultat poziva te funkcije jeste lvrednost
+Rezultat poziva funkcije f je referenca koja upućuje na neki objekat tipa int
+Ova operatorska funkcija klase X ima parametar tipa int
+i vraća referencu na lvrednost
+Za operaciju x+=3 poziva se x.operator+=(3). Ova operatorska funkcija vraća referencu na
+neki objekat tipa X i taj rezultat jeste lvrednost, pa može biti operand operatora &
+

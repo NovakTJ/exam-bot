@@ -1,0 +1,33 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Dinamički životni vek objekata neposredno se kontroliše logikom i dinamikom programa: dinamički objekti se prave i
+uništavaju eksplicitno:
+• svako izvršavanje izraza (operatora) new pravi nov dinamički objekat
+• tako napravljen dinamički objekat živi dok se ne uništi operatorom delete
+Clock* pc = new Clock(9,0,0);
+…
+delete pc;
+❖ Životni vek dinamičkih objekata nije implicitan i vezan za neki opseg, kao što je to slučaj sa automatskim i statičkim
+objektima; on se kontroliše eksplicitno, pa dinamički objekti mogu da nadžive izvršavanje funkcije u kojoj su
+napravljeni, što tipično i jeste slučaj: oni se prave u jednom scenariju, izvršavanjem jedne funkcije, a uništavaju možda u
+nekom poptuno drugom scenariju i u drugoj funkciji:
+template <typename T>
+List<T>& List<T>::addBack (T t) {
+  ListElem<T>* e = new ListElem<T>(t, tail, nullptr);
+  if (!head) head = e;
+  tail = e;
+  return *this;
+}
+template <typename T>
+T List<T>::removeFront () {
+  ListElem<T>* e = head;
+  …
+  delete e;
+  …
+}
+UNIT NAME: Dinamički životni vek
+ 329
+Pravljenje dinamičkog objekta
+Uništavanje dinamičkog objekta
+Pravljenje dinamičkog objekta
+Uništavanje dinamičkog objekta
+

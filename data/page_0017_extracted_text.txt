@@ -1,0 +1,17 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klase i objekti
+// Clock: Measures time during the day
+class Clock {
+  …
+  int h, m, s;  // Hour, minute, second
+  void tick (); // Tick a second
+  string getTime ();  // Returns current time
+  void setTime (int hour, int min, int sec);
+};
+ 17
+Komentar: od // do kraja reda
+Početak deﬁnicije klase Clock
+Podaci članovi klase Clock
+Funkcije članice klase Clock
+Kraj deﬁnicije klase Clock
+

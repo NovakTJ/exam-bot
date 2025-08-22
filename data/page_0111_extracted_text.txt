@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Relacije i zavisnosti između klasa
+❖ Ovaj princip naziva se injekcija zavisnosti (dependency injection)
+❖ Na ovaj način se postiže bolja ﬂeksibilnost, jer se objekti posmatrane klase mogu
+upotrebljavati na različite načine i u različitim kontekstima, odnosno mogu se menjati
+konﬁguracije njihovih veza sa drugim objektima, bez izmena njihovih klasa
+❖ Drugim rečima, odgovornost za povezivanje objekata u kolaboraciju (collaboration), dodeljuje
+se nekoj drugoj klasi — opet je važno dobro identi ﬁkovati i raspodeliti odgovornosti
+❖ Na primer, u zavisnosti od situacije, dati objekat klase Controller može se povezati sa
+jednim ili drugim objektom klase Reader i Translator, ili čak njihovim specijalizacijama; on
+neće trpeti nikakvu izmenu i ne zavisi od svega toga, pošto nije ni svestan tih različitih
+konﬁguracija u kojima je upotrebljen:
+class FileReader : public Reader {…};
+class ExtendedTranslator : public Translator {…};
+…
+Reader* simpleReader = new Reader(…);
+FileReader* fReader = new FileReader(…);
+ExtendedTranslator* translator = new ExtendedTranslator(…);
+Controller* ctrler1 = new Controller(simpleReader,translator);
+Controller* ctrler2 = new Controller(fReader,translator);
+ 111
+

@@ -1,0 +1,21 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Inizijalizacija kopiranjem (copy initialization) se obavlja kada se objekat (ne referenca) tipa T (koji је objektni
+tip) inicijalizuje u sledećim slučajevima:
+• Kada se imenovani objekat (automatski, statički ili vezan za nit) inicijalizuje izrazom iza znaka =:
+T t = expression;
+• Kada se argument prenosi u pozvanu funciju po vrednosti (ne referenci):
+void f (T t);
+f(expression);
+• Kada se vraća iz funkcije koja vraća vrednost (ne referencu):
+T f () {
+  …
+  return expression;
+}
+• Kada se baca ili hvata izuzetak po vrednosti (ne referenci):
+throw expression;
+catch (T t) {…}
+• Kao deo agregatne inicijalizacije, za inicijalizaciju svakog elementa za koji je zadat inicijalizator:
+T a[N] = {expression, expression, …};
+UNIT NAME: Inicijalizacija kopiranjem
+ 418
+

@@ -1,0 +1,15 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+❖ Operatori preﬁksnog i postﬁksnog inkrementiranja i
+dekrementiranja se obično preklapaju na sledeći način:
+X& X::operator++ () {
+  …
+  return *this;
+}
+X X::operator++ (int) {
+  X temp(*this);
+  operator++();
+  return temp;
+}
+UNIT NAME: Preporučeni načini preklapanja operatora
+ 449
+

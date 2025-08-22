@@ -1,0 +1,16 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Predispitne i ispitne obaveze
+❖ Kolokvijumi (lab vežbe):
+❖ rade se pojedinačno i na računaru u laboratoriji
+❖ dva neobavezna kolokvijuma, svaki nosi po 20% ocene
+❖ K1: analiza, razumevanje i izmena/proširenje jednog gotovog OO sistema
+❖ sistem se proučava na vežbama i samostalno
+❖ zadata modiﬁkacija se radi i brani samostalno, na računaru u laboratoriji
+❖ peta nastavna nedelja (prva kolokvijumska nedelja na SI)
+❖ nadoknada alternativno sa K2
+❖ K2: prvi deo (jezgro) projekta
+❖ priprema se kao domaći zadatak, a brani samostalno, na računaru u laboratoriji kao K2
+❖ 10. nastavna nedelja (druga kolokvijumska nedelja na SI)
+❖ može se nadoknaditi/zameniti projektom (poeni sa projekta se skaliraju)
+ 7
+

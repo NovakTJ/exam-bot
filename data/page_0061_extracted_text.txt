@@ -1,0 +1,23 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+Sa proceduralnog na OO programiranje: polimorfizam
+❖ Sada se polimorfan poziv realizuje jednostavno, dinamičkim vezivanjem (dynamic binding), preko lanca
+pokazivača, uvek istim kodom:
+int canMoveTo (Figure* this, unsigned col, unsigned row) {
+  return this->vtp->canMoveTo(this,col,row);
+}
+int display (Figure* this, …) {
+  return this->vtp->display(this,…);
+}
+❖ Pogodnost: kod pozivaoca se nimalo ne menja proširenjem hijerarhije klasa (dodavanjem novih
+podvrsta)
+ 61
+canPawnMoveTo()
+pawnVFTable
+displayPawn()
+canMoveTo
+display
+vtp
+…
+pawn:Figure
+this:Figure*
+

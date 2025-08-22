@@ -1,0 +1,32 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Konverzije
+❖ Na primer:
+int i = 'a';
+float f = 5.6;
+float g = (float)5.6;
+int a = 5;
+double d = 1.5e-3;
+float h = a+d-1;
+int b = a+'0';
+Base* pB = new Derived;
+Derived* pD = (Derived*)pB;
+ 191
+Implicitna, ugrađena konverzija iz char u int: literal 'a' je tipa char, a i je tipa int
+Implicitna, ugrađena konverzija iz double u ﬂoat: literal 5.6 je tipa double, a f je tipa
+ﬂoat
+Eksplicitna, ugrađena konverzija iz double u ﬂoat: literal 5.6 je tipa
+double
+Redosled izvršavanja operacija i konverzija (sve su implicitne, ugrađene):
+1. a+d: pošto je a tipa int, a d tipa double, a se konvertuje u double; rezultat je tipa
+double
+2. … -1: pošto je levi operand tipa double, a 1 tipa int, 1 se konvertuje u double;
+rezultat je tipa double
+3. h je tipa ﬂoat, a inicijalizuje se izrazom tipa double; double se konvertuje u ﬂoat
+a+'0': pošto je a tipa int, a '0' tipa char, '0' se konvertuje u int; rezultat je tipa int
+(implicitna, standardna konverzija); b tipa int i inicijalizuje se izrazom tipa int, pa nema
+konverzije Implicitna, standardna konverzija pokazivača na izvedenu klasu u
+pokazivač na osnovnu klasu (podrška pravilu supstitucije)
+Standardna konverzija pokazivača na osnovnu klasu u
+pokazivač na izvedenu klasu ne može implicitno, jer nije
+pouzdana
+

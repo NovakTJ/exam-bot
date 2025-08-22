@@ -1,0 +1,22 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Klase i objekti
+❖ Objekat (object) je primerak (instanca) klase
+Clock* pClk1 = new Clock;
+pClk1->setTime(10,12,0);
+Clock* pClk2 = new Clock;
+pClk2->setTime(23,25,36);
+pClk1->tick();
+pClk2->tick();
+cout << pClk1->getTime() << endl;
+delete pClk1;
+cout << pClk2->getTime() << endl;
+delete pClk2;
+ 18
+Pravi se novi objekat klase Clock na koga
+ukazuje pokazivač pClk1
+Poziv operacije setTime objekta na
+koga ukazuje pokazivač pClk1
+Uništava se objekat klase Clock
+na koga ukazuje pClk1
+Ispis na standardni izlaz
+

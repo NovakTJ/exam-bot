@@ -1,0 +1,14 @@
+Septembar 2024. Copyright 2018-2024 by Dragan Milićev
+UNIT NAME: Kontakti
+❖ Sajt predmeta: http://oop.etf.rs
+❖ Predavanja:
+❖ prof. dr Dragan Milićev, dmilicev@etf.rs, www.rcub.bg.ac.rs/~dmilicev
+❖ doc. dr Vladimir Jocović, jocke@etf.rs
+❖ doc. dr Uroš Radenković, uki@etf.rs
+❖ Vežbe:
+❖ Adrian Milaković, aki@etf.bg.ac.rs
+❖ Kristijan Žiža, ziza@etf.rs
+❖ Miloš Obradović, miobra@etf.rs
+❖ Miloš Milošević, mm@etf.bg.ac.rs
+ 10
+
