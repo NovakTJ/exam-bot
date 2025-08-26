@@ -37,6 +37,12 @@ def gen_sync(
     attach_file: Path = typer.Option(Path("Primer ispita.pdf"), help="File (e.g., PDF) to attach to the prompt"),
     no_attach: bool = typer.Option(False, help="Do not attach any file"),
 ):
+    """Run a single synchronous generation and print Markdown.
+
+    Examples:
+        python -m exam_bot.cli gen-sync --difficulty medium
+        python -m exam_bot.cli gen-sync --no-attach
+    """
     """Run a single synchronous generation and print Markdown."""
     paths = sorted(Path(".").glob(curriculum_glob))[:5]
     curricula: Dict[str, str] = {str(p): p.read_text(encoding="utf-8") for p in paths}
@@ -75,6 +81,13 @@ def run_batch_pipeline(
     attach_file: Path = typer.Option(Path("Primer ispita.pdf"), help="File to attach to both stages (uploaded once)"),
     no_attach: bool = typer.Option(False, help="Do not attach any file"),
 ):
+    """Two-stage pipeline over batches: generation, then validation of those results.
+
+    This writes NDJSON inputs/outputs to the batches/ folder and a summary.json.
+
+    Example:
+        python -m exam_bot.cli run-batch-pipeline --n-samples 3
+    """
     """Two-stage pipeline over batches: generation, then validation of those results."""
     # 1) Build small set of samples
     paths = sorted(Path(".").glob(curriculum_glob))[:5]
@@ -144,6 +157,11 @@ def validate_sync(
     attach_file: Path = typer.Option(Path("Primer ispita.pdf"), help="File (e.g., PDF) to attach to the validator"),
     no_attach: bool = typer.Option(False, help="Do not attach any file"),
 ):
+    """Validate a single Markdown exam via messages API (not batch).
+
+    Example:
+        python -m exam_bot.cli validate_sync exams/just_oneshot/1.md
+    """
     """Validate a single Markdown exam via messages API (not batch)."""
     from .types import GenerationOutput
     go = GenerationOutput(sample_id=md_path.stem, prompt="", completion=md_path.read_text(encoding="utf-8"))

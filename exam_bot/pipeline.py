@@ -23,11 +23,22 @@ from .anthropic_utils import (
 
 
 class Prompts(BaseModel):
+    """Convenience holder for system prompts if needed in the future."""
     system_generate: str
     system_validate: str
 
 
 def render_generation_prompt(gi: GenerationInput, curriculum_text: str, base_prompt: str | None = None) -> str:
+    """Render the user content for generation.
+
+    Args:
+        gi: Generation input with sample and config.
+        curriculum_text: Concatenated snippet text from curriculum files.
+        base_prompt: Optional preamble to prepend.
+
+    Returns:
+        String to be used as user content in messages.create.
+    """
     parts: List[str] = []
     if base_prompt:
         parts.append(base_prompt.strip())
@@ -46,6 +57,16 @@ def render_generation_prompt(gi: GenerationInput, curriculum_text: str, base_pro
 
 
 def render_validation_prompt(go: GenerationOutput, criteria_text: str, base_prompt: str | None = None) -> str:
+    """Render the user content for validation.
+
+    Args:
+        go: Generation output to evaluate.
+        criteria_text: Human-readable criteria description.
+        base_prompt: Optional validator prefix.
+
+    Returns:
+        String to be used as user content in messages.create.
+    """
     parts: List[str] = []
     if base_prompt:
         parts.append(base_prompt.strip())
@@ -60,6 +81,13 @@ def render_validation_prompt(go: GenerationOutput, criteria_text: str, base_prom
 # -------- Batch helpers ---------
 
 def build_generation_batch_items(inputs: List[GenerationInput], curricula: Dict[str, str], base_prompt: str | None = None, attachment_file_id: str | None = None) -> List[Dict[str, Any]]:
+    """Create NDJSON-ready items for the generation stage.
+
+    Each item is {"custom_id", "type": "message", "params": <messages payload>}.
+
+    Example logical use:
+        >>> items = build_generation_batch_items([gi], curricula)  # doctest: +SKIP
+    """
     rows: List[Dict[str, Any]] = []
     for gi in inputs:
         curriculum_text = "\n\n".join(curricula.get(p, "") for p in gi.sample.curriculum_paths)
@@ -75,6 +103,11 @@ def build_generation_batch_items(inputs: List[GenerationInput], curricula: Dict[
 
 
 def build_validation_batch_items(outputs: List[GenerationOutput], criteria_text: str, base_prompt: str | None = None, attachment_file_id: str | None = None) -> List[Dict[str, Any]]:
+    """Create NDJSON-ready items for the validation stage.
+
+    Example logical use:
+        >>> items = build_validation_batch_items([go], "- criteria -")  # doctest: +SKIP
+    """
     rows: List[Dict[str, Any]] = []
     for go in outputs:
         prompt = render_validation_prompt(go, criteria_text, base_prompt)
@@ -89,6 +122,7 @@ def build_validation_batch_items(outputs: List[GenerationOutput], criteria_text:
 
 
 def parse_generation_batch_results(path: Path) -> List[GenerationOutput]:
+    """Turn NDJSON responses into GenerationOutput objects."""
     rows = parse_ndjson(path)
     outputs: List[GenerationOutput] = []
     for r in rows:
@@ -102,6 +136,7 @@ def parse_generation_batch_results(path: Path) -> List[GenerationOutput]:
 
 
 def parse_validation_batch_results(path: Path) -> List[ValidationOutput]:
+    """Turn NDJSON responses into ValidationOutput objects, forgiving of non-JSON validator replies."""
     import json as _json
     rows = parse_ndjson(path)
     outs: List[ValidationOutput] = []
@@ -132,6 +167,11 @@ def parse_validation_batch_results(path: Path) -> List[ValidationOutput]:
 # -------- Sequential (non-batch) one-off helpers ---------
 
 def run_generation_sync(gi: GenerationInput, curricula: Dict[str, str], base_prompt: str | None = None, attachment_path: Path | None = None) -> GenerationOutput:
+    """Synchronous convenience for generation.
+
+    Example:
+        >>> go = run_generation_sync(gi, curricula)  # doctest: +SKIP
+    """
     curriculum_text = "\n\n".join(curricula.get(p, "") for p in gi.sample.curriculum_paths)
     prompt = render_generation_prompt(gi, curriculum_text, base_prompt)
     attachments = None
@@ -150,6 +190,11 @@ def run_generation_sync(gi: GenerationInput, curricula: Dict[str, str], base_pro
 
 
 def run_validation_sync(go: GenerationOutput, criteria_text: str, base_prompt: str | None = None, attachment_path: Path | None = None) -> ValidationOutput:
+    """Synchronous convenience for validation.
+
+    Example:
+        >>> vo = run_validation_sync(go, "- criteria -")  # doctest: +SKIP
+    """
     import json as _json
     prompt = render_validation_prompt(go, criteria_text, base_prompt)
     attachments = None
