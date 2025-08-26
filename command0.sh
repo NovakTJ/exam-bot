@@ -1,0 +1,1 @@
+python -m exam_bot.cli --prompt-file prompts/just_oneshot/3.txt --repeat 5 --output-dir batches/not_batches_but_convos_with_ai/oneshot_3_runs

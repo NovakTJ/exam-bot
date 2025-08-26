@@ -37,6 +37,18 @@ To disable attachments, add `--no-attach` to the commands.
 
 Outputs are stored under `./batches/` (inputs, results, summary.json).
 
+## New: Send an arbitrary prompt (optionally with context)
+
+Use the minimal CLI to send a prompt to Anthropic's Messages API, with optional context loaded from a file or passed inline:
+
+```
+python -m exam_bot.cli --prompt "Summarize the syllabus" --context-file "./Primer ispita.md"
+```
+
+Options:
+- `--context-file` or `--context` to pass extra text
+- `--model`, `--max-tokens`, `--temperature`
+
 ## Notes
 
 - You can tweak difficulty and selection of curriculum snippets via CLI options.
